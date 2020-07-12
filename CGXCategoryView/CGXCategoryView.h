@@ -29,7 +29,6 @@
 #import "CGXCategoryTitleView.h"
 /*角标*/
 #import "CGXCategoryBadgeView.h"
-
 /*视图容器*/
 #import "CGXCategoryListContainerView.h"
 

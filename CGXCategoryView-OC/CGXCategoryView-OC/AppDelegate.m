@@ -33,7 +33,6 @@
     
     CGXTabBarViewController *tb=[[CGXTabBarViewController alloc]init];
     self.window.rootViewController=tb;
-    
     CGXTitleViewController *c0=[[CGXTitleViewController alloc]init];
     c0.tabBarItem.title=@"样式";
     c0.tabBarItem.image=[[UIImage imageNamed:@"TabStatusNoSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
