@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/Base/CGXCategoryBaseCellModel.h

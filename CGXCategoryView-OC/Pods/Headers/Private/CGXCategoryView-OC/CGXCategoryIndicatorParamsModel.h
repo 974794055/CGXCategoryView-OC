@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/Common/CGXCategoryIndicatorParamsModel.h

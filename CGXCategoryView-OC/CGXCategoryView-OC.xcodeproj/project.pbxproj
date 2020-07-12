@@ -1,0 +1,758 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04279C80235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C69235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m */; };
+		04279C81235855DB00137328 /* CGXVerticalListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C6A235855DB00137328 /* CGXVerticalListTableViewController.m */; };
+		04279C82235855DB00137328 /* CGXVerticalListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C6E235855DB00137328 /* CGXVerticalListTableView.m */; };
+		04279C83235855DB00137328 /* CGXVerticalTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C70235855DB00137328 /* CGXVerticalTableSectionHeaderView.m */; };
+		04279C84235855DB00137328 /* CGXVerticalListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C72235855DB00137328 /* CGXVerticalListCell.m */; };
+		04279C85235855DB00137328 /* CGXVerticalListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */; };
+		04279C86235855DB00137328 /* CGXVerticalListSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */; };
+		04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C77235855DB00137328 /* CGXVerticalListCellModel.m */; };
+		04279C88235855DB00137328 /* CGXVerticalSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */; };
+		04279C89235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */; };
+		04279C8A235855DB00137328 /* CGXVerticalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7F235855DB00137328 /* CGXVerticalListViewController.m */; };
+		04EB5B89233B592800C26F55 /* CGXTitleSubtitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EB5B88233B592800C26F55 /* CGXTitleSubtitleViewController.m */; };
+		4214EA9CD8C2FFD094CADA8B /* libPods-CGXCategoryView-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */; };
+		9E03C28824BADEB4008034DD /* CGXTitleThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */; };
+		9E03C28B24BAE06A008034DD /* CGXTitleFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */; };
+		9E1FA6BC23521D3B001C91E9 /* CGXWaterTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */; };
+		9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */; };
+		9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */; };
+		9E3B227323530FDC006E1659 /* CGXTitleSortIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */; };
+		9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */; };
+		9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */; };
+		9E6D1E6024B4BFEB00C719D3 /* CGXBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */; };
+		9E6D1E6424B4CE8F00C719D3 /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */; };
+		9E6D1E6524B4CE8F00C719D3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6224B4CE8F00C719D3 /* LICENSE */; };
+		9E6D1E6624B4CE8F00C719D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6324B4CE8F00C719D3 /* README.md */; };
+		9E770C96233913120057B1C5 /* CGXTitleSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */; };
+		9E8B490A235AD9F8006BCD88 /* CGXListContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */; };
+		9E8B490D235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B490C235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m */; };
+		9E8B4910235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B490F235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m */; };
+		9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4912235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m */; };
+		9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */; };
+		9E924B0924547F510070655E /* CGXTitleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E924B0824547F510070655E /* CGXTitleTwoViewController.m */; };
+		E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */; };
+		E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258D5222A7EEB00A0957D /* AppDelegate.m */; };
+		E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DA222A7EEB00A0957D /* Main.storyboard */; };
+		E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01258DD222A7EED00A0957D /* Assets.xcassets */; };
+		E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DF222A7EED00A0957D /* LaunchScreen.storyboard */; };
+		E01258E4222A7EED00A0957D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258E3222A7EED00A0957D /* main.m */; };
+		E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */; };
+		E01BCE51226C0FD800EC964E /* CGXNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01BCE50226C0FD800EC964E /* CGXNestViewController.m */; };
+		E024317E222C2928002DE810 /* CGXMenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E024317D222C2928002DE810 /* CGXMenuListViewController.m */; };
+		E069E9DC2234E111000F2BE4 /* CGXTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */; };
+		E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */; };
+		E069E9EE2234F083000F2BE4 /* TitleImageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */; };
+		E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */; };
+		E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E087760E226B5DFE00D1B523 /* TableViewController.m */; };
+		E0877612226B723200D1B523 /* CGXTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0877611226B723200D1B523 /* CGXTabBarViewController.m */; };
+		E0877615226B724C00D1B523 /* CGXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0877614226B724C00D1B523 /* CGXNavigationController.m */; };
+		E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04279C69235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalTableSectionCategoryHeaderView.m; sourceTree = "<group>"; };
+		04279C6A235855DB00137328 /* CGXVerticalListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListTableViewController.m; sourceTree = "<group>"; };
+		04279C6B235855DB00137328 /* CGXVerticalListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListTableView.h; sourceTree = "<group>"; };
+		04279C6C235855DB00137328 /* CGXVerticalTableSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalTableSectionHeaderView.h; sourceTree = "<group>"; };
+		04279C6D235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalTableSectionCategoryHeaderView.h; sourceTree = "<group>"; };
+		04279C6E235855DB00137328 /* CGXVerticalListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListTableView.m; sourceTree = "<group>"; };
+		04279C6F235855DB00137328 /* CGXVerticalListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListTableViewController.h; sourceTree = "<group>"; };
+		04279C70235855DB00137328 /* CGXVerticalTableSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalTableSectionHeaderView.m; sourceTree = "<group>"; };
+		04279C72235855DB00137328 /* CGXVerticalListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCell.m; sourceTree = "<group>"; };
+		04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCollectionView.m; sourceTree = "<group>"; };
+		04279C74235855DB00137328 /* CGXVerticalSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalSectionHeaderView.h; sourceTree = "<group>"; };
+		04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListSectionModel.m; sourceTree = "<group>"; };
+		04279C76235855DB00137328 /* CGXVerticalListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListViewController.h; sourceTree = "<group>"; };
+		04279C77235855DB00137328 /* CGXVerticalListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCellModel.m; sourceTree = "<group>"; };
+		04279C78235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalSectionCategoryHeaderView.h; sourceTree = "<group>"; };
+		04279C79235855DB00137328 /* CGXVerticalListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCollectionView.h; sourceTree = "<group>"; };
+		04279C7A235855DB00137328 /* CGXVerticalListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCell.h; sourceTree = "<group>"; };
+		04279C7B235855DB00137328 /* CGXVerticalListSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListSectionModel.h; sourceTree = "<group>"; };
+		04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalSectionHeaderView.m; sourceTree = "<group>"; };
+		04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalSectionCategoryHeaderView.m; sourceTree = "<group>"; };
+		04279C7E235855DB00137328 /* CGXVerticalListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCellModel.h; sourceTree = "<group>"; };
+		04279C7F235855DB00137328 /* CGXVerticalListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListViewController.m; sourceTree = "<group>"; };
+		04EB5B87233B592800C26F55 /* CGXTitleSubtitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSubtitleViewController.h; sourceTree = "<group>"; };
+		04EB5B88233B592800C26F55 /* CGXTitleSubtitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSubtitleViewController.m; sourceTree = "<group>"; };
+		3FF60936865ABF0EA5AB9348 /* Pods-CGXCategoryView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCategoryView-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXCategoryView-OC/Pods-CGXCategoryView-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		9305EE7F565B57706627D0E6 /* Pods-CGXCategoryView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCategoryView-OC.release.xcconfig"; path = "Target Support Files/Pods-CGXCategoryView-OC/Pods-CGXCategoryView-OC.release.xcconfig"; sourceTree = "<group>"; };
+		9E03C28624BADEB4008034DD /* CGXTitleThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleThreeViewController.h; sourceTree = "<group>"; };
+		9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleThreeViewController.m; sourceTree = "<group>"; };
+		9E03C28924BAE06A008034DD /* CGXTitleFourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleFourViewController.h; sourceTree = "<group>"; };
+		9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleFourViewController.m; sourceTree = "<group>"; };
+		9E1FA6BA23521D3B001C91E9 /* CGXWaterTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXWaterTableView.h; sourceTree = "<group>"; };
+		9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXWaterTableView.m; sourceTree = "<group>"; };
+		9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXScrollZoomListViewController.m; sourceTree = "<group>"; };
+		9E3B226723530458006E1659 /* CGXScrollZoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomListViewController.h; sourceTree = "<group>"; };
+		9E3B226C23530636006E1659 /* CGXScrollZoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomViewController.h; sourceTree = "<group>"; };
+		9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXScrollZoomViewController.m; sourceTree = "<group>"; };
+		9E3B227123530FDC006E1659 /* CGXTitleSortIndicatorLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSortIndicatorLineView.h; sourceTree = "<group>"; };
+		9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSortIndicatorLineView.m; sourceTree = "<group>"; };
+		9E558B072350B8A6001248FE /* CGXDataListContainerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDataListContainerListViewController.h; sourceTree = "<group>"; };
+		9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerViewController..m; sourceTree = "<group>"; };
+		9E558B0A2350B8A6001248FE /* CGXDataListContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDataListContainerViewController.h; sourceTree = "<group>"; };
+		9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerListViewController.m; sourceTree = "<group>"; };
+		9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXBadgeViewController.h; sourceTree = "<group>"; };
+		9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXBadgeViewController.m; sourceTree = "<group>"; };
+		9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E6D1E6224B4CE8F00C719D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		9E6D1E6324B4CE8F00C719D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		9E770C94233913120057B1C5 /* CGXTitleSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSortViewController.h; sourceTree = "<group>"; };
+		9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSortViewController.m; sourceTree = "<group>"; };
+		9E8B4908235AD9F8006BCD88 /* CGXListContainerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXListContainerTableViewController.h; sourceTree = "<group>"; };
+		9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXListContainerTableViewController.m; sourceTree = "<group>"; };
+		9E8B490B235AEF9B006BCD88 /* CGXListContainerAiQiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXListContainerAiQiViewController.h; sourceTree = "<group>"; };
+		9E8B490C235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXListContainerAiQiViewController.m; sourceTree = "<group>"; };
+		9E8B490E235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXListContainerAiQiMoreViewController.h; sourceTree = "<group>"; };
+		9E8B490F235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXListContainerAiQiMoreViewController.m; sourceTree = "<group>"; };
+		9E8B4911235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXListContainerAiQiListViewController.h; sourceTree = "<group>"; };
+		9E8B4912235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXListContainerAiQiListViewController.m; sourceTree = "<group>"; };
+		9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CGXNav.h"; sourceTree = "<group>"; };
+		9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CGXNav.m"; sourceTree = "<group>"; };
+		9E924B0724547F510070655E /* CGXTitleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleTwoViewController.h; sourceTree = "<group>"; };
+		9E924B0824547F510070655E /* CGXTitleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleTwoViewController.m; sourceTree = "<group>"; };
+		E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXWaterCollectionView.h; sourceTree = "<group>"; };
+		E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXWaterCollectionView.m; sourceTree = "<group>"; };
+		E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXCategoryView-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E01258D4222A7EEB00A0957D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E01258D5222A7EEB00A0957D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E01258DB222A7EEB00A0957D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E01258DD222A7EED00A0957D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E01258E0222A7EED00A0957D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E01258E2222A7EED00A0957D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E01258E3222A7EED00A0957D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E0125A5F222A81F600A0957D /* CGXTitleAttributeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXTitleAttributeViewController.h; sourceTree = "<group>"; };
+		E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXTitleAttributeViewController.m; sourceTree = "<group>"; };
+		E0125A65222A827700A0957D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E01BCE4F226C0FD800EC964E /* CGXNestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNestViewController.h; sourceTree = "<group>"; };
+		E01BCE50226C0FD800EC964E /* CGXNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNestViewController.m; sourceTree = "<group>"; };
+		E024317C222C2928002DE810 /* CGXMenuListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuListViewController.h; sourceTree = "<group>"; };
+		E024317D222C2928002DE810 /* CGXMenuListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXMenuListViewController.m; sourceTree = "<group>"; };
+		E069E9DA2234E111000F2BE4 /* CGXTitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleViewController.h; sourceTree = "<group>"; };
+		E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleViewController.m; sourceTree = "<group>"; };
+		E069E9DD2234E3A6000F2BE4 /* CGXTitleOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleOneViewController.h; sourceTree = "<group>"; };
+		E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleOneViewController.m; sourceTree = "<group>"; };
+		E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleImageSettingViewController.m; sourceTree = "<group>"; };
+		E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXTitleImageViewController.m; sourceTree = "<group>"; };
+		E069E9EC2234F082000F2BE4 /* TitleImageSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleImageSettingViewController.h; sourceTree = "<group>"; };
+		E069E9ED2234F082000F2BE4 /* CGXTitleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXTitleImageViewController.h; sourceTree = "<group>"; };
+		E087760D226B5DFE00D1B523 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		E087760E226B5DFE00D1B523 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		E0877610226B723200D1B523 /* CGXTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTabBarViewController.h; sourceTree = "<group>"; };
+		E0877611226B723200D1B523 /* CGXTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTabBarViewController.m; sourceTree = "<group>"; };
+		E0877613226B724C00D1B523 /* CGXNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNavigationController.h; sourceTree = "<group>"; };
+		E0877614226B724C00D1B523 /* CGXNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNavigationController.m; sourceTree = "<group>"; };
+		E0A0F8C5222D676F002A527A /* CGXMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuViewController.h; sourceTree = "<group>"; };
+		E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXMenuViewController.m; sourceTree = "<group>"; };
+		F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E01258CE222A7EEB00A0957D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4214EA9CD8C2FFD094CADA8B /* libPods-CGXCategoryView-OC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04279C68235855DB00137328 /* VerticalListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				04279C6F235855DB00137328 /* CGXVerticalListTableViewController.h */,
+				04279C6A235855DB00137328 /* CGXVerticalListTableViewController.m */,
+				04279C6B235855DB00137328 /* CGXVerticalListTableView.h */,
+				04279C6E235855DB00137328 /* CGXVerticalListTableView.m */,
+				04279C6D235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.h */,
+				04279C69235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m */,
+				04279C6C235855DB00137328 /* CGXVerticalTableSectionHeaderView.h */,
+				04279C70235855DB00137328 /* CGXVerticalTableSectionHeaderView.m */,
+			);
+			path = VerticalListTableView;
+			sourceTree = "<group>";
+		};
+		04279C71235855DB00137328 /* VerticalListCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				04279C76235855DB00137328 /* CGXVerticalListViewController.h */,
+				04279C7F235855DB00137328 /* CGXVerticalListViewController.m */,
+				04279C7A235855DB00137328 /* CGXVerticalListCell.h */,
+				04279C72235855DB00137328 /* CGXVerticalListCell.m */,
+				04279C79235855DB00137328 /* CGXVerticalListCollectionView.h */,
+				04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */,
+				04279C74235855DB00137328 /* CGXVerticalSectionHeaderView.h */,
+				04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */,
+				04279C7B235855DB00137328 /* CGXVerticalListSectionModel.h */,
+				04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */,
+				04279C7E235855DB00137328 /* CGXVerticalListCellModel.h */,
+				04279C77235855DB00137328 /* CGXVerticalListCellModel.m */,
+				04279C78235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.h */,
+				04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */,
+			);
+			path = VerticalListCollectionView;
+			sourceTree = "<group>";
+		};
+		0436126D233B4EF9008596A4 /* TitleSubtitle */ = {
+			isa = PBXGroup;
+			children = (
+				04EB5B87233B592800C26F55 /* CGXTitleSubtitleViewController.h */,
+				04EB5B88233B592800C26F55 /* CGXTitleSubtitleViewController.m */,
+			);
+			path = TitleSubtitle;
+			sourceTree = "<group>";
+		};
+		5C5F515031269A472DAB8F75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E22971824A10CAB00028AE0 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */,
+				9E6D1E6224B4CE8F00C719D3 /* LICENSE */,
+				9E6D1E6324B4CE8F00C719D3 /* README.md */,
+			);
+			path = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9E3B2240235302C2006E1659 /* VerticalListView */ = {
+			isa = PBXGroup;
+			children = (
+				04279C71235855DB00137328 /* VerticalListCollectionView */,
+				04279C68235855DB00137328 /* VerticalListTableView */,
+			);
+			path = VerticalListView;
+			sourceTree = "<group>";
+		};
+		9E3B226223530458006E1659 /* ScrollZoom */ = {
+			isa = PBXGroup;
+			children = (
+				9E3B226C23530636006E1659 /* CGXScrollZoomViewController.h */,
+				9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */,
+				9E3B226723530458006E1659 /* CGXScrollZoomListViewController.h */,
+				9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */,
+			);
+			path = ScrollZoom;
+			sourceTree = "<group>";
+		};
+		9E558B062350B8A6001248FE /* ListContainer */ = {
+			isa = PBXGroup;
+			children = (
+				9E558B0A2350B8A6001248FE /* CGXDataListContainerViewController.h */,
+				9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */,
+				9E558B072350B8A6001248FE /* CGXDataListContainerListViewController.h */,
+				9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */,
+				9E8B490B235AEF9B006BCD88 /* CGXListContainerAiQiViewController.h */,
+				9E8B490C235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m */,
+				9E8B490E235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.h */,
+				9E8B490F235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m */,
+				9E8B4911235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.h */,
+				9E8B4912235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m */,
+			);
+			path = ListContainer;
+			sourceTree = "<group>";
+		};
+		9E6D1E5D24B4BFCA00C719D3 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */,
+				9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		9E770C93233912EE0057B1C5 /* TitleSortView */ = {
+			isa = PBXGroup;
+			children = (
+				9E770C94233913120057B1C5 /* CGXTitleSortViewController.h */,
+				9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */,
+				9E3B227123530FDC006E1659 /* CGXTitleSortIndicatorLineView.h */,
+				9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */,
+			);
+			path = TitleSortView;
+			sourceTree = "<group>";
+		};
+		D1687500762A7F99E10FD3F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FF60936865ABF0EA5AB9348 /* Pods-CGXCategoryView-OC.debug.xcconfig */,
+				9305EE7F565B57706627D0E6 /* Pods-CGXCategoryView-OC.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E01258C8222A7EEB00A0957D = {
+			isa = PBXGroup;
+			children = (
+				E01258D3222A7EEB00A0957D /* CGXCategoryView-OC */,
+				E01258D2222A7EEB00A0957D /* Products */,
+				D1687500762A7F99E10FD3F6 /* Pods */,
+				5C5F515031269A472DAB8F75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E01258D2222A7EEB00A0957D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E01258D3222A7EEB00A0957D /* CGXCategoryView-OC */ = {
+			isa = PBXGroup;
+			children = (
+				9E22971824A10CAB00028AE0 /* Podspec Metadata */,
+				E01258D4222A7EEB00A0957D /* AppDelegate.h */,
+				E01258D5222A7EEB00A0957D /* AppDelegate.m */,
+				E0877610226B723200D1B523 /* CGXTabBarViewController.h */,
+				E0877611226B723200D1B523 /* CGXTabBarViewController.m */,
+				E0877613226B724C00D1B523 /* CGXNavigationController.h */,
+				E0877614226B724C00D1B523 /* CGXNavigationController.m */,
+				E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */,
+				E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */,
+				9E1FA6BA23521D3B001C91E9 /* CGXWaterTableView.h */,
+				9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */,
+				E087760D226B5DFE00D1B523 /* TableViewController.h */,
+				E087760E226B5DFE00D1B523 /* TableViewController.m */,
+				9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */,
+				9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */,
+				9E8B4908235AD9F8006BCD88 /* CGXListContainerTableViewController.h */,
+				9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */,
+				9E6D1E5D24B4BFCA00C719D3 /* Badge */,
+				9E3B226223530458006E1659 /* ScrollZoom */,
+				9E3B2240235302C2006E1659 /* VerticalListView */,
+				9E558B062350B8A6001248FE /* ListContainer */,
+				0436126D233B4EF9008596A4 /* TitleSubtitle */,
+				9E770C93233912EE0057B1C5 /* TitleSortView */,
+				E01BCE52226C6A9500EC964E /* NestView */,
+				E069E9F62234FB08000F2BE4 /* MenuView */,
+				E069E9F12234F86E000F2BE4 /* TitleAttribute */,
+				E069E9F02234F842000F2BE4 /* Title */,
+				E069E9E92234F082000F2BE4 /* TitleImage */,
+				E01258DD222A7EED00A0957D /* Assets.xcassets */,
+				E01258DF222A7EED00A0957D /* LaunchScreen.storyboard */,
+				E01258E2222A7EED00A0957D /* Info.plist */,
+				E01258DA222A7EEB00A0957D /* Main.storyboard */,
+				E0125A65222A827700A0957D /* PrefixHeader.pch */,
+				E01258E3222A7EED00A0957D /* main.m */,
+			);
+			path = "CGXCategoryView-OC";
+			sourceTree = "<group>";
+		};
+		E01BCE52226C6A9500EC964E /* NestView */ = {
+			isa = PBXGroup;
+			children = (
+				E01BCE4F226C0FD800EC964E /* CGXNestViewController.h */,
+				E01BCE50226C0FD800EC964E /* CGXNestViewController.m */,
+			);
+			path = NestView;
+			sourceTree = "<group>";
+		};
+		E069E9E92234F082000F2BE4 /* TitleImage */ = {
+			isa = PBXGroup;
+			children = (
+				E069E9ED2234F082000F2BE4 /* CGXTitleImageViewController.h */,
+				E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */,
+				E069E9EC2234F082000F2BE4 /* TitleImageSettingViewController.h */,
+				E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */,
+			);
+			path = TitleImage;
+			sourceTree = "<group>";
+		};
+		E069E9F02234F842000F2BE4 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				E069E9DA2234E111000F2BE4 /* CGXTitleViewController.h */,
+				E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */,
+				E069E9DD2234E3A6000F2BE4 /* CGXTitleOneViewController.h */,
+				E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */,
+				9E924B0724547F510070655E /* CGXTitleTwoViewController.h */,
+				9E924B0824547F510070655E /* CGXTitleTwoViewController.m */,
+				9E03C28624BADEB4008034DD /* CGXTitleThreeViewController.h */,
+				9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */,
+				9E03C28924BAE06A008034DD /* CGXTitleFourViewController.h */,
+				9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		E069E9F12234F86E000F2BE4 /* TitleAttribute */ = {
+			isa = PBXGroup;
+			children = (
+				E0125A5F222A81F600A0957D /* CGXTitleAttributeViewController.h */,
+				E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */,
+			);
+			path = TitleAttribute;
+			sourceTree = "<group>";
+		};
+		E069E9F62234FB08000F2BE4 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				E0A0F8C5222D676F002A527A /* CGXMenuViewController.h */,
+				E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */,
+				E024317C222C2928002DE810 /* CGXMenuListViewController.h */,
+				E024317D222C2928002DE810 /* CGXMenuListViewController.m */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E01258D0222A7EEB00A0957D /* CGXCategoryView-OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E01258E7222A7EED00A0957D /* Build configuration list for PBXNativeTarget "CGXCategoryView-OC" */;
+			buildPhases = (
+				506024E20FA6E4FC511713BC /* [CP] Check Pods Manifest.lock */,
+				E01258CD222A7EEB00A0957D /* Sources */,
+				E01258CE222A7EEB00A0957D /* Frameworks */,
+				E01258CF222A7EEB00A0957D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CGXCategoryView-OC";
+			productName = "CGXCategoryView-OC";
+			productReference = E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E01258C9222A7EEB00A0957D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "曹贵鑫";
+				TargetAttributes = {
+					E01258D0222A7EEB00A0957D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = E01258CC222A7EEB00A0957D /* Build configuration list for PBXProject "CGXCategoryView-OC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E01258C8222A7EEB00A0957D;
+			productRefGroup = E01258D2222A7EEB00A0957D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E01258D0222A7EEB00A0957D /* CGXCategoryView-OC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E01258CF222A7EEB00A0957D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E6D1E6624B4CE8F00C719D3 /* README.md in Resources */,
+				9E6D1E6424B4CE8F00C719D3 /* CGXCategoryView-OC.podspec in Resources */,
+				E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */,
+				E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */,
+				E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */,
+				9E6D1E6524B4CE8F00C719D3 /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		506024E20FA6E4FC511713BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CGXCategoryView-OC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E01258CD222A7EEB00A0957D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */,
+				E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */,
+				9E1FA6BC23521D3B001C91E9 /* CGXWaterTableView.m in Sources */,
+				9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */,
+				9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */,
+				9E8B490D235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m in Sources */,
+				9E03C28824BADEB4008034DD /* CGXTitleThreeViewController.m in Sources */,
+				9E770C96233913120057B1C5 /* CGXTitleSortViewController.m in Sources */,
+				9E03C28B24BAE06A008034DD /* CGXTitleFourViewController.m in Sources */,
+				04279C83235855DB00137328 /* CGXVerticalTableSectionHeaderView.m in Sources */,
+				04279C88235855DB00137328 /* CGXVerticalSectionHeaderView.m in Sources */,
+				9E924B0924547F510070655E /* CGXTitleTwoViewController.m in Sources */,
+				E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */,
+				9E3B227323530FDC006E1659 /* CGXTitleSortIndicatorLineView.m in Sources */,
+				04279C85235855DB00137328 /* CGXVerticalListCollectionView.m in Sources */,
+				E069E9EE2234F083000F2BE4 /* TitleImageSettingViewController.m in Sources */,
+				E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */,
+				04279C84235855DB00137328 /* CGXVerticalListCell.m in Sources */,
+				04279C80235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m in Sources */,
+				04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */,
+				E0877612226B723200D1B523 /* CGXTabBarViewController.m in Sources */,
+				E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */,
+				E01258E4222A7EED00A0957D /* main.m in Sources */,
+				E069E9DC2234E111000F2BE4 /* CGXTitleViewController.m in Sources */,
+				04279C82235855DB00137328 /* CGXVerticalListTableView.m in Sources */,
+				E01BCE51226C0FD800EC964E /* CGXNestViewController.m in Sources */,
+				9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */,
+				E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */,
+				9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */,
+				04279C8A235855DB00137328 /* CGXVerticalListViewController.m in Sources */,
+				E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */,
+				9E8B4910235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m in Sources */,
+				04279C89235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m in Sources */,
+				E0877615226B724C00D1B523 /* CGXNavigationController.m in Sources */,
+				04279C86235855DB00137328 /* CGXVerticalListSectionModel.m in Sources */,
+				9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */,
+				04EB5B89233B592800C26F55 /* CGXTitleSubtitleViewController.m in Sources */,
+				04279C81235855DB00137328 /* CGXVerticalListTableViewController.m in Sources */,
+				E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */,
+				E024317E222C2928002DE810 /* CGXMenuListViewController.m in Sources */,
+				9E8B490A235AD9F8006BCD88 /* CGXListContainerTableViewController.m in Sources */,
+				9E6D1E6024B4BFEB00C719D3 /* CGXBadgeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E01258DA222A7EEB00A0957D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E01258DB222A7EEB00A0957D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E01258DF222A7EED00A0957D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E01258E0222A7EED00A0957D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E01258E5222A7EED00A0957D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E01258E6222A7EED00A0957D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E01258E8222A7EED00A0957D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FF60936865ABF0EA5AB9348 /* Pods-CGXCategoryView-OC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AA9R26989C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXCategoryView-OC/PrefixHeader.pch";
+				INFOPLIST_FILE = "CGXCategoryView-OC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CGXCategoryView-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E01258E9222A7EED00A0957D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9305EE7F565B57706627D0E6 /* Pods-CGXCategoryView-OC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AA9R26989C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXCategoryView-OC/PrefixHeader.pch";
+				INFOPLIST_FILE = "CGXCategoryView-OC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CGXCategoryView-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E01258CC222A7EEB00A0957D /* Build configuration list for PBXProject "CGXCategoryView-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E01258E5222A7EED00A0957D /* Debug */,
+				E01258E6222A7EED00A0957D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E01258E7222A7EED00A0957D /* Build configuration list for PBXNativeTarget "CGXCategoryView-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E01258E8222A7EED00A0957D /* Debug */,
+				E01258E9222A7EED00A0957D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E01258C9222A7EEB00A0957D /* Project object */;
+}

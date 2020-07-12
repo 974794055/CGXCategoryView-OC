@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomCellModel.h

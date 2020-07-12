@@ -1,0 +1,1079 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		025088461C00351CF7DE744126C3A4FB /* CGXCategoryBaseCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A86D4568D6ECBA228BF9FAC82EEB0F0C /* CGXCategoryBaseCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		032ACD5B54B83FD8A440D8B70DA34380 /* CGXCategoryIndicatorRainbowLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 51D9400B1321ED485CF45307D69AEF5A /* CGXCategoryIndicatorRainbowLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		03DB57C1B0F7FBEA05123DA8ECF7E63E /* CGXCategoryTitleSubtitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B2304A6B5C3EE421ABCAB7170EDF822 /* CGXCategoryTitleSubtitleCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0443FB135FEF436F7DF573C372AD3170 /* CGXCategoryTitleBadgeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A7C66D36F71FC6BED309DF26BA6FA9 /* CGXCategoryTitleBadgeModel.m */; };
+		08448EFC15C68C3D6831072666BA5959 /* CGXCategoryImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D078C7E9CDDFE8E4C013BF4642EBC86 /* CGXCategoryImageCellModel.m */; };
+		0B7242CF45A9E4477FF1FC9B84AA8CDB /* CGXCategoryTitleImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3F790449DB958DCDA1844A3C760983 /* CGXCategoryTitleImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0BE1B977DAB65076845C72814FF04835 /* CGXCategoryTitleSubtitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 271DAEE2D0CB7BEE578824EE680302C9 /* CGXCategoryTitleSubtitleCellModel.m */; };
+		0D39B266ECE6E024393E4D231856FBC6 /* CGXCategoryImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = DFA9836DCC025FF1820CC6C84AF54933 /* CGXCategoryImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1191D33671193E2928A9861FDFD232D3 /* CGXCategoryIndicatorParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A451094F19BBE07526949E499B011A /* CGXCategoryIndicatorParamsModel.m */; };
+		13F1149F577C2A16CCD0E10987C218B4 /* CGXCategoryTitleSortCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F86F85E9DAFC82808E7EA699B788F9DC /* CGXCategoryTitleSortCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		15599F26D11BB0F9BA77678DCDF9BAA6 /* CGXCategoryGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = D30A9B8E2655B4B72AE83489A34ABC0D /* CGXCategoryGradientView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		15A0A8D29554AF07415F50E470954F9D /* CGXCategoryViewDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7D2F2D8AD990E38746D722EF271547 /* CGXCategoryViewDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		15B2FBF6C6C9A90B8FFD15C0F021D3A5 /* CGXCategoryIndicatorBallView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF04375CC9D1D409607F66F028E4E10 /* CGXCategoryIndicatorBallView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2045338E956DCE741212841C997AD622 /* CGXCategorySegmentedTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AC2D47083CEDCD10DA65B61F891951 /* CGXCategorySegmentedTitleView.m */; };
+		21CCE771D20995E3D8C8E80098579AF4 /* CGXCategoryIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CFA85E4990B3D781BDBC39C6DF3344 /* CGXCategoryIndicatorBackgroundView.m */; };
+		221C2665D595CFAFBD363E63290284D3 /* CGXCategoryBadgeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5853DD349ADE0238C9B65A43F8713C4D /* CGXCategoryBadgeCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2469C8C37CE8B8D1A204C6D1BCB08871 /* CGXCategoryListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F173D357D8C087ADE3D3EF759A02B08D /* CGXCategoryListContainerView.m */; };
+		25710066B81832607265749FE2E81865 /* CGXCategoryTitleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78209CE9E5B8B34E743E5AADE8C96AFB /* CGXCategoryTitleImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		27AB6DED39D54C32A6165B3CC173FAFC /* CGXCategoryBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418A77298FF5E415F9807D4F90F6D83F /* CGXCategoryBadgeView.m */; };
+		2FCBA3F36E8057949564FFF7C6EC0E1B /* CGXCategoryTitleVerticalZoomCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B97FB7391C697B92FAFFDFE8618899 /* CGXCategoryTitleVerticalZoomCellModel.m */; };
+		3123A80E0FAB42D3E052ECD0BE1B8231 /* CGXCategoryTitleSortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E57EFEEB35468266952C684AE80804 /* CGXCategoryTitleSortCell.m */; };
+		31B5188BB239BB1D15C6BE7F2BE32413 /* CGXCategoryTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D46840244174D8915BEE176D89EA461C /* CGXCategoryTitleCell.m */; };
+		3543D52D2EBC1EDFDA56E9B82B8F6C47 /* CGXCategoryGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F73CDBCA02AC64072F19232D83C64A /* CGXCategoryGradientView.m */; };
+		3809223892767056369B3547BA115D66 /* CGXCategoryTitleAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D0D5A2A931BD9B1AE1E536C04FF553 /* CGXCategoryTitleAttributeCell.m */; };
+		3A7BA9743BE4F86C2398643B8A043484 /* CGXCategoryIndicatorRainbowLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295DDE2F1C76D8E5AE5F4DA3302396DB /* CGXCategoryIndicatorRainbowLineView.m */; };
+		3FB9270A0FC181EFCE6507E656A8FFC5 /* CGXCategoryIndicatorTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E0C0CBA6175461608F322EFA622187 /* CGXCategoryIndicatorTriangleView.m */; };
+		3FD38ACDF3CB16697FEF49297E12511B /* CGXCategoryBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A39F2B17F8859CBD2E51B8CBA654F80 /* CGXCategoryBadgeView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		433DA066D9924B8DE134CF9F404FDBA4 /* CGXCategoryDotCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0201507AA620FB17C14259E60D227322 /* CGXCategoryDotCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		446656CC0D8E1F1CEDC0A88A00E68013 /* CGXCategoryTitleVerticalZoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75363E55266B3F77567D34D9A85DC2E9 /* CGXCategoryTitleVerticalZoomCell.m */; };
+		4495C3AE2A774DE6B642A5DCB6D466ED /* CGXCategoryTitleVerticalZoomCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 034B0EC26BD9490032ACCECA58132BF6 /* CGXCategoryTitleVerticalZoomCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		45C3C07785CB7DD2B272202E726FE5B1 /* CGXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A937B6D6F38FD7A8E3043A53E1D7CD /* CGXCategoryBaseView.m */; };
+		49FA69CD3B2CCA25A758F41E65F644F6 /* CGXCategoryTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC49A1F687477C94B4DD60FFA513A24F /* CGXCategoryTitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4D07D92AE70F4B67C588B5C39E032F00 /* CGXCategoryListContainerViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 45B4A7FAE57FE950A789FE4876D83EFE /* CGXCategoryListContainerViewDataSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4D838FD53F028A568CDEBDD6BA06673D /* CGXCategoryDotCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A59203ED9F1D25DFF28025D5706CB7 /* CGXCategoryDotCellModel.m */; };
+		4E989207AC358B3D34AAD281EE60C40D /* CGXCategoryIndicatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 913F4770181CAFE1AF17929C68B8EBE2 /* CGXCategoryIndicatorProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4FE425597290AAE3EEF8572EE9642778 /* CGXCategoryBadgeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FA86A00095F07E9A6C68B53EBD85AD /* CGXCategoryBadgeCellModel.m */; };
+		542BFDB36DE471DA8F1F251A11ED1760 /* CGXCategoryImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DCD48CCD35D9A1EBA8B75F750D354D /* CGXCategoryImageCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5A3A9B94D4A00AD5EFF1F6BFF3FEAE7C /* CGXCategoryIndicatorParamsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = EF271700AA5D36C8CC71EB94E91BB8BA /* CGXCategoryIndicatorParamsModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5BABE8AECF426D630E92C1EE10319BA9 /* CGXCategoryTitleAttributeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87E0A0F93B969267E0254446563A3BF /* CGXCategoryTitleAttributeCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5DFA1C1A2D10DC16BBEB6A8E1B7B4D00 /* CGXCategoryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F3E4B2F0486D66343BDBFAA520291E /* CGXCategoryImageCell.m */; };
+		62288B99D951B49A6DBDF276675945D8 /* CGXCategoryDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D14A0D02462BC04493A1AC78768742 /* CGXCategoryDotView.m */; };
+		62693B9E09328F2127D8E365FD0B1DAE /* CGXCategorySegmentedTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = ED49A0AA43AA4623F6ECD9856B42DDA3 /* CGXCategorySegmentedTitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		631281EC6B79900C7D803C58F9341B72 /* CGXCategoryIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = EAD2608243E0AA8AD6B0C099FC9256D2 /* CGXCategoryIndicatorView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		68C8EC1CB52DDA47F5894AB74FEDB328 /* CGXCategoryIndicatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56873DDB9E4851BD9FD1C9BFA243D496 /* CGXCategoryIndicatorCell.m */; };
+		692C522107CAA083A67F28925D38ABD2 /* CGXCategoryTitleVerticalZoomCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 494017EB619D21A57ED9F28F3DA8370C /* CGXCategoryTitleVerticalZoomCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6BDB9723D9642922316D9566795AFC30 /* CGXCategoryTitleSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA240EE626236FF00D7AAF7E0390BDE /* CGXCategoryTitleSortView.m */; };
+		6BE47506F45BE374F96548A2153E37A7 /* CGXCategoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B968A95B43032442FD419F58DE00BC89 /* CGXCategoryFactory.m */; };
+		6CC244BFD797F826EB12832694F6F667 /* CGXCategoryIndicatorBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F0FE458B66893834078FA3C05C7B17B /* CGXCategoryIndicatorBackgroundView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6DDF51B05323DF2243676A4411EC4B30 /* CGXCategoryTitleSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A073ED05CC76E4AAEC9E2827C3D5678 /* CGXCategoryTitleSubtitleView.m */; };
+		7074431721B29AF42D77587DBDE52147 /* CGXCategoryTitleAttributeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D9649EFA7EC572D1FF6B7F6123C09D /* CGXCategoryTitleAttributeView.m */; };
+		70F0EE46ABE0BD280944BB8C0DB73148 /* CGXCategoryTitleSubtitleCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1360D949D6E131AB1CB41EAE9CD038F1 /* CGXCategoryTitleSubtitleCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		730725BF72B1EAE5643D7939383A455E /* CGXCategoryTitleAttributeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E531C2511068F6E145ABFC4A1A4089 /* CGXCategoryTitleAttributeView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		76FA3F40DD4BAD609D542ABE857CE8B8 /* CGXCategoryTitleImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 579ADE8BA633AF01BE8972080AD21043 /* CGXCategoryTitleImageCellModel.m */; };
+		7A30F824B9662FEEF26AA56A4660C845 /* CGXCategoryListContainerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB5647E11BAB9A3FA1F9F57E4C8A78DD /* CGXCategoryListContainerViewDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7CB1F577BD3FF5731ADE56791B4970E5 /* CGXCategoryDotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F22F7F30BBC4F1E9CA30BCF1E2F9C6 /* CGXCategoryDotCell.m */; };
+		7D3823833456265E0634DE365125403B /* CGXCategoryListContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA72121FB7B22B67C42563848A9DB19F /* CGXCategoryListContainerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7D69940A70EADA66589BBF0FFE03E532 /* CGXCategoryTitleImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DBBDFC3853A62B4AA6835BD340ACBED4 /* CGXCategoryTitleImageCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7ED1EC244804CFE7CE148F1ACD9CD8B4 /* CGXCategoryBadgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE7B50EBD4BE3A31CAF12F24D6C7F01 /* CGXCategoryBadgeCell.m */; };
+		82354B5056D3632E049786E86CF64321 /* CGXCategoryImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 13445CBF567F63D9B53AEAA97EAC6C05 /* CGXCategoryImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84A7B3DB798B360FC44CE2014ECBD9A6 /* CGXCategoryIndicatorImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEC027FB836B27BB5EAE0B2A734EED1 /* CGXCategoryIndicatorImageView.m */; };
+		85DEF5267311748C1C5CA27125A7455B /* CGXCategoryBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E7C0E1F1F117F50DB31BADD36DC67CD0 /* CGXCategoryBaseCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8774BAF24EB859E6067BC0CA095D9EC3 /* CGXCategoryTitleVerticalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C0910D2C126E0DC94FAB6FFA1A8C7 /* CGXCategoryTitleVerticalZoomView.m */; };
+		88F84FCE3C6701FF34A83C2500216468 /* CGXCategoryTitleSortCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FB877CB01FD3E098BEDAE5B517C49A1 /* CGXCategoryTitleSortCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8956F60E713AE870F101C352354A35A2 /* CGXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 714837F0EF935007F3075B473E43C182 /* CGXCategoryBaseCellModel.m */; };
+		8BB61F8A34BC979156E4C2CED41A78CC /* CGXCategoryTitleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58D955409486FD34A933013D3B33B8 /* CGXCategoryTitleFactory.m */; };
+		921D0DB70B861EF5BC2F7C0B40EC1592 /* CGXCategoryTitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9386F41D58FDDC13B46AA4FDD9E5B9A1 /* CGXCategoryTitleCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92FBF420DFC7D786C433BBD2EC6FE044 /* CGXCategoryDotView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD1562813EC3CCCF2B0169B3A294196 /* CGXCategoryDotView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		951C191E7F490C603BAAA79FFBDC5CF3 /* CGXCategoryTitleSortCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70392900DDCE281E6365F945D65DB0 /* CGXCategoryTitleSortCellModel.m */; };
+		9627D5F8AA332F57F1915859A73E1648 /* CGXCategoryTitleSubtitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 767CA33982213C7392D4308D934CA200 /* CGXCategoryTitleSubtitleCell.m */; };
+		9743114CDD6EA4FADAA1BFAAAB980680 /* CGXCategoryTitleMenuVCDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF6B9F904CE79FCD4F1B15E4F9362A2 /* CGXCategoryTitleMenuVCDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9D4BF1EC6AD601E79767A528A9AF4F83 /* UIColor+CGXCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69A1CC63E085798BA684649D58BBF2 /* UIColor+CGXCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9D5CFF81F893B6E486A75CE5259129A4 /* CGXCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B53768C7418F89C7BC9B83C40F232D /* CGXCategoryBaseCell.m */; };
+		9EE6CC5603CA3F03B9D546560D014166 /* CGXCategoryDotCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BE3329C5B09203A9C2AAEF66DD47BB /* CGXCategoryDotCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9F666A46ADBA698EAD57E9BAC1193AA3 /* CGXCategoryIndicatorLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = DF68DDA0E0081448E44C3AA9FBBE462F /* CGXCategoryIndicatorLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A0BF947F9C01C725A3C1C7558E9FF1FA /* CGXCategoryTitleBadgeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D9298061FC1C93DFD3A84B2EE644834 /* CGXCategoryTitleBadgeModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A145ECCD29C4A7C1A139D0B5A9A0A6BE /* CGXCategoryBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 866ACB0A50BE099BAE3EE02985C8EAA7 /* CGXCategoryBaseView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A2AF844FB31E58E04020CF3008522C19 /* Pods-CGXCategoryView-OC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A2C14900416A1214B42F505C60F34 /* Pods-CGXCategoryView-OC-dummy.m */; };
+		A43BBE785254D6A9055627976B475364 /* CGXCategoryViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = F09FD9A1BE67AAF91E5227E4405D40D9 /* CGXCategoryViewAnimator.m */; };
+		A6648A927E3FFC2E5D9D550075CB0DE1 /* CGXCategoryCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B68F1AF0E4F83BD3DC7F7DCE5A81C51 /* CGXCategoryCollectionView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AA5164F2E574FB5A8AF22EF01F481FFF /* CGXCategoryIndicatorImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7BD389166851E14786D56BFC72C993 /* CGXCategoryIndicatorImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ABF96C60833A34E0604B12D6774B7A48 /* CGXCategoryTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C782BDCDDEC848D81C411AB3533B6148 /* CGXCategoryTitleCellModel.m */; };
+		B1EE35AF78A28945D750781A90A30147 /* CGXCategoryBadgeCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 37359CDEBC9E3A028069574DAFC5F10A /* CGXCategoryBadgeCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B348B10207CD72ED3B8348AE509697BC /* CGXCategoryView-OC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A79DC12EA7AABFF32F26C1C85299F2 /* CGXCategoryView-OC-dummy.m */; };
+		B3C7CBB9F6D109236993C31DE072AC6D /* CGXCategoryTitleCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B3F533754F6501F1ED14992FF21F386 /* CGXCategoryTitleCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B936B0CA243B9692A559ACC7DD852905 /* CGXCategoryIndicatorTriangleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 06C8759A87C6BE9D9C6DCAE8D5DA0F74 /* CGXCategoryIndicatorTriangleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BB3E65793203A3ED10D95E122349649D /* CGXCategoryTitleVerticalZoomView.h in Headers */ = {isa = PBXBuildFile; fileRef = AF560CC5E5FBB42EAE69279378B0A908 /* CGXCategoryTitleVerticalZoomView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BE20C19A8C579C766151A4A59868046C /* CGXCategoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF4AFE18DB3FD57674B1369F0551FF7 /* CGXCategoryFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C292E85AA5FFA13C1F7856BA92142AF8 /* CGXCategoryTitleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA92627AD4401ABCF2877DC668DA78 /* CGXCategoryTitleImageCell.m */; };
+		C3E24438DE096E1AF5B1331DAF79E995 /* CGXCategoryImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 070BDBD191B8BAE80C5F0D8A1523DA35 /* CGXCategoryImageView.m */; };
+		C3F03C75C2E9A1004C2FB0269E39544B /* CGXCategoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CA8A0A7F32B70952C81860A84BD24 /* CGXCategoryCollectionView.m */; };
+		C4E60A50845A7BF9B5196B248DF31AA9 /* CGXCategoryListContainerViewScrollDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01FDE4F798B4D78AF97CD110398D6D10 /* CGXCategoryListContainerViewScrollDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CA474DAD8736B4D90FBB89E0404504EA /* CGXCategoryIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8214132540178A756432B292A9A5FF /* CGXCategoryIndicatorLineView.m */; };
+		CA6E63B32ED3281CFB575A928FD873DE /* CGXCategoryTitleMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381A9103E77BD2D35E7A984BFA2A3916 /* CGXCategoryTitleMenuView.m */; };
+		CE963444D6D4CE2289E06A48DD09CE89 /* UIColor+CGXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D78C2B9A9EC8C334E7F065F062BD7E11 /* UIColor+CGXCategory.m */; };
+		D260E673AC04CA8AA2C3192877CC2A4D /* CGXCategoryIndicatorCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 826840BA8B432F559435015C758AB261 /* CGXCategoryIndicatorCellModel.m */; };
+		D31C4FB980B6ED5D2145AA8FBB1253CD /* CGXCategoryTitleSortView.h in Headers */ = {isa = PBXBuildFile; fileRef = F0EC8252EF059972487B5D160870B3B7 /* CGXCategoryTitleSortView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D804540530800AD974B96A3B37C57BD1 /* CGXCategoryTitleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4619CB6D1F502D32D041AA613EDBFCA /* CGXCategoryTitleImageView.m */; };
+		DA3587D481527030395FCAC672200873 /* CGXCategoryIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80256967E0C13584C1BC834F5AF0B8 /* CGXCategoryIndicatorView.m */; };
+		DA403C2517183F88DBA2307F26A09AF8 /* CGXCategoryIndicatorCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C495D8E02D08ABB2D26ECB0163DB2FD2 /* CGXCategoryIndicatorCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DDF1780660FDC97198FD4873CC64963D /* CGXCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F267020897B3D32B0CC1C97EF59404F0 /* CGXCategoryTitleView.m */; };
+		DE68B6E8284EFD9C0FC99A15473190C3 /* CGXCategoryTitleAttributeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9516057EE1504EAA831564C9933D94B /* CGXCategoryTitleAttributeCellModel.m */; };
+		E269E5481DAE3BAF20C21D67CBA26D20 /* CGXCategoryIndicatorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3409175A07643A997C63549CFB102B45 /* CGXCategoryIndicatorComponentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E6D8723CFD63E8AE3DCFBF77F2BCA7E3 /* CGXCategoryIndicatorDotLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A24D4B09DED67D6A9786042752714CC /* CGXCategoryIndicatorDotLineView.m */; };
+		E72E04ECDE4356E8F44D29F8F5443C09 /* CGXCategoryTitleMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 62F3CD0C0D15C9FCDC3073C8AC6774DD /* CGXCategoryTitleMenuView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ED3BD5721895688634DFC48456794305 /* CGXCategoryTitleSubtitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2786DFA083B12D283F25EC7A163157BC /* CGXCategoryTitleSubtitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EE0E54F593A17758DDCB330C2E3D2423 /* CGXCategoryTitleFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3CCA47D4BC84FB2FF1E34BFC66BA4C /* CGXCategoryTitleFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F08F3741278BE4B8D1A1A4D360B321A8 /* CGXCategoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1B64046079950B084B117EAEE63809 /* CGXCategoryView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F29A963CB85FC311D64539AFB6BCAEAD /* CGXCategoryIndicatorBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A999954B8D516EC1303E815DF2BC8D /* CGXCategoryIndicatorBallView.m */; };
+		F2B22C380DB06E2C6DD6B764507D016E /* CGXCategoryTitleAttributeCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E8F4C5FFA3B99C15C2DD147F7EB447DD /* CGXCategoryTitleAttributeCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F3C180F90DABA4A24717F1CA62556F38 /* CGXCategoryIndicatorDotLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 583D46048941DF9744F62A5BE358DC94 /* CGXCategoryIndicatorDotLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F42131D4CB7771F940AC5F4F260C8CA9 /* CGXCategoryViewAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C36B38D1194FC24EDEDD2A3B7B50D4 /* CGXCategoryViewAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F6BCB66540B6DC5107ED52ABE55AE95B /* CGXCategoryIndicatorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF55D012A19B863962F704FF3CBA699F /* CGXCategoryIndicatorComponentView.m */; };
+		FEBBE51B55E4A3D1B2EF6A46777ABEBC /* CGXCategoryIndicatorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D4AA7E76AD945228A01954B0853C55 /* CGXCategoryIndicatorCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BE516B3E2195D72C0817F57AB1DE3F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DDB0E8D41EACCD8DE6490FD840DB13E;
+			remoteInfo = "CGXCategoryView-OC";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FDE4F798B4D78AF97CD110398D6D10 /* CGXCategoryListContainerViewScrollDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryListContainerViewScrollDelegate.h; path = CGXCategoryView/ListContainer/CGXCategoryListContainerViewScrollDelegate.h; sourceTree = "<group>"; };
+		0201507AA620FB17C14259E60D227322 /* CGXCategoryDotCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryDotCell.h; path = CGXCategoryView/Dot/CGXCategoryDotCell.h; sourceTree = "<group>"; };
+		034B0EC26BD9490032ACCECA58132BF6 /* CGXCategoryTitleVerticalZoomCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleVerticalZoomCellModel.h; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomCellModel.h; sourceTree = "<group>"; };
+		06C8759A87C6BE9D9C6DCAE8D5DA0F74 /* CGXCategoryIndicatorTriangleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorTriangleView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorTriangleView.h; sourceTree = "<group>"; };
+		070BDBD191B8BAE80C5F0D8A1523DA35 /* CGXCategoryImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryImageView.m; path = CGXCategoryView/Image/CGXCategoryImageView.m; sourceTree = "<group>"; };
+		08B7424FE6A04FFC245B9CAD6BB882DB /* CGXCategoryView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CGXCategoryView-OC.release.xcconfig"; sourceTree = "<group>"; };
+		0A24D4B09DED67D6A9786042752714CC /* CGXCategoryIndicatorDotLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorDotLineView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorDotLineView.m; sourceTree = "<group>"; };
+		0C80256967E0C13584C1BC834F5AF0B8 /* CGXCategoryIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorView.m; path = CGXCategoryView/Indicator/CGXCategoryIndicatorView.m; sourceTree = "<group>"; };
+		11FA86A00095F07E9A6C68B53EBD85AD /* CGXCategoryBadgeCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBadgeCellModel.m; path = CGXCategoryView/Badge/CGXCategoryBadgeCellModel.m; sourceTree = "<group>"; };
+		13445CBF567F63D9B53AEAA97EAC6C05 /* CGXCategoryImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryImageCellModel.h; path = CGXCategoryView/Image/CGXCategoryImageCellModel.h; sourceTree = "<group>"; };
+		1360D949D6E131AB1CB41EAE9CD038F1 /* CGXCategoryTitleSubtitleCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSubtitleCellModel.h; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleCellModel.h; sourceTree = "<group>"; };
+		16D0D5A2A931BD9B1AE1E536C04FF553 /* CGXCategoryTitleAttributeCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleAttributeCell.m; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeCell.m; sourceTree = "<group>"; };
+		17B97FB7391C697B92FAFFDFE8618899 /* CGXCategoryTitleVerticalZoomCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleVerticalZoomCellModel.m; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomCellModel.m; sourceTree = "<group>"; };
+		1AB4B470B18E0576369C1CE5A8D59614 /* Pods-CGXCategoryView-OC-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CGXCategoryView-OC-acknowledgements.plist"; sourceTree = "<group>"; };
+		1AB91DE59105E1F9B4791007857D7559 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1CAEE483709275FF73095ACC87408658 /* libCGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libCGXCategoryView-OC.a"; path = "libCGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		234A2C14900416A1214B42F505C60F34 /* Pods-CGXCategoryView-OC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CGXCategoryView-OC-dummy.m"; sourceTree = "<group>"; };
+		26A999954B8D516EC1303E815DF2BC8D /* CGXCategoryIndicatorBallView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorBallView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorBallView.m; sourceTree = "<group>"; };
+		271DAEE2D0CB7BEE578824EE680302C9 /* CGXCategoryTitleSubtitleCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSubtitleCellModel.m; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleCellModel.m; sourceTree = "<group>"; };
+		2786DFA083B12D283F25EC7A163157BC /* CGXCategoryTitleSubtitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSubtitleView.h; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleView.h; sourceTree = "<group>"; };
+		27C36B38D1194FC24EDEDD2A3B7B50D4 /* CGXCategoryViewAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryViewAnimator.h; path = CGXCategoryView/Common/CGXCategoryViewAnimator.h; sourceTree = "<group>"; };
+		295DDE2F1C76D8E5AE5F4DA3302396DB /* CGXCategoryIndicatorRainbowLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorRainbowLineView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorRainbowLineView.m; sourceTree = "<group>"; };
+		2A39467C8E482C7E65B9854723D81BAE /* Pods-CGXCategoryView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CGXCategoryView-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		2B70392900DDCE281E6365F945D65DB0 /* CGXCategoryTitleSortCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSortCellModel.m; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortCellModel.m; sourceTree = "<group>"; };
+		2F0FE458B66893834078FA3C05C7B17B /* CGXCategoryIndicatorBackgroundView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorBackgroundView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorBackgroundView.h; sourceTree = "<group>"; };
+		3409175A07643A997C63549CFB102B45 /* CGXCategoryIndicatorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorComponentView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorComponentView.h; sourceTree = "<group>"; };
+		35E57EFEEB35468266952C684AE80804 /* CGXCategoryTitleSortCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSortCell.m; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortCell.m; sourceTree = "<group>"; };
+		36A7C66D36F71FC6BED309DF26BA6FA9 /* CGXCategoryTitleBadgeModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleBadgeModel.m; path = CGXCategoryView/Common/CGXCategoryTitleBadgeModel.m; sourceTree = "<group>"; };
+		37359CDEBC9E3A028069574DAFC5F10A /* CGXCategoryBadgeCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBadgeCellModel.h; path = CGXCategoryView/Badge/CGXCategoryBadgeCellModel.h; sourceTree = "<group>"; };
+		381A9103E77BD2D35E7A984BFA2A3916 /* CGXCategoryTitleMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleMenuView.m; path = CGXCategoryView/MenuView/CGXCategoryTitleMenuView.m; sourceTree = "<group>"; };
+		38D14A0D02462BC04493A1AC78768742 /* CGXCategoryDotView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryDotView.m; path = CGXCategoryView/Dot/CGXCategoryDotView.m; sourceTree = "<group>"; };
+		395A917AC7BCC7C20C2BDABD90B159FF /* Pods-CGXCategoryView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CGXCategoryView-OC.release.xcconfig"; sourceTree = "<group>"; };
+		3A073ED05CC76E4AAEC9E2827C3D5678 /* CGXCategoryTitleSubtitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSubtitleView.m; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleView.m; sourceTree = "<group>"; };
+		3A39F2B17F8859CBD2E51B8CBA654F80 /* CGXCategoryBadgeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBadgeView.h; path = CGXCategoryView/Badge/CGXCategoryBadgeView.h; sourceTree = "<group>"; };
+		3B7FB71EB64B862ADC9CAD7DB86BCF2B /* libPods-CGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CGXCategoryView-OC.a"; path = "libPods-CGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD1562813EC3CCCF2B0169B3A294196 /* CGXCategoryDotView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryDotView.h; path = CGXCategoryView/Dot/CGXCategoryDotView.h; sourceTree = "<group>"; };
+		418A77298FF5E415F9807D4F90F6D83F /* CGXCategoryBadgeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBadgeView.m; path = CGXCategoryView/Badge/CGXCategoryBadgeView.m; sourceTree = "<group>"; };
+		45B4A7FAE57FE950A789FE4876D83EFE /* CGXCategoryListContainerViewDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryListContainerViewDataSource.h; path = CGXCategoryView/ListContainer/CGXCategoryListContainerViewDataSource.h; sourceTree = "<group>"; };
+		494017EB619D21A57ED9F28F3DA8370C /* CGXCategoryTitleVerticalZoomCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleVerticalZoomCell.h; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomCell.h; sourceTree = "<group>"; };
+		4FF6B9F904CE79FCD4F1B15E4F9362A2 /* CGXCategoryTitleMenuVCDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleMenuVCDelegate.h; path = CGXCategoryView/MenuView/CGXCategoryTitleMenuVCDelegate.h; sourceTree = "<group>"; };
+		50E0C0CBA6175461608F322EFA622187 /* CGXCategoryIndicatorTriangleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorTriangleView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorTriangleView.m; sourceTree = "<group>"; };
+		51D9400B1321ED485CF45307D69AEF5A /* CGXCategoryIndicatorRainbowLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorRainbowLineView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorRainbowLineView.h; sourceTree = "<group>"; };
+		56873DDB9E4851BD9FD1C9BFA243D496 /* CGXCategoryIndicatorCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorCell.m; path = CGXCategoryView/Indicator/CGXCategoryIndicatorCell.m; sourceTree = "<group>"; };
+		579ADE8BA633AF01BE8972080AD21043 /* CGXCategoryTitleImageCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleImageCellModel.m; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageCellModel.m; sourceTree = "<group>"; };
+		57DCD48CCD35D9A1EBA8B75F750D354D /* CGXCategoryImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryImageCell.h; path = CGXCategoryView/Image/CGXCategoryImageCell.h; sourceTree = "<group>"; };
+		57F3E4B2F0486D66343BDBFAA520291E /* CGXCategoryImageCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryImageCell.m; path = CGXCategoryView/Image/CGXCategoryImageCell.m; sourceTree = "<group>"; };
+		583D46048941DF9744F62A5BE358DC94 /* CGXCategoryIndicatorDotLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorDotLineView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorDotLineView.h; sourceTree = "<group>"; };
+		5853DD349ADE0238C9B65A43F8713C4D /* CGXCategoryBadgeCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBadgeCell.h; path = CGXCategoryView/Badge/CGXCategoryBadgeCell.h; sourceTree = "<group>"; };
+		5C3CCA47D4BC84FB2FF1E34BFC66BA4C /* CGXCategoryTitleFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleFactory.h; path = CGXCategoryView/MenuView/CGXCategoryTitleFactory.h; sourceTree = "<group>"; };
+		62F3CD0C0D15C9FCDC3073C8AC6774DD /* CGXCategoryTitleMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleMenuView.h; path = CGXCategoryView/MenuView/CGXCategoryTitleMenuView.h; sourceTree = "<group>"; };
+		67E531C2511068F6E145ABFC4A1A4089 /* CGXCategoryTitleAttributeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleAttributeView.h; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeView.h; sourceTree = "<group>"; };
+		6B68F1AF0E4F83BD3DC7F7DCE5A81C51 /* CGXCategoryCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryCollectionView.h; path = CGXCategoryView/Common/CGXCategoryCollectionView.h; sourceTree = "<group>"; };
+		6D222C9619B9C8646D7F3B01FE4F88BF /* Pods-CGXCategoryView-OC-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CGXCategoryView-OC-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6D3F790449DB958DCDA1844A3C760983 /* CGXCategoryTitleImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleImageCellModel.h; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageCellModel.h; sourceTree = "<group>"; };
+		6D9298061FC1C93DFD3A84B2EE644834 /* CGXCategoryTitleBadgeModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleBadgeModel.h; path = CGXCategoryView/Common/CGXCategoryTitleBadgeModel.h; sourceTree = "<group>"; };
+		70A937B6D6F38FD7A8E3043A53E1D7CD /* CGXCategoryBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBaseView.m; path = CGXCategoryView/Base/CGXCategoryBaseView.m; sourceTree = "<group>"; };
+		714837F0EF935007F3075B473E43C182 /* CGXCategoryBaseCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBaseCellModel.m; path = CGXCategoryView/Base/CGXCategoryBaseCellModel.m; sourceTree = "<group>"; };
+		73F22F7F30BBC4F1E9CA30BCF1E2F9C6 /* CGXCategoryDotCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryDotCell.m; path = CGXCategoryView/Dot/CGXCategoryDotCell.m; sourceTree = "<group>"; };
+		75363E55266B3F77567D34D9A85DC2E9 /* CGXCategoryTitleVerticalZoomCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleVerticalZoomCell.m; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomCell.m; sourceTree = "<group>"; };
+		767CA33982213C7392D4308D934CA200 /* CGXCategoryTitleSubtitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSubtitleCell.m; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleCell.m; sourceTree = "<group>"; };
+		78209CE9E5B8B34E743E5AADE8C96AFB /* CGXCategoryTitleImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleImageView.h; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageView.h; sourceTree = "<group>"; };
+		789C48284066B5E042FAF8D25A26143B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7B2304A6B5C3EE421ABCAB7170EDF822 /* CGXCategoryTitleSubtitleCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSubtitleCell.h; path = CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleCell.h; sourceTree = "<group>"; };
+		7B3F533754F6501F1ED14992FF21F386 /* CGXCategoryTitleCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleCellModel.h; path = CGXCategoryView/Title/CGXCategoryTitleCellModel.h; sourceTree = "<group>"; };
+		7D078C7E9CDDFE8E4C013BF4642EBC86 /* CGXCategoryImageCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryImageCellModel.m; path = CGXCategoryView/Image/CGXCategoryImageCellModel.m; sourceTree = "<group>"; };
+		7FB877CB01FD3E098BEDAE5B517C49A1 /* CGXCategoryTitleSortCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSortCellModel.h; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortCellModel.h; sourceTree = "<group>"; };
+		826840BA8B432F559435015C758AB261 /* CGXCategoryIndicatorCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorCellModel.m; path = CGXCategoryView/Indicator/CGXCategoryIndicatorCellModel.m; sourceTree = "<group>"; };
+		866ACB0A50BE099BAE3EE02985C8EAA7 /* CGXCategoryBaseView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBaseView.h; path = CGXCategoryView/Base/CGXCategoryBaseView.h; sourceTree = "<group>"; };
+		87A79DC12EA7AABFF32F26C1C85299F2 /* CGXCategoryView-OC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CGXCategoryView-OC-dummy.m"; sourceTree = "<group>"; };
+		885CA8A0A7F32B70952C81860A84BD24 /* CGXCategoryCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryCollectionView.m; path = CGXCategoryView/Common/CGXCategoryCollectionView.m; sourceTree = "<group>"; };
+		88CFA85E4990B3D781BDBC39C6DF3344 /* CGXCategoryIndicatorBackgroundView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorBackgroundView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorBackgroundView.m; sourceTree = "<group>"; };
+		8C8214132540178A756432B292A9A5FF /* CGXCategoryIndicatorLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorLineView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorLineView.m; sourceTree = "<group>"; };
+		8D7D2F2D8AD990E38746D722EF271547 /* CGXCategoryViewDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryViewDefines.h; path = CGXCategoryView/Common/CGXCategoryViewDefines.h; sourceTree = "<group>"; };
+		913F4770181CAFE1AF17929C68B8EBE2 /* CGXCategoryIndicatorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorProtocol.h; path = CGXCategoryView/Common/CGXCategoryIndicatorProtocol.h; sourceTree = "<group>"; };
+		9386F41D58FDDC13B46AA4FDD9E5B9A1 /* CGXCategoryTitleCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleCell.h; path = CGXCategoryView/Title/CGXCategoryTitleCell.h; sourceTree = "<group>"; };
+		942C0910D2C126E0DC94FAB6FFA1A8C7 /* CGXCategoryTitleVerticalZoomView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleVerticalZoomView.m; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomView.m; sourceTree = "<group>"; };
+		99C8A41EE74C9FD4354170A14EDA7021 /* CGXCategoryView-OC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CGXCategoryView-OC-prefix.pch"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FCA92627AD4401ABCF2877DC668DA78 /* CGXCategoryTitleImageCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleImageCell.m; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageCell.m; sourceTree = "<group>"; };
+		A2B53768C7418F89C7BC9B83C40F232D /* CGXCategoryBaseCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBaseCell.m; path = CGXCategoryView/Base/CGXCategoryBaseCell.m; sourceTree = "<group>"; };
+		A4E80E0FEBB90EEE0E80012D30ABCEED /* CGXCategoryView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CGXCategoryView-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		A5BE3329C5B09203A9C2AAEF66DD47BB /* CGXCategoryDotCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryDotCellModel.h; path = CGXCategoryView/Dot/CGXCategoryDotCellModel.h; sourceTree = "<group>"; };
+		A86D4568D6ECBA228BF9FAC82EEB0F0C /* CGXCategoryBaseCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBaseCellModel.h; path = CGXCategoryView/Base/CGXCategoryBaseCellModel.h; sourceTree = "<group>"; };
+		A9516057EE1504EAA831564C9933D94B /* CGXCategoryTitleAttributeCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleAttributeCellModel.m; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeCellModel.m; sourceTree = "<group>"; };
+		AAA240EE626236FF00D7AAF7E0390BDE /* CGXCategoryTitleSortView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleSortView.m; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortView.m; sourceTree = "<group>"; };
+		AD1B64046079950B084B117EAEE63809 /* CGXCategoryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryView.h; path = CGXCategoryView/CGXCategoryView.h; sourceTree = "<group>"; };
+		AF55D012A19B863962F704FF3CBA699F /* CGXCategoryIndicatorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorComponentView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorComponentView.m; sourceTree = "<group>"; };
+		AF560CC5E5FBB42EAE69279378B0A908 /* CGXCategoryTitleVerticalZoomView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleVerticalZoomView.h; path = CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomView.h; sourceTree = "<group>"; };
+		B968A95B43032442FD419F58DE00BC89 /* CGXCategoryFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryFactory.m; path = CGXCategoryView/Common/CGXCategoryFactory.m; sourceTree = "<group>"; };
+		BBEC027FB836B27BB5EAE0B2A734EED1 /* CGXCategoryIndicatorImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorImageView.m; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorImageView.m; sourceTree = "<group>"; };
+		BCD4ABB416EB30E24CEED353130C8551 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "CGXCategoryView-OC.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE7BD389166851E14786D56BFC72C993 /* CGXCategoryIndicatorImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorImageView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorImageView.h; sourceTree = "<group>"; };
+		C495D8E02D08ABB2D26ECB0163DB2FD2 /* CGXCategoryIndicatorCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorCellModel.h; path = CGXCategoryView/Indicator/CGXCategoryIndicatorCellModel.h; sourceTree = "<group>"; };
+		C6AC2D47083CEDCD10DA65B61F891951 /* CGXCategorySegmentedTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategorySegmentedTitleView.m; path = CGXCategoryView/Segmented/CGXCategorySegmentedTitleView.m; sourceTree = "<group>"; };
+		C782BDCDDEC848D81C411AB3533B6148 /* CGXCategoryTitleCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleCellModel.m; path = CGXCategoryView/Title/CGXCategoryTitleCellModel.m; sourceTree = "<group>"; };
+		C9A451094F19BBE07526949E499B011A /* CGXCategoryIndicatorParamsModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryIndicatorParamsModel.m; path = CGXCategoryView/Common/CGXCategoryIndicatorParamsModel.m; sourceTree = "<group>"; };
+		C9D9649EFA7EC572D1FF6B7F6123C09D /* CGXCategoryTitleAttributeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleAttributeView.m; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeView.m; sourceTree = "<group>"; };
+		C9F73CDBCA02AC64072F19232D83C64A /* CGXCategoryGradientView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryGradientView.m; path = CGXCategoryView/Common/CGXCategoryGradientView.m; sourceTree = "<group>"; };
+		CB5647E11BAB9A3FA1F9F57E4C8A78DD /* CGXCategoryListContainerViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryListContainerViewDelegate.h; path = CGXCategoryView/ListContainer/CGXCategoryListContainerViewDelegate.h; sourceTree = "<group>"; };
+		CC58D955409486FD34A933013D3B33B8 /* CGXCategoryTitleFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleFactory.m; path = CGXCategoryView/MenuView/CGXCategoryTitleFactory.m; sourceTree = "<group>"; };
+		CCE7B50EBD4BE3A31CAF12F24D6C7F01 /* CGXCategoryBadgeCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryBadgeCell.m; path = CGXCategoryView/Badge/CGXCategoryBadgeCell.m; sourceTree = "<group>"; };
+		D0A59203ED9F1D25DFF28025D5706CB7 /* CGXCategoryDotCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryDotCellModel.m; path = CGXCategoryView/Dot/CGXCategoryDotCellModel.m; sourceTree = "<group>"; };
+		D2D4AA7E76AD945228A01954B0853C55 /* CGXCategoryIndicatorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorCell.h; path = CGXCategoryView/Indicator/CGXCategoryIndicatorCell.h; sourceTree = "<group>"; };
+		D30A9B8E2655B4B72AE83489A34ABC0D /* CGXCategoryGradientView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryGradientView.h; path = CGXCategoryView/Common/CGXCategoryGradientView.h; sourceTree = "<group>"; };
+		D46840244174D8915BEE176D89EA461C /* CGXCategoryTitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleCell.m; path = CGXCategoryView/Title/CGXCategoryTitleCell.m; sourceTree = "<group>"; };
+		D78C2B9A9EC8C334E7F065F062BD7E11 /* UIColor+CGXCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CGXCategory.m"; path = "CGXCategoryView/Common/UIColor+CGXCategory.m"; sourceTree = "<group>"; };
+		D87E0A0F93B969267E0254446563A3BF /* CGXCategoryTitleAttributeCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleAttributeCell.h; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeCell.h; sourceTree = "<group>"; };
+		DAF04375CC9D1D409607F66F028E4E10 /* CGXCategoryIndicatorBallView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorBallView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorBallView.h; sourceTree = "<group>"; };
+		DBBDFC3853A62B4AA6835BD340ACBED4 /* CGXCategoryTitleImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleImageCell.h; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageCell.h; sourceTree = "<group>"; };
+		DC49A1F687477C94B4DD60FFA513A24F /* CGXCategoryTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleView.h; path = CGXCategoryView/Title/CGXCategoryTitleView.h; sourceTree = "<group>"; };
+		DDF4AFE18DB3FD57674B1369F0551FF7 /* CGXCategoryFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryFactory.h; path = CGXCategoryView/Common/CGXCategoryFactory.h; sourceTree = "<group>"; };
+		DF68DDA0E0081448E44C3AA9FBBE462F /* CGXCategoryIndicatorLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorLineView.h; path = CGXCategoryView/IndicatorViews/CGXCategoryIndicatorLineView.h; sourceTree = "<group>"; };
+		DFA9836DCC025FF1820CC6C84AF54933 /* CGXCategoryImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryImageView.h; path = CGXCategoryView/Image/CGXCategoryImageView.h; sourceTree = "<group>"; };
+		E7C0E1F1F117F50DB31BADD36DC67CD0 /* CGXCategoryBaseCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryBaseCell.h; path = CGXCategoryView/Base/CGXCategoryBaseCell.h; sourceTree = "<group>"; };
+		E8F4C5FFA3B99C15C2DD147F7EB447DD /* CGXCategoryTitleAttributeCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleAttributeCellModel.h; path = CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeCellModel.h; sourceTree = "<group>"; };
+		EA72121FB7B22B67C42563848A9DB19F /* CGXCategoryListContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryListContainerView.h; path = CGXCategoryView/ListContainer/CGXCategoryListContainerView.h; sourceTree = "<group>"; };
+		EAD2608243E0AA8AD6B0C099FC9256D2 /* CGXCategoryIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorView.h; path = CGXCategoryView/Indicator/CGXCategoryIndicatorView.h; sourceTree = "<group>"; };
+		ED49A0AA43AA4623F6ECD9856B42DDA3 /* CGXCategorySegmentedTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategorySegmentedTitleView.h; path = CGXCategoryView/Segmented/CGXCategorySegmentedTitleView.h; sourceTree = "<group>"; };
+		EF271700AA5D36C8CC71EB94E91BB8BA /* CGXCategoryIndicatorParamsModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryIndicatorParamsModel.h; path = CGXCategoryView/Common/CGXCategoryIndicatorParamsModel.h; sourceTree = "<group>"; };
+		F09FD9A1BE67AAF91E5227E4405D40D9 /* CGXCategoryViewAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryViewAnimator.m; path = CGXCategoryView/Common/CGXCategoryViewAnimator.m; sourceTree = "<group>"; };
+		F0EC8252EF059972487B5D160870B3B7 /* CGXCategoryTitleSortView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSortView.h; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortView.h; sourceTree = "<group>"; };
+		F173D357D8C087ADE3D3EF759A02B08D /* CGXCategoryListContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryListContainerView.m; path = CGXCategoryView/ListContainer/CGXCategoryListContainerView.m; sourceTree = "<group>"; };
+		F267020897B3D32B0CC1C97EF59404F0 /* CGXCategoryTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleView.m; path = CGXCategoryView/Title/CGXCategoryTitleView.m; sourceTree = "<group>"; };
+		F4619CB6D1F502D32D041AA613EDBFCA /* CGXCategoryTitleImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCategoryTitleImageView.m; path = CGXCategoryView/TitleImage/CGXCategoryTitleImageView.m; sourceTree = "<group>"; };
+		F86F85E9DAFC82808E7EA699B788F9DC /* CGXCategoryTitleSortCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCategoryTitleSortCell.h; path = CGXCategoryView/TitleSortView/CGXCategoryTitleSortCell.h; sourceTree = "<group>"; };
+		FB69A1CC63E085798BA684649D58BBF2 /* UIColor+CGXCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+CGXCategory.h"; path = "CGXCategoryView/Common/UIColor+CGXCategory.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		238D95BEA7F8182C18649E28A3BBEB33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FF84EA951477D9CBDE76E0D06CCF198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		054DBDB5B658510B732BEBDB7BB7F1D9 /* CGXCategoryView-OC */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B64046079950B084B117EAEE63809 /* CGXCategoryView.h */,
+				4F59F2CB5779C82FF9885F9512647233 /* Badge */,
+				B3E2F3E7AE2D5967FB1B3ED75158DDDA /* Base */,
+				E2D02CFA713B133622628F3B49E47C10 /* Common */,
+				52E6ECE2431C152E853435447984C1F9 /* Dot */,
+				4933733B4B2958D6F587F50657E45587 /* Image */,
+				D1D83FE6E38D6FCE0C19E633817BE455 /* Indicator */,
+				8B3A41B2E4B0BB58A33B20A0862869E7 /* IndicatorViews */,
+				388B56CDB43B2716AAB9F8EF8E47B75C /* ListContainer */,
+				461B58AB1948960B81FF32989EB4FD41 /* MenuView */,
+				14CDF2B0A20174AF8D7EB9E6D7D82010 /* Pod */,
+				C6EBDB09858E4E88C9055581606B112B /* Segmented */,
+				A8EFC9C4131CD7E8B3F4CAA466CC588D /* Support Files */,
+				9B99738F1D693A6E6F056F0C584F1E51 /* Title */,
+				EB8FBC3575A72E062C8A0A2740EFECDD /* TitleAttribute */,
+				13AF4339E2FF4C9CD8451B6E3847580A /* TitleImage */,
+				581E1D6810F8EFEAECFDDD7766069380 /* TitleSortView */,
+				DA5177F59C8D5749DE83E907D345D58D /* TitleSubtitleView */,
+				5896B24F94E17DF30FF18286239B0D23 /* VerticalZoomTitle */,
+			);
+			name = "CGXCategoryView-OC";
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		13AF4339E2FF4C9CD8451B6E3847580A /* TitleImage */ = {
+			isa = PBXGroup;
+			children = (
+				DBBDFC3853A62B4AA6835BD340ACBED4 /* CGXCategoryTitleImageCell.h */,
+				9FCA92627AD4401ABCF2877DC668DA78 /* CGXCategoryTitleImageCell.m */,
+				6D3F790449DB958DCDA1844A3C760983 /* CGXCategoryTitleImageCellModel.h */,
+				579ADE8BA633AF01BE8972080AD21043 /* CGXCategoryTitleImageCellModel.m */,
+				78209CE9E5B8B34E743E5AADE8C96AFB /* CGXCategoryTitleImageView.h */,
+				F4619CB6D1F502D32D041AA613EDBFCA /* CGXCategoryTitleImageView.m */,
+			);
+			name = TitleImage;
+			sourceTree = "<group>";
+		};
+		14CDF2B0A20174AF8D7EB9E6D7D82010 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4ABB416EB30E24CEED353130C8551 /* CGXCategoryView-OC.podspec */,
+				789C48284066B5E042FAF8D25A26143B /* LICENSE */,
+				1AB91DE59105E1F9B4791007857D7559 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		388B56CDB43B2716AAB9F8EF8E47B75C /* ListContainer */ = {
+			isa = PBXGroup;
+			children = (
+				EA72121FB7B22B67C42563848A9DB19F /* CGXCategoryListContainerView.h */,
+				F173D357D8C087ADE3D3EF759A02B08D /* CGXCategoryListContainerView.m */,
+				45B4A7FAE57FE950A789FE4876D83EFE /* CGXCategoryListContainerViewDataSource.h */,
+				CB5647E11BAB9A3FA1F9F57E4C8A78DD /* CGXCategoryListContainerViewDelegate.h */,
+				01FDE4F798B4D78AF97CD110398D6D10 /* CGXCategoryListContainerViewScrollDelegate.h */,
+			);
+			name = ListContainer;
+			sourceTree = "<group>";
+		};
+		461B58AB1948960B81FF32989EB4FD41 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				5C3CCA47D4BC84FB2FF1E34BFC66BA4C /* CGXCategoryTitleFactory.h */,
+				CC58D955409486FD34A933013D3B33B8 /* CGXCategoryTitleFactory.m */,
+				4FF6B9F904CE79FCD4F1B15E4F9362A2 /* CGXCategoryTitleMenuVCDelegate.h */,
+				62F3CD0C0D15C9FCDC3073C8AC6774DD /* CGXCategoryTitleMenuView.h */,
+				381A9103E77BD2D35E7A984BFA2A3916 /* CGXCategoryTitleMenuView.m */,
+			);
+			name = MenuView;
+			sourceTree = "<group>";
+		};
+		4933733B4B2958D6F587F50657E45587 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				57DCD48CCD35D9A1EBA8B75F750D354D /* CGXCategoryImageCell.h */,
+				57F3E4B2F0486D66343BDBFAA520291E /* CGXCategoryImageCell.m */,
+				13445CBF567F63D9B53AEAA97EAC6C05 /* CGXCategoryImageCellModel.h */,
+				7D078C7E9CDDFE8E4C013BF4642EBC86 /* CGXCategoryImageCellModel.m */,
+				DFA9836DCC025FF1820CC6C84AF54933 /* CGXCategoryImageView.h */,
+				070BDBD191B8BAE80C5F0D8A1523DA35 /* CGXCategoryImageView.m */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		4F59F2CB5779C82FF9885F9512647233 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				5853DD349ADE0238C9B65A43F8713C4D /* CGXCategoryBadgeCell.h */,
+				CCE7B50EBD4BE3A31CAF12F24D6C7F01 /* CGXCategoryBadgeCell.m */,
+				37359CDEBC9E3A028069574DAFC5F10A /* CGXCategoryBadgeCellModel.h */,
+				11FA86A00095F07E9A6C68B53EBD85AD /* CGXCategoryBadgeCellModel.m */,
+				3A39F2B17F8859CBD2E51B8CBA654F80 /* CGXCategoryBadgeView.h */,
+				418A77298FF5E415F9807D4F90F6D83F /* CGXCategoryBadgeView.m */,
+			);
+			name = Badge;
+			sourceTree = "<group>";
+		};
+		52E6ECE2431C152E853435447984C1F9 /* Dot */ = {
+			isa = PBXGroup;
+			children = (
+				0201507AA620FB17C14259E60D227322 /* CGXCategoryDotCell.h */,
+				73F22F7F30BBC4F1E9CA30BCF1E2F9C6 /* CGXCategoryDotCell.m */,
+				A5BE3329C5B09203A9C2AAEF66DD47BB /* CGXCategoryDotCellModel.h */,
+				D0A59203ED9F1D25DFF28025D5706CB7 /* CGXCategoryDotCellModel.m */,
+				3BD1562813EC3CCCF2B0169B3A294196 /* CGXCategoryDotView.h */,
+				38D14A0D02462BC04493A1AC78768742 /* CGXCategoryDotView.m */,
+			);
+			name = Dot;
+			sourceTree = "<group>";
+		};
+		532D1D45318373FCD837CCE4A748C9E5 /* Pods-CGXCategoryView-OC */ = {
+			isa = PBXGroup;
+			children = (
+				6D222C9619B9C8646D7F3B01FE4F88BF /* Pods-CGXCategoryView-OC-acknowledgements.markdown */,
+				1AB4B470B18E0576369C1CE5A8D59614 /* Pods-CGXCategoryView-OC-acknowledgements.plist */,
+				234A2C14900416A1214B42F505C60F34 /* Pods-CGXCategoryView-OC-dummy.m */,
+				2A39467C8E482C7E65B9854723D81BAE /* Pods-CGXCategoryView-OC.debug.xcconfig */,
+				395A917AC7BCC7C20C2BDABD90B159FF /* Pods-CGXCategoryView-OC.release.xcconfig */,
+			);
+			name = "Pods-CGXCategoryView-OC";
+			path = "Target Support Files/Pods-CGXCategoryView-OC";
+			sourceTree = "<group>";
+		};
+		581E1D6810F8EFEAECFDDD7766069380 /* TitleSortView */ = {
+			isa = PBXGroup;
+			children = (
+				F86F85E9DAFC82808E7EA699B788F9DC /* CGXCategoryTitleSortCell.h */,
+				35E57EFEEB35468266952C684AE80804 /* CGXCategoryTitleSortCell.m */,
+				7FB877CB01FD3E098BEDAE5B517C49A1 /* CGXCategoryTitleSortCellModel.h */,
+				2B70392900DDCE281E6365F945D65DB0 /* CGXCategoryTitleSortCellModel.m */,
+				F0EC8252EF059972487B5D160870B3B7 /* CGXCategoryTitleSortView.h */,
+				AAA240EE626236FF00D7AAF7E0390BDE /* CGXCategoryTitleSortView.m */,
+			);
+			name = TitleSortView;
+			sourceTree = "<group>";
+		};
+		5896B24F94E17DF30FF18286239B0D23 /* VerticalZoomTitle */ = {
+			isa = PBXGroup;
+			children = (
+				494017EB619D21A57ED9F28F3DA8370C /* CGXCategoryTitleVerticalZoomCell.h */,
+				75363E55266B3F77567D34D9A85DC2E9 /* CGXCategoryTitleVerticalZoomCell.m */,
+				034B0EC26BD9490032ACCECA58132BF6 /* CGXCategoryTitleVerticalZoomCellModel.h */,
+				17B97FB7391C697B92FAFFDFE8618899 /* CGXCategoryTitleVerticalZoomCellModel.m */,
+				AF560CC5E5FBB42EAE69279378B0A908 /* CGXCategoryTitleVerticalZoomView.h */,
+				942C0910D2C126E0DC94FAB6FFA1A8C7 /* CGXCategoryTitleVerticalZoomView.m */,
+			);
+			name = VerticalZoomTitle;
+			sourceTree = "<group>";
+		};
+		6B6AFD9FFF55E1C5FA7780F7E2CFE64F /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				532D1D45318373FCD837CCE4A748C9E5 /* Pods-CGXCategoryView-OC */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6C981E7C5FE854B48F44CCFEBE4584AA /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				054DBDB5B658510B732BEBDB7BB7F1D9 /* CGXCategoryView-OC */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		8B3A41B2E4B0BB58A33B20A0862869E7 /* IndicatorViews */ = {
+			isa = PBXGroup;
+			children = (
+				2F0FE458B66893834078FA3C05C7B17B /* CGXCategoryIndicatorBackgroundView.h */,
+				88CFA85E4990B3D781BDBC39C6DF3344 /* CGXCategoryIndicatorBackgroundView.m */,
+				DAF04375CC9D1D409607F66F028E4E10 /* CGXCategoryIndicatorBallView.h */,
+				26A999954B8D516EC1303E815DF2BC8D /* CGXCategoryIndicatorBallView.m */,
+				3409175A07643A997C63549CFB102B45 /* CGXCategoryIndicatorComponentView.h */,
+				AF55D012A19B863962F704FF3CBA699F /* CGXCategoryIndicatorComponentView.m */,
+				583D46048941DF9744F62A5BE358DC94 /* CGXCategoryIndicatorDotLineView.h */,
+				0A24D4B09DED67D6A9786042752714CC /* CGXCategoryIndicatorDotLineView.m */,
+				BE7BD389166851E14786D56BFC72C993 /* CGXCategoryIndicatorImageView.h */,
+				BBEC027FB836B27BB5EAE0B2A734EED1 /* CGXCategoryIndicatorImageView.m */,
+				DF68DDA0E0081448E44C3AA9FBBE462F /* CGXCategoryIndicatorLineView.h */,
+				8C8214132540178A756432B292A9A5FF /* CGXCategoryIndicatorLineView.m */,
+				51D9400B1321ED485CF45307D69AEF5A /* CGXCategoryIndicatorRainbowLineView.h */,
+				295DDE2F1C76D8E5AE5F4DA3302396DB /* CGXCategoryIndicatorRainbowLineView.m */,
+				06C8759A87C6BE9D9C6DCAE8D5DA0F74 /* CGXCategoryIndicatorTriangleView.h */,
+				50E0C0CBA6175461608F322EFA622187 /* CGXCategoryIndicatorTriangleView.m */,
+			);
+			name = IndicatorViews;
+			sourceTree = "<group>";
+		};
+		9408949CB0EB4A11DFD7E09A9A1156FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CAEE483709275FF73095ACC87408658 /* libCGXCategoryView-OC.a */,
+				3B7FB71EB64B862ADC9CAD7DB86BCF2B /* libPods-CGXCategoryView-OC.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B99738F1D693A6E6F056F0C584F1E51 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				9386F41D58FDDC13B46AA4FDD9E5B9A1 /* CGXCategoryTitleCell.h */,
+				D46840244174D8915BEE176D89EA461C /* CGXCategoryTitleCell.m */,
+				7B3F533754F6501F1ED14992FF21F386 /* CGXCategoryTitleCellModel.h */,
+				C782BDCDDEC848D81C411AB3533B6148 /* CGXCategoryTitleCellModel.m */,
+				DC49A1F687477C94B4DD60FFA513A24F /* CGXCategoryTitleView.h */,
+				F267020897B3D32B0CC1C97EF59404F0 /* CGXCategoryTitleView.m */,
+			);
+			name = Title;
+			sourceTree = "<group>";
+		};
+		A8EFC9C4131CD7E8B3F4CAA466CC588D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				87A79DC12EA7AABFF32F26C1C85299F2 /* CGXCategoryView-OC-dummy.m */,
+				99C8A41EE74C9FD4354170A14EDA7021 /* CGXCategoryView-OC-prefix.pch */,
+				A4E80E0FEBB90EEE0E80012D30ABCEED /* CGXCategoryView-OC.debug.xcconfig */,
+				08B7424FE6A04FFC245B9CAD6BB882DB /* CGXCategoryView-OC.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "CGXCategoryView-OC/Pods/Target Support Files/CGXCategoryView-OC";
+			sourceTree = "<group>";
+		};
+		B3E2F3E7AE2D5967FB1B3ED75158DDDA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E7C0E1F1F117F50DB31BADD36DC67CD0 /* CGXCategoryBaseCell.h */,
+				A2B53768C7418F89C7BC9B83C40F232D /* CGXCategoryBaseCell.m */,
+				A86D4568D6ECBA228BF9FAC82EEB0F0C /* CGXCategoryBaseCellModel.h */,
+				714837F0EF935007F3075B473E43C182 /* CGXCategoryBaseCellModel.m */,
+				866ACB0A50BE099BAE3EE02985C8EAA7 /* CGXCategoryBaseView.h */,
+				70A937B6D6F38FD7A8E3043A53E1D7CD /* CGXCategoryBaseView.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		C6EBDB09858E4E88C9055581606B112B /* Segmented */ = {
+			isa = PBXGroup;
+			children = (
+				ED49A0AA43AA4623F6ECD9856B42DDA3 /* CGXCategorySegmentedTitleView.h */,
+				C6AC2D47083CEDCD10DA65B61F891951 /* CGXCategorySegmentedTitleView.m */,
+			);
+			name = Segmented;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				6C981E7C5FE854B48F44CCFEBE4584AA /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				9408949CB0EB4A11DFD7E09A9A1156FF /* Products */,
+				6B6AFD9FFF55E1C5FA7780F7E2CFE64F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D1D83FE6E38D6FCE0C19E633817BE455 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				D2D4AA7E76AD945228A01954B0853C55 /* CGXCategoryIndicatorCell.h */,
+				56873DDB9E4851BD9FD1C9BFA243D496 /* CGXCategoryIndicatorCell.m */,
+				C495D8E02D08ABB2D26ECB0163DB2FD2 /* CGXCategoryIndicatorCellModel.h */,
+				826840BA8B432F559435015C758AB261 /* CGXCategoryIndicatorCellModel.m */,
+				EAD2608243E0AA8AD6B0C099FC9256D2 /* CGXCategoryIndicatorView.h */,
+				0C80256967E0C13584C1BC834F5AF0B8 /* CGXCategoryIndicatorView.m */,
+			);
+			name = Indicator;
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA5177F59C8D5749DE83E907D345D58D /* TitleSubtitleView */ = {
+			isa = PBXGroup;
+			children = (
+				7B2304A6B5C3EE421ABCAB7170EDF822 /* CGXCategoryTitleSubtitleCell.h */,
+				767CA33982213C7392D4308D934CA200 /* CGXCategoryTitleSubtitleCell.m */,
+				1360D949D6E131AB1CB41EAE9CD038F1 /* CGXCategoryTitleSubtitleCellModel.h */,
+				271DAEE2D0CB7BEE578824EE680302C9 /* CGXCategoryTitleSubtitleCellModel.m */,
+				2786DFA083B12D283F25EC7A163157BC /* CGXCategoryTitleSubtitleView.h */,
+				3A073ED05CC76E4AAEC9E2827C3D5678 /* CGXCategoryTitleSubtitleView.m */,
+			);
+			name = TitleSubtitleView;
+			sourceTree = "<group>";
+		};
+		E2D02CFA713B133622628F3B49E47C10 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6B68F1AF0E4F83BD3DC7F7DCE5A81C51 /* CGXCategoryCollectionView.h */,
+				885CA8A0A7F32B70952C81860A84BD24 /* CGXCategoryCollectionView.m */,
+				DDF4AFE18DB3FD57674B1369F0551FF7 /* CGXCategoryFactory.h */,
+				B968A95B43032442FD419F58DE00BC89 /* CGXCategoryFactory.m */,
+				D30A9B8E2655B4B72AE83489A34ABC0D /* CGXCategoryGradientView.h */,
+				C9F73CDBCA02AC64072F19232D83C64A /* CGXCategoryGradientView.m */,
+				EF271700AA5D36C8CC71EB94E91BB8BA /* CGXCategoryIndicatorParamsModel.h */,
+				C9A451094F19BBE07526949E499B011A /* CGXCategoryIndicatorParamsModel.m */,
+				913F4770181CAFE1AF17929C68B8EBE2 /* CGXCategoryIndicatorProtocol.h */,
+				6D9298061FC1C93DFD3A84B2EE644834 /* CGXCategoryTitleBadgeModel.h */,
+				36A7C66D36F71FC6BED309DF26BA6FA9 /* CGXCategoryTitleBadgeModel.m */,
+				27C36B38D1194FC24EDEDD2A3B7B50D4 /* CGXCategoryViewAnimator.h */,
+				F09FD9A1BE67AAF91E5227E4405D40D9 /* CGXCategoryViewAnimator.m */,
+				8D7D2F2D8AD990E38746D722EF271547 /* CGXCategoryViewDefines.h */,
+				FB69A1CC63E085798BA684649D58BBF2 /* UIColor+CGXCategory.h */,
+				D78C2B9A9EC8C334E7F065F062BD7E11 /* UIColor+CGXCategory.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		EB8FBC3575A72E062C8A0A2740EFECDD /* TitleAttribute */ = {
+			isa = PBXGroup;
+			children = (
+				D87E0A0F93B969267E0254446563A3BF /* CGXCategoryTitleAttributeCell.h */,
+				16D0D5A2A931BD9B1AE1E536C04FF553 /* CGXCategoryTitleAttributeCell.m */,
+				E8F4C5FFA3B99C15C2DD147F7EB447DD /* CGXCategoryTitleAttributeCellModel.h */,
+				A9516057EE1504EAA831564C9933D94B /* CGXCategoryTitleAttributeCellModel.m */,
+				67E531C2511068F6E145ABFC4A1A4089 /* CGXCategoryTitleAttributeView.h */,
+				C9D9649EFA7EC572D1FF6B7F6123C09D /* CGXCategoryTitleAttributeView.m */,
+			);
+			name = TitleAttribute;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		511A1020140A2EFB26BCD940854C076C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221C2665D595CFAFBD363E63290284D3 /* CGXCategoryBadgeCell.h in Headers */,
+				B1EE35AF78A28945D750781A90A30147 /* CGXCategoryBadgeCellModel.h in Headers */,
+				3FD38ACDF3CB16697FEF49297E12511B /* CGXCategoryBadgeView.h in Headers */,
+				85DEF5267311748C1C5CA27125A7455B /* CGXCategoryBaseCell.h in Headers */,
+				025088461C00351CF7DE744126C3A4FB /* CGXCategoryBaseCellModel.h in Headers */,
+				A145ECCD29C4A7C1A139D0B5A9A0A6BE /* CGXCategoryBaseView.h in Headers */,
+				A6648A927E3FFC2E5D9D550075CB0DE1 /* CGXCategoryCollectionView.h in Headers */,
+				433DA066D9924B8DE134CF9F404FDBA4 /* CGXCategoryDotCell.h in Headers */,
+				9EE6CC5603CA3F03B9D546560D014166 /* CGXCategoryDotCellModel.h in Headers */,
+				92FBF420DFC7D786C433BBD2EC6FE044 /* CGXCategoryDotView.h in Headers */,
+				BE20C19A8C579C766151A4A59868046C /* CGXCategoryFactory.h in Headers */,
+				15599F26D11BB0F9BA77678DCDF9BAA6 /* CGXCategoryGradientView.h in Headers */,
+				542BFDB36DE471DA8F1F251A11ED1760 /* CGXCategoryImageCell.h in Headers */,
+				82354B5056D3632E049786E86CF64321 /* CGXCategoryImageCellModel.h in Headers */,
+				0D39B266ECE6E024393E4D231856FBC6 /* CGXCategoryImageView.h in Headers */,
+				6CC244BFD797F826EB12832694F6F667 /* CGXCategoryIndicatorBackgroundView.h in Headers */,
+				15B2FBF6C6C9A90B8FFD15C0F021D3A5 /* CGXCategoryIndicatorBallView.h in Headers */,
+				FEBBE51B55E4A3D1B2EF6A46777ABEBC /* CGXCategoryIndicatorCell.h in Headers */,
+				DA403C2517183F88DBA2307F26A09AF8 /* CGXCategoryIndicatorCellModel.h in Headers */,
+				E269E5481DAE3BAF20C21D67CBA26D20 /* CGXCategoryIndicatorComponentView.h in Headers */,
+				F3C180F90DABA4A24717F1CA62556F38 /* CGXCategoryIndicatorDotLineView.h in Headers */,
+				AA5164F2E574FB5A8AF22EF01F481FFF /* CGXCategoryIndicatorImageView.h in Headers */,
+				9F666A46ADBA698EAD57E9BAC1193AA3 /* CGXCategoryIndicatorLineView.h in Headers */,
+				5A3A9B94D4A00AD5EFF1F6BFF3FEAE7C /* CGXCategoryIndicatorParamsModel.h in Headers */,
+				4E989207AC358B3D34AAD281EE60C40D /* CGXCategoryIndicatorProtocol.h in Headers */,
+				032ACD5B54B83FD8A440D8B70DA34380 /* CGXCategoryIndicatorRainbowLineView.h in Headers */,
+				B936B0CA243B9692A559ACC7DD852905 /* CGXCategoryIndicatorTriangleView.h in Headers */,
+				631281EC6B79900C7D803C58F9341B72 /* CGXCategoryIndicatorView.h in Headers */,
+				7D3823833456265E0634DE365125403B /* CGXCategoryListContainerView.h in Headers */,
+				4D07D92AE70F4B67C588B5C39E032F00 /* CGXCategoryListContainerViewDataSource.h in Headers */,
+				7A30F824B9662FEEF26AA56A4660C845 /* CGXCategoryListContainerViewDelegate.h in Headers */,
+				C4E60A50845A7BF9B5196B248DF31AA9 /* CGXCategoryListContainerViewScrollDelegate.h in Headers */,
+				62693B9E09328F2127D8E365FD0B1DAE /* CGXCategorySegmentedTitleView.h in Headers */,
+				5BABE8AECF426D630E92C1EE10319BA9 /* CGXCategoryTitleAttributeCell.h in Headers */,
+				F2B22C380DB06E2C6DD6B764507D016E /* CGXCategoryTitleAttributeCellModel.h in Headers */,
+				730725BF72B1EAE5643D7939383A455E /* CGXCategoryTitleAttributeView.h in Headers */,
+				A0BF947F9C01C725A3C1C7558E9FF1FA /* CGXCategoryTitleBadgeModel.h in Headers */,
+				921D0DB70B861EF5BC2F7C0B40EC1592 /* CGXCategoryTitleCell.h in Headers */,
+				B3C7CBB9F6D109236993C31DE072AC6D /* CGXCategoryTitleCellModel.h in Headers */,
+				EE0E54F593A17758DDCB330C2E3D2423 /* CGXCategoryTitleFactory.h in Headers */,
+				7D69940A70EADA66589BBF0FFE03E532 /* CGXCategoryTitleImageCell.h in Headers */,
+				0B7242CF45A9E4477FF1FC9B84AA8CDB /* CGXCategoryTitleImageCellModel.h in Headers */,
+				25710066B81832607265749FE2E81865 /* CGXCategoryTitleImageView.h in Headers */,
+				9743114CDD6EA4FADAA1BFAAAB980680 /* CGXCategoryTitleMenuVCDelegate.h in Headers */,
+				E72E04ECDE4356E8F44D29F8F5443C09 /* CGXCategoryTitleMenuView.h in Headers */,
+				13F1149F577C2A16CCD0E10987C218B4 /* CGXCategoryTitleSortCell.h in Headers */,
+				88F84FCE3C6701FF34A83C2500216468 /* CGXCategoryTitleSortCellModel.h in Headers */,
+				D31C4FB980B6ED5D2145AA8FBB1253CD /* CGXCategoryTitleSortView.h in Headers */,
+				03DB57C1B0F7FBEA05123DA8ECF7E63E /* CGXCategoryTitleSubtitleCell.h in Headers */,
+				70F0EE46ABE0BD280944BB8C0DB73148 /* CGXCategoryTitleSubtitleCellModel.h in Headers */,
+				ED3BD5721895688634DFC48456794305 /* CGXCategoryTitleSubtitleView.h in Headers */,
+				692C522107CAA083A67F28925D38ABD2 /* CGXCategoryTitleVerticalZoomCell.h in Headers */,
+				4495C3AE2A774DE6B642A5DCB6D466ED /* CGXCategoryTitleVerticalZoomCellModel.h in Headers */,
+				BB3E65793203A3ED10D95E122349649D /* CGXCategoryTitleVerticalZoomView.h in Headers */,
+				49FA69CD3B2CCA25A758F41E65F644F6 /* CGXCategoryTitleView.h in Headers */,
+				F08F3741278BE4B8D1A1A4D360B321A8 /* CGXCategoryView.h in Headers */,
+				F42131D4CB7771F940AC5F4F260C8CA9 /* CGXCategoryViewAnimator.h in Headers */,
+				15A0A8D29554AF07415F50E470954F9D /* CGXCategoryViewDefines.h in Headers */,
+				9D4BF1EC6AD601E79767A528A9AF4F83 /* UIColor+CGXCategory.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B60BDEC74A366F39403413395A715B00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3DDB0E8D41EACCD8DE6490FD840DB13E /* CGXCategoryView-OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0991F84B38D881C7D91FC43D97104D34 /* Build configuration list for PBXNativeTarget "CGXCategoryView-OC" */;
+			buildPhases = (
+				511A1020140A2EFB26BCD940854C076C /* Headers */,
+				69C1051C67BE743105DF926DDA39DE4B /* Sources */,
+				8FF84EA951477D9CBDE76E0D06CCF198 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CGXCategoryView-OC";
+			productName = "CGXCategoryView-OC";
+			productReference = 1CAEE483709275FF73095ACC87408658 /* libCGXCategoryView-OC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6D5256EFBD1EBBBA368EB513ECAEDB88 /* Pods-CGXCategoryView-OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 965F30B47343190439BD082950DFFE5D /* Build configuration list for PBXNativeTarget "Pods-CGXCategoryView-OC" */;
+			buildPhases = (
+				B60BDEC74A366F39403413395A715B00 /* Headers */,
+				7DBBE5D84A9C0266A998451324899B59 /* Sources */,
+				238D95BEA7F8182C18649E28A3BBEB33 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4C8DA82FFD0F3D2AE9BD6187ED72C85 /* PBXTargetDependency */,
+			);
+			name = "Pods-CGXCategoryView-OC";
+			productName = "Pods-CGXCategoryView-OC";
+			productReference = 3B7FB71EB64B862ADC9CAD7DB86BCF2B /* libPods-CGXCategoryView-OC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 9408949CB0EB4A11DFD7E09A9A1156FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DDB0E8D41EACCD8DE6490FD840DB13E /* CGXCategoryView-OC */,
+				6D5256EFBD1EBBBA368EB513ECAEDB88 /* Pods-CGXCategoryView-OC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69C1051C67BE743105DF926DDA39DE4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ED1EC244804CFE7CE148F1ACD9CD8B4 /* CGXCategoryBadgeCell.m in Sources */,
+				4FE425597290AAE3EEF8572EE9642778 /* CGXCategoryBadgeCellModel.m in Sources */,
+				27AB6DED39D54C32A6165B3CC173FAFC /* CGXCategoryBadgeView.m in Sources */,
+				9D5CFF81F893B6E486A75CE5259129A4 /* CGXCategoryBaseCell.m in Sources */,
+				8956F60E713AE870F101C352354A35A2 /* CGXCategoryBaseCellModel.m in Sources */,
+				45C3C07785CB7DD2B272202E726FE5B1 /* CGXCategoryBaseView.m in Sources */,
+				C3F03C75C2E9A1004C2FB0269E39544B /* CGXCategoryCollectionView.m in Sources */,
+				7CB1F577BD3FF5731ADE56791B4970E5 /* CGXCategoryDotCell.m in Sources */,
+				4D838FD53F028A568CDEBDD6BA06673D /* CGXCategoryDotCellModel.m in Sources */,
+				62288B99D951B49A6DBDF276675945D8 /* CGXCategoryDotView.m in Sources */,
+				6BE47506F45BE374F96548A2153E37A7 /* CGXCategoryFactory.m in Sources */,
+				3543D52D2EBC1EDFDA56E9B82B8F6C47 /* CGXCategoryGradientView.m in Sources */,
+				5DFA1C1A2D10DC16BBEB6A8E1B7B4D00 /* CGXCategoryImageCell.m in Sources */,
+				08448EFC15C68C3D6831072666BA5959 /* CGXCategoryImageCellModel.m in Sources */,
+				C3E24438DE096E1AF5B1331DAF79E995 /* CGXCategoryImageView.m in Sources */,
+				21CCE771D20995E3D8C8E80098579AF4 /* CGXCategoryIndicatorBackgroundView.m in Sources */,
+				F29A963CB85FC311D64539AFB6BCAEAD /* CGXCategoryIndicatorBallView.m in Sources */,
+				68C8EC1CB52DDA47F5894AB74FEDB328 /* CGXCategoryIndicatorCell.m in Sources */,
+				D260E673AC04CA8AA2C3192877CC2A4D /* CGXCategoryIndicatorCellModel.m in Sources */,
+				F6BCB66540B6DC5107ED52ABE55AE95B /* CGXCategoryIndicatorComponentView.m in Sources */,
+				E6D8723CFD63E8AE3DCFBF77F2BCA7E3 /* CGXCategoryIndicatorDotLineView.m in Sources */,
+				84A7B3DB798B360FC44CE2014ECBD9A6 /* CGXCategoryIndicatorImageView.m in Sources */,
+				CA474DAD8736B4D90FBB89E0404504EA /* CGXCategoryIndicatorLineView.m in Sources */,
+				1191D33671193E2928A9861FDFD232D3 /* CGXCategoryIndicatorParamsModel.m in Sources */,
+				3A7BA9743BE4F86C2398643B8A043484 /* CGXCategoryIndicatorRainbowLineView.m in Sources */,
+				3FB9270A0FC181EFCE6507E656A8FFC5 /* CGXCategoryIndicatorTriangleView.m in Sources */,
+				DA3587D481527030395FCAC672200873 /* CGXCategoryIndicatorView.m in Sources */,
+				2469C8C37CE8B8D1A204C6D1BCB08871 /* CGXCategoryListContainerView.m in Sources */,
+				2045338E956DCE741212841C997AD622 /* CGXCategorySegmentedTitleView.m in Sources */,
+				3809223892767056369B3547BA115D66 /* CGXCategoryTitleAttributeCell.m in Sources */,
+				DE68B6E8284EFD9C0FC99A15473190C3 /* CGXCategoryTitleAttributeCellModel.m in Sources */,
+				7074431721B29AF42D77587DBDE52147 /* CGXCategoryTitleAttributeView.m in Sources */,
+				0443FB135FEF436F7DF573C372AD3170 /* CGXCategoryTitleBadgeModel.m in Sources */,
+				31B5188BB239BB1D15C6BE7F2BE32413 /* CGXCategoryTitleCell.m in Sources */,
+				ABF96C60833A34E0604B12D6774B7A48 /* CGXCategoryTitleCellModel.m in Sources */,
+				8BB61F8A34BC979156E4C2CED41A78CC /* CGXCategoryTitleFactory.m in Sources */,
+				C292E85AA5FFA13C1F7856BA92142AF8 /* CGXCategoryTitleImageCell.m in Sources */,
+				76FA3F40DD4BAD609D542ABE857CE8B8 /* CGXCategoryTitleImageCellModel.m in Sources */,
+				D804540530800AD974B96A3B37C57BD1 /* CGXCategoryTitleImageView.m in Sources */,
+				CA6E63B32ED3281CFB575A928FD873DE /* CGXCategoryTitleMenuView.m in Sources */,
+				3123A80E0FAB42D3E052ECD0BE1B8231 /* CGXCategoryTitleSortCell.m in Sources */,
+				951C191E7F490C603BAAA79FFBDC5CF3 /* CGXCategoryTitleSortCellModel.m in Sources */,
+				6BDB9723D9642922316D9566795AFC30 /* CGXCategoryTitleSortView.m in Sources */,
+				9627D5F8AA332F57F1915859A73E1648 /* CGXCategoryTitleSubtitleCell.m in Sources */,
+				0BE1B977DAB65076845C72814FF04835 /* CGXCategoryTitleSubtitleCellModel.m in Sources */,
+				6DDF51B05323DF2243676A4411EC4B30 /* CGXCategoryTitleSubtitleView.m in Sources */,
+				446656CC0D8E1F1CEDC0A88A00E68013 /* CGXCategoryTitleVerticalZoomCell.m in Sources */,
+				2FCBA3F36E8057949564FFF7C6EC0E1B /* CGXCategoryTitleVerticalZoomCellModel.m in Sources */,
+				8774BAF24EB859E6067BC0CA095D9EC3 /* CGXCategoryTitleVerticalZoomView.m in Sources */,
+				DDF1780660FDC97198FD4873CC64963D /* CGXCategoryTitleView.m in Sources */,
+				B348B10207CD72ED3B8348AE509697BC /* CGXCategoryView-OC-dummy.m in Sources */,
+				A43BBE785254D6A9055627976B475364 /* CGXCategoryViewAnimator.m in Sources */,
+				CE963444D6D4CE2289E06A48DD09CE89 /* UIColor+CGXCategory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DBBE5D84A9C0266A998451324899B59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2AF844FB31E58E04020CF3008522C19 /* Pods-CGXCategoryView-OC-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4C8DA82FFD0F3D2AE9BD6187ED72C85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CGXCategoryView-OC";
+			target = 3DDB0E8D41EACCD8DE6490FD840DB13E /* CGXCategoryView-OC */;
+			targetProxy = 8BE516B3E2195D72C0817F57AB1DE3F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A6E20943F51DBC41782580F8A18B5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4E80E0FEBB90EEE0E80012D30ABCEED /* CGXCategoryView-OC.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/CGXCategoryView-OC/CGXCategoryView-OC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = CGXCategoryView_OC;
+				PRODUCT_NAME = "CGXCategoryView-OC";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		519604C5FCA7E5C8E3ADAFADB134DDF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A39467C8E482C7E65B9854723D81BAE /* Pods-CGXCategoryView-OC.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B058214DC7724F4A344A4F0369FD839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 395A917AC7BCC7C20C2BDABD90B159FF /* Pods-CGXCategoryView-OC.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C1D21FFA7309ED43CFC61B990FA45AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08B7424FE6A04FFC245B9CAD6BB882DB /* CGXCategoryView-OC.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/CGXCategoryView-OC/CGXCategoryView-OC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = CGXCategoryView_OC;
+				PRODUCT_NAME = "CGXCategoryView-OC";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0991F84B38D881C7D91FC43D97104D34 /* Build configuration list for PBXNativeTarget "CGXCategoryView-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A6E20943F51DBC41782580F8A18B5F9 /* Debug */,
+				C1D21FFA7309ED43CFC61B990FA45AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		965F30B47343190439BD082950DFFE5D /* Build configuration list for PBXNativeTarget "Pods-CGXCategoryView-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				519604C5FCA7E5C8E3ADAFADB134DDF5 /* Debug */,
+				6B058214DC7724F4A344A4F0369FD839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

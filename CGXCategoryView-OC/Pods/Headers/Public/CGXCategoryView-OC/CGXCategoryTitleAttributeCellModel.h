@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/TitleAttribute/CGXCategoryTitleAttributeCellModel.h

@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/Indicator/CGXCategoryIndicatorCellModel.h

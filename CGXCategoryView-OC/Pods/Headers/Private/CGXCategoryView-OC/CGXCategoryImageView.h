@@ -1,0 +1,1 @@
+../../../../../CGXCategoryView/Image/CGXCategoryImageView.h
