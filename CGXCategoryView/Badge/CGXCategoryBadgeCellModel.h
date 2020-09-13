@@ -2,7 +2,7 @@
 //  CGXCategoryBadgeCellModel.h
 //  CGXCategoryView-OC
 //
-//  Created by CGX on 2020/7/7.
+//  Created by CGX on 2020/05/20.
 //
 
 #import "CGXCategoryTitleImageCellModel.h"

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CGXCategoryBaseCell.h"
+
 #import "CGXCategoryBaseCellModel.h"
 #import "CGXCategoryCollectionView.h"
 #import "CGXCategoryViewDefines.h"

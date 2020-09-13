@@ -9,7 +9,7 @@
 #import "CGXCategoryBaseView.h"
 #import "CGXCategoryFactory.h"
 #import "CGXCategoryViewAnimator.h"
-
+#import "CGXCategoryBaseCell.h"
 @interface CGXCategoryBaseView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) CGXCategoryCollectionView *collectionView;

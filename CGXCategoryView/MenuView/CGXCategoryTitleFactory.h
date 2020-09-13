@@ -16,9 +16,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CGXCategoryTitleFactory : NSObject
 
 + (NSMutableAttributedString *)itemWithTitle:(NSString *)title;
-+ (NSMutableAttributedString *)itemWithTitle:(NSString *)title TitleColor:(UIColor *)titleColor;
-+ (NSMutableAttributedString *)itemWithTitle:(NSString *)title TitleColor:(UIColor *)titleColor TitleFont:(UIFont *)titleFont;
-+ (NSMutableAttributedString *)itemWithTitle:(NSString *)title TitleColor:(UIColor *)titleColor TitleFont:(UIFont *)titleFont LineSpacing:(CGFloat)lineSpacing;
+
++ (NSMutableAttributedString *)itemWithTitle:(NSString *)title
+                                  TitleColor:(UIColor *)titleColor;
+
++ (NSMutableAttributedString *)itemWithTitle:(NSString *)title
+                                  TitleColor:(UIColor *)titleColor
+                                   TitleFont:(UIFont *)titleFont;
+
++ (NSMutableAttributedString *)itemWithTitle:(NSString *)title
+                                  TitleColor:(UIColor *)titleColor
+                                   TitleFont:(UIFont *)titleFont
+                                 LineSpacing:(CGFloat)lineSpacing;
 /*
  imageStr :本地图片名称
  width  :图片显示宽度

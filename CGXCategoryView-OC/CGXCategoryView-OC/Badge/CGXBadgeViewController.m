@@ -2,7 +2,7 @@
 //  CGXBadgeViewController.m
 //  CGXCategoryView-OC
 //
-//  Created by CGX on 2020/7/7.
+//  Created by CGX on 2018/05/20.
 //  Copyright © 2020 CGX. All rights reserved.
 //
 
