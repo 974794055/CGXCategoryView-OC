@@ -26,7 +26,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"视频",@"美食",@"新闻",@"搜索",@"全部",@"视频",@"美食",@"新闻",@"搜索",@"全部",nil];
+    NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"全部",@"推荐",@"美食",@"新闻",
+                               @"视频",@"美食",@"新闻",@"搜索",@"全部",
+                               nil];
     NSArray *imageNames = @[@"apple_Noselect",
                             @"apple_Noselect",
                             @"apple_Noselect",
@@ -64,9 +66,9 @@
     self.menuView.categoryViewHeight = 100;
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
     lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
-    lineView.verticalMargin=15;
+    lineView.verticalMargin=0;
     self.menuView.categoryView.indicators = @[lineView];
-    
+
     [self.view addSubview:self.menuView];
     NSMutableArray *vcArr= [NSMutableArray array];
     for (int i = 0; i<titleArr.count; i++) {
@@ -77,28 +79,28 @@
     self.menuView.categoryView.imageNames = imageNames;
     self.menuView.categoryView.selectedImageNames = selectedImageNames;
     self.menuView.categoryView.imageTypes = typesArr;
-    
+
     [self.menuView updateWithTitleArray:titleArr VCArray:vcArr];
-    
-    [self.menuView selectItemAtIndex:2];
-    
+
+
+
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    
+
     CGRect bgImageViewFrame = CGRectMake(0, 0, ScreenWidth, 100);
     UIImageView *bgSelectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
     bgSelectedImageView.contentMode = UIViewContentModeScaleAspectFill;
     bgSelectedImageView.image = [self getImageWithIndex:0];
     [self.menuView.categoryView addSubview:bgSelectedImageView];
-    
+
     UIImageView *bgUnselectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
     bgUnselectedImageView.contentMode = UIViewContentModeScaleAspectFill;
     bgUnselectedImageView.image = [self getImageWithIndex:1];
     [self.menuView.categoryView addSubview:bgUnselectedImageView];
-    
+
     [self.menuView.categoryView sendSubviewToBack:bgSelectedImageView];
     [self.menuView.categoryView sendSubviewToBack:bgUnselectedImageView];
-    
+
     self.bgSelectedImageView = bgSelectedImageView;
     self.bgUnselectedImageView = bgUnselectedImageView;
 }
@@ -138,10 +140,6 @@
     self.bgSelectedImageView.alpha = 1;
     self.bgUnselectedImageView.alpha = 0;
     self.bgSelectedImageView.image = [self getImageWithIndex:index];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
 }
 /*
  #pragma mark - Navigation

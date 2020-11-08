@@ -115,7 +115,7 @@
         
     } else if ([title isEqualToString:@"ImageViewCell背景"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
-        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"light"];
+        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"LaunchScreen"];
         indicatorImageView.indicatorImageViewSize = CGSizeMake(50, 50);
         self.titleCategoryView.indicators = @[indicatorImageView];
     } else if ([title isEqualToString:@"ImageView足球滚动"]){

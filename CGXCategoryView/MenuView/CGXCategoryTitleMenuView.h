@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 默认只有文字 要是有其他属性  可设置
 @property (nonatomic , strong) CGXCategoryTitleImageView *categoryView;
-
 // 外界绑定滚回的视图  设置属性用
 @property (nonatomic , strong) UIScrollView *scrollView;
 

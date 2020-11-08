@@ -29,9 +29,6 @@
 		9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */; };
 		9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */; };
 		9E6D1E6024B4BFEB00C719D3 /* CGXBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */; };
-		9E6D1E6424B4CE8F00C719D3 /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */; };
-		9E6D1E6524B4CE8F00C719D3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6224B4CE8F00C719D3 /* LICENSE */; };
-		9E6D1E6624B4CE8F00C719D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D1E6324B4CE8F00C719D3 /* README.md */; };
 		9E770C96233913120057B1C5 /* CGXTitleSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */; };
 		9E8B490A235AD9F8006BCD88 /* CGXListContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */; };
 		9E8B490D235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B490C235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m */; };
@@ -39,6 +36,9 @@
 		9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4912235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m */; };
 		9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */; };
 		9E924B0924547F510070655E /* CGXTitleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E924B0824547F510070655E /* CGXTitleTwoViewController.m */; };
+		B55DDEFD254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */; };
+		B55DDEFE254B0AB100CAD6A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFB254B0AB100CAD6A9 /* README.md */; };
+		B55DDEFF254B0AB100CAD6A9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFC254B0AB100CAD6A9 /* LICENSE */; };
 		E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */; };
 		E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258D5222A7EEB00A0957D /* AppDelegate.m */; };
 		E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DA222A7EEB00A0957D /* Main.storyboard */; };
@@ -103,9 +103,6 @@
 		9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerListViewController.m; sourceTree = "<group>"; };
 		9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXBadgeViewController.h; sourceTree = "<group>"; };
 		9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXBadgeViewController.m; sourceTree = "<group>"; };
-		9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E6D1E6224B4CE8F00C719D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
-		9E6D1E6324B4CE8F00C719D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		9E770C94233913120057B1C5 /* CGXTitleSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSortViewController.h; sourceTree = "<group>"; };
 		9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSortViewController.m; sourceTree = "<group>"; };
 		9E8B4908235AD9F8006BCD88 /* CGXListContainerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXListContainerTableViewController.h; sourceTree = "<group>"; };
@@ -120,6 +117,9 @@
 		9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CGXNav.m"; sourceTree = "<group>"; };
 		9E924B0724547F510070655E /* CGXTitleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleTwoViewController.h; sourceTree = "<group>"; };
 		9E924B0824547F510070655E /* CGXTitleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleTwoViewController.m; sourceTree = "<group>"; };
+		B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B55DDEFB254B0AB100CAD6A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		B55DDEFC254B0AB100CAD6A9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 		E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXWaterCollectionView.h; sourceTree = "<group>"; };
 		E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXWaterCollectionView.m; sourceTree = "<group>"; };
 		E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXCategoryView-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,16 +221,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9E22971824A10CAB00028AE0 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				9E6D1E6124B4CE8F00C719D3 /* CGXCategoryView-OC.podspec */,
-				9E6D1E6224B4CE8F00C719D3 /* LICENSE */,
-				9E6D1E6324B4CE8F00C719D3 /* README.md */,
-			);
-			path = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
 		9E3B2240235302C2006E1659 /* VerticalListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +278,16 @@
 			path = TitleSortView;
 			sourceTree = "<group>";
 		};
+		B55DDEF9254B0AA600CAD6A9 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */,
+				B55DDEFC254B0AB100CAD6A9 /* LICENSE */,
+				B55DDEFB254B0AB100CAD6A9 /* README.md */,
+			);
+			path = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
 		D1687500762A7F99E10FD3F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,7 +318,7 @@
 		E01258D3222A7EEB00A0957D /* CGXCategoryView-OC */ = {
 			isa = PBXGroup;
 			children = (
-				9E22971824A10CAB00028AE0 /* Podspec Metadata */,
+				B55DDEF9254B0AA600CAD6A9 /* Podspec Metadata */,
 				E01258D4222A7EEB00A0957D /* AppDelegate.h */,
 				E01258D5222A7EEB00A0957D /* AppDelegate.m */,
 				E0877610226B723200D1B523 /* CGXTabBarViewController.h */,
@@ -471,12 +471,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6D1E6624B4CE8F00C719D3 /* README.md in Resources */,
-				9E6D1E6424B4CE8F00C719D3 /* CGXCategoryView-OC.podspec in Resources */,
+				B55DDEFF254B0AB100CAD6A9 /* LICENSE in Resources */,
+				B55DDEFD254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec in Resources */,
 				E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */,
+				B55DDEFE254B0AB100CAD6A9 /* README.md in Resources */,
 				E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */,
 				E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */,
-				9E6D1E6524B4CE8F00C719D3 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

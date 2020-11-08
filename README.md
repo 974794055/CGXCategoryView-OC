@@ -6,7 +6,7 @@
  [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
  
  下载链接：https://github.com/974794055/CGXCategoryView-OC.git
- 最新版本号： 1.4.0
+ 最新版本号： 1.4.1
  
 功能：    
 - 今日头条、拼多多、QQ音乐、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等所有主流APP分类切换滚动视图
@@ -218,7 +218,7 @@ self.categoryView.listContainer = self.listContainerView;
 
 ## 补充
 
-如果刚开始使用`CGXCategoryView`，当开发过程中需要支持某种特性时，请务必先搜索使用文档或者源代码。确认是否已经实现支持了想要的特性。请别不要文档和源代码都没有看，就直接提问，这对于大家都是一种时间浪费。如果没有支持想要的特性，欢迎提Issue讨论，或者自己实现提一个PullRequest。
+如果刚开始使用`CGXCategoryView`，当开发过程中需要支持某种特性时，请务必先搜索使用文档或者源代码。确认是否已经实现支持了想要的特性。
 
 该仓库保持随时更新，对于主流新的分类选择效果会第一时间支持。使用过程中，有任何建议或问题，可以通过以下方式联系我：</br>
 邮箱：974794055@qq.com </br>

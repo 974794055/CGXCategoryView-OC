@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/MenuView/CGXCategoryTitleFactory.h
+../../../../../CGXCategoryView/TitleAttribute/CGXCategoryTitleFactory.h

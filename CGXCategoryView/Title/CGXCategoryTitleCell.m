@@ -61,20 +61,7 @@
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
     
-    CGXCategoryTitleCellModel *myCellModel = (CGXCategoryTitleCellModel *)self.cellModel;
-    switch (myCellModel.titleLabelAnchorPointStyle) {
-        case CGXCategoryTitleLabelAnchorPointStyleCenter:
-            self.titleLabelCenterY.constant = 0 + myCellModel.titleLabelVerticalOffset;
-            break;
-        case CGXCategoryTitleLabelAnchorPointStyleTop:
-            self.titleLabelCenterY.constant = -self.titleLabel.bounds.size.height/2 - myCellModel.titleLabelVerticalOffset;
-            break;
-        case CGXCategoryTitleLabelAnchorPointStyleBottom:
-            self.titleLabelCenterY.constant = self.titleLabel.bounds.size.height/2 + myCellModel.titleLabelVerticalOffset;
-            break;
-        default:
-            break;
-    }
+
 }
 
 - (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
@@ -88,14 +75,17 @@
         case CGXCategoryTitleLabelAnchorPointStyleCenter:
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 0.5);
             self.maskTitleLabel.layer.anchorPoint = CGPointMake(0.5, 0.5);
+            self.titleLabelCenterY.constant = 0 + myCellModel.titleLabelVerticalOffset;
             break;
         case CGXCategoryTitleLabelAnchorPointStyleTop:
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 0);
             self.maskTitleLabel.layer.anchorPoint = CGPointMake(0.5, 0);
+            self.titleLabelCenterY.constant = -self.titleLabel.bounds.size.height/2 - myCellModel.titleLabelVerticalOffset;
             break;
         case CGXCategoryTitleLabelAnchorPointStyleBottom:
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 1);
             self.maskTitleLabel.layer.anchorPoint = CGPointMake(0.5, 1);
+            self.titleLabelCenterY.constant = self.titleLabel.bounds.size.height/2 + myCellModel.titleLabelVerticalOffset;
             break;
         default:
             break;

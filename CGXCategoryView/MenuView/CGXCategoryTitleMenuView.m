@@ -7,7 +7,6 @@
 //
 
 #import "CGXCategoryTitleMenuView.h"
-
 ///DEBUG打印日志
 #ifdef DEBUG
 # define CGXMenuViewDebugLog(FORMAT, ...) printf("[%s 行号:%d]:\n%s\n",__FUNCTION__,__LINE__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
@@ -32,6 +31,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 
 //当前选中下表 默认0
 @property (nonatomic , assign,readwrite) NSInteger currentInteger;
+
 
 @end
 
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     [self addSubview:self.scrollView];
     self.scrollView.frame =CGRectMake(0, self.categoryViewHeight, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)-self.categoryViewHeight);
     self.categoryView.contentScrollView = self.scrollView;
-    
+//
     self.topLineView = [[UIView alloc] init];
     self.topLineView.backgroundColor = self.topLineColor;
     [self addSubview:self.topLineView];
@@ -201,7 +201,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
                 [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self FirstLoadingSelectedItemAtIndex:i];
             }
         }
-        
+
         if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:InitializeViewItemAtIndex:)]) {
             [self.delegate categoryMenuView:self InitializeViewItemAtIndex:i];
         }
@@ -209,11 +209,11 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
         if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
             [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self InitializeViewItemAtIndex:i];
         }
-        
+
         [self.listVCArray addObject:listVC];
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds)*titleArray.count, CGRectGetHeight(self.scrollView.bounds));
-    
+
     [self.categoryView reloadData];
     [self selectItemAtIndex:self.currentInteger];
 }
@@ -226,7 +226,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 //为什么会把选中代理分为三个，因为有时候只关心点击选中的，有时候只关心滚动选中的，有时候只关心选中。所以具体情况，使用对应方法。
 /**
  点击选中或者滚动选中都会调用该方法。适用于只关心选中事件，不关心具体是点击还是滚动选中的。
- 
+
  @param categoryView categoryView description
  @param index 选中的index
  */
@@ -237,7 +237,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 }
 /**
  点击选中的情况才会调用该方法
- 
+
  @param categoryView categoryView description
  @param index 选中的index
  */
@@ -248,7 +248,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 }
 /**
  滚动选中的情况才会调用该方法
- 
+
  @param categoryView categoryView description
  @param index 选中的index
  */
@@ -260,7 +260,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 /**
  只有点击的选中才会调用！！！
  因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
- 
+
  @param categoryView categoryView description
  @param index index description
  */
@@ -271,7 +271,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 }
 /**
  正在滚动中的回调
- 
+
  @param categoryView categoryView description
  @param leftIndex 正在滚动中，相对位置处于左边的index
  @param rightIndex 正在滚动中，相对位置处于右边的index
@@ -300,11 +300,11 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
             disappearIndex = rightIndex;
         }
     }
-    
+
     if (targetIndex != -1 && self.currentInteger != targetIndex) {
         [self viewWillListDidDisappear:targetIndex DisappearIndex:disappearIndex];
     }
-    
+
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:scrollingFromLeftIndex:toRightIndex:ratio:)]) {
         [self.delegate categoryMenuView:self scrollingFromLeftIndex:leftIndex toRightIndex:rightIndex ratio:ratio];
     }
@@ -314,15 +314,15 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 {
     [self viewController:self].navigationController.interactivePopGestureRecognizer.enabled = (didDisappear == 0);
     self.currentInteger = didDisappear;
-    
-    
+
+
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:ListDidDisappear:)]) {
         [self.delegate categoryMenuView:self ListDidDisappear:disappear];
     }
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:ListDidAppearIndex:)]) {
         [self.delegate categoryMenuView:self ListDidAppearIndex:didDisappear];
     }
-    
+
     UIViewController *listVC1 = self.listVCArray[disappear];
     BOOL isHave1 = [listVC1 respondsToSelector:@selector(categoryMenuView:ListDidDisappear:)];
     if (isHave1 == YES && [listVC1 conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
@@ -333,7 +333,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     if (isHave2 == YES && [listVC2 conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
         [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC2 categoryMenuView:self ListDidAppearIndex:didDisappear];
     }
-    
+
 }
 
 
@@ -342,34 +342,34 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     if (self.currentInteger != index) {
         [self viewWillListDidDisappear:index DisappearIndex:self.currentInteger];
     }
-    
+
     //侧滑手势处理
     [self viewController:self].navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
     self.currentInteger = index;
-    
+
     switch (type) {
         case CGXCategoryTitleMenuViewClickTypeSelected:
         {
-            
+
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didSelectedItemAtIndex:index];
             }
-            
+
             UIViewController *listVC = self.listVCArray[index];
             BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didSelectedItemAtIndex:)];
             if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
                 [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didSelectedItemAtIndex:index];
             }
-            
+
         }
             break;
         case CGXCategoryTitleMenuViewClickTypeClickSelected:
         {
-            
+
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didClickSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didClickSelectedItemAtIndex:index];
             }
-            
+
             UIViewController *listVC = self.listVCArray[index];
             BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didClickSelectedItemAtIndex:)];
             if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
@@ -379,26 +379,26 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
             break;
         case CGXCategoryTitleMenuViewClickTypeScroll:
         {
-            
+
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didScrollSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didScrollSelectedItemAtIndex:index];
             }
-            
+
             UIViewController *listVC = self.listVCArray[index];
             BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didScrollSelectedItemAtIndex:)];
             if (isHave ==YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
                 [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didScrollSelectedItemAtIndex:index];
             }
-            
+
         }
             break;
         case CGXCategoryTitleMenuViewClickTypeContentScroll:
         {
-            
+
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didClickedItemContentScrollViewTransitionToIndex:)]) {
                 [self.delegate categoryMenuView:self didClickedItemContentScrollViewTransitionToIndex:index];
             }
-            
+
             UIViewController *listVC = self.listVCArray[index];
             BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didClickedItemContentScrollViewTransitionToIndex:)];
             if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
@@ -406,7 +406,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
             }
         }
             break;
-            
+
         default:
             break;
     }
