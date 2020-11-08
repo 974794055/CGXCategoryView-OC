@@ -27,7 +27,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"全部",@"推荐",@"美食",@"新闻",
-                               @"视频",@"美食",@"新闻",@"搜索",@"全部",
+                               @"视频",@"美食",@"新闻",@"搜索",@"全部",@"热门",
                                nil];
     NSArray *imageNames = @[@"apple_Noselect",
                             @"apple_Noselect",

@@ -57,9 +57,7 @@ end
 先执行`pod repo update`，再执行`pod install`
 
 ## 结构图
-
 ## 使用
-
 ### CGXCategoryTitleView使用示例
 
 1.初始化CGXCategoryTitleView
