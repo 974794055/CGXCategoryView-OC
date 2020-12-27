@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Segmented/CGXCategorySegmentedTitleView.h
+../../../../../CGXCategoryViewOC/Segmented/CGXCategorySegmentedTitleView.h

@@ -89,7 +89,7 @@
     self.myCategoryView2.subTitleSelectedFont = [UIFont boldSystemFontOfSize:10];
     self.myCategoryView2.subTitleNormalColor = [UIColor blackColor];
     self.myCategoryView2.subTitleSelectedColor = [UIColor whiteColor];
-    
+
     CGXCategoryIndicatorBackgroundView *backgroundView22 = [[CGXCategoryIndicatorBackgroundView alloc] init];
     backgroundView22.indicatorHeight = 15;
     backgroundView22.indicatorCornerRadius = 7.5;
@@ -107,8 +107,8 @@
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*count, CGRectGetHeight(self.scrollView.frame));
     [self.view addSubview:self.scrollView];
     self.myCategoryView2.contentScrollView = self.scrollView;
-    
-    
+
+
     __weak typeof(self) weakSelf = self;
     for (int i = 0; i < count; i ++) {
         UIViewController *listVC = [[UIViewController alloc] init];

@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/TitleImage/CGXCategoryTitleImageCell.h
+../../../../../CGXCategoryViewOC/TitleImage/CGXCategoryTitleImageCell.h

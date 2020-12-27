@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Common/CGXCategoryIndicatorParamsModel.h
+../../../../../CGXCategoryViewOC/Common/CGXCategoryIndicatorParamsModel.h

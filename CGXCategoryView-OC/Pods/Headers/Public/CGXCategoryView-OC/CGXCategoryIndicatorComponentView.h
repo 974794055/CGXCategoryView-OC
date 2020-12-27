@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/IndicatorViews/CGXCategoryIndicatorComponentView.h
+../../../../../CGXCategoryViewOC/IndicatorViews/CGXCategoryIndicatorComponentView.h

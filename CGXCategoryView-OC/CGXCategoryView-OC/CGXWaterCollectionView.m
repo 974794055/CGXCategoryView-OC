@@ -197,6 +197,12 @@
 {
 
 }
+- (void)setTitleStr:(NSString *)titleStr
+{
+    _titleStr = titleStr;
+    inter = arc4random() % 3+1;
+    [self.collectionView reloadData];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

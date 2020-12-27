@@ -15,18 +15,16 @@
 
 @implementation CGXCategoryIndicatorTriangleView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)initializeViews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _triangleViewSize = CGSizeMake(14, 10);
-        _triangleViewColor = [UIColor redColor];
-
-        _triangleLayer = [CAShapeLayer layer];
-        [self.layer addSublayer:self.triangleLayer];
-    }
-    return self;
+    [super initializeViews];
+    _triangleViewSize = CGSizeMake(14, 10);
+    _triangleViewColor = [UIColor redColor];
+    
+    _triangleLayer = [CAShapeLayer layer];
+    [self.layer addSublayer:self.triangleLayer];
 }
+
 
 #pragma mark - CGXCategoryIndicatorProtocol
 
@@ -92,5 +90,6 @@
         self.frame = toFrame;
     }
 }
+
 
 @end

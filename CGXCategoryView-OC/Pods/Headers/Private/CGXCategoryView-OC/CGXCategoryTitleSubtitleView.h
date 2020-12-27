@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/TitleSubtitleView/CGXCategoryTitleSubtitleView.h
+../../../../../CGXCategoryViewOC/TitleSubtitleView/CGXCategoryTitleSubtitleView.h

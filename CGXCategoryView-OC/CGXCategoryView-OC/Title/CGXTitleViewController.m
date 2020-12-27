@@ -29,18 +29,23 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.titleArray = [NSMutableArray arrayWithObjects:
-                       @"LineView效果",
-                       @"DotLineView点线效果",
-                       @"RainbowLineView彩虹效果",
-                       @"BallView QQ小红点",
-                       @"TriangleView三角形",
+                       @"下划线效果",
+                       @"点线效果",
+                       @"下划线彩虹效果",
+                       @"QQ小红点",
+                       @"三角形",
                        @"BackgroundView",
-                       @"ImageView底部",
-                       @"ImageViewCell背景",
-                       @"ImageView足球滚动",
+                       @"底部图片",
+                       @"cell图片背景",
+                       @"图片滚动",
                        @"混合使用",
                        @"颜色渐变",
                        @"大小缩放",
+                       @"大小缩放+底部锚点",
+                       @"大小缩放+顶部锚点",
+                       @"大小缩放+字体粗细",
+                       @"大小缩放+点击动画",
+                       @"大小缩放+Cell宽度缩放",
                        @"Cell背景色渐变",
                        @"分割线",
                        @"多行文本",
@@ -111,15 +116,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *title = self.titleArray[indexPath.row];
-    if ([title isEqualToString:@"LineView效果"]) {
+    if ([title isEqualToString:@"下划线效果"]) {
         CGXTitleOneViewController *vc = [[CGXTitleOneViewController alloc] init];
         vc.categorytitle = title;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"大小缩放"]){
+    } else if ([title isEqualToString:@"大小缩放"]||
+               [title isEqualToString:@"大小缩放+底部锚点"]||
+               [title isEqualToString:@"大小缩放+顶部锚点"]||
+               [title isEqualToString:@"大小缩放+字体粗细"]||
+               [title isEqualToString:@"大小缩放+点击动画"]||
+               [title isEqualToString:@"大小缩放+Cell宽度缩放"]){
         CGXTitleThreeViewController *vc = [[CGXTitleThreeViewController alloc] init];
           vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
           [self.navigationController pushViewController:vc animated:YES];
+        
     } else if ([title isEqualToString:@"BackgroundView"]){
         CGXTitleFourViewController *vc = [[CGXTitleFourViewController alloc] init];
           vc.hidesBottomBarWhenPushed = YES;

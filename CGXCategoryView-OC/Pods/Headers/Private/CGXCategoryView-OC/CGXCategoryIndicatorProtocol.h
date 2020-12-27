@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Common/CGXCategoryIndicatorProtocol.h
+../../../../../CGXCategoryViewOC/Common/CGXCategoryIndicatorProtocol.h

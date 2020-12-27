@@ -21,12 +21,21 @@
 - (void)initializeData {
     [super initializeData];
     
-    _imageSize = CGSizeMake(20, 20);
+    _imageSize = CGSizeMake(25, 25);
     _titleImageSpacing = 5;
     _imageZoomEnabled = NO;
     _imageZoomScale = 1.2;
 }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    //部分使用者为了适配不同的手机屏幕尺寸，CGXCategoryView的宽高比要求保持一样，所以它的高度就会因为不同宽度的屏幕而不一样。计算出来的高度，有时候会是位数很长的浮点数，如果把这个高度设置给UICollectionView就会触发内部的一个错误。所以，为了规避这个问题，在这里对高度统一向下取整。
+    //如果向下取整导致了你的页面异常，请自己重新设置CGXCategoryView的高度，保证为整数即可。
 
+        [self.collectionView setNeedsLayout];
+        [self.collectionView layoutSubviews];
+  
+}
 - (Class)preferredCellClass {
     return [CGXCategoryTitleImageCell class];
 }
@@ -122,10 +131,10 @@
     CGFloat cellWidth = 0;
     switch (type) {
         case CGXCategoryTitleImageType_OnlyTitle:
-            cellWidth = titleWidth;
+            cellWidth = titleWidth+self.cellWidthIncrement;;
             break;
         case CGXCategoryTitleImageType_OnlyImage:
-            cellWidth = self.imageSize.width;
+            cellWidth = self.imageSize.width+self.cellWidthIncrement;
             break;
         case CGXCategoryTitleImageType_LeftImage:
         case CGXCategoryTitleImageType_RightImage:

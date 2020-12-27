@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Common/CGXCategoryTitleBadgeModel.h
+../../../../../CGXCategoryViewOC/Common/CGXCategoryTitleBadgeModel.h

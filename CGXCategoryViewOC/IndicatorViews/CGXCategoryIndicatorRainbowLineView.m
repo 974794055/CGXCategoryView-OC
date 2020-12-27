@@ -11,6 +11,11 @@
 
 @implementation CGXCategoryIndicatorRainbowLineView
 
+- (void)initializeViews
+{
+    [super initializeViews];
+    
+}
 - (void)reloadRefreshState:(CGXCategoryIndicatorParamsModel *)model {
     [super reloadRefreshState:model];
 

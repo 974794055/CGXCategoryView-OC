@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Indicator/CGXCategoryIndicatorCell.h
+../../../../../CGXCategoryViewOC/Indicator/CGXCategoryIndicatorCell.h

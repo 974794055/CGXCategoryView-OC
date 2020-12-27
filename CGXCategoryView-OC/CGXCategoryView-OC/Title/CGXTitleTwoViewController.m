@@ -51,12 +51,12 @@
     
     [self.titleCategoryView selectItemAtIndex:0];
     NSString *title = self.categorytitle;
-    if ([title isEqualToString:@"DotLineView点线效果"]){
+    if ([title isEqualToString:@"点线效果"]){
         
         self.titleCategoryView.titleColorGradientEnabled = YES;
         CGXCategoryIndicatorDotLineView *lineView = [[CGXCategoryIndicatorDotLineView alloc] init];
         self.titleCategoryView.indicators = @[lineView];
-    } else if ([title isEqualToString:@"RainbowLineView彩虹效果"]){
+    } else if ([title isEqualToString:@"下划线彩虹效果"]){
         CGXCategoryIndicatorRainbowLineView *lineView = [[CGXCategoryIndicatorRainbowLineView alloc] init];
         NSArray *colors = @[[UIColor redColor],
                             [UIColor yellowColor],
@@ -72,17 +72,17 @@
         lineView.indicatorColors = colors;
         lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
         self.titleCategoryView.indicators = @[lineView];
-    } else if ([title isEqualToString:@"BallView QQ小红点"]){
+    } else if ([title isEqualToString:@"QQ小红点"]){
         self.titleCategoryView.titleColorGradientEnabled = YES;
         CGXCategoryIndicatorBallView *ballView = [[CGXCategoryIndicatorBallView alloc] init];
         self.titleCategoryView.indicators = @[ballView];
-    } else if ([title isEqualToString:@"TriangleView三角形"]){
+    } else if ([title isEqualToString:@"三角形"]){
         self.titleCategoryView.titleColorGradientEnabled = YES;
         
         self.titleCategoryView.titleColorGradientEnabled = YES;
         CGXCategoryIndicatorTriangleView *triangleView = [[CGXCategoryIndicatorTriangleView alloc] init];
         self.titleCategoryView.indicators = @[triangleView];
-    } else if ([title isEqualToString:@"ImageView底部"]){
+    } else if ([title isEqualToString:@"底部图片"]){
         self.titleCategoryView.tag = 99999;
         self.titleCategoryView.titleColor = [UIColor whiteColor];
         self.titleCategoryView.titleSelectedColor = [UIColor redColor];
@@ -113,12 +113,12 @@
         interH = 100;
         self.titleCategoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
         
-    } else if ([title isEqualToString:@"ImageViewCell背景"]){
+    } else if ([title isEqualToString:@"cell图片背景"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
         indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"LaunchScreen"];
         indicatorImageView.indicatorImageViewSize = CGSizeMake(50, 50);
         self.titleCategoryView.indicators = @[indicatorImageView];
-    } else if ([title isEqualToString:@"ImageView足球滚动"]){
+    } else if ([title isEqualToString:@"图片滚动"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
         indicatorImageView.indicatorImageViewRollEnabled = YES;
         indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"football"];
@@ -209,7 +209,7 @@
     }
     mainScrollViewH.contentSize = CGSizeMake(ScreenWidth * self.titleAry.count,CGRectGetHeight(mainScrollViewH.frame));
     
-    [self.titleCategoryView selectItemAtIndex:2];
+//    [self.titleCategoryView selectItemAtIndex:0];
 
 }
 

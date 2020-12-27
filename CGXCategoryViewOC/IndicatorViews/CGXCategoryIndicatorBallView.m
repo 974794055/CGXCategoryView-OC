@@ -17,24 +17,21 @@
 
 @implementation CGXCategoryIndicatorBallView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)initializeViews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _ballViewSize = CGSizeMake(15, 15);
-        _ballScrollOffsetX = 20;
-        _ballViewColor = [UIColor redColor];
+    [super initializeViews];
+    _ballViewSize = CGSizeMake(15, 15);
+    _ballScrollOffsetX = 20;
+    _ballViewColor = [UIColor redColor];
 
-        _smallBall = [[UIView alloc] init];
-        [self addSubview:self.smallBall];
+    _smallBall = [[UIView alloc] init];
+    [self addSubview:self.smallBall];
 
-        _bigBall = [[UIView alloc] init];
-        [self addSubview:self.bigBall];
+    _bigBall = [[UIView alloc] init];
+    [self addSubview:self.bigBall];
 
-        _shapeLayer = [CAShapeLayer layer];
-        [self.layer addSublayer:self.shapeLayer];
-    }
-    return self;
+    _shapeLayer = [CAShapeLayer layer];
+    [self.layer addSublayer:self.shapeLayer];
 }
 
 #pragma mark - CGXCategoryIndicatorProtocol

@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/VerticalZoomTitle/CGXCategoryTitleVerticalZoomView.h
+../../../../../CGXCategoryViewOC/VerticalZoomTitle/CGXCategoryTitleVerticalZoomView.h

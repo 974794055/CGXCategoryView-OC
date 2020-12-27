@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Common/CGXCategoryGradientView.h
+../../../../../CGXCategoryViewOC/Common/CGXCategoryGradientView.h

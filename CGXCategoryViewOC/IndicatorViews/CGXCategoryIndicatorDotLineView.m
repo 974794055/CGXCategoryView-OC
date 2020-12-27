@@ -11,15 +11,12 @@
 
 @implementation CGXCategoryIndicatorDotLineView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)initializeViews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _dotSize = CGSizeMake(10, 10);
-        _lineWidth = 50;
-        _dotLineViewColor = [UIColor redColor];
-    }
-    return self;
+    [super initializeViews];
+    _dotSize = CGSizeMake(10, 10);
+    _lineWidth = 50;
+    _dotLineViewColor = [UIColor redColor];
 }
 
 #pragma mark - CGXCategoryIndicatorProtocol

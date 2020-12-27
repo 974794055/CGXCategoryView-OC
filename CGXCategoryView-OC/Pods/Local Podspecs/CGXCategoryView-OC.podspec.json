@@ -20,16 +20,16 @@
   },
   "requires_arc": true,
   "frameworks": "UIKit",
-  "source_files": "CGXCategoryView/CGXCategoryView.h",
-  "public_header_files": "CGXCategoryView/CGXCategoryView.h",
+  "source_files": "CGXCategoryViewOC/CGXCategoryView.h",
+  "public_header_files": "CGXCategoryViewOC/CGXCategoryView.h",
   "subspecs": [
     {
       "name": "Common",
-      "source_files": "CGXCategoryView/Common/**/*.{h,m}"
+      "source_files": "CGXCategoryViewOC/Common/**/*.{h,m}"
     },
     {
       "name": "ListContainer",
-      "source_files": "CGXCategoryView/ListContainer/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/ListContainer/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -38,7 +38,7 @@
     },
     {
       "name": "Base",
-      "source_files": "CGXCategoryView/Base/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Base/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -50,7 +50,7 @@
     },
     {
       "name": "IndicatorViews",
-      "source_files": "CGXCategoryView/IndicatorViews/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/IndicatorViews/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -62,7 +62,7 @@
     },
     {
       "name": "Indicator",
-      "source_files": "CGXCategoryView/Indicator/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Indicator/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -77,7 +77,7 @@
     },
     {
       "name": "Title",
-      "source_files": "CGXCategoryView/Title/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Title/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -95,7 +95,7 @@
     },
     {
       "name": "Dot",
-      "source_files": "CGXCategoryView/Dot/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Dot/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -116,7 +116,7 @@
     },
     {
       "name": "Image",
-      "source_files": "CGXCategoryView/Image/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Image/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -134,7 +134,7 @@
     },
     {
       "name": "TitleImage",
-      "source_files": "CGXCategoryView/TitleImage/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/TitleImage/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -155,7 +155,7 @@
     },
     {
       "name": "Badge",
-      "source_files": "CGXCategoryView/Badge/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Badge/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -176,7 +176,7 @@
     },
     {
       "name": "TitleAttribute",
-      "source_files": "CGXCategoryView/TitleAttribute/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/TitleAttribute/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -197,7 +197,7 @@
     },
     {
       "name": "VerticalZoomTitle",
-      "source_files": "CGXCategoryView/VerticalZoomTitle/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/VerticalZoomTitle/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -218,7 +218,7 @@
     },
     {
       "name": "TitleSortView",
-      "source_files": "CGXCategoryView/TitleSortView/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/TitleSortView/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -239,7 +239,7 @@
     },
     {
       "name": "TitleSubtitleView",
-      "source_files": "CGXCategoryView/TitleSubtitleView/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/TitleSubtitleView/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -260,7 +260,7 @@
     },
     {
       "name": "MenuView",
-      "source_files": "CGXCategoryView/MenuView/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/MenuView/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 
@@ -284,7 +284,7 @@
     },
     {
       "name": "Segmented",
-      "source_files": "CGXCategoryView/Segmented/**/*.{h,m}",
+      "source_files": "CGXCategoryViewOC/Segmented/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 

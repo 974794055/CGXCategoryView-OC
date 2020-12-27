@@ -61,7 +61,7 @@
     _selectedIndex = 0;
     _cellWidth = CGXCategoryViewAutomaticDimension;
     _cellWidthIncrement = 0;
-    _cellSpacing = 20;
+    _cellSpacing = 10;
     _averageCellSpacingEnabled = YES;
     _cellWidthZoomEnabled = NO;
     _cellWidthZoomScale = 1.2;
@@ -140,6 +140,7 @@
     //部分使用者为了适配不同的手机屏幕尺寸，CGXCategoryView的宽高比要求保持一样，所以它的高度就会因为不同宽度的屏幕而不一样。计算出来的高度，有时候会是位数很长的浮点数，如果把这个高度设置给UICollectionView就会触发内部的一个错误。所以，为了规避这个问题，在这里对高度统一向下取整。
     //如果向下取整导致了你的页面异常，请自己重新设置CGXCategoryView的高度，保证为整数即可。
     self.collectionView.frame = CGRectMake([self getContentEdgeInsetLeft], 0, CGRectGetWidth(self.bounds)-[self getContentEdgeInsetLeft]-[self getContentEdgeInsetRight], CGRectGetHeight(self.bounds));
+    self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     if (self.isFirstLayoutSubviews) {
         self.firstLayoutSubviews = NO;
         [self reloadData];
@@ -181,7 +182,8 @@
         self.selectedIndex = 0;
     }
     //总的内容宽度（cell总宽度+总cellSpacing）
-    __block CGFloat totalItemWidth = self.cellSpacing;
+    __block CGFloat totalItemWidth = [self getContentEdgeInsetLeft];
+    CGFloat totalCellWidth = 0;
     for (int i = 0; i < self.dataSource.count; i++) {
         CGXCategoryBaseCellModel *cellModel = self.dataSource[i];
         cellModel.index = i;
@@ -203,17 +205,39 @@
         }else {
             cellModel.cellWidth = [self getCellWidthAtIndex:i];
         }
-        totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+        totalCellWidth += cellModel.cellWidth;
+        if (i == self.dataSource.count - 1) {
+            totalItemWidth += cellModel.cellWidth + [self getContentEdgeInsetRight];
+        }else {
+            totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+        }
         [self refreshCellModel:cellModel index:i];
     }
     if (self.averageCellSpacingEnabled && totalItemWidth < CGRectGetWidth(self.collectionView.frame)) {
         //如果总的内容宽度都没有超过视图宽度，就将cellWidth等分
-        float cellWidth = 0;
-        if (self.dataSource.count > 0) {
-            cellWidth = (CGRectGetWidth(self.collectionView.frame)- (self.dataSource.count+1)*self.cellSpacing)/self.dataSource.count;
+        //如果总的内容宽度都没有超过视图宽度，就将cellSpacing等分
+        NSInteger cellSpacingItemCount = self.dataSource.count - 1;
+        CGFloat totalCellSpacingWidth = self.bounds.size.width - totalCellWidth;
+        //如果内容左边距是Automatic，就加1
+        if (self.contentEdgeInsetLeft == CGXCategoryViewAutomaticDimension) {
+            cellSpacingItemCount += 1;
+        }else {
+            totalCellSpacingWidth -= [self getContentEdgeInsetLeft];;
         }
+        //如果内容右边距是Automatic，就加1
+        if (self.contentEdgeInsetRight == CGXCategoryViewAutomaticDimension) {
+            cellSpacingItemCount += 1;
+        }else {
+            totalCellSpacingWidth -= [self getContentEdgeInsetRight];;
+        }
+        
+        float cellSpacing = 0;
+        if (cellSpacingItemCount > 0) {
+            cellSpacing = totalCellSpacingWidth/cellSpacingItemCount;
+        }
+        self.cellSpacing = floor(cellSpacing);
         [self.dataSource enumerateObjectsUsingBlock:^(CGXCategoryBaseCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.cellWidth = cellWidth;
+            obj.cellSpacing = self.cellSpacing;
         }];
     }
     
@@ -221,14 +245,19 @@
     //因为初始化的时候，collectionView并没有初始化完，cell都没有被加载出来。只有自己手动计算当前选中的index的位置，然后更新到contentOffset
     __block CGFloat frameXOfSelectedCell = self.cellSpacing;
     __block CGFloat selectedCellWidth = 0;
-    totalItemWidth = self.cellSpacing;
+    totalItemWidth = [self getContentEdgeInsetLeft];;
     [self.dataSource enumerateObjectsUsingBlock:^(CGXCategoryBaseCellModel * cellModel, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx < self.selectedIndex) {
             frameXOfSelectedCell += cellModel.cellWidth + self.cellSpacing;
         }else if (idx == self.selectedIndex) {
             selectedCellWidth = cellModel.cellWidth;
         }
-        totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+//        totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+        if (idx == self.dataSource.count - 1) {
+            totalItemWidth += cellModel.cellWidth + [self getContentEdgeInsetRight];
+        }else {
+            totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+        }
     }];
     
     self.totalItemWidth = totalItemWidth;
@@ -474,7 +503,7 @@
 #pragma mark - <UICollectionViewDelegateFlowLayout>
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, self.cellSpacing, 0, self.cellSpacing);
+    return UIEdgeInsetsMake(0, [self getContentEdgeInsetLeft], 0, [self getContentEdgeInsetRight]);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -513,13 +542,12 @@
 
 - (CGRect)getTargetCellFrame:(NSInteger)targetIndex
 {
-    //总的内容宽度（cell总宽度+总cellSpacing）
-    __block CGFloat totalItemWidth = self.cellSpacing;
-    CGFloat x = self.cellSpacing;
+    //    //总的内容宽度（cell总宽度+总cellSpacing）
+    CGFloat x = [self getContentEdgeInsetLeft];
     for (int i = 0; i < targetIndex; i ++) {
         CGXCategoryBaseCellModel *cellModel = self.dataSource[i];
         CGFloat cellWidth;
-        if (cellModel.isTransitionAnimating && cellModel.cellWidthZoomEnabled) {
+        if (cellModel.isTransitionAnimating && cellModel.isCellWidthZoomEnabled) {
             //正在进行动画的时候，cellWidthCurrentZoomScale是随着动画渐变的，而没有立即更新到目标值
             if (cellModel.isSelected) {
                 cellWidth = [self getCellWidthAtIndex:cellModel.index]*cellModel.cellWidthSelectedZoomScale;
@@ -530,41 +558,30 @@
             cellWidth = cellModel.cellWidth;
         }
         x += cellWidth + self.cellSpacing;
-        totalItemWidth = cellWidth+self.cellSpacing;
     }
-    
     CGFloat width;
     CGXCategoryBaseCellModel *selectedCellModel = self.dataSource[targetIndex];
-    if (selectedCellModel.isTransitionAnimating && selectedCellModel.cellWidthZoomEnabled) {
+    if (selectedCellModel.isTransitionAnimating && selectedCellModel.isCellWidthZoomEnabled) {
         width = [self getCellWidthAtIndex:selectedCellModel.index]*selectedCellModel.cellWidthSelectedZoomScale;
     }else {
         width = selectedCellModel.cellWidth;
     }
-    
-    if (self.averageCellSpacingEnabled && totalItemWidth < CGRectGetWidth(self.collectionView.frame)) {
-        //如果总的内容宽度都没有超过视图宽度，就将cellWidth等分
-        if (self.cellWidthZoomEnabled) {
-            width = [self getCellWidthAtIndex:targetIndex]*selectedCellModel.cellWidthCurrentZoomScale;
-        }else {
-            width = [self getCellWidthAtIndex:targetIndex];
-        }
-    }
-    x += (selectedCellModel.cellWidth-width)/2.0;
-    return CGRectMake(x, 0, width, self.bounds.size.height);
+        x += (selectedCellModel.cellWidth-width)/2.0;
+        return CGRectMake(x, 0, width, self.bounds.size.height);
 }
 
 #pragma mark - Private
 
 - (CGFloat)getContentEdgeInsetLeft {
     if (self.contentEdgeInsetLeft == CGXCategoryViewAutomaticDimension) {
-        return 0;
+        return self.cellSpacing;
     }
     return self.contentEdgeInsetLeft;
 }
 
 - (CGFloat)getContentEdgeInsetRight {
     if (self.contentEdgeInsetRight == CGXCategoryViewAutomaticDimension) {
-        return 0;
+        return self.cellSpacing;
     }
     return self.contentEdgeInsetRight;
 }

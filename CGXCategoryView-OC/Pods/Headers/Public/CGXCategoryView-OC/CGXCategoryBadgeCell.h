@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Badge/CGXCategoryBadgeCell.h
+../../../../../CGXCategoryViewOC/Badge/CGXCategoryBadgeCell.h

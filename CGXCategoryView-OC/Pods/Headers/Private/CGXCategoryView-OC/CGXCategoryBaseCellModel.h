@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Base/CGXCategoryBaseCellModel.h
+../../../../../CGXCategoryViewOC/Base/CGXCategoryBaseCellModel.h

@@ -35,29 +35,19 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-
-}
-- (void)refreshTitleLabelCenter:(CGPoint)center {
-    CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)self.cellModel;
-    if (myCellModel.titleLabelAnchorPointStyle == CGXCategoryTitleLabelAnchorPointStyleBottom) {
-        center.y += (self.titleLabel.bounds.size.height/2 + myCellModel.titleLabelVerticalOffset);
-    }else if (myCellModel.titleLabelAnchorPointStyle == CGXCategoryTitleLabelAnchorPointStyleTop) {
-        center.y -= (self.titleLabel.bounds.size.height/2 + myCellModel.titleLabelVerticalOffset);
-    }
-    self.titleLabelCenterX.constant = center.x - self.contentView.bounds.size.width/2;
-    self.titleLabelCenterY.constant = center.y - self.contentView.bounds.size.height/2;
-}
-- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
-    [super reloadData:cellModel];
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
 
-    CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)cellModel;
-    self.titleLabel.hidden = NO;
-    self.imageView.hidden = NO;
+    CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)self.cellModel;
+    [self refreshUIData:myCellModel];
+}
+
+- (void)refreshUIData:(CGXCategoryTitleImageCellModel *)myCellModel
+{
     CGSize imageSize = myCellModel.imageSize;
     self.imageView.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    
+    self.titleLabel.hidden = NO;
+    self.imageView.hidden = NO;
     
     CGFloat titleheight = self.titleLabel.bounds.size.height;
     CGFloat titleWidth = self.titleLabel.bounds.size.width;
@@ -99,6 +89,8 @@
         {
             self.titleLabel.hidden = YES;
             self.imageView.center = self.contentView.center;
+            
+            self.imageView.center = CGPointMake(self.contentView.center.x, self.contentView.center.y);
         }
             break;
 
@@ -106,12 +98,30 @@
         {
             self.imageView.hidden = YES;
             self.titleLabel.center = self.contentView.center;
+            [self refreshTitleLabelCenter:CGPointMake(self.contentView.center.x, self.contentView.center.y)];
         }
             break;
 
         default:
             break;
     }
+}
+- (void)refreshTitleLabelCenter:(CGPoint)center {
+    CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)self.cellModel;
+    if (myCellModel.titleLabelAnchorPointStyle == CGXCategoryTitleLabelAnchorPointStyleBottom) {
+        center.y += (myCellModel.titleHeight/2 + myCellModel.titleLabelVerticalOffset);
+    }else if (myCellModel.titleLabelAnchorPointStyle == CGXCategoryTitleLabelAnchorPointStyleTop) {
+        center.y -= (myCellModel.titleHeight/2 + myCellModel.titleLabelVerticalOffset);
+    }
+    self.titleLabelCenterX.constant = center.x - self.contentView.bounds.size.width/2;
+    self.titleLabelCenterY.constant = center.y - self.contentView.bounds.size.height/2;
+}
+- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
+
+    CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)cellModel;
+    [self refreshUIData:myCellModel];
+
     //因为`- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel`方法会回调多次，尤其是左右滚动的时候会调用无数次，如果每次都触发图片加载，会非常消耗性能。所以只会在图片发生了变化的时候，才进行图片加载。
     NSString *currentImageName = nil;
     NSURL *currentImageURL = nil;
@@ -149,6 +159,7 @@
     }
 
 //    [self setNeedsLayout];
+//    [self layoutIfNeeded];
 }
 
 

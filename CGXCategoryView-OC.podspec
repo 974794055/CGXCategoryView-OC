@@ -11,33 +11,33 @@ Pod::Spec.new do |s|
     s.requires_arc = true #是否支持ARC
     s.frameworks = 'UIKit'
     #需要托管的源代码路径
-    s.source_files = 'CGXCategoryView/CGXCategoryView.h'
+    s.source_files = 'CGXCategoryViewOC/CGXCategoryView.h'
     #开源库头文件
-    s.public_header_files = 'CGXCategoryView/CGXCategoryView.h'
+    s.public_header_files = 'CGXCategoryViewOC/CGXCategoryView.h'
     
     s.subspec 'Common' do |ss|
-        ss.source_files = 'CGXCategoryView/Common/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Common/**/*.{h,m}'
     end
     
     s.subspec 'ListContainer' do |ss|
-        ss.source_files = 'CGXCategoryView/ListContainer/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/ListContainer/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
     end
     
     s.subspec 'Base' do |ss|
-        ss.source_files = 'CGXCategoryView/Base/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Base/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/ListContainer'
     end
     
     s.subspec 'IndicatorViews' do |ss|
-        ss.source_files = 'CGXCategoryView/IndicatorViews/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/IndicatorViews/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
     end
     
     s.subspec 'Indicator' do |ss|
-        ss.source_files = 'CGXCategoryView/Indicator/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Indicator/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
     
     
     s.subspec 'Title' do |ss|
-        ss.source_files = 'CGXCategoryView/Title/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Title/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
     
     
     s.subspec 'Dot' do |ss|
-        ss.source_files = 'CGXCategoryView/Dot/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Dot/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
     
     
     s.subspec 'Image' do |ss|
-        ss.source_files = 'CGXCategoryView/Image/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Image/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -73,7 +73,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'TitleImage' do |ss|
-        ss.source_files = 'CGXCategoryView/TitleImage/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/TitleImage/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'Badge' do |ss|
-        ss.source_files = 'CGXCategoryView/Badge/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Badge/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'TitleAttribute' do |ss|
-        ss.source_files = 'CGXCategoryView/TitleAttribute/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/TitleAttribute/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -100,7 +100,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'VerticalZoomTitle' do |ss|
-        ss.source_files = 'CGXCategoryView/VerticalZoomTitle/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/VerticalZoomTitle/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -109,7 +109,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'TitleSortView' do |ss|
-        ss.source_files = 'CGXCategoryView/TitleSortView/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/TitleSortView/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -119,7 +119,7 @@ Pod::Spec.new do |s|
     
     
     s.subspec 'TitleSubtitleView' do |ss|
-        ss.source_files = 'CGXCategoryView/TitleSubtitleView/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/TitleSubtitleView/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -129,7 +129,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'MenuView' do |ss|
         
-        ss.source_files = 'CGXCategoryView/MenuView/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/MenuView/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
@@ -139,7 +139,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'Segmented' do |ss|
-        ss.source_files = 'CGXCategoryView/Segmented/**/*.{h,m}'
+        ss.source_files = 'CGXCategoryViewOC/Segmented/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
         ss.dependency 'CGXCategoryView-OC/Base'
     end

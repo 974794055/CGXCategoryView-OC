@@ -33,7 +33,7 @@
 ### 指示器效果预览
 说明 | Gif |
 ----|------|
-LineView效果  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title1.gif" width="287" height="600"> |
+下划线效果  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title1.gif" width="287" height="600"> |
 BackgroundView  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title2.gif" width="287" height="600"> |
 大小缩放  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title3.gif" width="287" height="600"> |
 背景边框  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title4.gif" width="287" height="600"> |

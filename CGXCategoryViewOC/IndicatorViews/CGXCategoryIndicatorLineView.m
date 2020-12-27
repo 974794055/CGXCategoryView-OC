@@ -12,15 +12,12 @@
 
 @implementation CGXCategoryIndicatorLineView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)initializeViews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    [super initializeViews];
         _lineStyle = CGXCategoryIndicatorLineStyle_Normal;
         _lineScrollOffsetX = 10;
          self.indicatorHeight = 3;
-    }
-    return self;
 }
 
 #pragma mark - CGXCategoryIndicatorProtocol

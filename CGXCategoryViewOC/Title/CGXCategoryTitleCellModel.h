@@ -49,5 +49,5 @@
 
 @property (nonatomic, assign) CGXCategoryTitleLabelAnchorPointStyle titleLabelAnchorPointStyle;
 
-
+@property (nonatomic, assign, readonly) CGFloat titleHeight;
 @end

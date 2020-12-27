@@ -23,25 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"大小缩放";
+    self.navigationItem.title = self.title;
     self.titleAry = [NSMutableArray array];
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     selectinter = 0;
     
     
-    
     self.titleAry = [NSMutableArray arrayWithObjects:@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"新鲜水果",nil];
-    
-    
-    NSMutableArray *titleArray = [NSMutableArray arrayWithObjects:
-                                  @"大小缩放",
-                                  @"大小缩放+底部锚点",
-                                  @"大小缩放+顶部锚点",
-                                  @"大小缩放+字体粗细",
-                                  @"大小缩放+点击动画",
-                                  @"大小缩放+Cell宽度缩放",
-                                  nil];
+
     NSInteger interH = 50;
     CGFloat sssss = (ScreenHeight-kTopHeight-kSafeHeight- interH*4-40)/4.0;
     
@@ -52,7 +42,7 @@
     mainScrollViewH.showsHorizontalScrollIndicator = NO;
     mainScrollViewH.showsVerticalScrollIndicator = NO;
     [self.view addSubview:mainScrollViewH];
-    mainScrollViewH.frame =CGRectMake(0, (interH+10)*titleArray.count, ScreenWidth, ScreenHeight-(interH+10)*titleArray.count-kTopHeight-kSafeHeight);
+    mainScrollViewH.frame =CGRectMake(0, (interH+10), ScreenWidth, ScreenHeight-interH-10-kTopHeight-kSafeHeight);
     for (int i = 0; i<self.titleAry.count; i++) {
         UIViewController *vc = [[UIViewController alloc] init];
         vc.view.backgroundColor = randomColor;
@@ -65,63 +55,49 @@
         [mainScrollViewH addSubview:vc.view];
     }
     mainScrollViewH.contentSize = CGSizeMake(ScreenWidth * self.titleAry.count,CGRectGetHeight(mainScrollViewH.frame));
-    
-    for (int i = 0 ; i<titleArray.count; i++) {
-        
-        NSString *title = titleArray[i];
+
+        NSString *title = self.title;
         CGXCategoryTitleView *titleCategoryView = [[CGXCategoryTitleView alloc] init];
         titleCategoryView.backgroundColor = [UIColor whiteColor];
-        titleCategoryView.frame = CGRectMake(0, interH*i +10*i, ScreenWidth, interH);
+        titleCategoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
         titleCategoryView.delegate = self;
         titleCategoryView.titleArray = self.titleAry;
-        titleCategoryView.tag = 100+i;
+        titleCategoryView.tag = 100;
         [self.view addSubview:titleCategoryView];
+        titleCategoryView.titleColorGradientEnabled = YES;
+        titleCategoryView.titleLabelZoomEnabled = YES;
         
          if ([title isEqualToString:@"大小缩放"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
+
               titleCategoryView.titleLabelZoomScale = 1.3;
           } else if ([title isEqualToString:@"大小缩放+字体粗细"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
               titleCategoryView.titleLabelZoomScale = 1.3;
               titleCategoryView.titleLabelStrokeWidthEnabled = YES;
           } else if ([title isEqualToString:@"大小缩放+点击动画"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
               titleCategoryView.titleLabelZoomScale = 1.3;
               titleCategoryView.titleLabelStrokeWidthEnabled = YES;
               titleCategoryView.selectedAnimationEnabled = YES;
           } else if ([title isEqualToString:@"大小缩放+Cell宽度缩放"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
               titleCategoryView.titleLabelZoomScale = 1.3;
               titleCategoryView.titleLabelStrokeWidthEnabled = YES;
               titleCategoryView.selectedAnimationEnabled = YES;
               titleCategoryView.cellWidthZoomEnabled = YES;
               titleCategoryView.cellWidthZoomScale = 1.3;
           } else if ([title isEqualToString:@"大小缩放+底部锚点"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
               titleCategoryView.titleLabelZoomScale = 1.5;
               titleCategoryView.cellWidthIncrement = 10;
               titleCategoryView.titleLabelAnchorPointStyle = CGXCategoryTitleLabelAnchorPointStyleBottom;
-              //            titleCategoryView.titleLabelVerticalOffset = 5;
+                          titleCategoryView.titleLabelVerticalOffset = 5;
           } else if ([title isEqualToString:@"大小缩放+顶部锚点"]){
-              titleCategoryView.titleColorGradientEnabled = YES;
-              titleCategoryView.titleLabelZoomEnabled = YES;
               titleCategoryView.titleLabelZoomScale = 1.5;
               titleCategoryView.cellWidthIncrement = 10;
               titleCategoryView.titleLabelAnchorPointStyle = CGXCategoryTitleLabelAnchorPointStyleTop;
-              //            titleCategoryView.titleLabelVerticalOffset = 5;
+                          titleCategoryView.titleLabelVerticalOffset = 5;
           }
     
         titleCategoryView.contentScrollView = mainScrollViewH;
         [titleCategoryView selectItemAtIndex:0];
-    }
-    
-    
-    
+ 
 }
 
 

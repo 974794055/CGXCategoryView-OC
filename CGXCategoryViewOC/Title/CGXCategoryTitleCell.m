@@ -60,8 +60,6 @@
     //因为titleLabel是通过约束布局的，在layoutSubviews方法中，它的frame并没有确定。像子类CGXCategoryNumberCell中的numberLabel需要依赖于titleLabel的frame进行布局。所以这里必须立马触发self.contentView的视图布局。
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
-    
-
 }
 
 - (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
@@ -80,12 +78,12 @@
         case CGXCategoryTitleLabelAnchorPointStyleTop:
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 0);
             self.maskTitleLabel.layer.anchorPoint = CGPointMake(0.5, 0);
-            self.titleLabelCenterY.constant = -self.titleLabel.bounds.size.height/2 - myCellModel.titleLabelVerticalOffset;
+            self.titleLabelCenterY.constant = -myCellModel.titleHeight/2 - myCellModel.titleLabelVerticalOffset;
             break;
         case CGXCategoryTitleLabelAnchorPointStyleBottom:
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 1);
             self.maskTitleLabel.layer.anchorPoint = CGPointMake(0.5, 1);
-            self.titleLabelCenterY.constant = self.titleLabel.bounds.size.height/2 + myCellModel.titleLabelVerticalOffset;
+            self.titleLabelCenterY.constant = myCellModel.titleHeight/2 + myCellModel.titleLabelVerticalOffset;
             break;
         default:
             break;

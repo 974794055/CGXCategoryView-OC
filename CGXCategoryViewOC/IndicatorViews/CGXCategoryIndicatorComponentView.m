@@ -14,16 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _componentPosition = CGXCategoryComponentPosition_Bottom;
-        _scrollEnabled = YES;
-        _verticalMargin = 0;
-        _scrollAnimationDuration = 0.25;
-        _indicatorWidth = CGXCategoryViewAutomaticDimension;
-        _indicatorHeight = CGXCategoryViewAutomaticDimension;
-        _indicatorCornerRadius = CGXCategoryViewAutomaticDimension;
-        _indicatorColor = [UIColor redColor];
-        _indicatorWidthIncrement = 0;
-        _scrollStyle = CGXCategoryIndicatorScrollStyleSimple;
+        [self initializeViews];
     }
     return self;
 }
@@ -33,8 +24,22 @@
     self = [super initWithCoder:coder];
     if (self) {
         NSAssert(NO, @"Use initWithFrame");
+        [self initializeViews];
     }
     return self;
+}
+- (void)initializeViews
+{
+    _componentPosition = CGXCategoryComponentPosition_Bottom;
+    _scrollEnabled = YES;
+    _verticalMargin = 0;
+    _scrollAnimationDuration = 0.25;
+    _indicatorWidth = CGXCategoryViewAutomaticDimension;
+    _indicatorHeight = CGXCategoryViewAutomaticDimension;
+    _indicatorCornerRadius = CGXCategoryViewAutomaticDimension;
+    _indicatorColor = [UIColor redColor];
+    _indicatorWidthIncrement = 0;
+    _scrollStyle = CGXCategoryIndicatorScrollStyleSimple;
 }
 - (CGFloat)indicatorWidthValue:(CGRect)cellFrame {
     if (self.indicatorWidth == CGXCategoryViewAutomaticDimension) {

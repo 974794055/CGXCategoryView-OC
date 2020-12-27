@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Common/CGXCategoryCollectionView.h
+../../../../../CGXCategoryViewOC/Common/CGXCategoryCollectionView.h

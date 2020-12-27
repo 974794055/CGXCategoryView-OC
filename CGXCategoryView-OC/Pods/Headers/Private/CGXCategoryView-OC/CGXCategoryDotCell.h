@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/Dot/CGXCategoryDotCell.h
+../../../../../CGXCategoryViewOC/Dot/CGXCategoryDotCell.h

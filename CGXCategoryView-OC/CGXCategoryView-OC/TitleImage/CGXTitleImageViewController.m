@@ -49,7 +49,8 @@
     self.myCategoryView.selectedImageNames = self.selectedImageNames;
     //    self.myCategoryView.imageZoomEnabled = YES;
     //    self.myCategoryView.imageZoomScale = 1.3;
-    //    self.myCategoryView.averageCellSpacingEnabled = NO;
+//    self.myCategoryView.cellSpacing = 0;
+        self.myCategoryView.averageCellSpacingEnabled = YES;
     [self.view addSubview:self.myCategoryView];
     
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];

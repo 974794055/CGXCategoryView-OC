@@ -38,13 +38,16 @@
     self.categoryView = [[CGXCategoryTitleView alloc] init];
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
+    self.categoryView.averageCellSpacingEnabled = YES;
+    //    self.categoryView.cellWidth = [UIScreen mainScreen].bounds.size.width / 2;
+    //    self.categoryView.cellSpacing = 0;
+        self.categoryView.cellWidthIncrement = 20;
     [self.view addSubview:self.categoryView];
     self.categoryView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50);
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
     lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
     self.categoryView.indicators = @[lineView];
-    
-    
+
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.bounces = NO;
@@ -58,12 +61,13 @@
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
     }];
-    
+    [self updateView];
 }
 - (void)updateView
 {
+    [self.titleArr removeAllObjects];
     NSMutableArray *arr= [NSMutableArray array];
-    for (int i = 0; i<4; i++) {
+    for (int i = 0; i<2 + arc4random() % 5; i++) {
         [arr addObject:[NSString stringWithFormat:@"%@-%d",self.tagStr,i]];
     }
     for (NSString *str in arr) {
@@ -71,7 +75,7 @@
     }
     self.categoryView.titleArray = self.titleArr;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (int i = 0; i < self.titleArr.count; i ++) {
             UIViewController *listVC = [[UIViewController alloc] init];
             listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
@@ -104,7 +108,7 @@
     NSLog(@"第一次加载********--%ld",(long)index);
     self.currentIndex = index;
     if (self.isFirst) {
-        [self updateView];
+//        [self updateView];
         self.isFirst = NO;
         NSLog(@" 初始化isFirst----");
     }
@@ -121,7 +125,6 @@
     NSLog(@"点击选中--%ld",(long)index);
     self.currentIndex = index;
     if (self.isFirst) {
-        [self updateView];
         self.isFirst = NO;
         NSLog(@" 初始化isFirst*****");
     }
@@ -138,7 +141,6 @@
     NSLog(@"滚动选中--%ld",(long)index);
     self.currentIndex = index;
     if (self.isFirst) {
-        [self updateView];
         self.isFirst = NO;
         NSLog(@" 初始化isFirst----");
     }

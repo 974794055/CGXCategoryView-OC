@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/TitleSortView/CGXCategoryTitleSortCellModel.h
+../../../../../CGXCategoryViewOC/TitleSortView/CGXCategoryTitleSortCellModel.h

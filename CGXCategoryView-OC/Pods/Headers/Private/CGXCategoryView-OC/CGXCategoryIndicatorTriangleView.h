@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/IndicatorViews/CGXCategoryIndicatorTriangleView.h
+../../../../../CGXCategoryViewOC/IndicatorViews/CGXCategoryIndicatorTriangleView.h

@@ -1,1 +1,1 @@
-../../../../../CGXCategoryView/ListContainer/CGXCategoryListContainerViewScrollDelegate.h
+../../../../../CGXCategoryViewOC/ListContainer/CGXCategoryListContainerViewScrollDelegate.h

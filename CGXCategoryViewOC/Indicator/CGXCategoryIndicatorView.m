@@ -29,8 +29,6 @@
     _cellBackgroundUnselectedColor = [UIColor whiteColor];
     _cellBackgroundSelectedColor = [UIColor lightGrayColor];
     
-    
-    self.cellWidthIncrement = 0;
     self.normalBackgroundColor = [UIColor whiteColor];
     self.normalBorderColor = [UIColor clearColor];
     self.selectedBackgroundColor = [UIColor colorWithWhite:0.93 alpha:1];

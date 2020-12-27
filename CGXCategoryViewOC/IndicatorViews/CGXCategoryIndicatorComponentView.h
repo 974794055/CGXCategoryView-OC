@@ -75,4 +75,6 @@
  */
 - (CGFloat)indicatorCornerRadiusValue:(CGRect)cellFrame;
 
+- (void)initializeViews NS_REQUIRES_SUPER;
+
 @end

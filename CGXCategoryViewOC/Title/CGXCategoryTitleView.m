@@ -14,11 +14,6 @@
 
 @implementation CGXCategoryTitleView
 
-
-- (void)dealloc
-{
-    
-}
 - (void)initializeData
 {
     [super initializeData];
@@ -58,7 +53,6 @@
 }
 - (void)refreshDataSource
 {
-    
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryTitleCellModel *cellModel = [[CGXCategoryTitleCellModel alloc] init];
