@@ -27,11 +27,25 @@
 }
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    CGXCategoryBadgeCellModel *myCellModel = (CGXCategoryBadgeCellModel *)self.cellModel;
 
-    [self.numberLabel sizeToFit];
+}
+
+- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
     
+    CGXCategoryBadgeCellModel *myCellModel = (CGXCategoryBadgeCellModel *)cellModel;
+    
+    self.numberLabel.hidden = myCellModel.badgeModel.count == 0;
+    self.numberLabel.backgroundColor = myCellModel.badgeModel.numberBackgroundColor;
+    self.numberLabel.font = myCellModel.badgeModel.numberLabelFont;
+    self.numberLabel.textColor = myCellModel.badgeModel.numberTitleColor;
+    self.numberLabel.text = myCellModel.badgeModel.numberString;
+    if (myCellModel.badgeModel.isFormatter) {
+        if (myCellModel.badgeModel.count>myCellModel.badgeModel.numberMax) {
+            self.numberLabel.text =  [NSString stringWithFormat:@"%ld",(long)myCellModel.badgeModel.numberMax];
+        }
+    }
+    [self.numberLabel sizeToFit];
     CGFloat width = self.numberLabel.bounds.size.width;
     CGFloat x = CGRectGetMaxX(self.titleLabel.frame);
     CGFloat y = CGRectGetMinY(self.titleLabel.frame);
@@ -57,31 +71,28 @@
     
     if (myCellModel.badgeModel.badgeAdaptive) {
         self.numberLabel.bounds = CGRectMake(0, 0, width + myCellModel.badgeModel.numberLabelWidthIncrement, myCellModel.badgeModel.numberLabelHeight);
-        self.numberLabel.layer.cornerRadius = myCellModel.badgeModel.numberLabelHeight/2.0;
     } else{
         self.numberLabel.bounds = CGRectMake(0, 0,myCellModel.badgeModel.numberLabelWidth, myCellModel.badgeModel.numberLabelHeight);
-        self.numberLabel.layer.cornerRadius = myCellModel.badgeModel.numberLabelHeight/2.0;
     }
-    
     self.numberLabel.center = CGPointMake(x+myCellModel.badgeModel.numberLabelOffset.x, y+myCellModel.badgeModel.numberLabelOffset.y);
-}
-
-- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
-    [super reloadData:cellModel];
     
-    CGXCategoryBadgeCellModel *myCellModel = (CGXCategoryBadgeCellModel *)cellModel;
+    CGRect numFrame = CGRectMake(0, 0, CGRectGetWidth(self.numberLabel.frame), CGRectGetHeight(self.numberLabel.frame));
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = numFrame;
     
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.frame = numFrame;
+    borderLayer.lineWidth = myCellModel.badgeModel.borderWidth;
+    borderLayer.strokeColor = myCellModel.badgeModel.borderColor.CGColor;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
+    
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.numberLabel.bounds byRoundingCorners:(UIRectCorner)myCellModel.badgeModel.roundedType cornerRadii:CGSizeMake(myCellModel.badgeModel.numberLabelHeight/2.0, myCellModel.badgeModel.numberLabelHeight/2.0)];;
+    maskLayer.path = bezierPath.CGPath;
+    borderLayer.path = bezierPath.CGPath;
+    
+    [self.numberLabel.layer insertSublayer:borderLayer atIndex:0];
+    [self.numberLabel.layer setMask:maskLayer];
 
-    self.numberLabel.hidden = myCellModel.badgeModel.count == 0;
-    self.numberLabel.backgroundColor = myCellModel.badgeModel.numberBackgroundColor;
-    self.numberLabel.font = myCellModel.badgeModel.numberLabelFont;
-    self.numberLabel.textColor = myCellModel.badgeModel.numberTitleColor;
-    self.numberLabel.text = myCellModel.badgeModel.numberString;
-    if (myCellModel.badgeModel.isFormatter) {
-        if (myCellModel.badgeModel.count>myCellModel.badgeModel.numberMax) {
-            self.numberLabel.text =  [NSString stringWithFormat:@"%ld",(long)myCellModel.badgeModel.numberMax];
-        }
-    }
     [self setNeedsLayout];
 }
 

@@ -17,11 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  更新角标
  */
-- (void)updateWithBadgeInter:(NSInteger)badgeInter AtInter:(NSInteger)inter NS_REQUIRES_SUPER;
+- (void)updateWithBadgeInter:(NSInteger)badgeInter AtInter:(NSInteger)inter;
 /**
  更新角标 自定义
  */
-- (void)updateWithBadge:(CGXCategoryTitleBadgeModel *)badgeModel AtInter:(NSInteger)inter NS_REQUIRES_SUPER;
+- (void)updateWithBadge:(CGXCategoryTitleBadgeModel *)badgeModel AtInter:(NSInteger)inter;
+
 @end
 
 NS_ASSUME_NONNULL_END

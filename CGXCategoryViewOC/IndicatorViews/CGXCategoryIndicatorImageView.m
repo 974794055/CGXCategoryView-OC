@@ -16,7 +16,6 @@
     [super initializeViews];
     _indicatorImageViewSize = CGSizeMake(30, 20);
     _indicatorImageViewRollEnabled = NO;
-    
     _indicatorImageView = [[UIImageView alloc] init];
     self.indicatorImageView.frame = CGRectMake(0, 0, self.indicatorImageViewSize.width, self.indicatorImageViewSize.height);
     self.indicatorImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -26,7 +25,6 @@
 
 - (void)setIndicatorImageViewSize:(CGSize)indicatorImageViewSize {
     _indicatorImageViewSize = indicatorImageViewSize;
-    
     self.indicatorImageView.frame = CGRectMake(0, 0, self.indicatorImageViewSize.width, self.indicatorImageViewSize.height);
 }
 

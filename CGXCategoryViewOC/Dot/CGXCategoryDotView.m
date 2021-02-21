@@ -15,7 +15,7 @@
     [super initializeData];
 
     _relativePosition = CGXCategoryDotRelativePosition_TopRight;
-    _dotSize = CGSizeMake(10, 10);
+    _dotSize = CGSizeMake(5, 5);
     _dotCornerRadius = CGXCategoryViewAutomaticDimension;
     _dotColor = [UIColor redColor];
 }
@@ -37,7 +37,6 @@
     [super refreshCellModel:cellModel index:index];
 
     CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)cellModel;
-    myCellModel.dotHidden = [self.dotStates[index] boolValue];
     myCellModel.relativePosition = self.relativePosition;
     myCellModel.dotSize = self.dotSize;
     myCellModel.dotColor = self.dotColor;
@@ -47,5 +46,18 @@
         myCellModel.dotCornerRadius = self.dotCornerRadius;
     }
 }
-
+/**
+ 更新红点的显示隐藏
+ */
+- (void)updateWithDotHidden:(BOOL)hidden AtInter:(NSInteger)inter
+{
+    if (inter>self.dataSource.count) {
+        return;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CGXCategoryDotCellModel *model = (CGXCategoryDotCellModel *)self.dataSource[inter];
+        model.dotHidden = !hidden;
+        [self reloadCellAtIndex:inter];
+    });
+}
 @end

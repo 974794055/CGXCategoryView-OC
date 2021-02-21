@@ -10,11 +10,12 @@
 
 #import "CGXCategoryTitleSubtitleView.h"
 
-@interface CGXTitleSubtitleViewController ()<CGXCategoryViewDelegate>
-@property (nonatomic, strong) CGXCategoryTitleSubtitleView *myCategoryView1;
-@property (nonatomic, strong) CGXCategoryTitleSubtitleView *myCategoryView2;
+@interface CGXTitleSubtitleViewController ()<CGXCategoryViewDelegate,UIScrollViewDelegate>
+@property (nonatomic, strong) CGXCategoryTitleSubtitleView *categoryView;
 @property (nonatomic , strong) UIScrollView *scrollView;
+@property (nonatomic , assign) CGFloat maxCategoryViewHeight;
 
+@property (nonatomic , assign) CGFloat minCategoryViewHeight;
 @end
 
 
@@ -27,88 +28,56 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSMutableArray <NSString *> *status = [@[@"已开抢", @"抢购中", @"即将开抢", @"抢购中", @"抢购完毕"] mutableCopy];
+    NSMutableArray <NSString *> *status = [@[@"已开抢", @"抢购中", @"即将开抢", @"抢购中", @"抢购完"] mutableCopy];
     NSMutableArray <NSString *> *times = [@[@"12:00", @"13:00", @"14:00", @"15:00", @"16:00"] mutableCopy];
+    self.maxCategoryViewHeight= 60;
+    self.minCategoryViewHeight= 50;
     
+    self.categoryView = [[CGXCategoryTitleSubtitleView alloc] init];
+    self.categoryView.delegate = self;
+    self.categoryView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.maxCategoryViewHeight);
+    [self.view addSubview:self.categoryView];
+    self.categoryView.backgroundColor = [UIColor blackColor];
+    self.categoryView.titleArray = status;
+    self.categoryView.subTitleArray = times;
     
-    self.myCategoryView1 = [[CGXCategoryTitleSubtitleView alloc] init];
-    self.myCategoryView1.delegate = self;
-    self.myCategoryView1.frame = CGRectMake(0, 0, self.view.bounds.size.width, 50);
-    [self.view addSubview:self.myCategoryView1];
-    self.myCategoryView1.backgroundColor = [UIColor blackColor];
-    self.myCategoryView1.titleArray = status;
-    self.myCategoryView1.subTitleArray = times;
-    
-    self.myCategoryView1.titleLabelVerticalOffset = 0;
-    self.myCategoryView1.subTitleSpace = -5;
-    self.myCategoryView1.titleSpace = -5;
-    self.myCategoryView1.titleColorGradientEnabled = YES;
+    self.categoryView.titleLabelVerticalOffset = 0;
+    self.categoryView.subTitleSpace = -5;
+    self.categoryView.titleSpace = -5;
+    self.categoryView.titleColorGradientEnabled = YES;
     //设置底部状态
-    self.myCategoryView1.titleColor = [UIColor lightGrayColor];
-    self.myCategoryView1.titleSelectedColor = [UIColor whiteColor];
-    self.myCategoryView1.titleFont = [UIFont systemFontOfSize:13];
-    self.myCategoryView1.titleSelectedFont = [UIFont systemFontOfSize:15];
+    self.categoryView.titleColor = [UIColor lightGrayColor];
+    self.categoryView.titleSelectedColor = [UIColor whiteColor];
+    self.categoryView.titleFont = [UIFont systemFontOfSize:13];
+    self.categoryView.titleSelectedFont = [UIFont systemFontOfSize:15];
     //设置顶部时间
-    self.myCategoryView1.subTitleFont = [UIFont boldSystemFontOfSize:10];
-    self.myCategoryView1.subTitleSelectedFont = [UIFont boldSystemFontOfSize:10];
-    self.myCategoryView1.subTitleNormalColor = [UIColor whiteColor];
-    self.myCategoryView1.subTitleSelectedColor = [UIColor whiteColor];
+    self.categoryView.subTitleFont = [UIFont boldSystemFontOfSize:10];
+    self.categoryView.subTitleSelectedFont = [UIFont boldSystemFontOfSize:10];
+    self.categoryView.subTitleNormalColor = [UIColor whiteColor];
+    self.categoryView.subTitleSelectedColor = [UIColor whiteColor];
+    self.categoryView.issubTitleBg = YES;
     
     
-    
-    CGXCategoryIndicatorBackgroundView *backgroundView11 = [[CGXCategoryIndicatorBackgroundView alloc] init];
-    backgroundView11.indicatorHeight = 15;
-    backgroundView11.indicatorCornerRadius = 7.5;
-    backgroundView11.indicatorWidthIncrement = 10;
-    backgroundView11.verticalMargin = -15;
-    backgroundView11.scrollEnabled = NO;
-    backgroundView11.indicatorColor = [UIColor redColor];
-    self.myCategoryView1.indicators = @[backgroundView11];
-    
-    NSMutableArray <NSString *> *statusTB = [@[@"猜你喜欢", @"疯狂抢购", @"网红推荐", @"低价抢购", @"进口好货"] mutableCopy];
-    NSMutableArray <NSString *> *titleTB = [@[@"全部", @"购物节", @"直播", @"热门商品", @"精品课"] mutableCopy];
-    self.myCategoryView2 = [[CGXCategoryTitleSubtitleView alloc] init];
-    self.myCategoryView2.delegate = self;
-    self.myCategoryView2.frame = CGRectMake(0, 50, self.view.bounds.size.width, 50);
-    [self.view addSubview:self.myCategoryView2];
-    self.myCategoryView2.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
-    self.myCategoryView2.titleArray = titleTB;
-    self.myCategoryView2.subTitleArray = statusTB;
-    self.myCategoryView2.titleLabelVerticalOffset = 0;
-    self.myCategoryView2.subTitleSpace = -5;
-    self.myCategoryView2.titleSpace = -5;
-    //    self.myCategoryView2.titleColorGradientEnabled = YES;
-    //设置底部状态
-    self.myCategoryView2.titleColor = [UIColor blackColor];
-    self.myCategoryView2.titleSelectedColor = [UIColor redColor];
-    self.myCategoryView2.titleFont = [UIFont systemFontOfSize:10];
-    self.myCategoryView2.titleFont = [UIFont systemFontOfSize:13];
-    self.myCategoryView2.titleSelectedFont = [UIFont systemFontOfSize:15];
-    //设置顶部时间
-    self.myCategoryView2.subTitleFont = [UIFont boldSystemFontOfSize:10];
-    self.myCategoryView2.subTitleSelectedFont = [UIFont boldSystemFontOfSize:10];
-    self.myCategoryView2.subTitleNormalColor = [UIColor blackColor];
-    self.myCategoryView2.subTitleSelectedColor = [UIColor whiteColor];
-
-    CGXCategoryIndicatorBackgroundView *backgroundView22 = [[CGXCategoryIndicatorBackgroundView alloc] init];
-    backgroundView22.indicatorHeight = 15;
-    backgroundView22.indicatorCornerRadius = 7.5;
-    backgroundView22.indicatorWidthIncrement = 20;
-    backgroundView22.verticalMargin = -15;
-    backgroundView22.scrollEnabled = NO;
-    backgroundView22.indicatorColor = [UIColor redColor];
-    self.myCategoryView2.indicators = @[backgroundView22];
+//    CGXCategoryIndicatorBackgroundView *backgroundView11 = [[CGXCategoryIndicatorBackgroundView alloc] init];
+//    backgroundView11.indicatorHeight = 15;
+//    backgroundView11.indicatorCornerRadius = 7.5;
+//    backgroundView11.indicatorWidthIncrement = 10;
+//    backgroundView11.verticalMargin = -15;
+//    backgroundView11.scrollEnabled = NO;
+//    backgroundView11.indicatorColor = [UIColor redColor];
+//    self.categoryView.indicators = @[backgroundView11];
     
     NSUInteger count = status.count;
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.myCategoryView2.frame), ScreenWidth, kSafeVCHeight-50-50)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), ScreenWidth, kSafeVCHeight-self.maxCategoryViewHeight)];
     self.scrollView.pagingEnabled = YES;
+    self.scrollView.delegate = self;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*count, CGRectGetHeight(self.scrollView.frame));
     [self.view addSubview:self.scrollView];
-    self.myCategoryView2.contentScrollView = self.scrollView;
-
-
+    self.categoryView.contentScrollView = self.scrollView;
+    
+    
     __weak typeof(self) weakSelf = self;
     for (int i = 0; i < count; i ++) {
         UIViewController *listVC = [[UIViewController alloc] init];
@@ -118,26 +87,58 @@
         CGXWaterCollectionView *waterView = [[CGXWaterCollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
         waterView.titleStr = @"";
         waterView.scrollViewBlock = ^(UIScrollView *scrollView) {
-            CGFloat height = scrollView.contentOffset.y;
-            NSLog(@"heightheight--%f",height);
+            [self listScrollViewDidScroll:scrollView];
         };
         [listVC.view addSubview:waterView];
     }
+    //    self.categoryView.isHiddenSubTitle = YES;
 }
 
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"didSelectedItemAtIndex--%ld",(long)index);
-    if (categoryView == self.myCategoryView2) {
-        [self.myCategoryView1 selectItemAtIndex:index];
-    }
 }
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
-    if (categoryView == self.myCategoryView2) {
-        [self.myCategoryView1 selectItemAtIndex:index];
-    }
+    NSLog(@"didScrollSelectedItemAtIndex--%ld",(long)index);
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"scrollViewDidScroll---:%f",scrollView.contentOffset.y);
+}
+
+- (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat height = scrollView.contentOffset.y;
+    NSLog(@"heightheight--%f--%f--%f",height,self.maxCategoryViewHeight,self.minCategoryViewHeight);
+    
+    
+    //用于垂直方向滚动时，视图的frame调整
+    if ((self.categoryView.bounds.size.height < self.maxCategoryViewHeight) && scrollView.contentOffset.y < 0) {
+
+        CGRect categoryViewFrame = self.categoryView.frame;
+        categoryViewFrame.size.height -= scrollView.contentOffset.y;
+        categoryViewFrame.size.height = MIN(self.maxCategoryViewHeight, categoryViewFrame.size.height);
+        self.categoryView.frame = categoryViewFrame;
+        self.scrollView.frame = CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.categoryView.frame));
+
+        scrollView.contentOffset = CGPointZero;
+    }else if (((self.categoryView.bounds.size.height < self.maxCategoryViewHeight) && scrollView.contentOffset.y >= 0 && self.categoryView.bounds.size.height > self.minCategoryViewHeight) ||
+              (self.categoryView.bounds.size.height >= self.maxCategoryViewHeight && scrollView.contentOffset.y >= 0)) {
+        CGRect categoryViewFrame = self.categoryView.frame;
+        categoryViewFrame.size.height -= scrollView.contentOffset.y;
+        categoryViewFrame.size.height = MAX(self.minCategoryViewHeight, categoryViewFrame.size.height);
+        self.categoryView.frame = categoryViewFrame;
+
+        self.scrollView.frame = CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.categoryView.frame));
+
+        scrollView.contentOffset = CGPointZero;
+    }
+
+    //必须调用
+    CGFloat percent = (self.categoryView.bounds.size.height - self.minCategoryViewHeight)/(self.maxCategoryViewHeight - self.minCategoryViewHeight);
+    [self.categoryView listDidScrollWithVerticalHeightPercent:percent];
+}
+
 /*
  #pragma mark - Navigation
  

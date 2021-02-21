@@ -28,6 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isHiddenSubTitle;
 
+@property (nonatomic, assign) BOOL issubTitleBg;
+@property (nonatomic, strong) UIColor *subTitleNBgColor;
+@property (nonatomic, strong) UIColor *subTitleSBgColor;
+@property (nonatomic, assign) CGFloat subTitleRadius;
+// 边距 默认 10
+@property (nonatomic, assign) CGFloat subTitleMargin;
+
 @end
 
 NS_ASSUME_NONNULL_END

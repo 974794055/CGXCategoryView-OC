@@ -14,6 +14,7 @@
 #import "CGXTitleSubtitleViewController.h"
 #import "CGXTitleSortViewController.h"
 #import "CGXBadgeViewController.h"
+#import "CGXDotViewController.h"
 @interface TableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) NSMutableArray *titleArray;
@@ -28,7 +29,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.titleArray = [NSMutableArray arrayWithObjects:@"富文本设置",@"图文设置",@"UISegmentedControl设置",@"商品排序",@"活动倒计时",@"角标", nil];
+    self.titleArray = [NSMutableArray arrayWithObjects:@"富文本设置",@"图文设置",@"UISegmentedControl设置",@"商品排序",@"活动倒计时",@"角标",@"角标红点", nil];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kTabBarHeight) style:UITableViewStyleGrouped];;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsHorizontalScrollIndicator = NO;
@@ -128,7 +129,14 @@
         vc.hidesBottomBarWhenPushed = YES;
          vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
+    } else if ([title isEqualToString:@"角标红点"]){
+        CGXDotViewController *vc = [[CGXDotViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+         vc.title = title;
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    
+    
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

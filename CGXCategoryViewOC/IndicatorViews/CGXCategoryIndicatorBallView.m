@@ -20,7 +20,8 @@
 - (void)initializeViews
 {
     [super initializeViews];
-    _ballViewSize = CGSizeMake(15, 15);
+    self.verticalMargin = 2;
+    _ballViewSize = CGSizeMake(10, 10);
     _ballScrollOffsetX = 20;
     _ballViewColor = [UIColor redColor];
 

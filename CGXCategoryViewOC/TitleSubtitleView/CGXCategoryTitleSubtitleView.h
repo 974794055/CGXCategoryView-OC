@@ -20,15 +20,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIFont *subTitleFont;
 @property (nonatomic, strong) UIFont *subTitleSelectedFont;
 
- //默认：NO，title的颜色是否渐变过渡
+//默认：NO，title的颜色是否渐变过渡
 @property (nonatomic, assign) BOOL subTitleTitleColorGradientEnabled;
-
-// 距离中心距离
-@property (nonatomic, assign) CGFloat subTitleSpace;
-@property (nonatomic, assign) CGFloat titleSpace;
-
 @property (nonatomic, assign) BOOL isHiddenSubTitle;
 
+@property (nonatomic, assign) CGFloat titleSpace;
+
+@property (nonatomic, assign) BOOL issubTitleBg;
+@property (nonatomic, strong) UIColor *subTitleNBgColor;
+@property (nonatomic, strong) UIColor *subTitleSBgColor;
+@property (nonatomic, assign) CGFloat subTitleRadius;
+// 距离中心距离
+@property (nonatomic, assign) CGFloat subTitleSpace;
+// 边距 默认 10
+@property (nonatomic, assign) CGFloat subTitleMargin;
+
+- (void)listDidScrollWithVerticalHeightPercent:(CGFloat)percent;
 @end
 
 NS_ASSUME_NONNULL_END

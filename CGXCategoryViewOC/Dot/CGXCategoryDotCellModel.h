@@ -6,7 +6,7 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import "CGXCategoryTitleCellModel.h"
+#import "CGXCategoryTitleImageCellModel.h"
 
 typedef NS_ENUM(NSUInteger, CGXCategoryDotRelativePosition) {
     CGXCategoryDotRelativePosition_TopLeft = 0,
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryDotRelativePosition) {
     CGXCategoryDotRelativePosition_BottomRight,
 };
 
-@interface CGXCategoryDotCellModel : CGXCategoryTitleCellModel
+@interface CGXCategoryDotCellModel : CGXCategoryTitleImageCellModel
 
 @property (nonatomic, assign) BOOL dotHidden;
 

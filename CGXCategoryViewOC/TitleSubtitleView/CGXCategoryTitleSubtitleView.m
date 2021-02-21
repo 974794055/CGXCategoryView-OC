@@ -23,11 +23,18 @@
     self.subTitleSelectedColor = [UIColor whiteColor];
     self.titleSelectedColor = [UIColor whiteColor];
     
+    self.subTitleSBgColor = [UIColor redColor];
+    self.subTitleNBgColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    
     self.subTitleTitleColorGradientEnabled = NO;
     
     self.subTitleSpace = CGXCategoryViewAutomaticDimension;
     self.titleSpace = CGXCategoryViewAutomaticDimension;
     self.isHiddenSubTitle = NO;
+    
+    self.subTitleRadius = CGXCategoryViewAutomaticDimension;
+    self.subTitleMargin = 0;
+    self.issubTitleBg = NO;
 }
 
 //返回自定义的cell class
@@ -43,6 +50,7 @@
     }
     self.dataSource = tempArray;
 }
+
 
 - (void)refreshSelectedCellModel:(CGXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(CGXCategoryBaseCellModel *)unselectedCellModel {
     [super refreshSelectedCellModel:selectedCellModel unselectedCellModel:unselectedCellModel];
@@ -86,7 +94,31 @@
     model.subTitleSpace = self.subTitleSpace;
     model.titleSpace = self.titleSpace;
     model.isHiddenSubTitle = self.isHiddenSubTitle;
+    model.subTitleNBgColor = self.subTitleNBgColor;
+    model.subTitleSBgColor = self.subTitleSBgColor;
+    model.subTitleRadius = self.subTitleRadius;
+    model.subTitleMargin = self.subTitleMargin;
+    model.issubTitleBg = self.issubTitleBg;
 }
+
+
+- (void)listDidScrollWithVerticalHeightPercent:(CGFloat)percent
+{
+    NSLog(@"percent %f",percent);
+    //在滑动过程中获取当前显示的所有cell, 调用偏移量的计算方法
+    [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(UICollectionViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if ([obj respondsToSelector:@selector(cellOffsetOnCollectionView:)] && [obj conformsToProtocol:@protocol(CGXHotBrandUpdateCellDelegate)]) {
+//            [(UICollectionViewCell<CGXHotBrandUpdateCellDelegate> *)obj cellOffsetOnCollectionView:self.collectionView];
+//        }
+    }];
+    
+//    [UIView animateWithDuration:3 animations:^{
+//        self.isHiddenSubTitle = YES;
+//        [self.collectionView reloadData];
+//    }];
+
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

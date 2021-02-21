@@ -30,32 +30,57 @@
 
     CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)self.cellModel;
     self.dotLayer.bounds = CGRectMake(0, 0, myCellModel.dotSize.width, myCellModel.dotSize.height);
+    
+
+    BOOL isDot = NO;
+    if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage || myCellModel.imageType==CGXCategoryTitleImageType_RightImage || myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage) {
+        isDot = YES;
+    } else{
+        isDot = NO;
+    }
+    
     switch (myCellModel.relativePosition) {
         case CGXCategoryDotRelativePosition_TopLeft:
         {
-            self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+            if (isDot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            } else{
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+            }
         }
             break;
         case CGXCategoryDotRelativePosition_TopRight:
         {
+            if (isDot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            } else{
             self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+            }
         }
             break;
         case CGXCategoryDotRelativePosition_BottomLeft:
         {
+            if (isDot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            } else{
             self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame));
+            }
         }
             break;
         case CGXCategoryDotRelativePosition_BottomRight:
         {
+            if (isDot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMaxY(self.imageView.frame));
+            } else{
             self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame));
+            }
         }
             break;
 
         default:
             break;
     }
-    self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+//    self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
 
     [CATransaction commit];
 }

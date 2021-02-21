@@ -39,6 +39,7 @@
 		B55DDEFD254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */; };
 		B55DDEFE254B0AB100CAD6A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFB254B0AB100CAD6A9 /* README.md */; };
 		B55DDEFF254B0AB100CAD6A9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFC254B0AB100CAD6A9 /* LICENSE */; };
+		B586127D25C6F4D800602B5E /* CGXDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B586127C25C6F4D800602B5E /* CGXDotViewController.m */; };
 		E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */; };
 		E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258D5222A7EEB00A0957D /* AppDelegate.m */; };
 		E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DA222A7EEB00A0957D /* Main.storyboard */; };
@@ -120,6 +121,8 @@
 		B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B55DDEFB254B0AB100CAD6A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		B55DDEFC254B0AB100CAD6A9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		B586127B25C6F4D800602B5E /* CGXDotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXDotViewController.h; sourceTree = "<group>"; };
+		B586127C25C6F4D800602B5E /* CGXDotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXDotViewController.m; sourceTree = "<group>"; };
 		E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXWaterCollectionView.h; sourceTree = "<group>"; };
 		E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXWaterCollectionView.m; sourceTree = "<group>"; };
 		E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXCategoryView-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +266,8 @@
 			children = (
 				9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */,
 				9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */,
+				B586127B25C6F4D800602B5E /* CGXDotViewController.h */,
+				B586127C25C6F4D800602B5E /* CGXDotViewController.m */,
 			);
 			path = Badge;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */,
 				E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */,
 				9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */,
+				B586127D25C6F4D800602B5E /* CGXDotViewController.m in Sources */,
 				04279C8A235855DB00137328 /* CGXVerticalListViewController.m in Sources */,
 				E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */,
 				9E8B4910235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m in Sources */,

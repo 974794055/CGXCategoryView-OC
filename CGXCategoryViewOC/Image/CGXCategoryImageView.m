@@ -87,7 +87,7 @@
 }
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
-    return self.imageSize.width;
+    return self.imageSize.width+self.cellWidthIncrement;
 }
 
 @end

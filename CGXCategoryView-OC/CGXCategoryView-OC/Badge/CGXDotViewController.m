@@ -1,15 +1,15 @@
 //
-//  CGXBadgeViewController.m
+//  CGXDotViewController.m
 //  CGXCategoryView-OC
 //
-//  Created by CGX on 2018/05/20.
-//  Copyright © 2020 CGX. All rights reserved.
+//  Created by CGX on 2021/1/31.
+//  Copyright © 2021 曹贵鑫. All rights reserved.
 //
 
-#import "CGXBadgeViewController.h"
+#import "CGXDotViewController.h"
 
-@interface CGXBadgeViewController ()<CGXCategoryViewDelegate>
-@property (nonatomic, strong) CGXCategoryBadgeView *myCategoryView;
+@interface CGXDotViewController ()<CGXCategoryViewDelegate>
+@property (nonatomic, strong) CGXCategoryDotView *myCategoryView;
 @property (nonatomic, assign) CGXCategoryTitleImageType currentType;
 
 @property (nonatomic, strong) NSMutableArray *titles;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation CGXBadgeViewController
+@implementation CGXDotViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,19 +37,16 @@
     
     
     self.titles =  [@[@"全部", @"直播", @"热门商品", @"精品课", @"生活", @"新鲜水果"] mutableCopy];
-    
+
     self.imageNames = [@[@"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect"] mutableCopy];
     self.selectedImageNames = [@[@"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select"] mutableCopy];
     
-    self.myCategoryView = [[CGXCategoryBadgeView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
+    self.myCategoryView = [[CGXCategoryDotView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
     self.myCategoryView.backgroundColor = [UIColor whiteColor];
     self.myCategoryView.delegate = self;
     self.myCategoryView.titleArray = self.titles;
     self.myCategoryView.imageNames = self.imageNames;
     self.myCategoryView.selectedImageNames = self.selectedImageNames;
-    //    self.myCategoryView.imageZoomEnabled = YES;
-    //    self.myCategoryView.imageZoomScale = 1.3;
-    //    self.myCategoryView.averageCellSpacingEnabled = NO;
     [self.view addSubview:self.myCategoryView];
     
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
@@ -79,10 +76,9 @@
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*self.titles.count, CGRectGetHeight(self.scrollView.frame));
     
+    [self.myCategoryView updateWithDotHidden:NO AtInter:0];
+    [self.myCategoryView updateWithDotHidden:NO AtInter:1];
     [self configCategoryViewWithType:CGXCategoryTitleImageType_OnlyTitle];
-    
-    [self.myCategoryView selectItemAtIndex:0];
-    
     [self leftItemItemClicked];
     
 }
@@ -96,11 +92,9 @@
             view.componentPosition = CGXCategoryComponentPosition_Top;
         }
     }
-    
     for (int i = 0; i<self.titles.count; i++) {
         CGXCategoryTitleBadgeModel *badge = [[CGXCategoryTitleBadgeModel alloc] init];
         badge.count = arc4random()% 20+i;
-        [self.myCategoryView updateWithBadge:badge AtInter:i];
     }
 
     [componentView reloadData];
@@ -132,6 +126,11 @@
 - (void)titleImageSettingVCDidSelectedImageType:(CGXCategoryTitleImageType)imageType {
     [self configCategoryViewWithType:imageType];
 }
+- (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
+{
+    [self.myCategoryView updateWithDotHidden:YES AtInter:index];
+}
+
 /*
 #pragma mark - Navigation
 

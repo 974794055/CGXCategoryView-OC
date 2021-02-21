@@ -12,7 +12,7 @@ typedef void(^CGXWaterCollectionViewSelectBlock)(NSIndexPath *indexPath);
 
 typedef void(^CGXWaterCollectionViewScrollViewBlock)(UIScrollView *scrollView);
 
-@interface CGXWaterCollectionView : UIView<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CGXWaterCollectionView : UIView<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) NSString *titleStr;
 

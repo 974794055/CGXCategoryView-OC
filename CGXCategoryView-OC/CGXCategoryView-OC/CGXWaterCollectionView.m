@@ -78,7 +78,7 @@
     if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    
+    [self viewController:self].automaticallyAdjustsScrollViewInsets = NO;
     self.collectionView.showsVerticalScrollIndicator = YES;
     self.collectionView.showsHorizontalScrollIndicator=YES;
     [self.collectionView registerClass:[CGXWaterCollectionViewCell class] forCellWithReuseIdentifier:@"CGXWaterCollectionViewCell"];
@@ -88,6 +88,20 @@
     [self.collectionView reloadData];
 
 }
+- (UIViewController *)viewController:(UIView *)view
+{
+    //获取当前view的superView对应的控制器
+    UIResponder *next = [view nextResponder];
+    do {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)next;
+        }
+        next = [next nextResponder];
+    } while (next != nil);
+    return nil;
+    
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];

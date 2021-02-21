@@ -12,8 +12,7 @@
 
 @property (nonatomic , strong) CGXCategoryTitleView *titleCategoryView;
 @property (nonatomic , strong) NSMutableArray *titleAry;
-@property (nonatomic , strong) UIImageView *bgSelectedImageView;
-@property (nonatomic , strong) UIImageView *bgUnselectedImageView;
+
 
 @end
 
@@ -29,7 +28,7 @@
     
     self.titleAry = [NSMutableArray arrayWithObjects:@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"母婴",nil];
 
-    NSInteger interH = 50;
+    NSInteger interH = 60;
     self.titleCategoryView = [[CGXCategoryTitleView alloc] init];
     self.titleCategoryView.backgroundColor = [UIColor whiteColor];
     self.titleCategoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
@@ -72,13 +71,11 @@
         lineView.indicatorColors = colors;
         lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
         self.titleCategoryView.indicators = @[lineView];
-    } else if ([title isEqualToString:@"QQ小红点"]){
+    } else if ([title isEqualToString:@"圆点"]){
         self.titleCategoryView.titleColorGradientEnabled = YES;
         CGXCategoryIndicatorBallView *ballView = [[CGXCategoryIndicatorBallView alloc] init];
         self.titleCategoryView.indicators = @[ballView];
     } else if ([title isEqualToString:@"三角形"]){
-        self.titleCategoryView.titleColorGradientEnabled = YES;
-        
         self.titleCategoryView.titleColorGradientEnabled = YES;
         CGXCategoryIndicatorTriangleView *triangleView = [[CGXCategoryIndicatorTriangleView alloc] init];
         self.titleCategoryView.indicators = @[triangleView];
@@ -93,34 +90,21 @@
         indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"apple_select"];
         self.titleCategoryView.indicators = @[indicatorImageView];
         
-        CGRect bgImageViewFrame = CGRectMake(0, 0, ScreenWidth, 100);
-        UIImageView *bgSelectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
-        bgSelectedImageView.contentMode = UIViewContentModeScaleAspectFill;
-        bgSelectedImageView.image = [self getImageWithIndex:0];
-        [self.titleCategoryView addSubview:bgSelectedImageView];
-        
-        UIImageView *bgUnselectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
-        bgUnselectedImageView.contentMode = UIViewContentModeScaleAspectFill;
-        bgUnselectedImageView.image = [self getImageWithIndex:1];
-        [self.titleCategoryView addSubview:bgUnselectedImageView];
-        
-        [self.titleCategoryView sendSubviewToBack:bgSelectedImageView];
-        [self.titleCategoryView sendSubviewToBack:bgUnselectedImageView];
-        
-        self.bgSelectedImageView = bgSelectedImageView;
-        self.bgUnselectedImageView = bgUnselectedImageView;
-        
+        self.titleCategoryView.bgImage = [self getImageWithIndex:0];
+
         interH = 100;
         self.titleCategoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
         
     } else if ([title isEqualToString:@"cell图片背景"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
-        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"LaunchScreen"];
+        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"apple_Noselect"];
         indicatorImageView.indicatorImageViewSize = CGSizeMake(50, 50);
         self.titleCategoryView.indicators = @[indicatorImageView];
+        self.titleCategoryView.titleSelectedColor = [UIColor orangeColor];
     } else if ([title isEqualToString:@"图片滚动"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
         indicatorImageView.indicatorImageViewRollEnabled = YES;
+        indicatorImageView.indicatorImageViewSize = CGSizeMake(15, 15);
         indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"football"];
         self.titleCategoryView.indicators = @[indicatorImageView];
     } else if ([title isEqualToString:@"混合使用"]){
@@ -195,6 +179,7 @@
         self.titleCategoryView.backgroundCornerRadius = 15;
         self.titleCategoryView.cellSpacing = 10;
     }
+
     mainScrollViewH.frame =CGRectMake(0, interH, ScreenWidth, kSafeVCHeight-interH);
     for (int i = 0; i<self.titleAry.count; i++) {
         UIViewController *vc = [[UIViewController alloc] init];
@@ -218,9 +203,7 @@
 {
     NSLog(@"%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
     if (categoryView.tag == 99999) {
-        self.bgSelectedImageView.alpha = 1;
-        self.bgUnselectedImageView.alpha = 0;
-        self.bgSelectedImageView.image = [self getImageWithIndex:index];
+        self.titleCategoryView.bgImage = [self getImageWithIndex:index];
     }
 }
 

@@ -35,9 +35,6 @@ key:  index  是否显示某个分割线
 value: BooL
 */
 @property (nonatomic, strong) NSMutableDictionary<NSNumber *, NSNumber *> *separatorLineDic;
-
-
-
 /*
 上箭头图片
 */

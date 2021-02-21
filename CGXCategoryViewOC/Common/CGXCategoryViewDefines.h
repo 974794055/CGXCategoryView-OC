@@ -49,4 +49,12 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitlePosition) {
     CGXCategoryTitlePositionRight
 };
 
+typedef NS_OPTIONS (NSUInteger,CGXCategoryRoundedType) {
+    CGXCategoryRoundedTypeTopLeft     = UIRectCornerTopLeft, // 左上角
+    CGXCategoryRoundedTypeTopRight    = UIRectCornerTopRight, // 右上角
+    CGXCategoryRoundedTypeBottomLeft  = UIRectCornerBottomLeft, // 左下角
+    CGXCategoryRoundedTypeBottomRight = UIRectCornerBottomRight, // 右下角
+    CGXCategoryRoundedTypeAll  = UIRectCornerAllCorners// 全部四个角
+};
+
 #define CGXCategoryViewDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)

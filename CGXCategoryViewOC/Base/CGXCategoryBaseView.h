@@ -15,8 +15,6 @@
 #import "CGXCategoryListContainerViewScrollDelegate.h"
 
 @class CGXCategoryBaseView;
-
-
 @protocol CGXCategoryViewDelegate <NSObject>
 
 @optional
@@ -27,7 +25,6 @@
  @param index 选中的index
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index;
-
 /**
  点击选中的情况才会调用该方法
 
@@ -43,8 +40,6 @@
  @param index 选中的index
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index;
-
-
 /**
   只有点击的选中才会调用！！！
   因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
@@ -53,8 +48,6 @@
  @param index index description
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index;
-
-
 /**
  控制能否点击Item
 
@@ -63,7 +56,6 @@
  @return 能否点击
  */
 - (BOOL)categoryView:(CGXCategoryBaseView *)categoryView canClickItemAtIndex:(NSInteger)index;
-
 /**
  正在滚动中的回调
 
@@ -118,47 +110,59 @@
 @property (nonatomic, assign) BOOL selectedAnimationEnabled;    //是否开启选中动画。默认为NO。自定义的cell选中动画需要自己实现。
 
 @property (nonatomic, assign) NSTimeInterval selectedAnimationDuration;     //cell选中动画的时间。默认0.25
-
+@property (nonatomic, strong) UIImage *bgImage;
 /**
  选中目标index的item
-
  @param index 目标index
  */
 - (void)selectItemAtIndex:(NSInteger)index;
-
 /**
  初始化的时候无需调用。比如页面初始化之后，根据网络接口异步回调回来数据，重新配置categoryView，需要调用该方法进行刷新。
  */
 - (void)reloadData;
-
 /**
  刷新指定的index的cell
  内部会触发`- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index`方法进行cellModel刷新
-
  @param index 指定cell的index
  */
 - (void)reloadCellAtIndex:(NSInteger)index;
-
-#pragma mark - Subclass use
-
-- (CGRect)getTargetCellFrame:(NSInteger)targetIndex;
-
-#pragma mark - Subclass Override
-
-- (void)initializeData NS_REQUIRES_SUPER;
-
-- (void)initializeViews NS_REQUIRES_SUPER;
-
 /**
  reloadData方法调用，重新生成数据源赋值到self.dataSource
  */
 - (void)refreshDataSource;
+/**
+ reloadData时，返回每个cell的宽度
+ @param index 目标index
+ @return cellWidth
+ */
+- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index;
+/**
+ 返回自定义cell的class
+ @return cell class
+ */
+- (Class)preferredCellClass;
+/**
+ refreshState时调用，重置cellModel的状态
+ @param cellModel 待重置的cellModel
+ @param index cellModel在数组中的index
+ */
+- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index;
 
+@end
+
+
+#pragma mark - Subclass Override
+@interface CGXCategoryBaseView (BaseHooks)
+
+- (CGRect)getTargetCellFrame:(NSInteger)targetIndex;
+
+- (void)initializeData NS_REQUIRES_SUPER;
+
+- (void)initializeViews NS_REQUIRES_SUPER;
 /**
  reloadData方法调用，根据数据源重新刷新状态；
  */
 - (void)refreshState NS_REQUIRES_SUPER;
-
 /**
  选中某个item时，刷新将要选中与取消选中的cellModel
 
@@ -166,14 +170,12 @@
  @param unselectedCellModel 取消选中的cellModel
  */
 - (void)refreshSelectedCellModel:(CGXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(CGXCategoryBaseCellModel *)unselectedCellModel NS_REQUIRES_SUPER;
-
 /**
  关联的contentScrollView的contentOffset发生了改变
 
  @param contentOffset 偏移量
  */
 - (void)contentOffsetOfContentScrollViewDidChanged:(CGPoint)contentOffset NS_REQUIRES_SUPER;
-
 /**
  选中某一个item的时候调用，该方法用于子类重载。
  如果外部要选中某个index，请使用`- (void)selectItemAtIndex:(NSUInteger)index;`
@@ -184,28 +186,4 @@
  */
 - (BOOL)selectCellAtIndex:(NSInteger)index selectedType:(CGXCategoryCellSelectedType)selectedType NS_REQUIRES_SUPER;
 
-/**
- reloadData时，返回每个cell的宽度
-
- @param index 目标index
- @return cellWidth
- */
-- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index;
-
-/**
- 返回自定义cell的class
-
- @return cell class
- */
-- (Class)preferredCellClass;
-
-/**
- refreshState时调用，重置cellModel的状态
-
- @param cellModel 待重置的cellModel
- @param index cellModel在数组中的index
- */
-- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index;
-
 @end
-

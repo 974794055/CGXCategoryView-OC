@@ -28,7 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  当前列表滚动时，根据当前垂直方向categoryView高度变化的百分比，刷新布局
-
  @param percent 当前垂直方向categoryView高度变化百分比
  */
 - (void)listDidScrollWithVerticalHeightPercent:(CGFloat)percent;

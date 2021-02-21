@@ -54,11 +54,9 @@
 //    CGXCategoryBadgeCellModel *rightModel = (CGXCategoryBadgeCellModel *)rightCellModel;
 }
 
-
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index
 {
     [super refreshCellModel:cellModel index:index];
-    
     CGXCategoryBadgeCellModel *model = (CGXCategoryBadgeCellModel *)cellModel;
     model.badgeModel.numberString = [NSString stringWithFormat:@"%ld", (long)model.badgeModel.count];
 }
@@ -81,7 +79,7 @@
 /**
  更新角标
  */
-- (void)updateWithBadgeInter:(NSInteger)badgeInter AtInter:(NSInteger)inter NS_REQUIRES_SUPER
+- (void)updateWithBadgeInter:(NSInteger)badgeInter AtInter:(NSInteger)inter
 {
     if (inter>self.dataSource.count) {
         return;

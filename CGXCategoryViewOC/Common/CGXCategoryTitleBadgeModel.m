@@ -25,6 +25,9 @@
         self.numberLabelWidth = 14;
         self.badgeAdaptive = YES;
          self.numberLabelOffset = CGPointMake(0, 0);
+        self.roundedType = CGXCategoryRoundedTypeAll;
+        self.borderColor = [UIColor redColor];
+        self.borderWidth = 0;
     }
     return self;
 }
