@@ -41,7 +41,6 @@ Pod::Spec.new do |s|
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
     end
     
-    
     s.subspec 'Title' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Title/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
@@ -49,19 +48,6 @@ Pod::Spec.new do |s|
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
         ss.dependency 'CGXCategoryView-OC/Indicator'
     end
-    
-    
-    
-    s.subspec 'Dot' do |ss|
-        ss.source_files = 'CGXCategoryViewOC/Dot/**/*.{h,m}'
-        ss.dependency 'CGXCategoryView-OC/Common'
-        ss.dependency 'CGXCategoryView-OC/Base'
-        ss.dependency 'CGXCategoryView-OC/IndicatorViews'
-        ss.dependency 'CGXCategoryView-OC/Indicator'
-        ss.dependency 'CGXCategoryView-OC/Title'
-    end
-    
-    
     s.subspec 'Image' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Image/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
@@ -78,7 +64,14 @@ Pod::Spec.new do |s|
         ss.dependency 'CGXCategoryView-OC/Indicator'
         ss.dependency 'CGXCategoryView-OC/Title'
     end
-    
+    s.subspec 'Dot' do |ss|
+        ss.source_files = 'CGXCategoryViewOC/Dot/**/*.{h,m}'
+        ss.dependency 'CGXCategoryView-OC/Common'
+        ss.dependency 'CGXCategoryView-OC/Base'
+        ss.dependency 'CGXCategoryView-OC/IndicatorViews'
+        ss.dependency 'CGXCategoryView-OC/Indicator'
+        ss.dependency 'CGXCategoryView-OC/Title'
+    end
     s.subspec 'Badge' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Badge/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'

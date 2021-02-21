@@ -44,6 +44,7 @@
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self.view addSubview:_tableView];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
