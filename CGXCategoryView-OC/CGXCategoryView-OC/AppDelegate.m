@@ -30,7 +30,6 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    
     CGXTabBarViewController *tb=[[CGXTabBarViewController alloc]init];
     self.window.rootViewController=tb;
     CGXTitleViewController *c0=[[CGXTitleViewController alloc]init];

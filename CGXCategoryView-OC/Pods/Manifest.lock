@@ -1,91 +1,91 @@
 PODS:
-  - CGXCategoryView-OC (1.4.1):
-    - CGXCategoryView-OC/Badge (= 1.4.1)
-    - CGXCategoryView-OC/Base (= 1.4.1)
-    - CGXCategoryView-OC/Common (= 1.4.1)
-    - CGXCategoryView-OC/Dot (= 1.4.1)
-    - CGXCategoryView-OC/Image (= 1.4.1)
-    - CGXCategoryView-OC/Indicator (= 1.4.1)
-    - CGXCategoryView-OC/IndicatorViews (= 1.4.1)
-    - CGXCategoryView-OC/ListContainer (= 1.4.1)
-    - CGXCategoryView-OC/MenuView (= 1.4.1)
-    - CGXCategoryView-OC/Segmented (= 1.4.1)
-    - CGXCategoryView-OC/Title (= 1.4.1)
-    - CGXCategoryView-OC/TitleAttribute (= 1.4.1)
-    - CGXCategoryView-OC/TitleImage (= 1.4.1)
-    - CGXCategoryView-OC/TitleSortView (= 1.4.1)
-    - CGXCategoryView-OC/TitleSubtitleView (= 1.4.1)
-    - CGXCategoryView-OC/VerticalZoomTitle (= 1.4.1)
-  - CGXCategoryView-OC/Badge (1.4.1):
+  - CGXCategoryView-OC (1.5.0):
+    - CGXCategoryView-OC/Badge (= 1.5.0)
+    - CGXCategoryView-OC/Base (= 1.5.0)
+    - CGXCategoryView-OC/Common (= 1.5.0)
+    - CGXCategoryView-OC/Dot (= 1.5.0)
+    - CGXCategoryView-OC/Image (= 1.5.0)
+    - CGXCategoryView-OC/Indicator (= 1.5.0)
+    - CGXCategoryView-OC/IndicatorViews (= 1.5.0)
+    - CGXCategoryView-OC/ListContainer (= 1.5.0)
+    - CGXCategoryView-OC/MenuView (= 1.5.0)
+    - CGXCategoryView-OC/Segmented (= 1.5.0)
+    - CGXCategoryView-OC/Title (= 1.5.0)
+    - CGXCategoryView-OC/TitleAttribute (= 1.5.0)
+    - CGXCategoryView-OC/TitleImage (= 1.5.0)
+    - CGXCategoryView-OC/TitleSortView (= 1.5.0)
+    - CGXCategoryView-OC/TitleSubtitleView (= 1.5.0)
+    - CGXCategoryView-OC/VerticalZoomTitle (= 1.5.0)
+  - CGXCategoryView-OC/Badge (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/TitleImage
-  - CGXCategoryView-OC/Base (1.4.1):
+  - CGXCategoryView-OC/Base (1.5.0):
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/ListContainer
-  - CGXCategoryView-OC/Common (1.4.1)
-  - CGXCategoryView-OC/Dot (1.4.1):
+  - CGXCategoryView-OC/Common (1.5.0)
+  - CGXCategoryView-OC/Dot (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
-  - CGXCategoryView-OC/Image (1.4.1):
+  - CGXCategoryView-OC/Image (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
-  - CGXCategoryView-OC/Indicator (1.4.1):
+  - CGXCategoryView-OC/Indicator (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/IndicatorViews
-  - CGXCategoryView-OC/IndicatorViews (1.4.1):
+  - CGXCategoryView-OC/IndicatorViews (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
-  - CGXCategoryView-OC/ListContainer (1.4.1):
+  - CGXCategoryView-OC/ListContainer (1.5.0):
     - CGXCategoryView-OC/Common
-  - CGXCategoryView-OC/MenuView (1.4.1):
+  - CGXCategoryView-OC/MenuView (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
     - CGXCategoryView-OC/TitleImage
-  - CGXCategoryView-OC/Segmented (1.4.1):
+  - CGXCategoryView-OC/Segmented (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
-  - CGXCategoryView-OC/Title (1.4.1):
-    - CGXCategoryView-OC/Base
-    - CGXCategoryView-OC/Common
-    - CGXCategoryView-OC/Indicator
-    - CGXCategoryView-OC/IndicatorViews
-  - CGXCategoryView-OC/TitleAttribute (1.4.1):
+  - CGXCategoryView-OC/Title (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
-    - CGXCategoryView-OC/Title
-  - CGXCategoryView-OC/TitleImage (1.4.1):
+  - CGXCategoryView-OC/TitleAttribute (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
-  - CGXCategoryView-OC/TitleSortView (1.4.1):
+  - CGXCategoryView-OC/TitleImage (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
-  - CGXCategoryView-OC/TitleSubtitleView (1.4.1):
+  - CGXCategoryView-OC/TitleSortView (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
-  - CGXCategoryView-OC/VerticalZoomTitle (1.4.1):
+  - CGXCategoryView-OC/TitleSubtitleView (1.5.0):
+    - CGXCategoryView-OC/Base
+    - CGXCategoryView-OC/Common
+    - CGXCategoryView-OC/Indicator
+    - CGXCategoryView-OC/IndicatorViews
+    - CGXCategoryView-OC/Title
+  - CGXCategoryView-OC/VerticalZoomTitle (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
     - CGXCategoryView-OC/Indicator
@@ -100,7 +100,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryView-OC: ecf47abc2066877ce226f78093d9c246e754492e
+  CGXCategoryView-OC: 4f951af5de55efe2814b957a336b4139d47ae5b5
 
 PODFILE CHECKSUM: f8316683781b057464d7cdd977dcfdee3b4773fe
 

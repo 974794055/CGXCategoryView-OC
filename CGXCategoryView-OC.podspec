@@ -18,12 +18,10 @@ Pod::Spec.new do |s|
     s.subspec 'Common' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Common/**/*.{h,m}'
     end
-    
     s.subspec 'ListContainer' do |ss|
         ss.source_files = 'CGXCategoryViewOC/ListContainer/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
     end
-    
     s.subspec 'Base' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Base/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'
