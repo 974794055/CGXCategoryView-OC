@@ -5,8 +5,8 @@
  [![cocoapods](https://img.shields.io/badge/cocoapods-supported-4BC51D.svg?style=plastic)](https://cocoapods.org/pods/CGXCategoryView-OC)
  [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
  
- 下载链接：https://github.com/974794055/CGXCategoryView-OC.git
- 最新版本号： 1.4.2
+ - 下载链接：https://github.com/974794055/CGXCategoryView-OC.git
+-  最新版本号： 1.4.2 
  
 功能：    
 - 今日头条、拼多多、QQ音乐、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流主流APP分类切换滚动视图

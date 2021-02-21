@@ -7,7 +7,6 @@
  版本： 1.4.2
  */
 
-
 /*基类*/
 #import "CGXCategoryBaseView.h"
 /*图片*/
