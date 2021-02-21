@@ -71,6 +71,7 @@ Pod::Spec.new do |s|
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
         ss.dependency 'CGXCategoryView-OC/Indicator'
         ss.dependency 'CGXCategoryView-OC/Title'
+        ss.dependency 'CGXCategoryView-OC/TitleImage'
     end
     s.subspec 'Badge' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Badge/**/*.{h,m}'

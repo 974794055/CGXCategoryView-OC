@@ -40,7 +40,6 @@ BackgroundView  |  <img src="https://github.com/974794055/CGXPageCollectionView-
 分割线  |  <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXCategoryViewGif/Title5.gif" width="287" height="600"> |
 
 ## 要求
-
 - iOS 8.0+
 - Xcode 9+
 - Objective-C

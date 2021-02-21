@@ -6,7 +6,6 @@
  群   号：
  版本： 1.5.0
  */
-
 /*基类*/
 #import "CGXCategoryBaseView.h"
 /*图片*/

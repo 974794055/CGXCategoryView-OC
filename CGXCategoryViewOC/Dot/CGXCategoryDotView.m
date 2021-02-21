@@ -60,4 +60,5 @@
         [self reloadCellAtIndex:inter];
     });
 }
+
 @end
