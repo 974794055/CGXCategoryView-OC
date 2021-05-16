@@ -9,7 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "CGXWaterCollectionView.h"
-#import "CGXWaterTableView.h"
+
 #import "CGXCategoryView.h"
 #import "UINavigationBar+CGXNav.h"
 

@@ -27,10 +27,12 @@
 }
 
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryImageCell class];
 }
 
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     NSUInteger count = (self.imageNames.count > 0) ? self.imageNames.count : (self.imageURLs.count > 0 ? self.imageURLs.count : 0);
     for (int i = 0; i < count; i++) {
@@ -87,6 +89,7 @@
 }
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
+    [super preferredCellWidthAtIndex:index];
     return self.imageSize.width+self.cellWidthIncrement;
 }
 

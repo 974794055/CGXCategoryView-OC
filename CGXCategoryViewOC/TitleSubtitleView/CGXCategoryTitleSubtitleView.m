@@ -39,10 +39,12 @@
 
 //返回自定义的cell class
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryTitleSubtitleCell class];
 }
 
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.subTitleArray.count; i++) {
         CGXCategoryTitleSubtitleCellModel *cellModel = [[CGXCategoryTitleSubtitleCellModel alloc] init];

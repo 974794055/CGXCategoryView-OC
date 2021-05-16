@@ -12,8 +12,6 @@
 @interface CGXMenuViewController ()<CGXCategoryTitleMenuVCDelegate>
 @property (nonatomic , strong) CGXCategoryTitleMenuView *menuView;
 
-@property (nonatomic , strong) UIImageView *bgSelectedImageView;
-@property (nonatomic , strong) UIImageView *bgUnselectedImageView;
 @end
 
 @implementation CGXMenuViewController
@@ -64,6 +62,10 @@
     self.menuView.delegate=self;
     self.menuView.backgroundColor = [UIColor orangeColor];
     self.menuView.categoryViewHeight = 100;
+//    self.menuView.topLineHeight = 3;
+//    self.menuView.topLineColor = [UIColor grayColor];
+    self.menuView.bottomLineHeight = 2;
+    self.menuView.bottomLineColor = [UIColor grayColor];
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
     lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
     lineView.verticalMargin=0;
@@ -82,27 +84,6 @@
 
     [self.menuView updateWithTitleArray:titleArr VCArray:vcArr];
 
-
-
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
-    self.navigationItem.rightBarButtonItem = rightItem;
-
-    CGRect bgImageViewFrame = CGRectMake(0, 0, ScreenWidth, 100);
-    UIImageView *bgSelectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
-    bgSelectedImageView.contentMode = UIViewContentModeScaleAspectFill;
-    bgSelectedImageView.image = [self getImageWithIndex:0];
-    [self.menuView.categoryView addSubview:bgSelectedImageView];
-
-    UIImageView *bgUnselectedImageView = [[UIImageView alloc] initWithFrame:bgImageViewFrame];
-    bgUnselectedImageView.contentMode = UIViewContentModeScaleAspectFill;
-    bgUnselectedImageView.image = [self getImageWithIndex:1];
-    [self.menuView.categoryView addSubview:bgUnselectedImageView];
-
-    [self.menuView.categoryView sendSubviewToBack:bgSelectedImageView];
-    [self.menuView.categoryView sendSubviewToBack:bgUnselectedImageView];
-
-    self.bgSelectedImageView = bgSelectedImageView;
-    self.bgUnselectedImageView = bgUnselectedImageView;
 }
 
 #pragma mark - CGXCategoryListContentViewDelegate
@@ -121,25 +102,13 @@
                                     [UIImage imageNamed:@"IndicatorImage2"]];
     return images[index];
 }
-- (void)rightItemClicked {
-    [self.menuView position_TopFor_Bottom];
-}
-
-- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView scrollingFromLeftIndex:(NSInteger)leftIndex toRightIndex:(NSInteger)rightIndex ratio:(CGFloat)ratio
-{
-    NSLog(@"Menu---%ld--%ld--%ld--%f" ,(long)categoryView.currentInteger,(long)leftIndex,(long)rightIndex,ratio);
-}
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    self.bgSelectedImageView.alpha = 1;
-    self.bgUnselectedImageView.alpha = 0;
-    self.bgSelectedImageView.image = [self getImageWithIndex:index];
+//    self.menuView.categoryView.bgImage = [self getImageWithIndex:index];
 }
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
-    self.bgSelectedImageView.alpha = 1;
-    self.bgUnselectedImageView.alpha = 0;
-    self.bgSelectedImageView.image = [self getImageWithIndex:index];
+//    self.menuView.categoryView.bgImage = [self getImageWithIndex:index];
 }
 /*
  #pragma mark - Navigation

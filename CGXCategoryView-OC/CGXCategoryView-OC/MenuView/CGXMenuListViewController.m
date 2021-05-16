@@ -15,8 +15,6 @@
 @property (nonatomic, strong) NSMutableArray *titleArr;
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-@property (nonatomic, assign) NSInteger currentIndex;
-@property (nonatomic, assign) BOOL isFirst;
 @end
 
 @implementation CGXMenuListViewController
@@ -31,7 +29,6 @@
     } else{
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    self.isFirst = YES;
     self.titleArr= [NSMutableArray array];
     
     
@@ -39,8 +36,6 @@
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
     self.categoryView.averageCellSpacingEnabled = YES;
-    //    self.categoryView.cellWidth = [UIScreen mainScreen].bounds.size.width / 2;
-    //    self.categoryView.cellSpacing = 0;
         self.categoryView.cellWidthIncrement = 20;
     [self.view addSubview:self.categoryView];
     self.categoryView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50);
@@ -71,10 +66,10 @@
         [arr addObject:[NSString stringWithFormat:@"%@-%d",self.tagStr,i]];
     }
     for (NSString *str in arr) {
-        [self.titleArr addObject:[NSString stringWithFormat:@"%@-%ld",str,(long)self.currentIndex]];
+        [self.titleArr addObject:[NSString stringWithFormat:@"%@-%ld",str,(long)self.categoryView.selectedIndex]];
     }
     self.categoryView.titleArray = self.titleArr;
-    
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds)*self.titleArr.count, CGRectGetHeight(self.scrollView.bounds));
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (int i = 0; i < self.titleArr.count; i ++) {
             UIViewController *listVC = [[UIViewController alloc] init];
@@ -85,51 +80,17 @@
             [listVC.view addSubview:collectionView];
             [self.scrollView addSubview:listVC.view];
         }
-        self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds)*self.titleArr.count, CGRectGetHeight(self.scrollView.bounds));
     });
-    
 }
-/**  初始化veiw
- @param categoryView categoryView description
- @param index 选中的index
- */
-- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView InitializeViewItemAtIndex:(NSInteger)index
-{
-    NSLog(@" 初始化veiw********--%ld",(long)index);
-    self.currentIndex = index;
-    
-}
-/**  第一次加载
- @param categoryView categoryView description
- @param index 选中的index
- */
-- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView FirstLoadingSelectedItemAtIndex:(NSInteger)index
-{
-    NSLog(@"第一次加载********--%ld",(long)index);
-    self.currentIndex = index;
-    if (self.isFirst) {
-//        [self updateView];
-        self.isFirst = NO;
-        NSLog(@" 初始化isFirst----");
-    }
-}
-
 /**
  点击选中的情况才会调用该方法
- 
  @param categoryView categoryView description
  @param index 选中的index
  */
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"点击选中--%ld",(long)index);
-    self.currentIndex = index;
-    if (self.isFirst) {
-        self.isFirst = NO;
-        NSLog(@" 初始化isFirst*****");
-    }
 }
-
 /**
  滚动选中的情况才会调用该方法
  
@@ -139,11 +100,6 @@
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"滚动选中--%ld",(long)index);
-    self.currentIndex = index;
-    if (self.isFirst) {
-        self.isFirst = NO;
-        NSLog(@" 初始化isFirst----");
-    }
 }
 /**
  可选实现，列表显示的时候调用

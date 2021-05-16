@@ -26,17 +26,18 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.titleAry = [NSMutableArray arrayWithObjects:@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"母婴",nil];
-
+    self.titleAry = arc4random() % 2 == 0 ? [NSMutableArray arrayWithObjects:@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"母婴",nil]:[NSMutableArray arrayWithObjects:@"全部",@"推荐",nil];;
     NSInteger interH = 60;
     self.titleCategoryView = [[CGXCategoryTitleView alloc] init];
     self.titleCategoryView.backgroundColor = [UIColor whiteColor];
     self.titleCategoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
+    self.titleCategoryView.cellSpacing = 20;
+    self.titleCategoryView.cellWidthIncrement = 20;
     self.titleCategoryView.delegate = self;
     self.titleCategoryView.titleArray = self.titleAry;
     [self.view addSubview:self.titleCategoryView];
-    
-    
+    self.titleCategoryView.cellWidthZenter = self.titleAry.count == 2 ? YES:NO;
+
     UIScrollView *mainScrollViewH=[[UIScrollView alloc]initWithFrame:CGRectMake(0, interH, ScreenWidth, kSafeVCHeight-interH)];
     mainScrollViewH.pagingEnabled = YES;
     mainScrollViewH.bounces = NO;
@@ -46,9 +47,6 @@
     [self.view addSubview:mainScrollViewH];
     
     self.titleCategoryView.contentScrollView = mainScrollViewH;
-
-    
-    [self.titleCategoryView selectItemAtIndex:0];
     NSString *title = self.categorytitle;
     if ([title isEqualToString:@"点线效果"]){
         
@@ -194,19 +192,23 @@
     }
     mainScrollViewH.contentSize = CGSizeMake(ScreenWidth * self.titleAry.count,CGRectGetHeight(mainScrollViewH.frame));
     
-//    [self.titleCategoryView selectItemAtIndex:0];
+    [self.titleCategoryView selectItemAtIndex:0];
 
 }
 
 
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    NSLog(@"%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
+    NSLog(@"didSelectedItemAtIndex:%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
     if (categoryView.tag == 99999) {
         self.titleCategoryView.bgImage = [self getImageWithIndex:index];
     }
 }
+- (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
+{
+    NSLog(@"didClickSelectedItemAtIndex:%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
 
+}
 
 
 #pragma mark - CGXCategoryListContentViewDelegate

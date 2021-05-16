@@ -26,6 +26,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryCellClickedPosition) {
 // cell被选中的类型
 typedef NS_ENUM(NSUInteger, CGXCategoryCellSelectedType) {
     CGXCategoryCellSelectedTypeUnknown,          //未知，不是选中（cellForRow方法里面、两个cell过渡时）
+    CGXCategoryCellSelectedTypeNode,
     CGXCategoryCellSelectedTypeClick,            //点击选中
     CGXCategoryCellSelectedTypeScroll            //通过滚动到某个cell选中
 };

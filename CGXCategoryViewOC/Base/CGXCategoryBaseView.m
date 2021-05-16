@@ -10,6 +10,7 @@
 #import "CGXCategoryFactory.h"
 #import "CGXCategoryViewAnimator.h"
 #import "CGXCategoryBaseCell.h"
+
 @interface CGXCategoryBaseView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong,readwrite) CGXCategoryCollectionView *collectionView;
@@ -21,7 +22,7 @@
 
 @property (nonatomic, assign, getter=isNeedReloadByBecomeActive) BOOL needReloadByBecomeActive;
 
-@property (nonatomic , strong) UIImageView *bgImageView;
+@property (nonatomic , strong,readwrite) UIImageView *bgImageView;
 
 @end
 
@@ -68,7 +69,12 @@
         next = next.nextResponder;
     }
 }
-
+- (void)setDefaultSelectedIndex:(NSInteger)defaultSelectedIndex {
+    _defaultSelectedIndex = defaultSelectedIndex;
+    
+    self.selectedIndex = defaultSelectedIndex;
+    [self.listContainer setDefaultSelectedIndex:defaultSelectedIndex];
+}
 - (void)reloadData {
     [self refreshDataSource];
     [self refreshState];
@@ -90,7 +96,7 @@
 }
 
 - (void)selectItemAtIndex:(NSInteger)index {
-    [self selectCellAtIndex:index selectedType:CGXCategoryCellSelectedTypeClick];
+    [self selectCellAtIndex:index selectedType:CGXCategoryCellSelectedTypeNode];
 }
 
 - (void)layoutSubviews
@@ -99,12 +105,19 @@
     if (self.bounds.size.width == 0 || self.bounds.size.height == 0) {
         return;
     }
-    //部分使用者为了适配不同的手机屏幕尺寸，CGXCategoryView的宽高比要求保持一样，所以它的高度就会因为不同宽度的屏幕而不一样。计算出来的高度，有时候会是位数很长的浮点数，如果把这个高度设置给UICollectionView就会触发内部的一个错误。所以，为了规避这个问题，在这里对高度统一向下取整。
-    //如果向下取整导致了你的页面异常，请自己重新设置CGXCategoryView的高度，保证为整数即可。
-    self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), floor(CGRectGetHeight(self.bounds)));
-    self.bgImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), floor(CGRectGetHeight(self.bounds)));
+    CGRect targetFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    self.collectionView.frame = targetFrame;
+    self.bgImageView.frame = targetFrame;
+    if (!CGRectEqualToRect(self.collectionView.frame, targetFrame)) {
+        self.collectionView.frame = targetFrame;
+        self.bgImageView.frame = targetFrame;
+        [self.collectionView.collectionViewLayout invalidateLayout];
+        [self.collectionView reloadData];
+    }
+    
     [self reloadData];
 }
+
 - (void)setBgImage:(UIImage *)bgImage
 {
     _bgImage = bgImage;
@@ -132,40 +145,6 @@
 
 #pragma mark - Subclass Override
 
-- (void)refreshDataSource {
-    [self.collectionView reloadData];
-}
-- (void)updateSelectCellAtIndex:(NSInteger)targetIndex selectedType:(CGXCategoryCellSelectedType)selectedType
-{
-    if (selectedType == CGXCategoryCellSelectedTypeClick) {
-        [self.listContainer didClickSelectedItemAtIndex:targetIndex];
-        [self.listContainer reloadData];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didClickSelectedItemAtIndex:)]) {
-            [self.delegate categoryView:self didClickSelectedItemAtIndex:targetIndex];
-        }
-    }else if(selectedType == CGXCategoryCellSelectedTypeScroll) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didScrollSelectedItemAtIndex:)]) {
-            [self.delegate categoryView:self didScrollSelectedItemAtIndex:targetIndex];
-        }
-    }else if (selectedType == CGXCategoryCellSelectedTypeUnknown) {
-        [self.listContainer didClickSelectedItemAtIndex:targetIndex];
-        [self.listContainer reloadData];
-    }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didSelectedItemAtIndex:)]) {
-        [self.delegate categoryView:self didSelectedItemAtIndex:targetIndex];
-    }
-}
-
-
-- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
-    return 0;
-}
-- (Class)preferredCellClass {
-    return CGXCategoryBaseCell.class;
-}
-- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index {
-    
-}
 #pragma mark - <UICollectionViewDataSource, UICollectionViewDelegate>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -295,6 +274,16 @@
 
 @implementation CGXCategoryBaseView (BaseHooks)
 
+- (void)refreshDataSource {
+    [self.collectionView reloadData];
+}
+
+- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
+    return 0;
+}
+- (Class)preferredCellClass {
+    return CGXCategoryBaseCell.class;
+}
 - (CGRect)getTargetCellFrame:(NSInteger)targetIndex
 {
     //    //总的内容宽度（cell总宽度+总cellSpacing）
@@ -321,8 +310,8 @@
     }else {
         width = selectedCellModel.cellWidth;
     }
-        x += (selectedCellModel.cellWidth-width)/2.0;
-        return CGRectMake(x, 0, width, self.bounds.size.height);
+    x += (selectedCellModel.cellWidth-width)/2.0;
+    return CGRectMake(x, 0, width, self.bounds.size.height);
 }
 
 - (void)initializeData
@@ -343,6 +332,7 @@
     _selectedAnimationDuration = 0.25;
     _scrollingTargetIndex = -1;
     _contentScrollAnimated = NO;
+    self.cellWidthZenter = NO;
 }
 - (void)initializeViews
 {
@@ -364,7 +354,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.bgImageView = [[UIImageView alloc] init];
-    self.bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.bgImageView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:self.bgImageView];
     [self sendSubviewToBack:self.bgImageView];
 }
@@ -408,7 +398,7 @@
         //如果总的内容宽度都没有超过视图宽度，就将cellSpacing等分
         NSInteger cellSpacingItemCount = self.dataSource.count - 1;
         CGFloat totalCellSpacingWidth = self.bounds.size.width - totalCellWidth;
-       //如果内容左边距是Automatic，就加1
+        //如果内容左边距是Automatic，就加1
         if (self.contentEdgeInsetLeft == CGXCategoryViewAutomaticDimension) {
             cellSpacingItemCount += 1;
         }else {
@@ -424,10 +414,18 @@
         if (cellSpacingItemCount > 0) {
             cellSpacing = totalCellSpacingWidth/cellSpacingItemCount;
         }
-        self.cellSpacing = cellSpacing;
-        [self.dataSource enumerateObjectsUsingBlock:^(CGXCategoryBaseCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.cellSpacing = self.cellSpacing;
-        }];
+        if (self.cellWidthZenter) {
+            CGFloat totalCellSp = self.bounds.size.width - totalCellWidth-cellSpacingItemCount*self.cellSpacing;
+            self.collectionView.frame = CGRectMake(totalCellSp/2, 0, CGRectGetWidth(self.bounds)-totalCellSp, CGRectGetHeight(self.bounds));
+        }else{
+            self.cellSpacing = cellSpacing;
+            [self.dataSource enumerateObjectsUsingBlock:^(CGXCategoryBaseCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.cellSpacing = self.cellSpacing;
+            }];
+            self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        }
+    } else{
+        self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     }
     //---------------------定位collectionView到当前选中的位置----------------------
     //因为初始化的时候，collectionView并没有初始化完，cell都没有被加载出来。只有自己手动计算当前选中的index的位置，然后更新到contentOffset
@@ -471,7 +469,7 @@
     unselectedCellModel.selected = NO;
     
     if (self.cellWidthZoomEnabled) {
-        if (selectedCellModel.selectedType == CGXCategoryCellSelectedTypeClick) {
+        if (selectedCellModel.selectedType == CGXCategoryCellSelectedTypeClick || selectedCellModel.selectedType == CGXCategoryCellSelectedTypeNode) {
             selectedCellModel.transitionAnimating = YES;
             unselectedCellModel.transitionAnimating = YES;
             self.animator = [[CGXCategoryViewAnimator alloc] init];
@@ -599,14 +597,8 @@
     }else {
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
-    [self.contentScrollView setContentOffset:CGPointMake(self.contentScrollView.bounds.size.width*targetIndex, 0) animated:self.contentScrollAnimated];
-    
-    if (selectedType == CGXCategoryCellSelectedTypeClick) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didClickedItemContentScrollViewTransitionToIndex:)]) {
-            [self.delegate categoryView:self didClickedItemContentScrollViewTransitionToIndex:targetIndex];
-        }else {
+    if (selectedType == CGXCategoryCellSelectedTypeClick || selectedType == CGXCategoryCellSelectedTypeNode) {
             [self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:self.contentScrollAnimated];
-        }
     }
     self.selectedIndex = targetIndex;
     
@@ -616,5 +608,30 @@
     self.scrollingTargetIndex = -1;
     
     return YES;
+}
+- (void)updateSelectCellAtIndex:(NSInteger)targetIndex selectedType:(CGXCategoryCellSelectedType)selectedType
+{
+    if (selectedType == CGXCategoryCellSelectedTypeNode) {
+        [self.listContainer didClickSelectedItemAtIndex:targetIndex];
+    }else if (selectedType == CGXCategoryCellSelectedTypeClick) {
+        [self.listContainer didClickSelectedItemAtIndex:targetIndex];
+
+        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didClickSelectedItemAtIndex:)]) {
+            [self.delegate categoryView:self didClickSelectedItemAtIndex:targetIndex];
+        }
+    }else if(selectedType == CGXCategoryCellSelectedTypeScroll) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didScrollSelectedItemAtIndex:)]) {
+            [self.delegate categoryView:self didScrollSelectedItemAtIndex:targetIndex];
+        }
+    }else if (selectedType == CGXCategoryCellSelectedTypeUnknown) {
+        [self.listContainer didClickSelectedItemAtIndex:targetIndex];
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didSelectedItemAtIndex:)]) {
+        [self.delegate categoryView:self didSelectedItemAtIndex:targetIndex];
+    }
+}
+- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index
+{
+    
 }
 @end

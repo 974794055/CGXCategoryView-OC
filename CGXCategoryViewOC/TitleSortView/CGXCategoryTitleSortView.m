@@ -26,6 +26,7 @@
 
 //返回自定义的cell class
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryTitleSortCell class];
 }
 - (void)refreshState
@@ -46,6 +47,7 @@
     }
 }
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryTitleSortCellModel *cellModel = [[CGXCategoryTitleSortCellModel alloc] init];

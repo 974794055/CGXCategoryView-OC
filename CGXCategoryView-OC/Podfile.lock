@@ -32,6 +32,7 @@ PODS:
     - CGXCategoryView-OC/Indicator
     - CGXCategoryView-OC/IndicatorViews
     - CGXCategoryView-OC/Title
+    - CGXCategoryView-OC/TitleImage
   - CGXCategoryView-OC/Image (1.5.0):
     - CGXCategoryView-OC/Base
     - CGXCategoryView-OC/Common
@@ -100,8 +101,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXCategoryView-OC: 4f951af5de55efe2814b957a336b4139d47ae5b5
+  CGXCategoryView-OC: a7e9d13b6a915980365d950003d5232d81da4628
 
 PODFILE CHECKSUM: f8316683781b057464d7cdd977dcfdee3b4773fe
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

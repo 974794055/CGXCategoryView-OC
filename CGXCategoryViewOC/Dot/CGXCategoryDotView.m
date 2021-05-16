@@ -21,10 +21,12 @@
 }
 
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryDotCell class];
 }
 
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryDotCellModel *cellModel = [[CGXCategoryDotCellModel alloc] init];

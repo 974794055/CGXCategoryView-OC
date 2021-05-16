@@ -43,23 +43,19 @@ typedef NS_ENUM(NSUInteger, CGXCategoryListContainerType) {
 @property (nonatomic, assign, readonly) CGXCategoryListContainerType containerType;
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;
 @property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<CGXCategoryListContainerViewDelegate>> *validListDict;   //已经加载过的列表字典。key是index，value是对应的列表
-
 /**
  滚动切换的时候，滚动距离超过一页的多少百分比，就触发列表的初始化。默认0.01（即列表显示了一点就触发加载）。范围0~1，开区间不包括0和1
  */
 @property (nonatomic, assign) CGFloat initListPercent;
-
 
 /**
    初始化方式
 */
 - (instancetype)initWithType:(CGXCategoryListContainerType)type DataSource:(id<CGXCategoryListContainerViewDataSource>)dataSource NS_DESIGNATED_INITIALIZER;
 
-
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
-
 
 @end
 

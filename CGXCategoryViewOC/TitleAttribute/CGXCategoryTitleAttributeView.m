@@ -29,10 +29,12 @@
 }
 //返回自定义的cell class
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryTitleAttributeCell class];
 }
 
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.attributeTitles.count; i++) {
         CGXCategoryTitleAttributeCellModel *cellModel = [[CGXCategoryTitleAttributeCellModel alloc] init];
@@ -54,6 +56,7 @@
 }
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
+    [super preferredCellWidthAtIndex:index];
     if (self.cellWidth == CGXCategoryViewAutomaticDimension) {
         return ceilf([self.attributeTitles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size.width);
     }else {

@@ -22,7 +22,6 @@
 		4214EA9CD8C2FFD094CADA8B /* libPods-CGXCategoryView-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */; };
 		9E03C28824BADEB4008034DD /* CGXTitleThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */; };
 		9E03C28B24BAE06A008034DD /* CGXTitleFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */; };
-		9E1FA6BC23521D3B001C91E9 /* CGXWaterTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */; };
 		9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */; };
 		9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */; };
 		9E3B227323530FDC006E1659 /* CGXTitleSortIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */; };
@@ -54,8 +53,6 @@
 		E069E9EE2234F083000F2BE4 /* TitleImageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */; };
 		E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */; };
 		E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E087760E226B5DFE00D1B523 /* TableViewController.m */; };
-		E0877612226B723200D1B523 /* CGXTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0877611226B723200D1B523 /* CGXTabBarViewController.m */; };
-		E0877615226B724C00D1B523 /* CGXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0877614226B724C00D1B523 /* CGXNavigationController.m */; };
 		E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -90,8 +87,6 @@
 		9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleThreeViewController.m; sourceTree = "<group>"; };
 		9E03C28924BAE06A008034DD /* CGXTitleFourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleFourViewController.h; sourceTree = "<group>"; };
 		9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleFourViewController.m; sourceTree = "<group>"; };
-		9E1FA6BA23521D3B001C91E9 /* CGXWaterTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXWaterTableView.h; sourceTree = "<group>"; };
-		9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXWaterTableView.m; sourceTree = "<group>"; };
 		9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXScrollZoomListViewController.m; sourceTree = "<group>"; };
 		9E3B226723530458006E1659 /* CGXScrollZoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomListViewController.h; sourceTree = "<group>"; };
 		9E3B226C23530636006E1659 /* CGXScrollZoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomViewController.h; sourceTree = "<group>"; };
@@ -150,10 +145,6 @@
 		E069E9ED2234F082000F2BE4 /* CGXTitleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXTitleImageViewController.h; sourceTree = "<group>"; };
 		E087760D226B5DFE00D1B523 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		E087760E226B5DFE00D1B523 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		E0877610226B723200D1B523 /* CGXTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTabBarViewController.h; sourceTree = "<group>"; };
-		E0877611226B723200D1B523 /* CGXTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTabBarViewController.m; sourceTree = "<group>"; };
-		E0877613226B724C00D1B523 /* CGXNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNavigationController.h; sourceTree = "<group>"; };
-		E0877614226B724C00D1B523 /* CGXNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNavigationController.m; sourceTree = "<group>"; };
 		E0A0F8C5222D676F002A527A /* CGXMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuViewController.h; sourceTree = "<group>"; };
 		E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXMenuViewController.m; sourceTree = "<group>"; };
 		F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,14 +317,8 @@
 				B55DDEF9254B0AA600CAD6A9 /* Podspec Metadata */,
 				E01258D4222A7EEB00A0957D /* AppDelegate.h */,
 				E01258D5222A7EEB00A0957D /* AppDelegate.m */,
-				E0877610226B723200D1B523 /* CGXTabBarViewController.h */,
-				E0877611226B723200D1B523 /* CGXTabBarViewController.m */,
-				E0877613226B724C00D1B523 /* CGXNavigationController.h */,
-				E0877614226B724C00D1B523 /* CGXNavigationController.m */,
 				E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */,
 				E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */,
-				9E1FA6BA23521D3B001C91E9 /* CGXWaterTableView.h */,
-				9E1FA6BB23521D3B001C91E9 /* CGXWaterTableView.m */,
 				E087760D226B5DFE00D1B523 /* TableViewController.h */,
 				E087760E226B5DFE00D1B523 /* TableViewController.m */,
 				9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */,
@@ -519,7 +504,6 @@
 			files = (
 				9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */,
 				E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */,
-				9E1FA6BC23521D3B001C91E9 /* CGXWaterTableView.m in Sources */,
 				9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */,
 				9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */,
 				9E8B490D235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m in Sources */,
@@ -537,7 +521,6 @@
 				04279C84235855DB00137328 /* CGXVerticalListCell.m in Sources */,
 				04279C80235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m in Sources */,
 				04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */,
-				E0877612226B723200D1B523 /* CGXTabBarViewController.m in Sources */,
 				E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */,
 				E01258E4222A7EED00A0957D /* main.m in Sources */,
 				E069E9DC2234E111000F2BE4 /* CGXTitleViewController.m in Sources */,
@@ -551,7 +534,6 @@
 				E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */,
 				9E8B4910235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m in Sources */,
 				04279C89235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m in Sources */,
-				E0877615226B724C00D1B523 /* CGXNavigationController.m in Sources */,
 				04279C86235855DB00137328 /* CGXVerticalListSectionModel.m in Sources */,
 				9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */,
 				04EB5B89233B592800C26F55 /* CGXTitleSubtitleViewController.m in Sources */,

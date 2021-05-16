@@ -11,7 +11,6 @@
 #import "CGXCategoryBaseCellModel.h"
 #import "CGXCategoryCollectionView.h"
 #import "CGXCategoryViewDefines.h"
-
 #import "CGXCategoryListContainerViewScrollDelegate.h"
 
 @class CGXCategoryBaseView;
@@ -20,14 +19,12 @@
 @optional
 /**
  点击选中或者滚动选中都会调用该方法。适用于只关心选中事件，不关心具体是点击还是滚动选中的。
-
  @param categoryView categoryView description
  @param index 选中的index
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index;
 /**
  点击选中的情况才会调用该方法
-
  @param categoryView categoryView description
  @param index 选中的index
  */
@@ -35,22 +32,12 @@
 
 /**
  滚动选中的情况才会调用该方法
-
  @param categoryView categoryView description
  @param index 选中的index
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index;
 /**
-  只有点击的选中才会调用！！！
-  因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
-
- @param categoryView categoryView description
- @param index index description
- */
-- (void)categoryView:(CGXCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index;
-/**
  控制能否点击Item
-
  @param categoryView categoryView对象
  @param index 准备点击的index
  @return 能否点击
@@ -58,7 +45,6 @@
 - (BOOL)categoryView:(CGXCategoryBaseView *)categoryView canClickItemAtIndex:(NSInteger)index;
 /**
  正在滚动中的回调
-
  @param categoryView categoryView description
  @param leftIndex 正在滚动中，相对位置处于左边的index
  @param rightIndex 正在滚动中，相对位置处于右边的index
@@ -84,6 +70,7 @@
 @property (nonatomic, strong) UIScrollView *contentScrollView;    //需要关联的contentScrollView
 
 @property (nonatomic, assign) BOOL contentScrollAnimated; // //手势滚动中，是否有滚动动画。默认为YES
+@property (nonatomic, assign) NSInteger defaultSelectedIndex;   //修改初始化的时候默认选择的index
 
 @property (nonatomic, assign, readonly) NSInteger selectedIndex;//当前选择的index
 
@@ -99,6 +86,9 @@
 
 @property (nonatomic, assign) BOOL averageCellSpacingEnabled;     //当collectionView.contentSize.width小于CGXCategoryBaseView的宽度，是否将cellWidth均分。默认为YES。
 
+//cell较少时是否剧中显示状态  averageCellSpacingEnabled     为YES有效
+@property (nonatomic, assign) BOOL cellWidthZenter;     //默认剧左
+
 //----------------------cellWidthZoomEnabled-----------------------//
 //cell宽度是否缩放
 @property (nonatomic, assign) BOOL cellWidthZoomEnabled;     //默认为NO
@@ -111,6 +101,8 @@
 
 @property (nonatomic, assign) NSTimeInterval selectedAnimationDuration;     //cell选中动画的时间。默认0.25
 @property (nonatomic, strong) UIImage *bgImage;
+// 用于设置网络背景图
+@property (nonatomic , strong,readonly) UIImageView *bgImageView;
 /**
  选中目标index的item
  @param index 目标index
@@ -126,33 +118,31 @@
  @param index 指定cell的index
  */
 - (void)reloadCellAtIndex:(NSInteger)index;
+
+@end
+
+
+
+
+
+
+#pragma mark - Subclass Override
+@interface CGXCategoryBaseView (BaseHooks)
 /**
  reloadData方法调用，重新生成数据源赋值到self.dataSource
  */
-- (void)refreshDataSource;
+- (void)refreshDataSource NS_REQUIRES_SUPER;
 /**
  reloadData时，返回每个cell的宽度
  @param index 目标index
  @return cellWidth
  */
-- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index;
+- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index NS_REQUIRES_SUPER;
 /**
  返回自定义cell的class
  @return cell class
  */
-- (Class)preferredCellClass;
-/**
- refreshState时调用，重置cellModel的状态
- @param cellModel 待重置的cellModel
- @param index cellModel在数组中的index
- */
-- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index;
-
-@end
-
-
-#pragma mark - Subclass Override
-@interface CGXCategoryBaseView (BaseHooks)
+- (Class)preferredCellClass NS_REQUIRES_SUPER;
 
 - (CGRect)getTargetCellFrame:(NSInteger)targetIndex;
 
@@ -186,4 +176,10 @@
  */
 - (BOOL)selectCellAtIndex:(NSInteger)index selectedType:(CGXCategoryCellSelectedType)selectedType NS_REQUIRES_SUPER;
 
+/**
+ refreshState时调用，重置cellModel的状态
+ @param cellModel 待重置的cellModel
+ @param index cellModel在数组中的index
+ */
+- (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index NS_REQUIRES_SUPER;
 @end

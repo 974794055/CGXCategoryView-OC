@@ -64,10 +64,12 @@
 }
 
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryTitleVerticalZoomCell class];
 }
 
 - (void)refreshDataSource {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryTitleVerticalZoomCellModel *cellModel = [[CGXCategoryTitleVerticalZoomCellModel alloc] init];

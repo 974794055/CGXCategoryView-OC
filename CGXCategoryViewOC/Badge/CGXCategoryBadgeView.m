@@ -23,6 +23,7 @@
 
 - (Class)preferredCellClass
 {
+    [super preferredCellClass];
     return [CGXCategoryBadgeCell class];
 }
 - (void)refreshState
@@ -31,7 +32,7 @@
 }
 - (void)refreshDataSource
 {
-    
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryBadgeCellModel *cellModel = [[CGXCategoryBadgeCellModel alloc] init];

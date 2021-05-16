@@ -9,7 +9,6 @@
 #import "UINavigationBar+CGXNav.h"
 
 #import <objc/runtime.h>
-#import <objc/runtime.h>
 
 @class MyNavView;
 

@@ -37,12 +37,13 @@
   
 }
 - (Class)preferredCellClass {
+    [super preferredCellClass];
     return [CGXCategoryTitleImageCell class];
 }
 
 - (void)refreshDataSource {
     
-    
+    [super refreshDataSource];
     if (self.imageNames.count>0) {
         NSAssert((self.imageNames.count == self.titleArray.count), @"文字titles和角标imageNames个数必须相对应------存在普通状态下的imageNames");
     }

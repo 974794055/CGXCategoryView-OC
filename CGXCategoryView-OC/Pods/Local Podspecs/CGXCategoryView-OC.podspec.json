@@ -94,27 +94,6 @@
       }
     },
     {
-      "name": "Dot",
-      "source_files": "CGXCategoryViewOC/Dot/**/*.{h,m}",
-      "dependencies": {
-        "CGXCategoryView-OC/Common": [
-
-        ],
-        "CGXCategoryView-OC/Base": [
-
-        ],
-        "CGXCategoryView-OC/IndicatorViews": [
-
-        ],
-        "CGXCategoryView-OC/Indicator": [
-
-        ],
-        "CGXCategoryView-OC/Title": [
-
-        ]
-      }
-    },
-    {
       "name": "Image",
       "source_files": "CGXCategoryViewOC/Image/**/*.{h,m}",
       "dependencies": {
@@ -149,6 +128,30 @@
 
         ],
         "CGXCategoryView-OC/Title": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dot",
+      "source_files": "CGXCategoryViewOC/Dot/**/*.{h,m}",
+      "dependencies": {
+        "CGXCategoryView-OC/Common": [
+
+        ],
+        "CGXCategoryView-OC/Base": [
+
+        ],
+        "CGXCategoryView-OC/IndicatorViews": [
+
+        ],
+        "CGXCategoryView-OC/Indicator": [
+
+        ],
+        "CGXCategoryView-OC/Title": [
+
+        ],
+        "CGXCategoryView-OC/TitleImage": [
 
         ]
       }

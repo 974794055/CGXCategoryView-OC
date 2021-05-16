@@ -45,6 +45,7 @@
 
 - (Class)preferredCellClass
 {
+    [super preferredCellClass];
     return [CGXCategoryTitleCell class];
 }
 - (void)refreshState
@@ -53,6 +54,7 @@
 }
 - (void)refreshDataSource
 {
+    [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < self.titleArray.count; i++) {
         CGXCategoryTitleCellModel *cellModel = [[CGXCategoryTitleCellModel alloc] init];
@@ -105,6 +107,7 @@
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index
 {
+    [super preferredCellWidthAtIndex:index];
     if (self.cellWidth == CGXCategoryViewAutomaticDimension) {
         if (self.titleDataSource && [self.titleDataSource respondsToSelector:@selector(categoryTitleView:AtIndex:)]) {
             return [self.titleDataSource categoryTitleView:self AtIndex:index];

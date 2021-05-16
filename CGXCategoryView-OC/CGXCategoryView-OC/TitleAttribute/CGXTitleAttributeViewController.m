@@ -19,16 +19,10 @@
 @end
 
 @implementation CGXTitleAttributeViewController
-- (IBAction)next:(UIBarButtonItem *)sender {
-    CGXTitleAttributeViewController *vc = [[CGXTitleAttributeViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.navigationItem.title = @"富文本cell";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.listVCArray = [NSMutableArray array];
@@ -43,14 +37,12 @@
         NSMutableAttributedString *attributedString =[CGXCategoryTitleFactory itemWithTitle:title TitleColor:[UIColor blackColor]];
         [attriTitlesArr addObject:attributedString];
         
-        
         NSMutableAttributedString *attributedSelectString =[CGXCategoryTitleFactory itemWithTitle:title TitleColor:[UIColor redColor]];
         [attriTitlesSelectArr addObject:attributedSelectString];
     }
     NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"视频",@"美食",@"新闻",@"搜索",@"美食",@"视频",@"美是",nil];
     for (int i = 0; i<titleArr.count; i++) {
         NSString *title = titleArr[i];
-        
         if (i==0) {
             [attriTitlesArr addObject:[CGXCategoryTitleFactory itemWithImageStr:@"apple_Noselect"]];
             [attriTitlesSelectArr addObject:[CGXCategoryTitleFactory itemWithImageStr:@"apple_select"]];
@@ -67,7 +59,6 @@
     CGXCategoryIndicatorLineView *lineView5 = [[CGXCategoryIndicatorLineView alloc] init];
     lineView5.indicatorWidth = CGXCategoryViewAutomaticDimension;
     self.titleAttributeCategoryView.indicators = @[lineView5];
-    
     
     NSUInteger count = attriTitlesArr.count;
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleAttributeCategoryView.frame), ScreenWidth, kSafeVCHeight-60)];

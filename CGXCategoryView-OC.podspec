@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CGXCategoryView-OC"    #存储库名称
-    s.version      = "1.5.0"      #版本号，与tag值一致
+    s.version      = "1.5.1"      #版本号，与tag值一致
     s.summary      = "CGXCategoryViewOC是仿今日头条、爱奇艺、腾讯视频、优酷等主流APP分类切换滚动视图的库)"  #简介
     s.description  = "( 今日头条、拼多多、QQ音乐、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流APP分类切换滚动视图)  封装"  #描述
     s.homepage     = "https://github.com/974794055/CGXCategoryView-OC"      #项目主页，不是git地址
