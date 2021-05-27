@@ -14,9 +14,13 @@
 #import "CGXTitleSubtitleViewController.h"
 #import "CGXTitleSortViewController.h"
 #import "CGXBadgeViewController.h"
+#import "CGXBackgroundViewController.h"
 #import "CGXDotViewController.h"
-@interface TableViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic , strong) UITableView *tableView;
+#import "CGXLineViewController.h"
+#import "CGXIndicatorViewController.h"
+#import "CGXTitlePinViewViewController.h"
+@interface TableViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@property (strong, nonatomic) UICollectionView *collectionView;
 @property (nonatomic , strong) NSMutableArray *titleArray;
 
 @end
@@ -29,137 +33,147 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.titleArray = [NSMutableArray arrayWithObjects:@"富文本设置",@"图文设置",@"UISegmentedControl设置",@"商品排序",@"活动倒计时",@"角标",@"角标红点", nil];
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kTabBarHeight) style:UITableViewStyleGrouped];;
-    _tableView.backgroundColor = [UIColor clearColor];
-    _tableView.showsHorizontalScrollIndicator = NO;
-    _tableView.showsVerticalScrollIndicator = NO;
-    _tableView.scrollsToTop = NO;
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
-    [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
-    if (@available(iOS 11.0, *)) {
-        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
-    [self.view addSubview:_tableView];
+    self.navigationItem.title = @"指示器";
+    self.titleArray = [NSMutableArray arrayWithObjects:
+                       @"UISegmentedControl",
+                       @"BackgroundView",
+                       @"商品排序",
+                       @"活动倒计时",
+                       @"角标",
+                       @"角标红点",
+                       @"下划线",
+                       @"圆形",
+                       @"三角形",
+                       @"底部图片",
+                       @"cell背景图",
+                       @"图片滚动",
+                       @"混合使用",
+                       @"Cell背景色渐变",
+                       @"文字图标指示",
+                       @"内环圆角",
+                       @"外环圆角",
+                       @"弧形",
+                       @"爱奇艺弧形",
+                       nil];
     
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection =  UICollectionViewScrollDirectionVertical;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kTabBarHeight) collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.alwaysBounceVertical = YES;
+    [self.view addSubview:self.collectionView];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    self.collectionView.showsVerticalScrollIndicator = YES;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [self.collectionView reloadData];
 }
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.titleArray.count;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 10;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 10;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    CGFloat width = (collectionView.frame.size.width-31)/2;
+    return CGSizeMake(floor(width),60);
 }
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
-    if (headerView == nil) {
-        headerView = [[NSClassFromString(@"UITableViewHeaderFooterView") alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
-    }
-    headerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
-    return headerView;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
-    if (footerView == nil) {
-        footerView = [[NSClassFromString(@"UITableViewHeaderFooterView") alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
-    }
-    footerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
-    return footerView;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // 1.缓存中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-    // 2.创建
-    if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+    cell.contentView.backgroundColor = randomColor;
+    for (UIView *subview in cell.contentView.subviews) {
+        [subview removeFromSuperview];
     }
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    cell.contentView.backgroundColor = [UIColor whiteColor];
+    UILabel *titleLabel = [[UILabel alloc] init];
+    [cell.contentView addSubview:titleLabel];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 1;
+    titleLabel.frame = cell.contentView.bounds;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.font = [UIFont systemFontOfSize:16];
     NSString *title = self.titleArray[indexPath.row];
-    cell.textLabel.text = title;
+    titleLabel.text = title;
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *title = self.titleArray[indexPath.row];
-    if ([title isEqualToString:@"富文本设置"]){
-        CGXTitleAttributeViewController *vc = [[CGXTitleAttributeViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"图文设置"]){
-        CGXTitleImageViewController *vc = [[CGXTitleImageViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"UISegmentedControl设置"]){
+    if ([title isEqualToString:@"UISegmentedControl"]){
         CGXNestViewController *vc = [[CGXNestViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([title isEqualToString:@"BackgroundView"]){
+        CGXBackgroundViewController *vc = [[CGXBackgroundViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([title isEqualToString:@"商品排序"]){
         CGXTitleSortViewController *vc = [[CGXTitleSortViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
+        vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([title isEqualToString:@"活动倒计时"]){
         CGXTitleSubtitleViewController *vc = [[CGXTitleSubtitleViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
+        vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([title isEqualToString:@"角标"]){
         CGXBadgeViewController *vc = [[CGXBadgeViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
+        vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([title isEqualToString:@"角标红点"]){
         CGXDotViewController *vc = [[CGXDotViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
+        vc.title = title;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([title isEqualToString:@"下划线"]){
+        CGXLineViewController *vc = [[CGXLineViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([title isEqualToString:@"文字图标指示"]){
+        CGXTitlePinViewViewController *vc = [[CGXTitlePinViewViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else{
+        CGXIndicatorViewController *vc = [[CGXIndicatorViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.title = title;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
-    
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-    cell.separatorInset = UIEdgeInsetsZero;
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

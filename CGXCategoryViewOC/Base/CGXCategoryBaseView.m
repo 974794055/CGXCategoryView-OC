@@ -105,6 +105,8 @@
     if (self.bounds.size.width == 0 || self.bounds.size.height == 0) {
         return;
     }
+    [self.collectionView setNeedsLayout];
+    [self.collectionView layoutSubviews];
     CGRect targetFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     self.collectionView.frame = targetFrame;
     self.bgImageView.frame = targetFrame;
@@ -156,15 +158,12 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGXCategoryBaseCell *cell = (CGXCategoryBaseCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
     CGXCategoryBaseCellModel *cellModel = self.dataSource[indexPath.item];
     cellModel.selectedType = CGXCategoryCellSelectedTypeUnknown;
-    [(CGXCategoryBaseCell *)cell reloadData:cellModel];
+    [cell reloadData:cellModel];
+    return  cell;
 }
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     BOOL isTransitionAnimating = NO;
     for (CGXCategoryBaseCellModel *cellModel in self.dataSource) {
@@ -350,6 +349,13 @@
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.collectionView];
+    
+    if ([CGXCategoryFactory supportRTL]) {
+        if (@available(iOS 9.0, *)) {
+            self.collectionView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
+            [CGXCategoryFactory horizontalFlipView:self.collectionView];
+        }
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
@@ -598,13 +604,12 @@
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
     if (selectedType == CGXCategoryCellSelectedTypeClick || selectedType == CGXCategoryCellSelectedTypeNode) {
-            [self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:self.contentScrollAnimated];
+        [self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:self.contentScrollAnimated];
     }
     self.selectedIndex = targetIndex;
-    
     //代理事件回掉方法
     [self updateSelectCellAtIndex:targetIndex selectedType:selectedType];
-    
+
     self.scrollingTargetIndex = -1;
     
     return YES;
@@ -615,19 +620,21 @@
         [self.listContainer didClickSelectedItemAtIndex:targetIndex];
     }else if (selectedType == CGXCategoryCellSelectedTypeClick) {
         [self.listContainer didClickSelectedItemAtIndex:targetIndex];
-
         if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didClickSelectedItemAtIndex:)]) {
             [self.delegate categoryView:self didClickSelectedItemAtIndex:targetIndex];
         }
+        CGXCategorViewDebugLog(@"点击选中--%ld" , (long)targetIndex);
     }else if(selectedType == CGXCategoryCellSelectedTypeScroll) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didScrollSelectedItemAtIndex:)]) {
             [self.delegate categoryView:self didScrollSelectedItemAtIndex:targetIndex];
         }
+        CGXCategorViewDebugLog(@"滚动选中--%ld" , (long)targetIndex);
     }else if (selectedType == CGXCategoryCellSelectedTypeUnknown) {
         [self.listContainer didClickSelectedItemAtIndex:targetIndex];
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:didSelectedItemAtIndex:)]) {
         [self.delegate categoryView:self didSelectedItemAtIndex:targetIndex];
+        CGXCategorViewDebugLog(@"点击或者滚动选中--%ld" , (long)targetIndex);
     }
 }
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index

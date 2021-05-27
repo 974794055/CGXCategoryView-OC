@@ -9,9 +9,8 @@
 #import "CGXVerticalListViewController.h"
 #import "CGXVerticalListSectionModel.h"
 #import "CGXVerticalListCell.h"
-#import "CGXVerticalSectionHeaderView.h"
-#import "CGXCategoryView.h"
-#import "CGXVerticalSectionCategoryHeaderView.h"
+#import "CGXVerticalListHeaderView.h"
+
 #import "CGXVerticalListCollectionView.h"
 
 static const CGFloat VerticalListCategoryViewHeight = 60;   //悬浮categoryView的高度
@@ -23,7 +22,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 @property (nonatomic, strong) NSArray <CGXVerticalListSectionModel *> *dataSource;
 @property (nonatomic, strong) NSArray <NSString *> *headerTitles;
 @property (nonatomic, strong) CGXCategoryTitleView *pinCategoryView;
-@property (nonatomic, strong) CGXVerticalSectionCategoryHeaderView *sectionCategoryHeaderView;
+@property (nonatomic, strong) UICollectionReusableView *sectionCategoryHeaderView;
 @property (nonatomic, strong) NSArray <UICollectionViewLayoutAttributes *> *sectionHeaderAttributes;
 
 @end
@@ -34,11 +33,11 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.collectionView = [[CGXVerticalListCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-
+    
     __weak typeof(self)weakSelf = self;
     self.collectionView.layoutSubviewsCallback = ^{
         [weakSelf updateSectionHeaderAttributes];
@@ -48,10 +47,10 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.collectionView registerClass:[CGXVerticalListCell class] forCellWithReuseIdentifier:@"cell"];
-    [self.collectionView registerClass:[CGXVerticalSectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-    [self.collectionView registerClass:[CGXVerticalSectionCategoryHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader"];
+    [self.collectionView registerClass:[CGXVerticalListHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader"];
     [self.view addSubview:self.collectionView];
-
+    
     //创建pinCategoryView，但是不要被addSubview
     _pinCategoryView = [[CGXCategoryTitleView alloc] init];
     self.pinCategoryView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
@@ -61,40 +60,26 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     lineView.verticalMargin = 15;
     self.pinCategoryView.indicators = @[lineView];
     self.pinCategoryView.delegate = self;
-
-//    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    loading.bounds = CGRectMake(0, 0, 100, 100);
-//    loading.transform = CGAffineTransformMakeScale(3, 3);
-//    loading.center = self.view.center;
-//    [loading startAnimating];
-//    [self.view addSubview:loading];
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        //模拟数据加载
-//        [loading stopAnimating];
-//        [loading removeFromSuperview];
-
-        NSMutableArray *dataSource = [NSMutableArray array];
-        self.headerTitles = @[@"我的频道", @"超级大IP", @"热门HOT", @"周边衍生", @"影视综", @"游戏集锦", @"搞笑百事"];
-        NSArray *imageNames = @[@"apple_select", @"apple_select", @"apple_select", @"apple_Noselect", @"apple_select", @"apple_select", @"apple_select"];
-        [self.headerTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL * _Nonnull stop) {
-            CGXVerticalListSectionModel *sectionModel = [[CGXVerticalListSectionModel alloc] init];
-            sectionModel.sectionTitle = title;
-            NSUInteger randomCount = arc4random()%10 + 5;
-            NSMutableArray *cellModels = [NSMutableArray array];
-            for (int i = 0; i < randomCount; i ++) {
-                CGXVerticalListCellModel *cellModel = [[CGXVerticalListCellModel alloc] init];
-                cellModel.imageName = imageNames[idx];
-                cellModel.itemName = title;
-                [cellModels addObject:cellModel];
-            }
-            sectionModel.cellModels = cellModels;
-            [dataSource addObject:sectionModel];
-        }];
-        self.dataSource = dataSource;
-
-        [self.collectionView reloadData];
-//    });
+    
+    NSMutableArray *dataSource = [NSMutableArray array];
+    self.headerTitles = @[@"我的频道", @"超级大IP", @"热门HOT", @"周边衍生", @"影视综", @"游戏集锦", @"搞笑百事"];
+    NSArray *imageNames = @[@"apple_select", @"apple_select", @"apple_select", @"apple_Noselect", @"apple_select", @"apple_select", @"apple_select"];
+    [self.headerTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGXVerticalListSectionModel *sectionModel = [[CGXVerticalListSectionModel alloc] init];
+        sectionModel.sectionTitle = title;
+        NSUInteger randomCount = arc4random()%10 + 5;
+        NSMutableArray *cellModels = [NSMutableArray array];
+        for (int i = 0; i < randomCount; i ++) {
+            CGXVerticalListCellModel *cellModel = [[CGXVerticalListCellModel alloc] init];
+            cellModel.imageName = imageNames[idx];
+            cellModel.itemName = title;
+            [cellModels addObject:cellModel];
+        }
+        sectionModel.cellModels = cellModels;
+        [dataSource addObject:sectionModel];
+    }];
+    self.dataSource = dataSource;
+    [self.collectionView reloadData];
 }
 
 - (void)updateSectionHeaderAttributes {
@@ -115,7 +100,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
             return;
         }
         self.sectionHeaderAttributes = attributes;
-
+        
         //如果最后一个section条目太少了，会导致滚动最底部，但是却不能触发categoryView选中最后一个item。而且点击最后一个滚动的contentOffset.y也不好弄。所以添加contentInset，让最后一个section滚到最下面能显示完整个屏幕。
         UICollectionViewLayoutAttributes *lastCellAttri = [self.collectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:self.dataSource[self.headerTitles.count - 1].cellModels.count - 1 inSection:self.headerTitles.count - 1]];
         CGFloat lastSectionHeight = CGRectGetMaxY(lastCellAttri.frame) - CGRectGetMinY(lastHeaderAttri.frame);
@@ -125,19 +110,13 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         }
     }
 }
-
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-
     self.collectionView.frame = self.view.bounds;
 }
-
-#pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.dataSource.count;
 }
-
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CGXVerticalListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     CGXVerticalListSectionModel *sectionModel = self.dataSource[indexPath.section];
@@ -146,15 +125,14 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     cell.titleLabel.text = cellModel.itemName;
     return cell;
 }
-
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.dataSource[section].cellModels.count;
 }
-
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         if (indexPath.section == VerticalListPinSectionIndex) {
-            CGXVerticalSectionCategoryHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader" forIndexPath:indexPath];
+            UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader" forIndexPath:indexPath];
+            headerView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
             self.sectionCategoryHeaderView = headerView;
             if (self.pinCategoryView.superview == nil) {
                 //首次使用VerticalSectionCategoryHeaderView的时候，把pinCategoryView添加到它上面。
@@ -162,7 +140,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
             }
             return headerView;
         }else {
-            CGXVerticalSectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+            CGXVerticalListHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
             CGXVerticalListSectionModel *sectionModel = self.dataSource[indexPath.section];
             headerView.titleLabel.text = sectionModel.sectionTitle;
             return headerView;
@@ -182,7 +160,6 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         //当滚动的contentOffset.y小于了指定sectionHeader的y值，且还没有被添加到sectionCategoryHeaderView上的时候，就需要切换superView
         [self.sectionCategoryHeaderView addSubview:self.pinCategoryView];
     }
-
     if (!(scrollView.isTracking || scrollView.isDecelerating)) {
         //不是用户滚动的，比如setContentOffset等方法，引起的滚动不需要处理。
         return;
@@ -199,9 +176,6 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         }
     }
 }
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == VerticalListPinSectionIndex) {
         //categoryView所在的headerView要高一些
@@ -209,11 +183,9 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     }
     return CGSizeMake(self.view.bounds.size.width, 40);
 }
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(100, 100);
 }
-
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 10;
 }
@@ -221,7 +193,6 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return (self.view.bounds.size.width - 100*3)/4;
 }
-
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     CGFloat margin = (self.view.bounds.size.width - 100*3)/4;
     return UIEdgeInsetsMake(0, margin, 0, margin);
@@ -235,10 +206,8 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 // CollectionView分区标题展示结束
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath
 {
-   
+    
 }
-#pragma mark - CGXCategoryViewDelegate
-
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
     //这里关心点击选中的回调！！！
     UICollectionViewLayoutAttributes *targetAttri = self.sectionHeaderAttributes[index + VerticalListPinSectionIndex];

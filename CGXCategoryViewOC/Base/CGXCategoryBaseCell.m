@@ -7,7 +7,7 @@
 //
 
 #import "CGXCategoryBaseCell.h"
-
+#import "CGXCategoryFactory.h"
 @interface CGXCategoryBaseCell ()
 @property (nonatomic, strong) CGXCategoryBaseCellModel *cellModel;
 @property (nonatomic, strong) CGXCategoryViewAnimator *animator;
@@ -37,6 +37,9 @@
 
 - (void)initializeViews {
     _animationBlockArray = [NSMutableArray array];
+    
+    [CGXCategoryFactory horizontalFlipViewIfNeeded:self];
+    [CGXCategoryFactory horizontalFlipViewIfNeeded:self.contentView];
 }
 
 - (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
@@ -54,7 +57,7 @@
 }
 
 - (BOOL)checkCanStartSelectedAnimation:(CGXCategoryBaseCellModel *)cellModel {
-    if (cellModel.selectedType == CGXCategoryCellSelectedTypeClick) {
+    if (cellModel.selectedType == CGXCategoryCellSelectedTypeNode || cellModel.selectedType == CGXCategoryCellSelectedTypeClick) {
         return YES;
     }
     return NO;

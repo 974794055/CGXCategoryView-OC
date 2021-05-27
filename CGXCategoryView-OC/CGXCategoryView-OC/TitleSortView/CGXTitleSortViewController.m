@@ -13,14 +13,14 @@
 
 
 
-@interface CGXTitleSortViewController () <CGXCategoryViewDelegate,CGXCategoryTitleViewDataSource>
+@interface CGXTitleSortViewController () <CGXCategoryViewDelegate,CGXCategoryTitleViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray<NSString *> *titles;
 @property (nonatomic, strong) CGXCategoryTitleSortView *categoryView;
 
 
 @property (nonatomic, strong) NSString *statusString;
-
-@property (nonatomic, strong) CGXWaterCollectionView *waterView;
 
 @property (assign, nonatomic) BOOL isSingular;//默认YES
 
@@ -44,6 +44,26 @@
     self.categoryView.frame = CGRectMake(0, 0, ScreenWidth, 50);
     [self.view addSubview:self.categoryView];
     
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection =  UICollectionViewScrollDirectionVertical;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.alwaysBounceVertical = YES;
+    [self.view addSubview:self.collectionView];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    self.collectionView.showsVerticalScrollIndicator = YES;
+    self.collectionView.showsHorizontalScrollIndicator=YES;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"simpleHead"];
+    
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"simpleFoot"];
+    [self.collectionView reloadData];
+    
     CGXTitleSortIndicatorLineView *lineView = [[CGXTitleSortIndicatorLineView alloc] init];
     lineView.indicatorWidth = 30;
     lineView.indicatorColor = [UIColor redColor];
@@ -63,29 +83,20 @@
     self.categoryView.singleImages = @{@(3) : [UIImage imageNamed:@"sorting"],
                                        @(4) : [UIImage imageNamed:@"filter"]}.mutableCopy;
     
-    self.categoryView.separatorLineDic = @{@(0) : @(NO),@(1) : @(NO),@(2) : @(NO),@(3) : @(YES),@(4) : @(NO),
-    @(4) : [UIImage imageNamed:@"filter"]}.mutableCopy;
+    self.categoryView.separatorLineDic = @{@(0) : @(NO),@(1) : @(NO),@(2) : @(NO),@(3) : @(YES),@(4) : @(NO)}.mutableCopy;
     
     self.categoryView.arrowTopImage =  [UIImage imageNamed:@"arrow_up"];
     self.categoryView.arrowBottomImage =[UIImage imageNamed:@"arrow_down"];
     
-    self.waterView = [[CGXWaterCollectionView alloc] initWithFrame:CGRectMake(0, 50, ScreenWidth, ScreenHeight-kTopHeight-kSafeHeight-50)];
-    [self.view addSubview:self.waterView];
-    
-    
+
     [self.categoryView  selectItemAtIndex:0];
 
-}
-
-- (void)loadData
-{
-    self.waterView.titleStr = self.statusString;
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.categoryView.frame = CGRectMake(0, 0, ScreenWidth, 50);
-    self.waterView.frame = CGRectMake(0, 50, ScreenWidth, ScreenHeight-kTopHeight-kSafeHeight-50);
+    self.collectionView.frame = CGRectMake(0, 50, ScreenWidth, ScreenHeight-kTopHeight-kSafeHeight-50);
 }
 
 #pragma mark - CGXCategoryViewDelegate
@@ -97,7 +108,7 @@
             self.categoryView.arrowDirections[@(0)] = @(CGXCategoryTitleSortArrowDirection_Down);
             [self.categoryView reloadCellAtIndex:0];
             self.statusString = titleA[index];
-            [self loadData];
+            [self.collectionView reloadData];
             return;
         }else{
             if (currentPriceDirection == CGXCategoryTitleSortArrowDirection_Up) {
@@ -116,7 +127,7 @@
                     [self.categoryView reloadCellAtIndex:index];
                     self.statusString = titleA[i];
                     
-                    [self loadData];
+                    [self.collectionView reloadData];
                 }];
                 if ([action.title isEqualToString:self.statusString]) {
                     [action setValue:[UIColor redColor] forKey:@"_titleTextColor"];
@@ -139,7 +150,7 @@
     
     if (index == 1) {
         [self.categoryView reloadCellAtIndex:1];
-        [self loadData];
+        [self.collectionView reloadData];
     }
     
     if (index == 2) {
@@ -153,7 +164,7 @@
         }
         [self.categoryView reloadCellAtIndex:index];
         self.statusString = self.titles[index];
-        [self loadData];
+        [self.collectionView reloadData];
         
     } else if (index != 4){
         CGXCategoryTitleSortArrowDirection currentPriceDirection = (CGXCategoryTitleSortArrowDirection)(self.categoryView.arrowDirections[@(2)].integerValue);
@@ -170,7 +181,8 @@
             self.categoryView.arrowDirections[@(2)] = @(CGXCategoryTitleSortArrowDirection_Both);
             [self.categoryView reloadCellAtIndex:2];
         }
-        [self loadData];
+        self.statusString = self.titles[index];
+        [self.collectionView reloadData];
     }
     
 }
@@ -186,12 +198,81 @@
 }
 - (CGFloat)categoryTitleView:(CGXCategoryTitleView *)titleView AtIndex:(NSInteger)index
 {
-    NSNumber *num = @((ScreenWidth-50-80)/3.0);
-    NSArray *arr = @[num,num,num, @(50), @(80)];
+    NSNumber *num = @((ScreenWidth-0)/5.0);
+    NSArray *arr = @[num,num,num, @(80), @(100)];
     
     return [arr[index] floatValue];
 }
 
+
+//设置head foot视图
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        UICollectionReusableView *head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"simpleHead" forIndexPath:indexPath];
+        head.backgroundColor = [UIColor orangeColor];
+        return head;
+    }else {
+        UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"simpleFoot" forIndexPath:indexPath];
+        foot.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
+        return foot;
+    }
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return arc4random() % 3 + 3;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return arc4random() % 20 + 10;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+   return CGSizeMake(collectionView.bounds.size.width, 10);
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+   return CGSizeMake(collectionView.bounds.size.width, 30);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width = (collectionView.frame.size.width-10*3)/2;
+    return CGSizeMake(floor(width),100);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    cell.contentView.backgroundColor = randomColor;
+    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj removeFromSuperview];
+    }];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:cell.contentView.frame];
+    [cell.contentView addSubview:titleLabel];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 0;
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.attributedText = [[NSAttributedString alloc] initWithString:self.statusString];;
+    return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld---%ld" ,(long)indexPath.section,(long)indexPath.row);
+  
+}
 /*
  #pragma mark - Navigation
  

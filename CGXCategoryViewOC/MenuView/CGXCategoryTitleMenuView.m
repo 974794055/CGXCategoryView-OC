@@ -7,34 +7,85 @@
 //
 
 #import "CGXCategoryTitleMenuView.h"
-///DEBUG打印日志
-#ifdef DEBUG
-# define CGXMenuViewDebugLog(FORMAT, ...) printf("[%s 行号:%d]:\n%s\n",__FUNCTION__,__LINE__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
-#else
-# define CGXMenuViewDebugLog(FORMAT, ...)
-#endif
-
+#import "CGXCategoryTitleImageView.h"
 
 typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     CGXCategoryTitleMenuViewClickTypeSelected,//点击选中或者滚动选中
     CGXCategoryTitleMenuViewClickTypeClickSelected,//点击选中的情况才会调用该方法
     CGXCategoryTitleMenuViewClickTypeScroll,//滚动选中的情况才会调用该方法
-    CGXCategoryTitleMenuViewClickTypeContentScroll //只有点击的选中才会调用
 };
 
 
+@interface CGXCategoryTitleMenuViewController : UIViewController<CGXCategoryListContainerViewDelegate>
+@property (copy) void(^viewWillAppearBlock)(void);
+@property (copy) void(^viewDidAppearBlock)(void);
+@property (copy) void(^viewWillDisappearBlock)(void);
+@property (copy) void(^viewDidDisappearBlock)(void);
+@end
+
+@implementation CGXCategoryTitleMenuViewController
+- (void)dealloc
+{
+    if (self.viewWillAppearBlock) {
+        self.viewWillAppearBlock = nil;
+    }
+    if (self.viewDidAppearBlock) {
+        self.viewDidAppearBlock = nil;
+    }
+    if (self.viewWillDisappearBlock) {
+        self.viewWillDisappearBlock = nil;
+    }
+    if (self.viewDidDisappearBlock) {
+        self.viewDidDisappearBlock = nil;
+    }
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.viewWillAppearBlock) {
+        self.viewWillAppearBlock();
+    }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.viewDidAppearBlock) {
+        self.viewDidAppearBlock();
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (self.viewWillDisappearBlock) {
+        self.viewWillDisappearBlock();
+    }
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (self.viewDidDisappearBlock) {
+        self.viewDidDisappearBlock();
+    }
+}
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods {
+    return NO;
+}
+- (UIView *)listView
+{
+    return self.view;
+}
+@end
+
 @interface CGXCategoryTitleMenuView ()<CGXCategoryViewDelegate,CGXCategoryListContainerViewDataSource>
 
-@property (nonatomic , strong,readwrite) CGXCategoryTitleImageView *categoryView;
+@property (nonatomic , strong) CGXCategoryTitleImageView *categoryView;
 
 @property (nonatomic , strong)  NSMutableArray<UIViewController *> *listVCArray;
-
-@property (nonatomic , strong)  NSMutableArray *titleArray;
 
 //当前选中下表 默认0
 @property (nonatomic , assign,readwrite) NSInteger currentInteger;
 
 @property (nonatomic , strong) CGXCategoryListContainerView *containerView;
+
+@property (nonatomic , strong,readwrite) NSMutableArray<CGXCategoryTitleMenuModel *> *dataArray;
+
+@property (nonatomic, strong) CGXCategoryTitleMenuViewController *containerVC;
 
 @end
 
@@ -58,13 +109,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     }
     return self;
 }
-- (NSMutableArray *)titleArray
-{
-    if (!_titleArray) {
-        _titleArray = [NSMutableArray array];
-    }
-    return _titleArray;
-}
 - (NSMutableArray<UIViewController *> *)listVCArray
 {
     if (!_listVCArray) {
@@ -75,67 +119,87 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 - (void)initializeWiew
 {
     self.currentInteger = 0;
-    _categoryViewHeight = 50;
+    self.categoryViewHeight = 50;
     self.didAppearPercent = 0.5;
+    self.topLineSpace = 0;
+    self.topLineHeight = 1;
+    self.topLineColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
+    self.bottomLineSpace = 1;
+    self.bottomLineHeight = 1;
+    self.bottomLineColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
     
+    
+    self.cellBackgroundNormalColor = [UIColor clearColor];
+    self.cellBackgroundSelectedColor = [UIColor clearColor];
+    self.titleNormalColor = [UIColor blackColor];
+    self.titleSelectedColor = [UIColor redColor];
+    self.titleFont = [UIFont systemFontOfSize:14];;
+    self.titleSelectedFont = [UIFont systemFontOfSize:14];
+    
+    self.dataArray = [NSMutableArray array];
+    self.contentScrollAnimated  =YES;
+    self.contentEdgeInsetLeft = CGXCategoryViewAutomaticDimension;
+    self.contentEdgeInsetRight = CGXCategoryViewAutomaticDimension;
+    self.cellWidth = CGXCategoryViewAutomaticDimension;
+    self.cellWidthIncrement = 0;
+    self.cellSpacing = 20;
+    self.averageCellSpacingEnabled = YES;
+    self.cellWidthZenter = NO;     //默认剧左
+    self.imageSize = CGSizeMake(20, 20);
+    self.titleImageSpacing = 5;
+    self.imageZoomScale = 1.0;
+    self.titleLabelZoomScale = 1.0;
+    _containerVC = [[CGXCategoryTitleMenuViewController alloc] init];
+    self.containerVC.view.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.containerVC.view];
+    __weak typeof(self) weakSelf = self;
+    self.containerVC.viewWillAppearBlock = ^{
+        //        [weakSelf listWillAppear:weakSelf.currentIndex];
+    };
+    self.containerVC.viewDidAppearBlock = ^{
+        if (weakSelf.delegate  && [weakSelf.delegate respondsToSelector:@selector(categoryMenuView:ListDidAppearIndex:)]) {
+            [weakSelf.delegate categoryMenuView:weakSelf ListDidAppearIndex:weakSelf.currentInteger];
+        }
+    };
+    self.containerVC.viewWillDisappearBlock = ^{
+        //        [weakSelf listWillDisappear:weakSelf.currentIndex];
+    };
+    self.containerVC.viewDidDisappearBlock = ^{
+        if (weakSelf.delegate  && [weakSelf.delegate respondsToSelector:@selector(categoryMenuView:ListDidDisappear:)]) {
+            [weakSelf.delegate categoryMenuView:weakSelf ListDidDisappear:weakSelf.currentInteger];
+        }
+    };
     self.categoryView = [[CGXCategoryTitleImageView alloc] init];
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
-    [self addSubview:self.categoryView];
+    self.categoryView.titleNumberOfLines = 0;
+    self.categoryView.imageZoomEnabled  =YES;
+    self.categoryView.titleLabelZoomEnabled  =YES;
+    self.categoryView.cellBackgroundColorGradientEnabled  =YES;
+    self.categoryView.isBottomHidden  = YES;
+    [self.containerVC.view addSubview:self.categoryView];
     
     self.containerView = [[CGXCategoryListContainerView alloc] initWithType:CGXCategoryListContainerType_ScrollView DataSource:self];
-    [self addSubview:self.containerView];
+    [self.containerVC.view addSubview:self.containerView];
     self.categoryView.listContainer = self.containerView;
+    
+    [self updateInitView];
 }
-- (void)setCategoryViewHeight:(CGFloat)categoryViewHeight
-{
-    _categoryViewHeight = categoryViewHeight;
-}
-- (CGFloat)topLineSpace
-{
-    if (!_topLineSpace) {
-        _topLineSpace = 0;
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    UIResponder *next = newSuperview;
+    while (next != nil) {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            [((UIViewController *)next) addChildViewController:self.containerVC];
+            break;
+        }
+        next = next.nextResponder;
     }
-    return _topLineSpace;
-}
-- (UIColor *)topLineColor
-{
-    if (!_topLineColor) {
-        _topLineColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
-    }
-    return _topLineColor;
-}
-- (CGFloat)topLineHeight
-{
-    if (!_topLineHeight) {
-        _topLineHeight = 1;
-    }
-    return _topLineHeight;
-}
-- (CGFloat)bottomLineSpace
-{
-    if (!_bottomLineSpace) {
-        _bottomLineSpace = 1;
-    }
-    return _bottomLineSpace;
-}
-- (UIColor *)bottomLineColor
-{
-    if (!_bottomLineColor) {
-        _bottomLineColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
-    }
-    return _bottomLineColor;
-}
-- (CGFloat)bottomLineHeight
-{
-    if (!_bottomLineHeight) {
-        _bottomLineHeight = 1;
-    }
-    return _bottomLineHeight;
 }
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    self.containerVC.view.frame = self.bounds;
     self.categoryView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.categoryViewHeight);
     self.containerView.frame = CGRectMake(0, self.categoryViewHeight, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-self.categoryViewHeight);
     if (self.topLineHeight>0) {
@@ -145,19 +209,68 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
         [self.categoryView.layer insertSublayer:[self addLineOriginPoint:CGPointMake(self.bottomLineSpace, CGRectGetHeight(self.categoryView.frame)) toPoint:CGPointMake(CGRectGetWidth(self.categoryView.bounds)-self.bottomLineSpace*2, CGRectGetHeight(self.categoryView.frame)) color:self.bottomLineColor borderWidth:self.bottomLineHeight] atIndex:0];
     }
 }
-- (void)updateWithTitleArray:(NSMutableArray<NSString *> *)titleArray VCArray:(NSMutableArray<UIViewController *> *)vcArray
+- (void)setIndicators:(NSArray<UIView<CGXCategoryIndicatorProtocol> *> *)indicators {
+    _indicators = indicators;
+    self.categoryView.indicators = indicators;
+}
+- (void)updateWithDataArray:(NSMutableArray<CGXCategoryTitleMenuModel *> *)dataArray
 {
-    [self.titleArray removeAllObjects];
-    [self.listVCArray removeAllObjects];
-    for (NSString *title in titleArray) {
-        [self.titleArray addObject:title];
+    [self.dataArray removeAllObjects];
+    if (dataArray.count==0) {
+        return;
     }
-    for (UIViewController *vc in vcArray) {
-        [self.listVCArray addObject:vc];
+    NSMutableArray *titleArr = [NSMutableArray array];
+    NSMutableArray *imageArr = [NSMutableArray array];
+    NSMutableArray *imageSelectArr = [NSMutableArray array];
+    NSMutableArray *imageURLArr = [NSMutableArray array];
+    NSMutableArray *selectedImageURLArr = [NSMutableArray array];
+    NSMutableArray *imageTypeArr = [NSMutableArray array];
+    for (CGXCategoryTitleMenuModel *model in dataArray) {
+        [self.dataArray addObject:model];
+        [titleArr addObject:model.title];
+        [imageArr addObject:model.imageName];
+        [imageSelectArr addObject:model.selectedImageName];
+        [imageURLArr addObject:model.imageURL];
+        [selectedImageURLArr addObject:model.selectedImageURL];
+        [imageTypeArr addObject:@(model.imageType)];
+        if (self.loadImageCallback) {
+            model.loadImageCallback = self.loadImageCallback;
+        }
     }
-    self.categoryView.titleArray = self.titleArray;
+    self.categoryView.titleArray = titleArr;
+    self.categoryView.imageNames = imageArr;
+    self.categoryView.selectedImageNames= imageSelectArr;
+    self.categoryView.imageURLs = imageURLArr;
+    self.categoryView.selectedImageURLs = selectedImageURLArr;
+    self.categoryView.imageTypes = imageTypeArr;
+    [self updateInitView];
+    
     [self.categoryView reloadData];
     [self selectItemAtIndex:self.currentInteger];
+    
+}
+- (void)updateInitView
+{
+    self.categoryView.cellBackgroundUnselectedColor  =self.cellBackgroundNormalColor;
+    self.categoryView.cellBackgroundSelectedColor  =self.cellBackgroundSelectedColor;
+    self.categoryView.titleColor  =self.titleNormalColor;
+    self.categoryView.titleSelectedColor  =self.titleSelectedColor;
+    self.categoryView.titleFont  =self.titleFont;
+    self.categoryView.titleSelectedFont  =self.titleSelectedFont;
+    
+    self.categoryView.contentScrollAnimated  =self.contentScrollAnimated;
+    self.categoryView.contentEdgeInsetLeft  =self.contentEdgeInsetLeft;
+    self.categoryView.contentEdgeInsetRight  =self.contentEdgeInsetRight;
+    self.categoryView.cellWidth  =self.cellWidth;
+    self.categoryView.cellWidthIncrement  =self.cellWidthIncrement;
+    self.categoryView.cellSpacing  =self.cellSpacing;
+    self.categoryView.averageCellSpacingEnabled  =self.averageCellSpacingEnabled;
+    self.categoryView.cellWidthZenter  =self.cellWidthZenter;
+    self.categoryView.imageSize  =self.imageSize;
+    self.categoryView.titleImageSpacing  =self.titleImageSpacing;
+    self.categoryView.imageZoomScale  =self.imageZoomScale;
+    
+    self.categoryView.titleLabelZoomScale  =self.titleLabelZoomScale;
 }
 //当前选中下表 默认0
 - (void)selectItemAtIndex:(NSInteger)index
@@ -174,7 +287,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    CGXMenuViewDebugLog(@"CGXCategoryTitleMenuView 点击选中或者滚动选中--%ld" , (long)index);
     [self categoryViewChooseItemAtIndex:index Type:CGXCategoryTitleMenuViewClickTypeSelected];
 }
 /**
@@ -185,7 +297,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index;
 {
-    CGXMenuViewDebugLog(@"CGXCategoryTitleMenuView 点击选中--%ld" , (long)index);
     [self categoryViewChooseItemAtIndex:index Type:CGXCategoryTitleMenuViewClickTypeClickSelected];
 }
 /**
@@ -196,20 +307,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
-    CGXMenuViewDebugLog(@"CGXCategoryTitleMenuView 滚动选中--%ld" , (long)index);
     [self categoryViewChooseItemAtIndex:index Type:CGXCategoryTitleMenuViewClickTypeScroll];
-}
-/**
- 只有点击的选中才会调用！！！
- 因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
- 
- @param categoryView categoryView description
- @param index index description
- */
-- (void)categoryView:(CGXCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index
-{
-    CGXMenuViewDebugLog(@"CGXCategoryTitleMenuView 只有点击的选中--%ld" , (long)index);
-    [self categoryViewChooseItemAtIndex:index Type:CGXCategoryTitleMenuViewClickTypeContentScroll];
 }
 /**
  正在滚动中的回调
@@ -247,35 +345,27 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     }
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:scrollingFromLeftIndex:toRightIndex:ratio:)]) {
         [self.delegate categoryMenuView:self scrollingFromLeftIndex:leftIndex toRightIndex:rightIndex ratio:ratio];
+//        CGXCategorViewDebugLog(@"正在滚动--%ld--%ld--%f",(long)leftIndex,leftIndex,ratio);
     }
 }
 // 将要消失 出现
 - (void)viewWillListDidDisappear:(NSInteger)didDisappear DisappearIndex:(NSInteger)disappear
 {
-    [self viewController:self].navigationController.interactivePopGestureRecognizer.enabled = (didDisappear == 0);
-    self.currentInteger = didDisappear;
-    
+    [self viewController:self].navigationController.interactivePopGestureRecognizer.enabled = (disappear == 0);
+    self.currentInteger = disappear;
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:ListDidDisappear:)]) {
-        [self.delegate categoryMenuView:self ListDidDisappear:disappear];
+        [self.delegate categoryMenuView:self ListDidDisappear:didDisappear];
+        CGXCategorViewDebugLog(@"将要消失--%ld" , (long)didDisappear);
     }
     if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:ListDidAppearIndex:)]) {
-        [self.delegate categoryMenuView:self ListDidAppearIndex:didDisappear];
-    }
-    UIViewController *listVC1 = self.listVCArray[disappear];
-    BOOL isHave1 = [listVC1 respondsToSelector:@selector(categoryMenuView:ListDidDisappear:)];
-    if (isHave1 == YES && [listVC1 conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-        [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC1 categoryMenuView:self ListDidDisappear:disappear];
-    }
-    UIViewController *listVC2 = self.listVCArray[didDisappear];
-    BOOL isHave2 = [listVC2 respondsToSelector:@selector(categoryMenuView:ListDidAppearIndex:)];
-    if (isHave2 == YES && [listVC2 conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-        [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC2 categoryMenuView:self ListDidAppearIndex:didDisappear];
+        [self.delegate categoryMenuView:self ListDidAppearIndex:disappear];
+        CGXCategorViewDebugLog(@"将要显示--%ld" , (long)disappear);
     }
 }
 - (void)categoryViewChooseItemAtIndex:(NSInteger)index Type:(CGXCategoryTitleMenuViewClickType)type
 {
     if (self.currentInteger != index) {
-        [self viewWillListDidDisappear:index DisappearIndex:self.currentInteger];
+        [self viewWillListDidDisappear:self.currentInteger DisappearIndex:index];
     }
     [self viewController:self].navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
     self.currentInteger = index;
@@ -285,22 +375,12 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didSelectedItemAtIndex:index];
             }
-            UIViewController *listVC = self.listVCArray[index];
-            BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didSelectedItemAtIndex:)];
-            if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-                [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didSelectedItemAtIndex:index];
-            }
         }
             break;
         case CGXCategoryTitleMenuViewClickTypeClickSelected:
         {
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didClickSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didClickSelectedItemAtIndex:index];
-            }
-            UIViewController *listVC = self.listVCArray[index];
-            BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didClickSelectedItemAtIndex:)];
-            if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-                [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didClickSelectedItemAtIndex:index];
             }
         }
             break;
@@ -309,26 +389,8 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
             if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didScrollSelectedItemAtIndex:)]) {
                 [self.delegate categoryMenuView:self didScrollSelectedItemAtIndex:index];
             }
-            UIViewController *listVC = self.listVCArray[index];
-            BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didScrollSelectedItemAtIndex:)];
-            if (isHave ==YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-                [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didScrollSelectedItemAtIndex:index];
-            }
         }
             break;
-        case CGXCategoryTitleMenuViewClickTypeContentScroll:
-        {
-            if (self.delegate  && [self.delegate respondsToSelector:@selector(categoryMenuView:didClickedItemContentScrollViewTransitionToIndex:)]) {
-                [self.delegate categoryMenuView:self didClickedItemContentScrollViewTransitionToIndex:index];
-            }
-            UIViewController *listVC = self.listVCArray[index];
-            BOOL isHave = [listVC respondsToSelector:@selector(categoryMenuView:didClickedItemContentScrollViewTransitionToIndex:)];
-            if (isHave == YES && [listVC conformsToProtocol:@protocol(CGXCategoryTitleMenuVCDelegate)]) {
-                [(UIViewController<CGXCategoryTitleMenuVCDelegate> *)listVC categoryMenuView:self didClickedItemContentScrollViewTransitionToIndex:index];
-            }
-        }
-            break;
-            
         default:
             break;
     }
@@ -340,7 +402,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
  */
 - (NSInteger)numberOfListsInlistContainerView:(CGXCategoryListContainerView *)listContainerView
 {
-    return self.titleArray.count;
+    return self.dataArray.count;
 }
 /**
  根据index返回一个对应列表实例，需要是遵从`CGXCategoryListContentViewDelegate`协议的对象。
@@ -354,10 +416,19 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
  */
 - (id<CGXCategoryListContainerViewDelegate>)listContainerView:(CGXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index
 {
-    CGXCategoryTitleMenuScrollView *lisrView = [[CGXCategoryTitleMenuScrollView alloc] init];
-    UIViewController *vc = self.listVCArray[index];
-    [lisrView addSubview:vc.view];
-    return lisrView;
+    CGXCategoryTitleMenuViewController *listVC= [[CGXCategoryTitleMenuViewController alloc] init];
+    CGXCategoryTitleMenuModel *model = self.dataArray[index];
+    if (model.vcName) {
+        UIViewController *vc = model.vcName;
+        [listVC addChildViewController:vc];
+        [listVC.view addSubview:vc.view];
+    } else{
+        UIViewController *vc = [[UIViewController alloc] init];
+        [listVC addChildViewController:vc];
+        [listVC.view addSubview:vc.view];
+    }
+    [self.containerVC addChildViewController:listVC];
+    return listVC;
 }
 - (UIViewController*)viewController:(UIView *)view {
     for (UIView* next = [view superview]; next; next = next.superview) {
@@ -368,8 +439,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
     }
     return nil;
 }
-
-
 - (CAShapeLayer *)addLineOriginPoint:(CGPoint)p0 toPoint:(CGPoint)p1 color:(UIColor *)color borderWidth:(CGFloat)borderWidth {
     /// 线的路径
     UIBezierPath * bezierPath = [UIBezierPath bezierPath];

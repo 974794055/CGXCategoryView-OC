@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CGXListContainerAiQiListViewController : UIViewController<CGXCategoryListContainerViewDelegate>
 
 @property (nonatomic , strong) NSString *tagStr;
-@property (nonatomic, strong) UINavigationController *naviController;
 
 @end
 

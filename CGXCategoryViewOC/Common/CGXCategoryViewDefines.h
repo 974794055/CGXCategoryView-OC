@@ -58,4 +58,20 @@ typedef NS_OPTIONS (NSUInteger,CGXCategoryRoundedType) {
     CGXCategoryRoundedTypeAll  = UIRectCornerAllCorners// 全部四个角
 };
 
+typedef NS_ENUM(NSUInteger, CGXCategoryTitleImageType) {
+    CGXCategoryTitleImageType_TopImage = 0,
+    CGXCategoryTitleImageType_LeftImage,
+    CGXCategoryTitleImageType_BottomImage,
+    CGXCategoryTitleImageType_RightImage,
+    CGXCategoryTitleImageType_OnlyImage,
+    CGXCategoryTitleImageType_OnlyTitle,
+};
+
+///DEBUG打印日志
+#ifdef DEBUG
+# define CGXCategorViewDebugLog(FORMAT, ...) printf("[%s 行号:%d]:\n%s\n",__FUNCTION__,__LINE__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+#else
+# define CGXCategorViewDebugLog(FORMAT, ...)
+#endif
+
 #define CGXCategoryViewDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)

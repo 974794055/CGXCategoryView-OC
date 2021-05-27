@@ -6,8 +6,8 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import "CGXCategoryTitleCell.h"
+#import "CGXCategoryIndicatorCell.h"
 
-@interface CGXCategoryTitleAttributeCell : CGXCategoryTitleCell
+@interface CGXCategoryTitleAttributeCell : CGXCategoryIndicatorCell
 
 @end

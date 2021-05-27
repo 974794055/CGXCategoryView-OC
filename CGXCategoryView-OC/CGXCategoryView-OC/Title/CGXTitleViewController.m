@@ -7,10 +7,11 @@
 //
 
 #import "CGXTitleViewController.h"
-#import "CGXTitleOneViewController.h"
 #import "CGXTitleTwoViewController.h"
-#import "CGXTitleThreeViewController.h"
-#import "CGXTitleFourViewController.h"
+#import "CGXTitleAttributeViewController.h"
+#import "CGXTitleImageViewController.h"
+
+    
 @interface CGXTitleViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic , strong) UITableView *tableView;
@@ -24,29 +25,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"多样式按钮样式";
+    self.navigationItem.title = @"按钮样式";
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.titleArray = [NSMutableArray arrayWithObjects:
-                       @"下划线效果",
-                       @"点线效果",
-                       @"下划线彩虹效果",
-                       @"圆点",
-                       @"三角形",
-                       @"BackgroundView",
-                       @"底部图片",
-                       @"cell图片背景",
-                       @"图片滚动",
-                       @"混合使用",
-                       @"颜色渐变",
                        @"大小缩放",
                        @"大小缩放+底部锚点",
                        @"大小缩放+顶部锚点",
                        @"大小缩放+字体粗细",
                        @"大小缩放+点击动画",
                        @"大小缩放+Cell宽度缩放",
-                       @"Cell背景色渐变",
+                       @"颜色渐变",
+                       @"富文本",
+                       @"图片文字",
                        @"分割线",
                        @"多行文本",
                        @"背景边框",
@@ -80,7 +72,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.01;
+    return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -92,7 +84,7 @@
     if (headerView == nil) {
         headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
     }
-    headerView.contentView.backgroundColor = [UIColor lightTextColor];
+    headerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];;
     return headerView;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -101,14 +93,13 @@
     if (footerView == nil) {
         footerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
     }
-    footerView.contentView.backgroundColor = [UIColor lightTextColor];
+    footerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];;
     return footerView;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     NSString *title = self.titleArray[indexPath.row];
     cell.textLabel.text = title;
     return cell;
@@ -116,49 +107,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *title = self.titleArray[indexPath.row];
-    if ([title isEqualToString:@"下划线效果"]) {
-        CGXTitleOneViewController *vc = [[CGXTitleOneViewController alloc] init];
-        vc.categorytitle = title;
+    if ([title isEqualToString:@"富文本"]){
+        CGXTitleAttributeViewController *vc = [[CGXTitleAttributeViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"大小缩放"]||
-               [title isEqualToString:@"大小缩放+底部锚点"]||
-               [title isEqualToString:@"大小缩放+顶部锚点"]||
-               [title isEqualToString:@"大小缩放+字体粗细"]||
-               [title isEqualToString:@"大小缩放+点击动画"]||
-               [title isEqualToString:@"大小缩放+Cell宽度缩放"]){
-        CGXTitleThreeViewController *vc = [[CGXTitleThreeViewController alloc] init];
-          vc.hidesBottomBarWhenPushed = YES;
-        vc.title = title;
-          [self.navigationController pushViewController:vc animated:YES];
-        
-    } else if ([title isEqualToString:@"BackgroundView"]){
-        CGXTitleFourViewController *vc = [[CGXTitleFourViewController alloc] init];
-          vc.hidesBottomBarWhenPushed = YES;
-          [self.navigationController pushViewController:vc animated:YES];
-    }
-
-    else{
+    } else if ([title isEqualToString:@"图片文字"]){
+        CGXTitleImageViewController *vc = [[CGXTitleImageViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
         CGXTitleTwoViewController *vc = [[CGXTitleTwoViewController alloc] init];
         vc.categorytitle = title;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-
 }
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-    cell.separatorInset = UIEdgeInsetsZero;
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
-}
-
 
 /*
  #pragma mark - Navigation

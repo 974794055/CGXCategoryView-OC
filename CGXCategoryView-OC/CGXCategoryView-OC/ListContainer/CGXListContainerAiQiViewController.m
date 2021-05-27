@@ -14,7 +14,6 @@
 @property (nonatomic, strong) CGXCategoryTitleView *categoryView;
 @property (nonatomic, strong) CGXCategoryListContainerView *listContainerView;
 @property (nonatomic, strong) NSMutableArray <NSString *> *titlesArr;
-@property (nonatomic, strong) NSMutableArray <UIViewController *> *vcArr;
 @property (nonatomic , assign) NSInteger currentInter;//当前选择的下标。 默认0
 
 @property (nonatomic, strong) NSMutableDictionary <NSString *, id<CGXCategoryListContainerViewDelegate>> *listCache;
@@ -26,16 +25,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    [self.navigationController.navigationBar navBarMyLayerHeight:kTopHeight isOpaque:YES];//背景高度
+    [self.navigationController.navigationBar navBarBackGroundColor:RGB(64, 75, 94, 1) image:nil isOpaque:YES];//颜色
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.currentInter = 0;
     self.titlesArr = [[NSMutableArray alloc] initWithObjects:@"VIP会员",@"体育会员",@"FUN会员", nil];
-   CGXListContainerAiQiMoreViewController *listVC1 = [[CGXListContainerAiQiMoreViewController alloc] init];
-    CGXListContainerAiQiMoreViewController *listVC2 = [[CGXListContainerAiQiMoreViewController alloc] init];
-    CGXListContainerAiQiMoreViewController *listVC3 = [[CGXListContainerAiQiMoreViewController alloc] init];
-    self.vcArr = [NSMutableArray arrayWithObjects:listVC1,listVC2,listVC3, nil];
-    
+
     self.categoryView = [[CGXCategoryTitleView alloc] init];
     self.categoryView.delegate = self;
     self.categoryView.isBottomHidden = YES;
@@ -49,17 +45,15 @@
     self.categoryView.frame = CGRectMake(0, 0, 210, 44);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.categoryView];
     
-    
     self.listContainerView = [[CGXCategoryListContainerView alloc] initWithType:CGXCategoryListContainerType_CollectionView DataSource:self];
     [self.view addSubview:self.listContainerView];
     self.listContainerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kSafeHeight);
-    
+    self.listContainerView.backgroundColor =RGB(64, 75, 94, 1);
     self.categoryView.listContainer = self.listContainerView;
-    
     
     //重载之后默认回到0，你也可以指定一个index
     self.categoryView.titleArray = self.titlesArr;
-    [self.categoryView selectItemAtIndex:self.currentInter];
+//    [self.categoryView selectItemAtIndex:self.currentInter];
     
 }
 
@@ -85,10 +79,9 @@
     NSString *targetTitle = self.titlesArr[index];
     id<CGXCategoryListContainerViewDelegate> list = _listCache[targetTitle];
     if (list) {
-        //②之前已经初始化了对应的list，就直接返回缓存的list，无需再次初始化
         return list;
     }else {
-        CGXListContainerAiQiMoreViewController *listVC = (CGXListContainerAiQiMoreViewController *)self.vcArr[index];
+        CGXListContainerAiQiMoreViewController *listVC = [[CGXListContainerAiQiMoreViewController alloc] init];
         if (index == 0) {
                  listVC.view.backgroundColor = RGB(64, 75, 94, 1);
              listVC.titlesArr = [[NSMutableArray alloc] initWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识", nil];
@@ -106,6 +99,9 @@
         listVC.tagStr = self.titlesArr[index];
         [self addChildViewController:listVC];
         _listCache[targetTitle] = listVC;
+        
+        self.listContainerView.backgroundColor =listVC.view.backgroundColor;
+        
         return listVC;
     }
 }

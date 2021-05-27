@@ -9,15 +9,20 @@
 #import "CGXCategoryIndicatorLineView.h"
 #import "CGXCategoryFactory.h"
 #import "CGXCategoryViewDefines.h"
+#import "CGXCategoryViewAnimator.h"
+
+@interface CGXCategoryIndicatorLineView ()
+@property (nonatomic, strong) CGXCategoryViewAnimator *animator;
+@end
 
 @implementation CGXCategoryIndicatorLineView
 
 - (void)initializeViews
 {
     [super initializeViews];
-        _lineStyle = CGXCategoryIndicatorLineStyle_Normal;
-        _lineScrollOffsetX = 10;
-         self.indicatorHeight = 3;
+    _lineStyle = CGXCategoryIndicatorLineStyle_Normal;
+    _lineScrollOffsetX = 10;
+    self.indicatorHeight = 3;
 }
 
 #pragma mark - CGXCategoryIndicatorProtocol
@@ -40,19 +45,19 @@
     CGFloat percent = model.percent;
     CGFloat targetX = leftCellFrame.origin.x;
     CGFloat targetWidth = [self getIndicatorLineViewWidth:leftCellFrame];
-
+    
     if (percent == 0) {
         targetX = leftCellFrame.origin.x + (leftCellFrame.size.width - targetWidth)/2.0;
     }else {
         CGFloat leftWidth = targetWidth;
         CGFloat rightWidth = [self getIndicatorLineViewWidth:rightCellFrame];
-
+        
         CGFloat leftX = leftCellFrame.origin.x + (leftCellFrame.size.width - leftWidth)/2;
         CGFloat rightX = rightCellFrame.origin.x + (rightCellFrame.size.width - rightWidth)/2;
-
+        
         if (self.lineStyle == CGXCategoryIndicatorLineStyle_Normal) {
             targetX = [CGXCategoryFactory interpolationFrom:leftX to:rightX percent:percent];
-
+            
             if (self.indicatorWidth == CGXCategoryViewAutomaticDimension) {
                 targetWidth = [CGXCategoryFactory interpolationFrom:leftCellFrame.size.width to:rightCellFrame.size.width percent:percent];
             }
@@ -93,12 +98,12 @@
     CGRect toFrame = self.frame;
     toFrame.origin.x = model.selectedCellFrame.origin.x + (model.selectedCellFrame.size.width - targetWidth)/2.0;
     toFrame.size.width = targetWidth;
-
+    
     if (self.scrollEnabled) {
         [UIView animateWithDuration:self.scrollAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.frame = toFrame;
         } completion:^(BOOL finished) {
-
+            
         }];
     }else {
         self.frame = toFrame;

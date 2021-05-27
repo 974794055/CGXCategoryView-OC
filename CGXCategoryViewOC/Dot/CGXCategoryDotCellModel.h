@@ -14,8 +14,13 @@ typedef NS_ENUM(NSUInteger, CGXCategoryDotRelativePosition) {
     CGXCategoryDotRelativePosition_BottomLeft,
     CGXCategoryDotRelativePosition_BottomRight,
 };
-
+typedef NS_ENUM(NSUInteger, JXCategoryDotStyle) {
+    JXCategoryDotStyle_Solid = 0,   // 实心
+    JXCategoryDotStyle_Hollow       // 空心
+};
 @interface CGXCategoryDotCellModel : CGXCategoryTitleImageCellModel
+
+@property (nonatomic, assign) JXCategoryDotStyle dotStyle;
 
 @property (nonatomic, assign) BOOL dotHidden;
 
@@ -27,5 +32,10 @@ typedef NS_ENUM(NSUInteger, CGXCategoryDotRelativePosition) {
 
 @property (nonatomic, strong) UIColor *dotColor;
 
+@property (nonatomic, assign) CGPoint dotOffset;
+
+@property (nonatomic, strong) UIColor *dotborderColor;
+
+@property (nonatomic, assign) CGFloat dotborderWidth;
 
 @end

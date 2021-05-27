@@ -15,18 +15,15 @@
 		04279C85235855DB00137328 /* CGXVerticalListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */; };
 		04279C86235855DB00137328 /* CGXVerticalListSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */; };
 		04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C77235855DB00137328 /* CGXVerticalListCellModel.m */; };
-		04279C88235855DB00137328 /* CGXVerticalSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */; };
-		04279C89235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */; };
+		04279C88235855DB00137328 /* CGXVerticalListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7C235855DB00137328 /* CGXVerticalListHeaderView.m */; };
 		04279C8A235855DB00137328 /* CGXVerticalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04279C7F235855DB00137328 /* CGXVerticalListViewController.m */; };
 		04EB5B89233B592800C26F55 /* CGXTitleSubtitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EB5B88233B592800C26F55 /* CGXTitleSubtitleViewController.m */; };
 		4214EA9CD8C2FFD094CADA8B /* libPods-CGXCategoryView-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */; };
-		9E03C28824BADEB4008034DD /* CGXTitleThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */; };
-		9E03C28B24BAE06A008034DD /* CGXTitleFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */; };
+		9E03C28B24BAE06A008034DD /* CGXBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E03C28A24BAE06A008034DD /* CGXBackgroundViewController.m */; };
 		9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */; };
 		9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */; };
 		9E3B227323530FDC006E1659 /* CGXTitleSortIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */; };
-		9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */; };
-		9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */; };
+		9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E558B082350B8A6001248FE /* CGXDataListContainerViewController.m */; };
 		9E6D1E6024B4BFEB00C719D3 /* CGXBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */; };
 		9E770C96233913120057B1C5 /* CGXTitleSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E770C95233913120057B1C5 /* CGXTitleSortViewController.m */; };
 		9E8B490A235AD9F8006BCD88 /* CGXListContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */; };
@@ -35,11 +32,7 @@
 		9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4912235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m */; };
 		9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */; };
 		9E924B0924547F510070655E /* CGXTitleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E924B0824547F510070655E /* CGXTitleTwoViewController.m */; };
-		B55DDEFD254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */; };
-		B55DDEFE254B0AB100CAD6A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFB254B0AB100CAD6A9 /* README.md */; };
-		B55DDEFF254B0AB100CAD6A9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B55DDEFC254B0AB100CAD6A9 /* LICENSE */; };
 		B586127D25C6F4D800602B5E /* CGXDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B586127C25C6F4D800602B5E /* CGXDotViewController.m */; };
-		E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */; };
 		E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258D5222A7EEB00A0957D /* AppDelegate.m */; };
 		E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DA222A7EEB00A0957D /* Main.storyboard */; };
 		E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01258DD222A7EED00A0957D /* Assets.xcassets */; };
@@ -48,12 +41,19 @@
 		E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */; };
 		E01BCE51226C0FD800EC964E /* CGXNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01BCE50226C0FD800EC964E /* CGXNestViewController.m */; };
 		E024317E222C2928002DE810 /* CGXMenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E024317D222C2928002DE810 /* CGXMenuListViewController.m */; };
+		E04589CE265BE136005B8237 /* CGXTitlePinViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04589CD265BE136005B8237 /* CGXTitlePinViewViewController.m */; };
+		E059B3B02656AD270056E155 /* CustomScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E059B3AF2656AD270056E155 /* CustomScrollerView.m */; };
+		E069DDA1265FBE480053D8EE /* CGXCustomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069DDA0265FBE480053D8EE /* CGXCustomListViewController.m */; };
 		E069E9DC2234E111000F2BE4 /* CGXTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */; };
-		E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */; };
+		E069E9DF2234E3A6000F2BE4 /* CGXLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DE2234E3A6000F2BE4 /* CGXLineViewController.m */; };
 		E069E9EE2234F083000F2BE4 /* TitleImageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */; };
 		E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */; };
 		E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E087760E226B5DFE00D1B523 /* TableViewController.m */; };
 		E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */; };
+		E0EEA496265A9397004DD32F /* CGXIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EEA495265A9397004DD32F /* CGXIndicatorViewController.m */; };
+		E0F58E2E2654010E0043466F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2B2654010E0043466F /* README.md */; };
+		E0F58E2F2654010E0043466F /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */; };
+		E0F58E302654010E0043466F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2D2654010E0043466F /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,36 +67,30 @@
 		04279C70235855DB00137328 /* CGXVerticalTableSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalTableSectionHeaderView.m; sourceTree = "<group>"; };
 		04279C72235855DB00137328 /* CGXVerticalListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCell.m; sourceTree = "<group>"; };
 		04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCollectionView.m; sourceTree = "<group>"; };
-		04279C74235855DB00137328 /* CGXVerticalSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalSectionHeaderView.h; sourceTree = "<group>"; };
+		04279C74235855DB00137328 /* CGXVerticalListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListHeaderView.h; sourceTree = "<group>"; };
 		04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListSectionModel.m; sourceTree = "<group>"; };
 		04279C76235855DB00137328 /* CGXVerticalListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListViewController.h; sourceTree = "<group>"; };
 		04279C77235855DB00137328 /* CGXVerticalListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListCellModel.m; sourceTree = "<group>"; };
-		04279C78235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalSectionCategoryHeaderView.h; sourceTree = "<group>"; };
 		04279C79235855DB00137328 /* CGXVerticalListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCollectionView.h; sourceTree = "<group>"; };
 		04279C7A235855DB00137328 /* CGXVerticalListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCell.h; sourceTree = "<group>"; };
 		04279C7B235855DB00137328 /* CGXVerticalListSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListSectionModel.h; sourceTree = "<group>"; };
-		04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalSectionHeaderView.m; sourceTree = "<group>"; };
-		04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalSectionCategoryHeaderView.m; sourceTree = "<group>"; };
+		04279C7C235855DB00137328 /* CGXVerticalListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListHeaderView.m; sourceTree = "<group>"; };
 		04279C7E235855DB00137328 /* CGXVerticalListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalListCellModel.h; sourceTree = "<group>"; };
 		04279C7F235855DB00137328 /* CGXVerticalListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalListViewController.m; sourceTree = "<group>"; };
 		04EB5B87233B592800C26F55 /* CGXTitleSubtitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSubtitleViewController.h; sourceTree = "<group>"; };
 		04EB5B88233B592800C26F55 /* CGXTitleSubtitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSubtitleViewController.m; sourceTree = "<group>"; };
 		3FF60936865ABF0EA5AB9348 /* Pods-CGXCategoryView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCategoryView-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXCategoryView-OC/Pods-CGXCategoryView-OC.debug.xcconfig"; sourceTree = "<group>"; };
 		9305EE7F565B57706627D0E6 /* Pods-CGXCategoryView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCategoryView-OC.release.xcconfig"; path = "Target Support Files/Pods-CGXCategoryView-OC/Pods-CGXCategoryView-OC.release.xcconfig"; sourceTree = "<group>"; };
-		9E03C28624BADEB4008034DD /* CGXTitleThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleThreeViewController.h; sourceTree = "<group>"; };
-		9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleThreeViewController.m; sourceTree = "<group>"; };
-		9E03C28924BAE06A008034DD /* CGXTitleFourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleFourViewController.h; sourceTree = "<group>"; };
-		9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleFourViewController.m; sourceTree = "<group>"; };
+		9E03C28924BAE06A008034DD /* CGXBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXBackgroundViewController.h; sourceTree = "<group>"; };
+		9E03C28A24BAE06A008034DD /* CGXBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXBackgroundViewController.m; sourceTree = "<group>"; };
 		9E3B226423530458006E1659 /* CGXScrollZoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXScrollZoomListViewController.m; sourceTree = "<group>"; };
 		9E3B226723530458006E1659 /* CGXScrollZoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomListViewController.h; sourceTree = "<group>"; };
 		9E3B226C23530636006E1659 /* CGXScrollZoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXScrollZoomViewController.h; sourceTree = "<group>"; };
 		9E3B226D23530636006E1659 /* CGXScrollZoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXScrollZoomViewController.m; sourceTree = "<group>"; };
 		9E3B227123530FDC006E1659 /* CGXTitleSortIndicatorLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSortIndicatorLineView.h; sourceTree = "<group>"; };
 		9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleSortIndicatorLineView.m; sourceTree = "<group>"; };
-		9E558B072350B8A6001248FE /* CGXDataListContainerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDataListContainerListViewController.h; sourceTree = "<group>"; };
-		9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerViewController..m; sourceTree = "<group>"; };
+		9E558B082350B8A6001248FE /* CGXDataListContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerViewController.m; sourceTree = "<group>"; };
 		9E558B0A2350B8A6001248FE /* CGXDataListContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDataListContainerViewController.h; sourceTree = "<group>"; };
-		9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDataListContainerListViewController.m; sourceTree = "<group>"; };
 		9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXBadgeViewController.h; sourceTree = "<group>"; };
 		9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXBadgeViewController.m; sourceTree = "<group>"; };
 		9E770C94233913120057B1C5 /* CGXTitleSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleSortViewController.h; sourceTree = "<group>"; };
@@ -113,13 +107,8 @@
 		9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CGXNav.m"; sourceTree = "<group>"; };
 		9E924B0724547F510070655E /* CGXTitleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleTwoViewController.h; sourceTree = "<group>"; };
 		9E924B0824547F510070655E /* CGXTitleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleTwoViewController.m; sourceTree = "<group>"; };
-		B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B55DDEFB254B0AB100CAD6A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		B55DDEFC254B0AB100CAD6A9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 		B586127B25C6F4D800602B5E /* CGXDotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXDotViewController.h; sourceTree = "<group>"; };
 		B586127C25C6F4D800602B5E /* CGXDotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXDotViewController.m; sourceTree = "<group>"; };
-		E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXWaterCollectionView.h; sourceTree = "<group>"; };
-		E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXWaterCollectionView.m; sourceTree = "<group>"; };
 		E01258D1222A7EEB00A0957D /* CGXCategoryView-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXCategoryView-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01258D4222A7EEB00A0957D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E01258D5222A7EEB00A0957D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,10 +124,16 @@
 		E01BCE50226C0FD800EC964E /* CGXNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNestViewController.m; sourceTree = "<group>"; };
 		E024317C222C2928002DE810 /* CGXMenuListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuListViewController.h; sourceTree = "<group>"; };
 		E024317D222C2928002DE810 /* CGXMenuListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXMenuListViewController.m; sourceTree = "<group>"; };
+		E04589CC265BE136005B8237 /* CGXTitlePinViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitlePinViewViewController.h; sourceTree = "<group>"; };
+		E04589CD265BE136005B8237 /* CGXTitlePinViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitlePinViewViewController.m; sourceTree = "<group>"; };
+		E059B3AE2656AD270056E155 /* CustomScrollerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScrollerView.h; sourceTree = "<group>"; };
+		E059B3AF2656AD270056E155 /* CustomScrollerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScrollerView.m; sourceTree = "<group>"; };
+		E069DD9F265FBE480053D8EE /* CGXCustomListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCustomListViewController.h; sourceTree = "<group>"; };
+		E069DDA0265FBE480053D8EE /* CGXCustomListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCustomListViewController.m; sourceTree = "<group>"; };
 		E069E9DA2234E111000F2BE4 /* CGXTitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleViewController.h; sourceTree = "<group>"; };
 		E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleViewController.m; sourceTree = "<group>"; };
-		E069E9DD2234E3A6000F2BE4 /* CGXTitleOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXTitleOneViewController.h; sourceTree = "<group>"; };
-		E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXTitleOneViewController.m; sourceTree = "<group>"; };
+		E069E9DD2234E3A6000F2BE4 /* CGXLineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXLineViewController.h; sourceTree = "<group>"; };
+		E069E9DE2234E3A6000F2BE4 /* CGXLineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXLineViewController.m; sourceTree = "<group>"; };
 		E069E9EA2234F082000F2BE4 /* TitleImageSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleImageSettingViewController.m; sourceTree = "<group>"; };
 		E069E9EB2234F082000F2BE4 /* CGXTitleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXTitleImageViewController.m; sourceTree = "<group>"; };
 		E069E9EC2234F082000F2BE4 /* TitleImageSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleImageSettingViewController.h; sourceTree = "<group>"; };
@@ -147,6 +142,11 @@
 		E087760E226B5DFE00D1B523 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		E0A0F8C5222D676F002A527A /* CGXMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuViewController.h; sourceTree = "<group>"; };
 		E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXMenuViewController.m; sourceTree = "<group>"; };
+		E0EEA494265A9397004DD32F /* CGXIndicatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXIndicatorViewController.h; sourceTree = "<group>"; };
+		E0EEA495265A9397004DD32F /* CGXIndicatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXIndicatorViewController.m; sourceTree = "<group>"; };
+		E0F58E2B2654010E0043466F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E0F58E2D2654010E0043466F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 		F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -186,14 +186,12 @@
 				04279C72235855DB00137328 /* CGXVerticalListCell.m */,
 				04279C79235855DB00137328 /* CGXVerticalListCollectionView.h */,
 				04279C73235855DB00137328 /* CGXVerticalListCollectionView.m */,
-				04279C74235855DB00137328 /* CGXVerticalSectionHeaderView.h */,
-				04279C7C235855DB00137328 /* CGXVerticalSectionHeaderView.m */,
+				04279C74235855DB00137328 /* CGXVerticalListHeaderView.h */,
+				04279C7C235855DB00137328 /* CGXVerticalListHeaderView.m */,
 				04279C7B235855DB00137328 /* CGXVerticalListSectionModel.h */,
 				04279C75235855DB00137328 /* CGXVerticalListSectionModel.m */,
 				04279C7E235855DB00137328 /* CGXVerticalListCellModel.h */,
 				04279C77235855DB00137328 /* CGXVerticalListCellModel.m */,
-				04279C78235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.h */,
-				04279C7D235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m */,
 			);
 			path = VerticalListCollectionView;
 			sourceTree = "<group>";
@@ -239,9 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				9E558B0A2350B8A6001248FE /* CGXDataListContainerViewController.h */,
-				9E558B082350B8A6001248FE /* CGXDataListContainerViewController..m */,
-				9E558B072350B8A6001248FE /* CGXDataListContainerListViewController.h */,
-				9E558B0B2350B8A6001248FE /* CGXDataListContainerListViewController.m */,
+				9E558B082350B8A6001248FE /* CGXDataListContainerViewController.m */,
 				9E8B490B235AEF9B006BCD88 /* CGXListContainerAiQiViewController.h */,
 				9E8B490C235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m */,
 				9E8B490E235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.h */,
@@ -257,8 +253,6 @@
 			children = (
 				9E6D1E5E24B4BFEB00C719D3 /* CGXBadgeViewController.h */,
 				9E6D1E5F24B4BFEB00C719D3 /* CGXBadgeViewController.m */,
-				B586127B25C6F4D800602B5E /* CGXDotViewController.h */,
-				B586127C25C6F4D800602B5E /* CGXDotViewController.m */,
 			);
 			path = Badge;
 			sourceTree = "<group>";
@@ -272,16 +266,6 @@
 				9E3B227223530FDC006E1659 /* CGXTitleSortIndicatorLineView.m */,
 			);
 			path = TitleSortView;
-			sourceTree = "<group>";
-		};
-		B55DDEF9254B0AA600CAD6A9 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				B55DDEFA254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec */,
-				B55DDEFC254B0AB100CAD6A9 /* LICENSE */,
-				B55DDEFB254B0AB100CAD6A9 /* README.md */,
-			);
-			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		D1687500762A7F99E10FD3F6 /* Pods */ = {
@@ -314,24 +298,24 @@
 		E01258D3222A7EEB00A0957D /* CGXCategoryView-OC */ = {
 			isa = PBXGroup;
 			children = (
-				B55DDEF9254B0AA600CAD6A9 /* Podspec Metadata */,
+				E0F58E2A265400F40043466F /* Podspec Metadata */,
 				E01258D4222A7EEB00A0957D /* AppDelegate.h */,
 				E01258D5222A7EEB00A0957D /* AppDelegate.m */,
-				E0072A232286D54500FA4338 /* CGXWaterCollectionView.h */,
-				E0072A252286D54500FA4338 /* CGXWaterCollectionView.m */,
 				E087760D226B5DFE00D1B523 /* TableViewController.h */,
 				E087760E226B5DFE00D1B523 /* TableViewController.m */,
-				9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */,
-				9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */,
 				9E8B4908235AD9F8006BCD88 /* CGXListContainerTableViewController.h */,
 				9E8B4909235AD9F8006BCD88 /* CGXListContainerTableViewController.m */,
+				E0BE4D61265E99BD005B9296 /* Dot */,
+				E059B3AD2656AD060056E155 /* Custom */,
 				9E6D1E5D24B4BFCA00C719D3 /* Badge */,
 				9E3B226223530458006E1659 /* ScrollZoom */,
 				9E3B2240235302C2006E1659 /* VerticalListView */,
 				9E558B062350B8A6001248FE /* ListContainer */,
 				0436126D233B4EF9008596A4 /* TitleSubtitle */,
 				9E770C93233912EE0057B1C5 /* TitleSortView */,
+				E04589CB265BE116005B8237 /* TitlePinView */,
 				E01BCE52226C6A9500EC964E /* NestView */,
+				E0DDC1EA26580D0A0057C970 /* IndicatorViews */,
 				E069E9F62234FB08000F2BE4 /* MenuView */,
 				E069E9F12234F86E000F2BE4 /* TitleAttribute */,
 				E069E9F02234F842000F2BE4 /* Title */,
@@ -355,6 +339,28 @@
 			path = NestView;
 			sourceTree = "<group>";
 		};
+		E04589CB265BE116005B8237 /* TitlePinView */ = {
+			isa = PBXGroup;
+			children = (
+				E04589CC265BE136005B8237 /* CGXTitlePinViewViewController.h */,
+				E04589CD265BE136005B8237 /* CGXTitlePinViewViewController.m */,
+			);
+			path = TitlePinView;
+			sourceTree = "<group>";
+		};
+		E059B3AD2656AD060056E155 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */,
+				9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */,
+				E069DD9F265FBE480053D8EE /* CGXCustomListViewController.h */,
+				E069DDA0265FBE480053D8EE /* CGXCustomListViewController.m */,
+				E059B3AE2656AD270056E155 /* CustomScrollerView.h */,
+				E059B3AF2656AD270056E155 /* CustomScrollerView.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		E069E9E92234F082000F2BE4 /* TitleImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,14 +377,8 @@
 			children = (
 				E069E9DA2234E111000F2BE4 /* CGXTitleViewController.h */,
 				E069E9DB2234E111000F2BE4 /* CGXTitleViewController.m */,
-				E069E9DD2234E3A6000F2BE4 /* CGXTitleOneViewController.h */,
-				E069E9DE2234E3A6000F2BE4 /* CGXTitleOneViewController.m */,
 				9E924B0724547F510070655E /* CGXTitleTwoViewController.h */,
 				9E924B0824547F510070655E /* CGXTitleTwoViewController.m */,
-				9E03C28624BADEB4008034DD /* CGXTitleThreeViewController.h */,
-				9E03C28724BADEB4008034DD /* CGXTitleThreeViewController.m */,
-				9E03C28924BAE06A008034DD /* CGXTitleFourViewController.h */,
-				9E03C28A24BAE06A008034DD /* CGXTitleFourViewController.m */,
 			);
 			path = Title;
 			sourceTree = "<group>";
@@ -401,6 +401,38 @@
 				E024317D222C2928002DE810 /* CGXMenuListViewController.m */,
 			);
 			path = MenuView;
+			sourceTree = "<group>";
+		};
+		E0BE4D61265E99BD005B9296 /* Dot */ = {
+			isa = PBXGroup;
+			children = (
+				B586127B25C6F4D800602B5E /* CGXDotViewController.h */,
+				B586127C25C6F4D800602B5E /* CGXDotViewController.m */,
+			);
+			path = Dot;
+			sourceTree = "<group>";
+		};
+		E0DDC1EA26580D0A0057C970 /* IndicatorViews */ = {
+			isa = PBXGroup;
+			children = (
+				9E03C28924BAE06A008034DD /* CGXBackgroundViewController.h */,
+				9E03C28A24BAE06A008034DD /* CGXBackgroundViewController.m */,
+				E069E9DD2234E3A6000F2BE4 /* CGXLineViewController.h */,
+				E069E9DE2234E3A6000F2BE4 /* CGXLineViewController.m */,
+				E0EEA494265A9397004DD32F /* CGXIndicatorViewController.h */,
+				E0EEA495265A9397004DD32F /* CGXIndicatorViewController.m */,
+			);
+			path = IndicatorViews;
+			sourceTree = "<group>";
+		};
+		E0F58E2A265400F40043466F /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */,
+				E0F58E2D2654010E0043466F /* LICENSE */,
+				E0F58E2B2654010E0043466F /* README.md */,
+			);
+			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,11 +493,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55DDEFF254B0AB100CAD6A9 /* LICENSE in Resources */,
-				B55DDEFD254B0AB100CAD6A9 /* CGXCategoryView-OC.podspec in Resources */,
+				E0F58E302654010E0043466F /* LICENSE in Resources */,
 				E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */,
-				B55DDEFE254B0AB100CAD6A9 /* README.md in Resources */,
 				E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */,
+				E0F58E2F2654010E0043466F /* CGXCategoryView-OC.podspec in Resources */,
+				E0F58E2E2654010E0043466F /* README.md in Resources */,
 				E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,23 +534,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController..m in Sources */,
+				9E558B0D2350B8A6001248FE /* CGXDataListContainerViewController.m in Sources */,
 				E069E9EF2234F083000F2BE4 /* CGXTitleImageViewController.m in Sources */,
 				9E3B226E23530636006E1659 /* CGXScrollZoomViewController.m in Sources */,
 				9E8B4913235AFBCE006BCD88 /* CGXListContainerAiQiListViewController.m in Sources */,
 				9E8B490D235AEF9B006BCD88 /* CGXListContainerAiQiViewController.m in Sources */,
-				9E03C28824BADEB4008034DD /* CGXTitleThreeViewController.m in Sources */,
 				9E770C96233913120057B1C5 /* CGXTitleSortViewController.m in Sources */,
-				9E03C28B24BAE06A008034DD /* CGXTitleFourViewController.m in Sources */,
+				9E03C28B24BAE06A008034DD /* CGXBackgroundViewController.m in Sources */,
 				04279C83235855DB00137328 /* CGXVerticalTableSectionHeaderView.m in Sources */,
-				04279C88235855DB00137328 /* CGXVerticalSectionHeaderView.m in Sources */,
+				04279C88235855DB00137328 /* CGXVerticalListHeaderView.m in Sources */,
 				9E924B0924547F510070655E /* CGXTitleTwoViewController.m in Sources */,
-				E0072A272286D54500FA4338 /* CGXWaterCollectionView.m in Sources */,
 				9E3B227323530FDC006E1659 /* CGXTitleSortIndicatorLineView.m in Sources */,
 				04279C85235855DB00137328 /* CGXVerticalListCollectionView.m in Sources */,
 				E069E9EE2234F083000F2BE4 /* TitleImageSettingViewController.m in Sources */,
 				E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */,
 				04279C84235855DB00137328 /* CGXVerticalListCell.m in Sources */,
+				E059B3B02656AD270056E155 /* CustomScrollerView.m in Sources */,
 				04279C80235855DB00137328 /* CGXVerticalTableSectionCategoryHeaderView.m in Sources */,
 				04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */,
 				E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */,
@@ -526,20 +557,21 @@
 				E069E9DC2234E111000F2BE4 /* CGXTitleViewController.m in Sources */,
 				04279C82235855DB00137328 /* CGXVerticalListTableView.m in Sources */,
 				E01BCE51226C0FD800EC964E /* CGXNestViewController.m in Sources */,
-				9E558B0F2350B8A6001248FE /* CGXDataListContainerListViewController.m in Sources */,
+				E04589CE265BE136005B8237 /* CGXTitlePinViewViewController.m in Sources */,
 				E087760F226B5DFE00D1B523 /* TableViewController.m in Sources */,
 				9E8B4916235AFECA006BCD88 /* UINavigationBar+CGXNav.m in Sources */,
 				B586127D25C6F4D800602B5E /* CGXDotViewController.m in Sources */,
 				04279C8A235855DB00137328 /* CGXVerticalListViewController.m in Sources */,
-				E069E9DF2234E3A6000F2BE4 /* CGXTitleOneViewController.m in Sources */,
+				E069E9DF2234E3A6000F2BE4 /* CGXLineViewController.m in Sources */,
 				9E8B4910235AFBC2006BCD88 /* CGXListContainerAiQiMoreViewController.m in Sources */,
-				04279C89235855DB00137328 /* CGXVerticalSectionCategoryHeaderView.m in Sources */,
+				E069DDA1265FBE480053D8EE /* CGXCustomListViewController.m in Sources */,
 				04279C86235855DB00137328 /* CGXVerticalListSectionModel.m in Sources */,
 				9E3B226A23530458006E1659 /* CGXScrollZoomListViewController.m in Sources */,
 				04EB5B89233B592800C26F55 /* CGXTitleSubtitleViewController.m in Sources */,
 				04279C81235855DB00137328 /* CGXVerticalListTableViewController.m in Sources */,
 				E01258D6222A7EEB00A0957D /* AppDelegate.m in Sources */,
 				E024317E222C2928002DE810 /* CGXMenuListViewController.m in Sources */,
+				E0EEA496265A9397004DD32F /* CGXIndicatorViewController.m in Sources */,
 				9E8B490A235AD9F8006BCD88 /* CGXListContainerTableViewController.m in Sources */,
 				9E6D1E6024B4BFEB00C719D3 /* CGXBadgeViewController.m in Sources */,
 			);

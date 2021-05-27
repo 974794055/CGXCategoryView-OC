@@ -74,7 +74,7 @@
             self.frame = toFrame;
         } completion:^(BOOL finished) {
         }];
-        if (self.indicatorImageViewRollEnabled &&  model.selectedType == CGXCategoryCellSelectedTypeClick) {
+        if (self.indicatorImageViewRollEnabled &&  model.selectedType == CGXCategoryCellSelectedTypeClick  &&  model.selectedType == CGXCategoryCellSelectedTypeNode) {
             [self.indicatorImageView.layer removeAnimationForKey:@"rotate"];
             CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
             if (model.selectedIndex > model.lastSelectedIndex) {

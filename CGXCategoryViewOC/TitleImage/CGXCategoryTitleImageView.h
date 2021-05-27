@@ -9,6 +9,20 @@
 #import "CGXCategoryTitleView.h"
 #import "CGXCategoryTitleImageCellModel.h"
 #import "CGXCategoryFactory.h"
+
+@interface CGXCategoryTitleImageModel : NSObject
+//默认@[CGXCategoryTitleImageType_LeftImage...]
+@property (nonatomic, assign) CGXCategoryTitleImageType imageType;
+//普通状态下的imageNames，通过[UIImage imageNamed:]方法加载
+@property (nonatomic, copy) NSString *imageName;
+//选中状态下的imageNames，通过[UIImage imageNamed:]方法加载。
+@property (nonatomic, copy) NSString *selectedImageName;
+//普通状态下的imageURLs，通过loadImageCallback回调加载
+@property (nonatomic, strong) NSURL *imageURL;
+//选中状态下的selectedImageURLs，通过loadImageCallback回调加载
+@property (nonatomic, strong) NSURL *selectedImageURL;
+@end
+
 @interface CGXCategoryTitleImageView : CGXCategoryTitleView
 
 //普通状态下的imageNames，通过[UIImage imageNamed:]方法加载

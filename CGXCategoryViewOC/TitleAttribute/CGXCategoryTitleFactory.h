@@ -62,6 +62,15 @@ NS_ASSUME_NONNULL_BEGIN
                                        TitleFont:(UIFont *)titleFont
                                      LineSpacing:(CGFloat)lineSpacing
                                         Position:(CGXCategoryTitlePosition)position;
+
++ (NSMutableAttributedString *)itemWithMoreTitle:(NSString *)title
+                                        ImageStr:(NSString *)imageStr
+                                      TitleColor:(UIColor *)titleColor
+                                       TitleFont:(UIFont *)titleFont
+                                     LineSpacing:(CGFloat)lineSpacing
+                                       ImageSize:(CGSize)imageSize
+                                        Position:(CGXCategoryTitlePosition)position;
+
 @end
 
 NS_ASSUME_NONNULL_END

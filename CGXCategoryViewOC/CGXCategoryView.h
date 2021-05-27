@@ -23,13 +23,15 @@
 /*变焦放大*/
 #import "CGXCategoryTitleVerticalZoomView.h"
 /*商品筛选*/
-#import "CGXCategoryTitleSubtitleView.h"
+#import "CGXCategoryTitleSubView.h"
 /*两行 大小标题*/
 #import "CGXCategoryTitleView.h"
 /*角标*/
 #import "CGXCategoryBadgeView.h"
 /*视图容器*/
 #import "CGXCategoryListContainerView.h"
+/*文字指示图标*/
+#import "CGXCategoryTitlePinView.h"
 
 /*指示器*/
 #import "CGXCategoryIndicatorView.h"
@@ -41,6 +43,7 @@
 #import "CGXCategoryIndicatorBackgroundView.h"
 #import "CGXCategoryIndicatorBallView.h"
 #import "CGXCategoryIndicatorRainbowLineView.h"
+#import "CGXCategoryIndicatorArcView.h"
 
 /*公共*/
 #import "CGXCategoryFactory.h"

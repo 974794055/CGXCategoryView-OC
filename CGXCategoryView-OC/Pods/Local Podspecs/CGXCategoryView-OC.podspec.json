@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryView-OC",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "summary": "CGXCategoryViewOC是仿今日头条、爱奇艺、腾讯视频、优酷等主流APP分类切换滚动视图的库)",
   "description": "( 今日头条、拼多多、QQ音乐、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流APP分类切换滚动视图)  封装",
   "homepage": "https://github.com/974794055/CGXCategoryView-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryView-OC.git",
-    "tag": "1.5.0"
+    "tag": "1.5.1"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
@@ -241,8 +241,29 @@
       }
     },
     {
-      "name": "TitleSubtitleView",
-      "source_files": "CGXCategoryViewOC/TitleSubtitleView/**/*.{h,m}",
+      "name": "TitleSubView",
+      "source_files": "CGXCategoryViewOC/TitleSubView/**/*.{h,m}",
+      "dependencies": {
+        "CGXCategoryView-OC/Common": [
+
+        ],
+        "CGXCategoryView-OC/Base": [
+
+        ],
+        "CGXCategoryView-OC/IndicatorViews": [
+
+        ],
+        "CGXCategoryView-OC/Indicator": [
+
+        ],
+        "CGXCategoryView-OC/Title": [
+
+        ]
+      }
+    },
+    {
+      "name": "TitlePinView",
+      "source_files": "CGXCategoryViewOC/TitlePinView/**/*.{h,m}",
       "dependencies": {
         "CGXCategoryView-OC/Common": [
 

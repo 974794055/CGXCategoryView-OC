@@ -15,4 +15,8 @@
 
 + (UIColor *)interpolationColorFrom:(UIColor *)fromColor to:(UIColor *)toColor percent:(CGFloat)percent;
 
+
++ (BOOL)supportRTL;
++ (void)horizontalFlipView:(UIView *)view;
++ (void)horizontalFlipViewIfNeeded:(UIView *)view;
 @end

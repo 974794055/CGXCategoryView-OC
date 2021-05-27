@@ -26,6 +26,7 @@
 #import "CGXDataListContainerViewController.h"
 #import "CGXListContainerAiQiViewController.h"
 
+
 @interface CGXListContainerTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) NSMutableArray *titleArray;
@@ -39,7 +40,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.title = @"视图";
      self.titleArray = [NSMutableArray arrayWithObjects:@"菜单列表设置",@"高性能列表",@"垂直列表滚动(UICollectionView)",@"垂直列表滚动(UITableView)",@"垂直列表滚动缩放",@"爱奇艺", nil];
+    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kTabBarHeight) style:UITableViewStyleGrouped];;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsHorizontalScrollIndicator = NO;
@@ -102,13 +105,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 1.缓存中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-    // 2.创建
-    if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
-
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = [UIColor whiteColor];
     NSString *title = self.titleArray[indexPath.row];
@@ -146,58 +143,7 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([title isEqualToString:@"优酷"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"拼多多"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"今日头条"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"微博"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"京东"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.title = title;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"简书"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"悬浮效果"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"适配暗黑模式"]){
-        CGXDataListContainerViewController *vc = [[CGXDataListContainerViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-         vc.title = title;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
 }
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-    cell.separatorInset = UIEdgeInsetsZero;
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
-}
-
-
 /*
 #pragma mark - Navigation
 

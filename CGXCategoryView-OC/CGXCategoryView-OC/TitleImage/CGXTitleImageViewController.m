@@ -29,7 +29,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"图文设置";
+    self.navigationItem.title = @"图片文字";
     self.titles = [NSMutableArray array];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemItemClicked)];
@@ -67,16 +67,11 @@
     self.myCategoryView.contentScrollView = self.scrollView;
     
     for (int i = 0; i < self.titles.count; i ++) {
-        UIViewController *listVC = [[UIViewController alloc] init];
+        CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
         listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
         [self addChildViewController:listVC];
-        listVC.view.backgroundColor = randomColor;
-        
-        CGXWaterCollectionView *waterView = [[CGXWaterCollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
-        waterView.titleStr = @"";
-        [listVC.view addSubview:waterView];
-        
         [self.scrollView addSubview:listVC.view];
+        listVC.titleStr =  [[NSAttributedString alloc] initWithString:self.titles[i]];;
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*self.titles.count, CGRectGetHeight(self.scrollView.frame));
     

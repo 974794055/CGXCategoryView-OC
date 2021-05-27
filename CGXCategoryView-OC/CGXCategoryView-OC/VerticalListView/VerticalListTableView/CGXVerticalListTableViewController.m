@@ -7,7 +7,7 @@
 //
 
 #import "CGXVerticalListTableViewController.h"
-#import "CGXCategoryView.h"
+
 #import "CGXVerticalTableSectionCategoryHeaderView.h"
 #import "CGXVerticalTableSectionHeaderView.h"
 #import "CGXVerticalListTableView.h"
@@ -30,7 +30,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     //仅支持UITableViewStyleGrouped
@@ -49,7 +49,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self.view addSubview:self.tableView];
-
+    
     //创建pinCategoryView，但是不要被addSubview
     _pinCategoryView = [[CGXCategoryTitleView alloc] init];
     self.pinCategoryView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
@@ -59,33 +59,20 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     lineView.verticalMargin = 15;
     self.pinCategoryView.indicators = @[lineView];
     self.pinCategoryView.delegate = self;
+    
 
-//    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    loading.bounds = CGRectMake(0, 0, 100, 100);
-//    loading.transform = CGAffineTransformMakeScale(3, 3);
-//    loading.center = self.view.center;
-//    [loading startAnimating];
-//    [self.view addSubview:loading];
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        //模拟数据加载
-//        [loading stopAnimating];
-//        [loading removeFromSuperview];
-
-        self.headerTitles = @[@"我的频道", @"超级大IP", @"热门HOT", @"周边衍生", @"影视综", @"游戏集锦", @"搞笑百事"];
-        NSMutableArray *tempDataSource = [NSMutableArray array];
-        for (NSString *headerTitle in self.headerTitles) {
-            NSMutableArray *tempSectionTitles = [NSMutableArray array];
-            for (NSInteger index = 0; index <= 10; index ++) {
-                [tempSectionTitles addObject:[NSString stringWithFormat:@"%@:%ld", headerTitle, (long)index]];
-            }
-            [tempDataSource addObject:tempSectionTitles];
+    self.headerTitles = @[@"我的频道", @"超级大IP", @"热门HOT", @"周边衍生", @"影视综", @"游戏集锦", @"搞笑百事"];
+    NSMutableArray *tempDataSource = [NSMutableArray array];
+    for (NSString *headerTitle in self.headerTitles) {
+        NSMutableArray *tempSectionTitles = [NSMutableArray array];
+        for (NSInteger index = 0; index <= 10; index ++) {
+            [tempSectionTitles addObject:[NSString stringWithFormat:@"%@:%ld", headerTitle, (long)index]];
         }
-        self.dataSource = tempDataSource;
-        [self.tableView reloadData];
-//    });
+        [tempDataSource addObject:tempSectionTitles];
+    }
+    self.dataSource = tempDataSource;
+    [self.tableView reloadData];
 }
-
 - (void)updateSectionHeaderAttributes {
     //获取到所有的sectionHeaderRect，用于后续的点击，滚动到指定contentOffset.y使用
     NSMutableArray *rects = [NSMutableArray array];
@@ -101,7 +88,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         return;
     }
     self.sectionHeaderRectArray = rects;
-
+    
     //如果最后一个section条目太少了，会导致滚动最底部，但是却不能触发categoryView选中最后一个item。而且点击最后一个滚动的contentOffset.y也不好弄。所以添加contentInset，让最后一个section滚到最下面能显示完整个屏幕。
     CGRect lastCellRect = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataSource[self.headerTitles.count - 1].count - 1 inSection:self.headerTitles.count - 1]];
     CGFloat lastSectionHeight = CGRectGetMaxY(lastCellRect) - CGRectGetMinY(lastHeaderRect);
@@ -113,33 +100,25 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-
     self.tableView.frame = self.view.bounds;
 }
-
-#pragma mark - UITableViewDataSource, UITableViewDelegate
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSource.count;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource[section].count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = self.dataSource[indexPath.section][indexPath.row];
     return cell;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == VerticalListPinSectionIndex) {
         return VerticalListCategoryViewHeight;
     }
     return 40;
 }
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == VerticalListPinSectionIndex) {
         CGXVerticalTableSectionCategoryHeaderView *headerView = (CGXVerticalTableSectionCategoryHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"pinHeader"];
@@ -155,15 +134,12 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         return headerView;
     }
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.01;
 }
-
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [[UIView alloc] init];
 }
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGRect sectionHeaderRect = self.sectionHeaderRectArray[VerticalListPinSectionIndex].CGRectValue;
     if (scrollView.contentOffset.y >= sectionHeaderRect.origin.y) {
@@ -175,7 +151,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         //当滚动的contentOffset.y小于了指定sectionHeader的y值，且还没有被添加到sectionCategoryHeaderView上的时候，就需要切换superView
         [self.sectionCategoryHeaderView addSubview:self.pinCategoryView];
     }
-
+    
     if (!(scrollView.isTracking || scrollView.isDecelerating)) {
         //不是用户滚动的，比如setContentOffset等方法，引起的滚动不需要处理。
         return;
@@ -192,9 +168,6 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
         }
     }
 }
-
-#pragma mark - CGXCategoryViewDelegate
-
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
     //这里关心点击选中的回调！！！
     CGRect targetHeaderRect = self.sectionHeaderRectArray[index + VerticalListPinSectionIndex].CGRectValue;

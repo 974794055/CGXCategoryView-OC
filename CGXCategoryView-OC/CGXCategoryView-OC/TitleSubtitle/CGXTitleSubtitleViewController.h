@@ -1,5 +1,5 @@
 //
-//  CGXCategoryTitleSubtitleViewController.h
+//  CGXCategoryTitleSubViewController.h
 //  CGXCategoryView-OC
 //
 //  Created by CGX on 2018/05/20.

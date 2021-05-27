@@ -8,14 +8,7 @@
 
 #import "CGXCategoryTitleCellModel.h"
 
-typedef NS_ENUM(NSUInteger, CGXCategoryTitleImageType) {
-    CGXCategoryTitleImageType_TopImage = 0,
-    CGXCategoryTitleImageType_LeftImage,
-    CGXCategoryTitleImageType_BottomImage,
-    CGXCategoryTitleImageType_RightImage,
-    CGXCategoryTitleImageType_OnlyImage,
-    CGXCategoryTitleImageType_OnlyTitle,
-};
+
 
 @interface CGXCategoryTitleImageCellModel : CGXCategoryTitleCellModel
 
@@ -38,7 +31,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleImageType) {
 @property (nonatomic, assign) CGFloat titleImageSpacing;   
 //图片是否缩放。默认为NO
 @property (nonatomic, assign) BOOL imageZoomEnabled;
-//图片缩放的最大scale。默认1.2，imageZoomEnabled为YES才生效
+//图片缩放的最大scale。默认1.0，imageZoomEnabled为YES才生效
 @property (nonatomic, assign) CGFloat imageZoomScale;
 //选中图片缩放的最大scale。默认1.2，imageZoomEnabled为YES才生效
 @property (nonatomic, assign) CGFloat selectImageZoomScale;

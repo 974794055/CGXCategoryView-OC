@@ -20,7 +20,7 @@
 }
 + (NSMutableAttributedString *)itemWithTitle:(NSString *)title TitleColor:(UIColor *)titleColor TitleFont:(UIFont *)titleFont
 {
-    return [self itemWithTitle:title TitleColor:titleColor TitleFont:[UIFont systemFontOfSize:14] LineSpacing:2];
+    return [self itemWithTitle:title TitleColor:titleColor TitleFont:titleFont LineSpacing:2];
 }
 + (NSMutableAttributedString *)itemWithTitle:(NSString *)title TitleColor:(UIColor *)titleColor TitleFont:(UIFont *)titleFont LineSpacing:(CGFloat)lineSpacing
 {
@@ -28,7 +28,7 @@
     
     [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:title]];
     [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont systemFontOfSize:14]
+                             value:titleFont
                              range:NSMakeRange(0, [title length])];
     [attributedString addAttribute:NSForegroundColorAttributeName
                              value:titleColor
@@ -86,7 +86,7 @@
                                        TitleFont:(UIFont *)titleFont
                                         Position:(CGXCategoryTitlePosition)position
 {
-    return [self itemWithMoreTitle:title ImageStr:imageStr TitleColor:titleColor TitleFont:[UIFont systemFontOfSize:14] LineSpacing:5 Position:position];
+    return [self itemWithMoreTitle:title ImageStr:imageStr TitleColor:titleColor TitleFont:titleFont LineSpacing:5 Position:position];
 }
 
 + (NSMutableAttributedString *)itemWithMoreTitle:(NSString *)title
@@ -96,11 +96,21 @@
                                      LineSpacing:(CGFloat)lineSpacing
                                         Position:(CGXCategoryTitlePosition)position
 {
+    return [self itemWithMoreTitle:title ImageStr:imageStr TitleColor:titleColor TitleFont:titleFont LineSpacing:lineSpacing ImageSize:CGSizeMake(20, 20) Position:position];
+}
++ (NSMutableAttributedString *)itemWithMoreTitle:(NSString *)title
+                                        ImageStr:(NSString *)imageStr
+                                      TitleColor:(UIColor *)titleColor
+                                       TitleFont:(UIFont *)titleFont
+                                     LineSpacing:(CGFloat)lineSpacing
+                                       ImageSize:(CGSize)imageSize
+                                        Position:(CGXCategoryTitlePosition)position
+{
     NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] init];
     switch (position) {
         case CGXCategoryTitlePositionTop:
         {
-            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:20 Height:20]];
+            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:imageSize.width Height:imageSize.height]];
             [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
             [attributedString appendAttributedString:[self itemWithTitle:title TitleColor:titleColor TitleFont:titleFont]];
         }
@@ -109,12 +119,12 @@
         {
             [attributedString appendAttributedString:[self itemWithTitle:title TitleColor:titleColor TitleFont:titleFont]];
             [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
-            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:20 Height:20]];
+            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:imageSize.width Height:imageSize.height]];
         }
             break;
         case CGXCategoryTitlePositionLeft:
         {
-            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:20 Height:20]];
+            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:imageSize.width Height:imageSize.height]];
             [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
             [attributedString appendAttributedString:[self itemWithTitle:title TitleColor:titleColor TitleFont:titleFont]];
         }
@@ -123,7 +133,7 @@
         {
             [attributedString appendAttributedString:[self itemWithTitle:title TitleColor:titleColor TitleFont:titleFont]];
             [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
-            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:20 Height:20]];
+            [attributedString appendAttributedString:[self itemWithImageStr:imageStr Width:imageSize.width Height:imageSize.height]];
         }
             break;
         default:
@@ -137,5 +147,4 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:style  range:NSMakeRange(0, attributedString.length)];
     return attributedString;
 }
-
 @end

@@ -36,7 +36,7 @@
     UINavigationController *nav0 = [[UINavigationController alloc] initWithRootViewController:c0];
         
     TableViewController *c1=[[TableViewController alloc]init];
-    c1.tabBarItem.title=@"菜单";
+    c1.tabBarItem.title=@"指示器";
     c1.tabBarItem.image=[[UIImage imageNamed:@"TabStatusNoSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     c1.tabBarItem.selectedImage = [[UIImage imageNamed:@"TabStatusSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:c1];
@@ -51,7 +51,7 @@
     
     [self.window makeKeyAndVisible];
     
-    
+//    UIView.appearance.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
     return YES;
 }
 @end

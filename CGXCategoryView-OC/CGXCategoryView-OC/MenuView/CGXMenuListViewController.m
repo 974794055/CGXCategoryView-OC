@@ -61,24 +61,24 @@
 - (void)updateView
 {
     [self.titleArr removeAllObjects];
-    NSMutableArray *arr= [NSMutableArray array];
     for (int i = 0; i<2 + arc4random() % 5; i++) {
-        [arr addObject:[NSString stringWithFormat:@"%@-%d",self.tagStr,i]];
-    }
-    for (NSString *str in arr) {
-        [self.titleArr addObject:[NSString stringWithFormat:@"%@-%ld",str,(long)self.categoryView.selectedIndex]];
+        [self.titleArr addObject:[NSString stringWithFormat:@"%@-%d",self.tagStr,i]];
     }
     self.categoryView.titleArray = self.titleArr;
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds)*self.titleArr.count, CGRectGetHeight(self.scrollView.bounds));
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (int i = 0; i < self.titleArr.count; i ++) {
-            UIViewController *listVC = [[UIViewController alloc] init];
+            CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
             listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
-            listVC.view.backgroundColor = [UIColor whiteColor];
-            CGXWaterCollectionView *collectionView = [[CGXWaterCollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
-            collectionView.titleStr = self.titleArr[i];
-            [listVC.view addSubview:collectionView];
+            [self addChildViewController:listVC];
+            listVC.view.tag = 10000+i;
             [self.scrollView addSubview:listVC.view];
+            listVC.titleStr =  [[NSAttributedString alloc] initWithString:self.titleArr[i]];;
+            listVC.selectBlock = ^(NSIndexPath *indexPath) {
+                CGXCustomListViewController *vc = [[CGXCustomListViewController alloc]init];
+                vc.view.backgroundColor = [UIColor whiteColor];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
         }
     });
 }
@@ -90,6 +90,8 @@
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"点击选中--%ld",(long)index);
+    
+
 }
 /**
  滚动选中的情况才会调用该方法

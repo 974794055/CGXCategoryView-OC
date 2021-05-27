@@ -9,7 +9,7 @@
 -  最新版本号： 1.5.1
  
 功能：    
-- 今日头条、拼多多、QQ音乐、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流主流APP分类切换滚动视图
+- 今日头条、拼多多、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流主流APP分类切换滚动视图
  
 优点：
 - 1、使用协议封装指示器逻辑，可以为所欲为的自定义指示器效果；
@@ -67,7 +67,7 @@ self.categoryView.delegate = self;
 ```
 2.配置CGXCategoryTitleView的属性
 ```Objective-C
-self.categoryView.titles = @[@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"苹果"...]
+self.categoryView.titles = @[@"全部",@"推荐", @"直播", @"热门商品", @"精品课", @"生活", @"苹果"]
 self.categoryView.titleColor = [UIColor whiteColor];
 self.categoryView.titleSelectedColor = [UIColor redColor];
 self.categoryView.titleColorGradientEnabled = YES;
@@ -108,18 +108,6 @@ self.categoryView.indicators = @[lineView];
  @param index 选中的index
  */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index;
-
-
-/**
-  只有点击的选中才会调用！！！
-  因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
-
- @param categoryView categoryView description
- @param index index description
- */
-- (void)categoryView:(CGXCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index;
-
-
 /**
  控制能否点击Item
 

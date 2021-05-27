@@ -26,4 +26,23 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
+
++ (BOOL)supportRTL {
+    if (@available(iOS 9.0, *)) {
+        return [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:UIView.appearance.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft;
+    } else {
+        return NO;
+    }
+}
+
++ (void)horizontalFlipView:(UIView *)view {
+    view.transform = CGAffineTransformMakeScale(-1, 1);
+}
+
++ (void)horizontalFlipViewIfNeeded:(UIView *)view {
+    if ([self supportRTL]) {
+        [self horizontalFlipView:view];
+    }
+}
+
 @end

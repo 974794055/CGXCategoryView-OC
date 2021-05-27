@@ -9,34 +9,51 @@
 #import "CGXCategoryTitleAttributeCell.h"
 #import "CGXCategoryTitleAttributeCellModel.h"
 
+@interface CGXCategoryTitleAttributeCell()
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) NSLayoutConstraint *titleLabelCenterX;
+@property (nonatomic, strong) NSLayoutConstraint *titleLabelCenterY;
+@end
 @implementation CGXCategoryTitleAttributeCell
 
 - (void)initializeViews {
     [super initializeViews];
-
-    self.titleLabel.numberOfLines = 2;
-    self.maskTitleLabel.numberOfLines = 2;
+    
+    _titleLabel = [[UILabel alloc] init];
+    self.titleLabel.clipsToBounds = YES;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:self.titleLabel];
+    self.titleLabel.numberOfLines = 0;
+    
+    self.titleLabelCenterX = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+    self.titleLabelCenterY = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+    [NSLayoutConstraint activateConstraints:@[self.titleLabelCenterX, self.titleLabelCenterY]];
 }
-
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.contentView setNeedsLayout];
+    [self.contentView layoutIfNeeded];
+}
 - (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
     [super reloadData:cellModel];
-
+    
     CGXCategoryTitleAttributeCellModel *myCellModel = (CGXCategoryTitleAttributeCellModel *)cellModel;
-
+    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] init];
     if (cellModel.isSelected) {
-        self.maskTitleLabel.attributedText = myCellModel.attributeSelectTitle;
-        [self.maskTitleLabel sizeToFit];
-        self.titleLabel.attributedText = myCellModel.attributeSelectTitle;
-        [self.titleLabel sizeToFit];
+        [attributeStr appendAttributedString:myCellModel.attributeSelectTitle];
     } else{
-        self.maskTitleLabel.attributedText = myCellModel.attributeTitle;
-        [self.maskTitleLabel sizeToFit];
-        self.titleLabel.attributedText = myCellModel.attributeTitle;
-        [self.titleLabel sizeToFit];
+        [attributeStr appendAttributedString:myCellModel.attributeTitle];
+    }
+    if (myCellModel.titleColorGradientEnabled) {
+        [attributeStr addAttribute:NSForegroundColorAttributeName
+                             value:myCellModel.titleCurrentColor
+                             range:NSMakeRange(0,attributeStr.length)];//设置颜色
+
     }
     
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
+    self.titleLabel.attributedText = attributeStr;
+    [self.titleLabel sizeToFit];
 }
 
 

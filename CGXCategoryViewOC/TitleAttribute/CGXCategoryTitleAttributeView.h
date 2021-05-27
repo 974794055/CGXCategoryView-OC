@@ -15,6 +15,9 @@
 
 @property (nonatomic, strong,readonly) NSMutableArray <NSAttributedString *> *attributeSelectTitles;
 
+@property (nonatomic, assign) BOOL titleColorGradientEnabled;   //默认：NO，title的颜色是否渐变过渡
+@property (nonatomic, strong) UIColor *titleColor;      //默认：[UIColor blackColor]
+@property (nonatomic, strong) UIColor *titleSelectedColor;      //默认：[UIColor redColor]
 
 /**
  更新富文本

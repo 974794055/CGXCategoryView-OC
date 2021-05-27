@@ -26,16 +26,6 @@
     _imageZoomEnabled = NO;
     _imageZoomScale = 1.2;
 }
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    //部分使用者为了适配不同的手机屏幕尺寸，CGXCategoryView的宽高比要求保持一样，所以它的高度就会因为不同宽度的屏幕而不一样。计算出来的高度，有时候会是位数很长的浮点数，如果把这个高度设置给UICollectionView就会触发内部的一个错误。所以，为了规避这个问题，在这里对高度统一向下取整。
-    //如果向下取整导致了你的页面异常，请自己重新设置CGXCategoryView的高度，保证为整数即可。
-
-        [self.collectionView setNeedsLayout];
-        [self.collectionView layoutSubviews];
-  
-}
 - (Class)preferredCellClass {
     [super preferredCellClass];
     return [CGXCategoryTitleImageCell class];
@@ -70,7 +60,7 @@
     if (self.imageTypes == nil || self.imageTypes.count == 0) {
         NSMutableArray *types = [NSMutableArray array];
         for (int i = 0; i < self.titleArray.count; i++) {
-            [types addObject:@(CGXCategoryTitleImageType_TopImage)];
+            [types addObject:@(CGXCategoryTitleImageType_OnlyTitle)];
         }
         self.imageTypes = types;
     }
@@ -82,9 +72,16 @@
     
     CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)cellModel;
     myCellModel.loadImageCallback = self.loadImageCallback;
-    myCellModel.imageType = [self.imageTypes[index] integerValue];
     myCellModel.imageSize = self.imageSize;
     myCellModel.titleImageSpacing = self.titleImageSpacing;
+    myCellModel.imageZoomEnabled = self.imageZoomEnabled;
+    myCellModel.imageZoomScale = 1.0;
+    if (index == self.selectedIndex) {
+        myCellModel.imageZoomScale = self.imageZoomScale;
+    }
+    if (self.imageTypes != nil) {
+        myCellModel.imageType = [self.imageTypes[index] integerValue];
+    }
     if (self.imageNames != nil) {
         myCellModel.imageName = self.imageNames[index];
     }
@@ -96,11 +93,6 @@
     }
     else if (self.selectedImageURLs != nil) {
         myCellModel.selectedImageURL = self.selectedImageURLs[index];
-    }
-    myCellModel.imageZoomEnabled = self.imageZoomEnabled;
-    myCellModel.imageZoomScale = 1.0;
-    if (index == self.selectedIndex) {
-        myCellModel.imageZoomScale = self.imageZoomScale;
     }
 }
 
@@ -116,7 +108,6 @@
 
 - (void)refreshLeftCellModel:(CGXCategoryBaseCellModel *)leftCellModel rightCellModel:(CGXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
     [super refreshLeftCellModel:leftCellModel rightCellModel:rightCellModel ratio:ratio];
-    
     CGXCategoryTitleImageCellModel *leftModel = (CGXCategoryTitleImageCellModel *)leftCellModel;
     CGXCategoryTitleImageCellModel *rightModel = (CGXCategoryTitleImageCellModel *)rightCellModel;
     
@@ -125,17 +116,16 @@
         rightModel.imageZoomScale = [CGXCategoryFactory interpolationFrom:1.0 to:self.imageZoomScale percent:ratio];
     }
 }
-
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     CGFloat titleWidth = [super preferredCellWidthAtIndex:index];
     CGXCategoryTitleImageType type = [self.imageTypes[index] integerValue];
     CGFloat cellWidth = 0;
     switch (type) {
         case CGXCategoryTitleImageType_OnlyTitle:
-            cellWidth = titleWidth+self.cellWidthIncrement;;
+            cellWidth = titleWidth;
             break;
         case CGXCategoryTitleImageType_OnlyImage:
-            cellWidth = self.imageSize.width+self.cellWidthIncrement;
+            cellWidth = self.imageSize.width;
             break;
         case CGXCategoryTitleImageType_LeftImage:
         case CGXCategoryTitleImageType_RightImage:

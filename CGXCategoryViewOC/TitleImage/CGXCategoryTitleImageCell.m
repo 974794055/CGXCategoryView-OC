@@ -19,14 +19,12 @@
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-
     self.currentImageName = nil;
     self.currentImageURL = nil;
 }
 
 - (void)initializeViews {
     [super initializeViews];
-
     _imageView = [[UIImageView alloc] init];
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:_imageView];
@@ -34,10 +32,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
-
+    
     CGXCategoryTitleImageCellModel *myCellModel = (CGXCategoryTitleImageCellModel *)self.cellModel;
     [self refreshUIData:myCellModel];
 }
@@ -157,9 +154,6 @@
     }else {
         self.imageView.transform = CGAffineTransformIdentity;
     }
-
-//    [self setNeedsLayout];
-//    [self layoutIfNeeded];
 }
 
 

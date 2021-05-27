@@ -51,7 +51,6 @@
     //重载之后默认回到0，你也可以指定一个index
     self.categoryView.titleArray = self.titlesArr;
     [self.categoryView reloadData];
-
 }
 #pragma mark - CGXCategoryListContentViewDelegate
 
@@ -103,8 +102,6 @@
         return list;
     }else {
         CGXListContainerAiQiListViewController *listVC = [[CGXListContainerAiQiListViewController alloc] init];
-        listVC.view.backgroundColor = randomColor;
-        listVC.naviController = self.navigationController;
         listVC.tagStr = [NSString stringWithFormat:@"%@\n%@",self.tagStr,self.titlesArr[index]];
         [self addChildViewController:listVC];
         _listCache[targetTitle] = listVC;

@@ -24,91 +24,95 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"全部",@"推荐",@"美食",@"新闻",
-                               @"视频",@"美食",@"新闻",@"搜索",@"全部",@"热门",
-                               nil];
-    NSArray *imageNames = @[@"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect",
-                            @"apple_Noselect"];
-    NSArray *selectedImageNames = @[@"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select",
-                                    @"apple_select"];
-    NSArray  *typesArr = @[@(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage),
-                           @(CGXCategoryTitleImageType_TopImage)];
-    
+
     self.menuView = [[CGXCategoryTitleMenuView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, kSafeVCHeight)];
     self.menuView.delegate=self;
     self.menuView.backgroundColor = [UIColor orangeColor];
-    self.menuView.categoryViewHeight = 100;
-//    self.menuView.topLineHeight = 3;
+    self.menuView.categoryViewHeight = 60;
+    self.menuView.imageSize = CGSizeMake(20, 20);
+    self.menuView.titleImageSpacing = 5;
+    self.menuView.imageZoomScale = 1.5;
+    self.menuView.contentScrollAnimated = NO;
+    self.menuView.cellBackgroundNormalColor = [UIColor clearColor];
+    self.menuView.cellBackgroundSelectedColor = [UIColor clearColor];
+    self.menuView.titleNormalColor = [UIColor blackColor];
+    self.menuView.titleSelectedColor = [UIColor redColor];
+    self.menuView.titleFont = [UIFont systemFontOfSize:14];
+    self.menuView.titleSelectedFont = [UIFont systemFontOfSize:14];
+    self.menuView.titleLabelZoomScale = 1.0;
+//    self.menuView.topLineHeight = 1;
 //    self.menuView.topLineColor = [UIColor grayColor];
     self.menuView.bottomLineHeight = 2;
     self.menuView.bottomLineColor = [UIColor grayColor];
     CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
     lineView.indicatorWidth = CGXCategoryViewAutomaticDimension;
-    lineView.verticalMargin=0;
-    self.menuView.categoryView.indicators = @[lineView];
-
+    self.menuView.indicators = @[lineView];
     [self.view addSubview:self.menuView];
-    NSMutableArray *vcArr= [NSMutableArray array];
+    
+    NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"全部",@"推荐",@"美食",@"新闻",
+                               @"视频",@"美食",@"新闻",@"搜索",@"热门",
+                               nil];
+    NSMutableArray *dataArr= [NSMutableArray array];
     for (int i = 0; i<titleArr.count; i++) {
+        CGXCategoryTitleMenuModel *model = [[CGXCategoryTitleMenuModel alloc] init];
         CGXMenuListViewController *listVC = [[CGXMenuListViewController alloc] init];
         listVC.tagStr = titleArr[i];
-        [vcArr addObject:listVC];
+        model.vcName = listVC;
+        model.title = titleArr[i];
+        model.imageName = @"apple_Noselect";
+        model.selectedImageName = @"apple_select";
+        model.imageURL = [NSURL URLWithString:@""];
+        model.selectedImageURL = [NSURL URLWithString:@""];
+        model.imageType = CGXCategoryTitleImageType_TopImage;
+        model.loadImageCallback = ^(UIImageView * _Nonnull imageView, NSURL * _Nonnull imageURL) {
+            
+        };
+        [dataArr addObject:model];
     }
-    self.menuView.categoryView.imageNames = imageNames;
-    self.menuView.categoryView.selectedImageNames = selectedImageNames;
-    self.menuView.categoryView.imageTypes = typesArr;
-
-    [self.menuView updateWithTitleArray:titleArr VCArray:vcArr];
-
+    [self.menuView updateWithDataArray:dataArr];
 }
 
-#pragma mark - CGXCategoryListContentViewDelegate
-- (UIImage *)getImageWithIndex:(NSInteger)index {
-    NSArray <UIImage *> *images = @[[UIImage imageNamed:@"IndicatorImage1"],
-                                    [UIImage imageNamed:@"IndicatorImage3"],
-                                    [UIImage imageNamed:@"IndicatorImage0"],
-                                    [UIImage imageNamed:@"IndicatorImage2"],
-                                    [UIImage imageNamed:@"IndicatorImage1"],
-                                    [UIImage imageNamed:@"IndicatorImage3"],
-                                    [UIImage imageNamed:@"IndicatorImage0"],
-                                    [UIImage imageNamed:@"IndicatorImage2"],
-                                    [UIImage imageNamed:@"IndicatorImage1"],
-                                    [UIImage imageNamed:@"IndicatorImage3"],
-                                    [UIImage imageNamed:@"IndicatorImage0"],
-                                    [UIImage imageNamed:@"IndicatorImage2"]];
-    return images[index];
-}
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-//    self.menuView.categoryView.bgImage = [self getImageWithIndex:index];
+
 }
 - (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
-//    self.menuView.categoryView.bgImage = [self getImageWithIndex:index];
+   
+}
+- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
+{
+    
+}
+/**
+ 正在滚动中的回调   此处用于处理滑动时 导航条等变化的状况
+ @param categoryView categoryView description
+ @param leftIndex 正在滚动中，相对位置处于左边的index
+ @param rightIndex 正在滚动中，相对位置处于右边的index
+ @param ratio 从左往右计算的百分比
+ */
+- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView scrollingFromLeftIndex:(NSInteger)leftIndex
+            toRightIndex:(NSInteger)rightIndex
+                   ratio:(CGFloat)ratio
+{
+    
+}
+/**
+ 可选实现，列表消失的时候调用
+ */
+- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView
+        ListDidDisappear:(NSInteger)index
+{
+    
+}
+/**
+
+ 可选实现，列表显示的时候调用
+ */
+- (void)categoryMenuView:(CGXCategoryTitleMenuView *)categoryView
+      ListDidAppearIndex:(NSInteger)index
+{
+    
 }
 /*
  #pragma mark - Navigation

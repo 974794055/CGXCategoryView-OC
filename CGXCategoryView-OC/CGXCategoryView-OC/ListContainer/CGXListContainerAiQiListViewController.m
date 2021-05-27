@@ -7,10 +7,11 @@
 //
 
 #import "CGXListContainerAiQiListViewController.h"
-#import "CGXWaterCollectionView.h"
-@interface CGXListContainerAiQiListViewController ()
-
-@property (nonatomic , strong) CGXWaterCollectionView *waterView;
+@interface CGXListContainerAiQiListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    NSInteger inter;
+}
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @end
 
@@ -18,28 +19,106 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    inter = arc4random() % 3+1;
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection =  UICollectionViewScrollDirectionVertical;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.alwaysBounceVertical = YES;
+    [self.view addSubview:self.collectionView];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.collectionView.showsVerticalScrollIndicator = YES;
+    self.collectionView.showsHorizontalScrollIndicator=YES;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"simpleHead"];
+    
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"simpleFoot"];
+    [self.collectionView reloadData];
+}
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+}
+//设置head foot视图
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        UICollectionReusableView *head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"simpleHead" forIndexPath:indexPath];
+        head.backgroundColor = [UIColor orangeColor];
+        return head;
+    }else {
+        UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"simpleFoot" forIndexPath:indexPath];
+        foot.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
+        return foot;
+    }
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return arc4random() % 3 + 3;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return arc4random() % 20 + 10;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+   return CGSizeMake(collectionView.bounds.size.width, 10);
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+   return CGSizeMake(collectionView.bounds.size.width, 30);
+}
 
-    self.waterView = [[CGXWaterCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:self.waterView];
-    __weak typeof(self) weakSelf = self;
-    self.waterView.selectBlock = ^(NSIndexPath *indexPath) {
-        [weakSelf.navigationController popViewControllerAnimated:YES];
-    };
-    [self.waterView.collectionView reloadData];
-}
-- (void)viewDidLayoutSubviews
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super viewDidLayoutSubviews];
-    self.waterView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-     [self.waterView.collectionView reloadData];
+    CGFloat width = (collectionView.frame.size.width-10*(inter+1))/inter;
+    return CGSizeMake(floor(width),100);
 }
-- (void)setTagStr:(NSString *)tagStr
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    _tagStr = tagStr;
-    self.waterView.titleStr = tagStr;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    cell.contentView.backgroundColor = randomColor;
+    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj removeFromSuperview];
+    }];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:cell.contentView.frame];
+    [cell.contentView addSubview:titleLabel];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 0;
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.attributedText = [[NSAttributedString alloc] initWithString:self.tagStr];;
+    return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - CGXCategoryListContentViewDelegate
-
 - (UIView *)listView {
     return self.view;
 }
@@ -71,36 +150,5 @@
 {
     NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.tagStr,(long)index);
 }
-
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//  NSLog(@"%@:%@", NSStringFromSelector(_cmd),self.tagStr);
-//
-//}
-//
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//   NSLog(@"%@:%@", NSStringFromSelector(_cmd),self.tagStr);
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    NSLog(@"%@:%@", NSStringFromSelector(_cmd),self.tagStr);
-//}
-//
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewDidDisappear:animated];
-//
-//   NSLog(@"%@:%@", NSStringFromSelector(_cmd),self.tagStr);
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

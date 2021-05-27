@@ -22,6 +22,23 @@
 //红点的颜色。默认：[UIColor redColor]
 @property (nonatomic, strong) UIColor *dotColor;
 /**
+ 红点  x,y方向的偏移
+ 
+ 右侧 ：（+值：水平方向向左，竖直方向向下）
+      （-值：水平方向向右，竖直方向向上）
+ 
+ 左侧 ：（+值：水平方向向右，竖直方向向下）
+      （-值：水平方向向左，竖直方向向上）
+ */
+@property (nonatomic, assign) CGPoint dotOffset;
+
+@property (nonatomic, assign) JXCategoryDotStyle dotStyle;
+/*JXCategoryDotStyle_Hollow 有效*/
+//红点的边框颜色。默认：[UIColor redColor]
+@property (nonatomic, strong) UIColor *dotborderColor;
+//红点的边框。默认：5
+@property (nonatomic, assign) CGFloat dotborderWidth;
+/**
  更新红点的显示隐藏 YES 显示 NO：不显示
  */
 - (void)updateWithDotHidden:(BOOL)hidden AtInter:(NSInteger)inter;

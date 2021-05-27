@@ -18,21 +18,29 @@
 - (void)reloadRefreshState:(CGXCategoryIndicatorParamsModel *)model {
     [super reloadRefreshState:model];
 
-    UIColor *color = self.indicatorColors[model.selectedIndex];
+    UIColor *color = self.indicatorColor;
+    if (model.selectedIndex <  self.indicatorColors.count) {
+        color = self.indicatorColors[model.selectedIndex];
+    }
     self.backgroundColor = color;
 }
 - (void)reloadContentScrollViewDidScroll:(CGXCategoryIndicatorParamsModel *)model {
     [super reloadContentScrollViewDidScroll:model];
 
+    UIColor *color = self.indicatorColor;
     UIColor *leftColor = self.indicatorColors[model.leftIndex];
     UIColor *rightColor = self.indicatorColors[model.rightIndex];
-    UIColor *color = [CGXCategoryFactory interpolationColorFrom:leftColor to:rightColor percent:model.percent];
+    if (model.selectedIndex <  self.indicatorColors.count) {
+        color = [CGXCategoryFactory interpolationColorFrom:leftColor to:rightColor percent:model.percent];
+    }
     self.backgroundColor = color;
 }
 - (void)reloadSelectedCell:(CGXCategoryIndicatorParamsModel *)model {
     [super reloadSelectedCell:model];
-
-    UIColor *color = self.indicatorColors[model.selectedIndex];
+    UIColor *color = self.indicatorColor;
+    if (model.selectedIndex <  self.indicatorColors.count) {
+        color = self.indicatorColors[model.selectedIndex];
+    }
     self.backgroundColor = color;
 }
 

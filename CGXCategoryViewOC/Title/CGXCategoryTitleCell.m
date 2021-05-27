@@ -51,7 +51,6 @@
     self.maskTitleMaskLayer.backgroundColor = [UIColor redColor].CGColor;
     self.maskTitleLabel.layer.mask = self.maskTitleMaskLayer;
     
-    
 }
 
 - (void)layoutSubviews {
@@ -190,6 +189,9 @@
             self.contentView.backgroundColor = myCellModel.cellBackgroundUnselectedColor;
         }
     }
+    
+    [self.titleLabel.superview layoutIfNeeded];
+    [self.maskTitleLabel.superview layoutIfNeeded];
 }
 
 - (CGXCategoryCellSelectedAnimationBlock)preferredTitleZoomAnimationBlock:(CGXCategoryTitleCellModel *)cellModel baseScale:(CGFloat)baseScale {

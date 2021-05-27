@@ -182,4 +182,6 @@
  @param index cellModel在数组中的index
  */
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index NS_REQUIRES_SUPER;
+
+
 @end

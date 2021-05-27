@@ -24,55 +24,122 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self updateUI:self.cellModel];
+}
 
+- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
+
+    CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)cellModel;
+    [self updateUI:myCellModel];
+}
+- (void)updateUI:(CGXCategoryBaseCellModel *)cellModel
+{
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-
-    CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)self.cellModel;
+    CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)cellModel;
+    self.dotLayer.hidden = !myCellModel.dotHidden;
     self.dotLayer.bounds = CGRectMake(0, 0, myCellModel.dotSize.width, myCellModel.dotSize.height);
-    
-
-    BOOL isDot = NO;
-    if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage || myCellModel.imageType==CGXCategoryTitleImageType_RightImage || myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage) {
-        isDot = YES;
-    } else{
-        isDot = NO;
+    self.dotLayer.cornerRadius = myCellModel.dotCornerRadius;
+    self.dotLayer.borderColor = [myCellModel.dotborderColor CGColor];
+    self.dotLayer.borderWidth = myCellModel.dotborderWidth;
+    if (myCellModel.dotStyle == JXCategoryDotStyle_Hollow) {
+        self.dotLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    }else{
+        self.dotLayer.backgroundColor = [myCellModel.dotColor CGColor];
     }
-    
+
     switch (myCellModel.relativePosition) {
         case CGXCategoryDotRelativePosition_TopLeft:
         {
-            if (isDot) {
-                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            BOOL dot = NO;
+            if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage) {
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_BottomImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_LeftImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_RightImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage){
+                dot = YES;
             } else{
-                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+                dot = NO;
+            }
+            if (dot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame)-myCellModel.dotOffset.x, CGRectGetMinY(self.imageView.frame)+myCellModel.dotOffset.y);
+            } else{
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame)-myCellModel.dotOffset.x, CGRectGetMinY(self.titleLabel.frame)+myCellModel.dotOffset.y);
             }
         }
             break;
         case CGXCategoryDotRelativePosition_TopRight:
         {
-            if (isDot) {
-                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            BOOL dot = NO;
+            if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage) {
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_BottomImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_LeftImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_RightImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage){
+                dot = YES;
             } else{
-            self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
+                dot = NO;
+            }
+            if (dot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame)+myCellModel.dotOffset.x, CGRectGetMinY(self.imageView.frame)+myCellModel.dotOffset.y);
+            } else{
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame)+myCellModel.dotOffset.x, CGRectGetMinY(self.titleLabel.frame)+myCellModel.dotOffset.y);
             }
         }
             break;
         case CGXCategoryDotRelativePosition_BottomLeft:
         {
-            if (isDot) {
-                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+            
+            BOOL dot = NO;
+            if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage) {
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_BottomImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_LeftImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_RightImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage){
+                dot = YES;
             } else{
-            self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame));
+                dot = NO;
+            }
+            if (dot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.imageView.frame)-myCellModel.dotOffset.x, CGRectGetMaxY(self.imageView.frame)+myCellModel.dotOffset.y);
+            } else{
+                self.dotLayer.position = CGPointMake(CGRectGetMinX(self.titleLabel.frame)-myCellModel.dotOffset.x, CGRectGetMaxY(self.titleLabel.frame)+myCellModel.dotOffset.y);
             }
         }
             break;
         case CGXCategoryDotRelativePosition_BottomRight:
         {
-            if (isDot) {
-                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMaxY(self.imageView.frame));
+            BOOL dot = NO;
+            if (myCellModel.imageType==CGXCategoryTitleImageType_TopImage) {
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_BottomImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_LeftImage){
+                dot = NO;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_RightImage){
+                dot = YES;
+            } else if (myCellModel.imageType==CGXCategoryTitleImageType_OnlyImage){
+                dot = YES;
             } else{
-            self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame));
+                dot = NO;
+            }
+            if (dot) {
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.imageView.frame)+myCellModel.dotOffset.x, CGRectGetMaxY(self.imageView.frame)+myCellModel.dotOffset.y);
+            } else{
+                self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame)+myCellModel.dotOffset.x, CGRectGetMaxY(self.titleLabel.frame)+myCellModel.dotOffset.y);
             }
         }
             break;
@@ -80,23 +147,8 @@
         default:
             break;
     }
-//    self.dotLayer.position = CGPointMake(CGRectGetMaxX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame));
-
     [CATransaction commit];
 }
 
-- (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
-    [super reloadData:cellModel];
-
-    CGXCategoryDotCellModel *myCellModel = (CGXCategoryDotCellModel *)cellModel;
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    self.dotLayer.hidden = !myCellModel.dotHidden;
-    self.dotLayer.backgroundColor = myCellModel.dotColor.CGColor;
-    self.dotLayer.cornerRadius = myCellModel.dotCornerRadius;
-    [CATransaction commit];
-
-    [self setNeedsLayout];
-}
 
 @end
