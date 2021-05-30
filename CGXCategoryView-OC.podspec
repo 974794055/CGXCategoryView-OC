@@ -40,7 +40,6 @@ Pod::Spec.new do |s|
         ss.dependency 'CGXCategoryView-OC/Base'
         ss.dependency 'CGXCategoryView-OC/IndicatorViews'
     end
-    
     s.subspec 'Title' do |ss|
         ss.source_files = 'CGXCategoryViewOC/Title/**/*.{h,m}'
         ss.dependency 'CGXCategoryView-OC/Common'

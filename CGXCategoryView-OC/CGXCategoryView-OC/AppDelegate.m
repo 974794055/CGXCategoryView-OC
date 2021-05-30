@@ -50,7 +50,6 @@
     tb.viewControllers=@[nav0,nav1,nav2];
     
     [self.window makeKeyAndVisible];
-    
 //    UIView.appearance.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
     return YES;
 }
