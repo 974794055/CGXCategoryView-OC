@@ -47,19 +47,15 @@
     self.categoryView.cellWidthIncrement = 10;
     self.categoryView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.categoryView];
-    CGXCategoryIndicatorLineView *lineView5 = [[CGXCategoryIndicatorLineView alloc] init];
-    lineView5.indicatorWidth = CGXCategoryViewAutomaticDimension;
-    self.categoryView.indicators = @[lineView5];
-    
-    NSUInteger count = attriTitlesArr.count;
+
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), ScreenWidth, kSafeVCHeight-60)];
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width*count, kSafeVCHeight-60);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width*attriArr.count, kSafeVCHeight-60);
     [self.view addSubview:self.scrollView];
     self.categoryView.contentScrollView = self.scrollView;
     
     [self.listVCArray removeAllObjects];
-    for (int i = 0; i < count; i ++) {
+    for (int i = 0; i < attriArr.count; i ++) {
         CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
         listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
         [self addChildViewController:listVC];
@@ -68,7 +64,7 @@
         
         [self.listVCArray addObject:listVC];
     }
- 
+
     [self.categoryView updateWithAttribute:attriTitlesArr SelectAttribute:attriTitlesSelectArr];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"更新某个item" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
@@ -88,39 +84,17 @@
     
     [self.categoryView reloadData];
 }
-#pragma mark - CGXCategoryViewDelegate
 
-//为什么会把选中代理分为三个，因为有时候只关心点击选中的，有时候只关心滚动选中的，有时候只关心选中。所以具体情况，使用对应方法。
-/**
- 点击选择或者滚动选中都会调用该方法，如果外部不关心具体是点击还是滚动选中的，只关心选中这个事件，就实现该方法。
- 
- @param categoryView categoryView description
- @param index 选中的index
- */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    //    [self.scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width*index, 0) animated:YES];
     //侧滑手势处理
     self.navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
     NSLog(@"categoryView 点击选择或者滚动选中-%ld--%ld",(long)index,(long)categoryView.selectedIndex);
 }
-/**
- 点击选中的情况才会调用该方法
- 
- @param categoryView categoryView description
- @param index 选中的index
- */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"categoryView 点击选中-%ld",(long)index);
 }
-
-/**
- 滚动选中的情况才会调用该方法
- 
- @param categoryView categoryView description
- @param index 选中的index
- */
 - (void)categoryView:(CGXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"categoryView 滚动选中-%ld",(long)index);

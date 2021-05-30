@@ -70,12 +70,8 @@
     CGFloat width = CGRectGetWidth(self.bounds);
     UIBezierPath *path = [UIBezierPath bezierPath];
     switch (self.specialStyle) {
-        case CGXCategoryIndicatorArcStyle_Normal:
-        {
 
-        }
-            break;
-        case CGXCategoryIndicatorArcStyle_Round1:
+        case CGXCategoryIndicatorArcStyle_Round:
         {
             round = (self.indicatorCornerRadius == CGXCategoryViewAutomaticDimension ? CGRectGetHeight(self.bounds)/2.0:self.indicatorCornerRadius);
             CGFloat space = 0;
@@ -91,24 +87,6 @@
             [path addLineToPoint:CGPointMake(width, height-space)];
             [path addArcWithCenter:CGPointMake(width, height/2.0) radius:round startAngle:M_PI_2 endAngle:M_PI_2*3 clockwise:YES];
             [path addLineToPoint:CGPointMake(width, space)];
-        }
-            break;
-        case CGXCategoryIndicatorArcStyle_Round2:
-        {
-            round = (self.indicatorCornerRadius == CGXCategoryViewAutomaticDimension ? CGRectGetHeight(self.bounds)/2.0:self.indicatorCornerRadius);
-            CGFloat space = 0;
-            if (self.indicatorHeight != CGXCategoryViewAutomaticDimension) {
-                space = (height - self.indicatorHeight)/2.0;
-                if (self.indicatorHeight > height) {
-                    space = 0;
-                }
-            }
-            [path moveToPoint:CGPointMake(round, space)];
-            [path addArcWithCenter:CGPointMake(round, height/2.0) radius:round startAngle:-M_PI_2 endAngle:M_PI_2 clockwise:NO];
-            [path addLineToPoint:CGPointMake(round, height-space)];
-            [path addLineToPoint:CGPointMake(width-round, height-space)];
-            [path addArcWithCenter:CGPointMake(width-round, height/2.0) radius:round startAngle:-M_PI_2 endAngle:M_PI_2 clockwise:YES];
-            [path addLineToPoint:CGPointMake(width-round, space)];
         }
             break;
         case CGXCategoryIndicatorArcStyle_IQIYI:

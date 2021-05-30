@@ -17,6 +17,8 @@
     self.titleImageSpacing = 0;
     self.pinImageSize = CGSizeMake(20, 20);
     self.imagePosition = CGXCategoryCellClickedPosition_Right;
+    self.cellWidthZoomEnabled = NO;
+    self.cellWidthZoomScale = 1;
 }
 
 - (Class)preferredCellClass {
@@ -51,6 +53,7 @@
     }
     return titleWidth+self.titleImageSpacing;
 }
+
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index {
     [super refreshCellModel:cellModel index:index];
     
@@ -65,5 +68,18 @@
         myCellModel.loadImageCallback = self.loadImageCallback;
     }
 }
+- (void)refreshSelectedCellModel:(CGXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(CGXCategoryBaseCellModel *)unselectedCellModel
+{
+    [super refreshSelectedCellModel:selectedCellModel unselectedCellModel:unselectedCellModel];
+    
+    CGXCategoryTitlePinCellModel *myUnselectedCellModel = (CGXCategoryTitlePinCellModel *)unselectedCellModel;
 
+    CGXCategoryTitlePinCellModel *myselectedCellModel = (CGXCategoryTitlePinCellModel *)selectedCellModel;
+
+    myselectedCellModel.cellWidth +=self.pinImageSize.width+self.titleImageSpacing;
+
+    myUnselectedCellModel.cellWidth -= self.pinImageSize.width+self.titleImageSpacing;
+    [self.collectionView.collectionViewLayout invalidateLayout];
+
+}
 @end

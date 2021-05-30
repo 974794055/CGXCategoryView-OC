@@ -31,7 +31,7 @@
     self.menuView.categoryViewHeight = 60;
     self.menuView.imageSize = CGSizeMake(20, 20);
     self.menuView.titleImageSpacing = 5;
-    self.menuView.imageZoomScale = 1.5;
+    self.menuView.imageZoomScale = 1.0;
     self.menuView.contentScrollAnimated = NO;
     self.menuView.cellBackgroundNormalColor = [UIColor clearColor];
     self.menuView.cellBackgroundSelectedColor = [UIColor clearColor];
@@ -49,9 +49,7 @@
     self.menuView.indicators = @[lineView];
     [self.view addSubview:self.menuView];
     
-    NSMutableArray *titleArr= [NSMutableArray arrayWithObjects:@"全部",@"推荐",@"美食",@"新闻",
-                               @"视频",@"美食",@"新闻",@"搜索",@"热门",
-                               nil];
+    NSMutableArray *titleArr= [[NSMutableArray alloc] initWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识", nil];;
     NSMutableArray *dataArr= [NSMutableArray array];
     for (int i = 0; i<titleArr.count; i++) {
         CGXCategoryTitleMenuModel *model = [[CGXCategoryTitleMenuModel alloc] init];

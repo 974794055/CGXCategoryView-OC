@@ -18,7 +18,7 @@
     _dotSize = CGSizeMake(5, 5);
     _dotCornerRadius = CGXCategoryViewAutomaticDimension;
     _dotColor = [UIColor redColor];
-    _dotStyle = JXCategoryDotStyle_Solid;
+    _dotStyle = CGXCategoryDotStyle_Solid;
     _dotOffset =  CGPointMake(0, 0);
     _dotborderColor = [UIColor redColor];
     _dotborderWidth = 2;

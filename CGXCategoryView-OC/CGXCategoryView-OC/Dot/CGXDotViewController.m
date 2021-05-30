@@ -44,10 +44,6 @@
     self.myCategoryView.dotSize = CGSizeMake(10, 10);
     [self.view addSubview:self.myCategoryView];
     
-    CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorWidth = 20;
-    self.myCategoryView.indicators = @[lineView];
-    
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.bounces = NO;
@@ -66,8 +62,6 @@
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*self.titles.count, CGRectGetHeight(self.scrollView.frame));
     
-
-
     NSMutableArray *types = [NSMutableArray array];
     for (int i = 0; i < self.titles.count; i++) {
         [types addObject:@(CGXCategoryTitleImageType_OnlyTitle)];

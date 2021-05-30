@@ -32,8 +32,8 @@
  */
 @property (nonatomic, assign) CGPoint dotOffset;
 
-@property (nonatomic, assign) JXCategoryDotStyle dotStyle;
-/*JXCategoryDotStyle_Hollow 有效*/
+@property (nonatomic, assign) CGXCategoryDotStyle dotStyle;
+/*CGXCategoryDotStyle_Hollow 有效*/
 //红点的边框颜色。默认：[UIColor redColor]
 @property (nonatomic, strong) UIColor *dotborderColor;
 //红点的边框。默认：5

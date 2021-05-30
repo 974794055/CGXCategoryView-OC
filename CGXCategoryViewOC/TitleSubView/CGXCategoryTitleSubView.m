@@ -109,7 +109,7 @@
     self.subAlpha = currentScale;
     if (shouldReloadData) {
         //只有参数有变化才reloadData
-        [self refreshState];
+        [self reloadData];
     }
 
 }

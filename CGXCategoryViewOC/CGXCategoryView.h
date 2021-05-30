@@ -4,7 +4,7 @@
  QQ号：974794055
  群名称：
  群   号：
- 版本： 1.5.1
+ 版本： 1.6.0
  */
 /*基类*/
 #import "CGXCategoryBaseView.h"

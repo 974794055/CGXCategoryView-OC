@@ -30,9 +30,6 @@
     NSMutableArray *titleA = [[NSMutableArray alloc] initWithObjects:@"推荐",@"要闻",@"河北",@"财经",@"娱乐",@"体育",@"社会",@"电影",@"时尚",@"文化",@"游戏",@"教育",@"动漫", nil];
     self.titlesArr = titleA;
     
-    self.listContainerView = [[CGXCategoryListContainerView alloc] initWithType:CGXCategoryListContainerType_CollectionView DataSource:self];
-    [self.view addSubview:self.listContainerView];
-    
     self.categoryView = [[CGXCategoryTitleView alloc] init];
     self.categoryView.delegate = self;
     self.categoryView.averageCellSpacingEnabled = NO;
@@ -40,13 +37,16 @@
     self.categoryView.indicators = @[lineView];
     [self.view addSubview:self.categoryView];
     
+    self.listContainerView = [[CGXCategoryListContainerView alloc] initWithType:CGXCategoryListContainerType_CollectionView DataSource:self];
+    [self.view addSubview:self.listContainerView];
+    
+
+    
     self.categoryView.listContainer = self.listContainerView;
     
-    
-    //重载之后默认回到0，你也可以指定一个index
     self.categoryView.titleArray = self.titlesArr;
     [self.categoryView reloadData];
-    [self.categoryView selectItemAtIndex:0];
+//    [self.categoryView selectItemAtIndex:0];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"重新排序" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -94,12 +94,9 @@
     NSString *targetTitle = self.titlesArr[index];
     id<CGXCategoryListContainerViewDelegate> list = _listCache[targetTitle];
     if (list) {
-        //②之前已经初始化了对应的list，就直接返回缓存的list，无需再次初始化
         return list;
     }else {
         CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
-        
-//        listVC.naviController = self.navigationController;
         listVC.titleStr = [[NSAttributedString alloc] initWithString:self.titlesArr[index]];
         [self addChildViewController:listVC];
         _listCache[targetTitle] = listVC;

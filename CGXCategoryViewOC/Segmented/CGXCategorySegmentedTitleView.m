@@ -11,7 +11,6 @@
 
 @interface CGXCategorySegmentedTitleView()<UIScrollViewDelegate>
 
-
 // 外界绑定滚回的视图  设置属性用
 @property (nonatomic , strong) UISegmentedControl *segmented;
 
@@ -44,7 +43,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.segmented.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) ,CGRectGetHeight(self.bounds));
+    self.segmented.frame = self.bounds;
     self.segmented.selectedSegmentIndex = self.selectedIndex;
     self.segmented.tintColor = self.tintColor;
     if (@available(iOS 13.0, *)) {
@@ -52,101 +51,53 @@
     } else {
         // Fallback on earlier versions
     }
-    // 设置背景图
-    if (self.bgNormalImage) {
-        [self.segmented setBackgroundImage:self.bgNormalImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    }
-    if (self.bgSelectImage) {
-        [self.segmented setBackgroundImage:self.bgSelectImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self.segmented setBackgroundImage:self.bgSelectImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    } else{
-        [self.segmented setBackgroundImage:self.bgNormalImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self.segmented setBackgroundImage:self.bgNormalImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    }
-    // 设置分割线图
-    if (self.dividerNormalImage) {
-        [self.segmented setDividerImage:self.dividerNormalImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    }
-    if (self.dividerSelectImage) {
-        [self.segmented setDividerImage:self.dividerSelectImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self.segmented setDividerImage:self.dividerSelectImage forLeftSegmentState:UIControlStateHighlighted rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    } else{
-        
-        if (self.dividerNormalImage) {
-            [self.segmented setDividerImage:self.dividerNormalImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-            [self.segmented setDividerImage:self.dividerNormalImage forLeftSegmentState:UIControlStateHighlighted rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        }
-    }
-    
     if (@available(iOS 13, *)) {
         UIColor *tintColor = [self tintColor];
         UIImage *tintColorImage = [self imageWithColor:tintColor];
         // Must set the background image for normal to something (even clear) else the rest won't work
-        [self.segmented setBackgroundImage:[self imageWithColor:self.backgroundColor ? self.backgroundColor : [UIColor clearColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+      [self.segmented setBackgroundImage:[self imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [self.segmented setBackgroundImage:tintColorImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self.segmented setBackgroundImage:[self imageWithColor:[tintColor colorWithAlphaComponent:0.2]] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        [self.segmented setBackgroundImage:tintColorImage forState:UIControlStateSelected|UIControlStateSelected barMetrics:UIBarMetricsDefault];
-        [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName: tintColor, NSFontAttributeName: [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+       [self.segmented setBackgroundImage:tintColorImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        [self.segmented setBackgroundImage:tintColorImage forState:UIControlStateSelected | UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+
+        // 设置文字样式
+        [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleNormalColor,NSFontAttributeName:self.titleNormalFont} forState:UIControlStateNormal]; //正常
+        [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor,NSFontAttributeName:self.titleSelectFont} forState:UIControlStateHighlighted];
+        [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor,NSFontAttributeName:self.titleSelectFont} forState:UIControlStateSelected]; //选中
         [self.segmented setDividerImage:tintColorImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.segmented.layer.borderWidth = 1;
         self.segmented.layer.borderColor = [tintColor CGColor];
 
     }
     
-//    // 设置文字样式
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleNormalColor} forState:UIControlStateNormal]; //正常
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor} forState:UIControlStateHighlighted]; //按下
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor} forState:UIControlStateSelected]; //选中
+    // 设置文字样式
+    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleNormalColor,NSFontAttributeName:self.titleNormalFont} forState:UIControlStateNormal]; //正常
+    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor,NSFontAttributeName:self.titleSelectFont} forState:UIControlStateHighlighted];
+    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor,NSFontAttributeName:self.titleSelectFont} forState:UIControlStateSelected]; //选中
+    // 设置背景图
+        [self.segmented setBackgroundImage:self.backImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.segmented setBackgroundImage:self.backImage forState:UIControlStateHighlighted| UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    // 设置分割线图
+    if (self.dividerImage) {
+        [self.segmented setDividerImage:self.dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    }
 }
 - (void)initializeView
 {
     self.selectedIndex = 0;
     self.titleArr = [NSMutableArray array];
     self.titleNormalColor = [UIColor blackColor];
-       self.titleSelectColor = [UIColor whiteColor];
-       self.tintColor = [UIColor orangeColor];
-    
+    self.titleSelectColor = [UIColor whiteColor];
+    self.tintColor = [UIColor orangeColor];
+    self.titleNormalFont = [UIFont systemFontOfSize:14];
+    self.titleSelectFont = [UIFont systemFontOfSize:14];
+    self.backImage = [self imageWithColor:[UIColor clearColor]];
     self.segmented = [[UISegmentedControl alloc] initWithItems:@[]];
     self.segmented.momentary = NO;
-   
+    self.segmented.backgroundColor =self.backgroundColor;
     self.segmented.apportionsSegmentWidthsByContent = YES;
-    self.segmented.backgroundColor = self.backgroundColor;
-    self.segmented.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) ,CGRectGetHeight(self.bounds));
     [self.segmented addTarget:self action:@selector(actionValueChanged:) forControlEvents:UIControlEventValueChanged];
-    self.segmented.selectedSegmentIndex = self.selectedIndex;
-    self.segmented.tintColor = self.tintColor;
-    // 设置文字样式
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleNormalColor} forState:UIControlStateNormal]; //正常
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor} forState:UIControlStateHighlighted]; //按下
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor} forState:UIControlStateSelected]; //选中
     [self addSubview:self.segmented];
-    
-}
-- (void)setTintColor:(UIColor *)tintColor
-{
-    _tintColor = tintColor;
-    self.segmented.tintColor = tintColor;
-    if (@available(iOS 13.0, *)) {
-        self.segmented.selectedSegmentTintColor = tintColor;
-    } else {
-        // Fallback on earlier versions
-    }
-}
-- (void)setSelectedIndex:(NSInteger)selectedIndex
-{
-    _selectedIndex = selectedIndex;
-    self.segmented.selectedSegmentIndex = selectedIndex;
-}
-- (void)setTitleNormalColor:(UIColor *)titleNormalColor
-{
-    _titleNormalColor = titleNormalColor;
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:titleNormalColor} forState:UIControlStateNormal]; //正常
-}
-- (void)setTitleSelectColor:(UIColor *)titleSelectColor
-{
-    _titleSelectColor = titleSelectColor;
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:titleSelectColor} forState:UIControlStateHighlighted]; //按下
-    [self.segmented setTitleTextAttributes:@{NSForegroundColorAttributeName:titleSelectColor} forState:UIControlStateSelected]; //选中
 }
 - (void)setContentScrollView:(UIScrollView *)contentScrollView
 {

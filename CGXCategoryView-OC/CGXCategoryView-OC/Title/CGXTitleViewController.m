@@ -3,20 +3,16 @@
 //  CGXCategoryView-OC
 //
 //  Created by CGX on 2018/05/20.
-//  Copyright © 2018 CGX. All rights reserved.
+//  Copyright © 2020 CGX. All rights reserved.
 //
 
 #import "CGXTitleViewController.h"
-#import "CGXTitleTwoViewController.h"
-#import "CGXTitleAttributeViewController.h"
-#import "CGXTitleImageViewController.h"
 
-    
-@interface CGXTitleViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface CGXTitleViewController ()<CGXCategoryViewDelegate>
 
-@property (nonatomic , strong) UITableView *tableView;
+@property (nonatomic , strong) CGXCategoryTitleView *categoryView;
+@property (nonatomic , strong) NSMutableArray *titleAry;
 
-@property (nonatomic , strong) NSMutableArray *titleArray;
 
 @end
 
@@ -25,102 +21,117 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"按钮样式";
+    self.navigationItem.title = self.categorytitle;;
+    self.titleAry = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.titleArray = [NSMutableArray arrayWithObjects:
-                       @"大小缩放",
-                       @"大小缩放+底部锚点",
-                       @"大小缩放+顶部锚点",
-                       @"大小缩放+字体粗细",
-                       @"大小缩放+点击动画",
-                       @"大小缩放+Cell宽度缩放",
-                       @"颜色渐变",
-                       @"富文本",
-                       @"图片文字",
-                       @"分割线",
-                       @"多行文本",
-                       @"背景边框",
-                       nil];
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-kTopHeight-kTabBarHeight)  style:UITableViewStyleGrouped];;
-    _tableView.backgroundColor = [UIColor clearColor];
-    _tableView.showsHorizontalScrollIndicator = NO;
-    _tableView.showsVerticalScrollIndicator = NO;
-    _tableView.scrollsToTop = NO;
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
-    [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
-    if (@available(iOS 11.0, *)) {
-        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    self.titleAry = [NSMutableArray arrayWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识",nil];;
+    NSInteger interH = 60;
+    self.categoryView = [[CGXCategoryTitleView alloc] init];
+    self.categoryView.backgroundColor = [UIColor whiteColor];
+    self.categoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
+    self.categoryView.cellSpacing = 10;
+    self.categoryView.cellWidthIncrement = 10;
+    self.categoryView.titleColor = [UIColor blackColor];
+    self.categoryView.titleSelectedColor = [UIColor redColor];
+    self.categoryView.delegate = self;
+    [self.view addSubview:self.categoryView];
+   
+    NSString *title = self.categorytitle;
+    if ([title isEqualToString:@"颜色渐变"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+    }  else if ([title isEqualToString:@"背景色渐变"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.cellBackgroundColorGradientEnabled = YES;
+    } else if ([title isEqualToString:@"分割线"]){
+        self.categoryView.separatorLineShowEnabled = YES;
+    } else if ([title isEqualToString:@"多行文本"]){
+//        self.categoryView.titleNumberOfLines = 2;
+        self.titleAry = [@[@"全部\n猜你喜欢", @"推荐\n热销产品",@"直播\n网红推荐", @"热门商品\n低价抢购", @"精品课\n进口好货", @"生活\n享受生活", @"母婴\n母婴大赏", @"时尚\n时尚好货"] mutableCopy];
+        self.categoryView.titleArray = self.titleAry;
+    } else if ([title isEqualToString:@"背景边框"]){
+        self.titleAry = arc4random() % 2 == 0 ? [NSMutableArray arrayWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识",nil]:[NSMutableArray arrayWithObjects:@"全部",@"推荐",nil];;
+        self.categoryView.cellWidthZenter = self.titleAry.count == 2 ? YES:NO;
+        self.categoryView.backgroundHeight = 30;
+        self.categoryView.cellWidthIncrement = 30;
+        self.categoryView.normalBackgroundColor = [UIColor whiteColor];
+        self.categoryView.normalBorderColor = [UIColor colorWithWhite:0.93 alpha:1];
+        self.categoryView.selectedBackgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
+        self.categoryView.selectedBorderColor = [UIColor colorWithWhite:0.93 alpha:1];
+        self.categoryView.backgroundCornerRadius = 15;
+        self.categoryView.cellSpacing = 10;
+    } else if ([title isEqualToString:@"大小缩放"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+    }  else if ([title isEqualToString:@"大小缩放+底部锚点"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelAnchorPointStyle = CGXCategoryTitleLabelAnchorPointStyleBottom;
+        self.categoryView.titleLabelVerticalOffset = 5;
+    } else if ([title isEqualToString:@"大小缩放+顶部锚点"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelAnchorPointStyle = CGXCategoryTitleLabelAnchorPointStyleTop;
+        self.categoryView.titleLabelVerticalOffset = 5;
+    }else if ([title isEqualToString:@"大小缩放+字体粗细"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+        self.categoryView.titleLabelStrokeWidthEnabled = YES;
+    } else if ([title isEqualToString:@"大小缩放+点击动画"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+        self.categoryView.titleLabelStrokeWidthEnabled = YES;
+        self.categoryView.selectedAnimationEnabled = YES;
+    } else if ([title isEqualToString:@"大小缩放+Cell宽度缩放"]){
+        self.categoryView.titleColorGradientEnabled = YES;
+        self.categoryView.titleLabelZoomEnabled = YES;
+        self.categoryView.cellWidthIncrement = 10;
+        self.categoryView.titleLabelZoomScale = 1.5;
+        self.categoryView.titleLabelStrokeWidthEnabled = YES;
+        self.categoryView.selectedAnimationEnabled = YES;
+        self.categoryView.cellWidthZoomEnabled = YES;
+        self.categoryView.cellWidthZoomScale = 1.3;
     }
-    [self.view addSubview:_tableView];
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.titleArray.count;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 10;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
-    if (headerView == nil) {
-        headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
+    UIScrollView *mainScrollViewH=[[UIScrollView alloc]initWithFrame:CGRectMake(0, interH, ScreenWidth, kSafeVCHeight-interH)];
+    mainScrollViewH.pagingEnabled = YES;
+    mainScrollViewH.bounces = NO;
+    mainScrollViewH.backgroundColor=[UIColor colorWithWhite:0.93 alpha:1];
+    mainScrollViewH.showsHorizontalScrollIndicator = NO;
+    mainScrollViewH.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:mainScrollViewH];
+    mainScrollViewH.frame =CGRectMake(0, interH, ScreenWidth, kSafeVCHeight-interH);
+    for (int i = 0; i<self.titleAry.count; i++) {
+        CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
+        listVC.view.frame = CGRectMake(i*CGRectGetWidth(mainScrollViewH.frame), 0, CGRectGetWidth(mainScrollViewH.frame), CGRectGetHeight(mainScrollViewH.frame));
+        [self addChildViewController:listVC];
+        [mainScrollViewH addSubview:listVC.view];
+        listVC.titleStr = [[NSAttributedString alloc] initWithString:self.titleAry[i]];;;
     }
-    headerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];;
-    return headerView;
+    mainScrollViewH.contentSize = CGSizeMake(ScreenWidth * self.titleAry.count,CGRectGetHeight(mainScrollViewH.frame));
+    self.categoryView.contentScrollView = mainScrollViewH;
+    self.categoryView.titleArray = self.titleAry;
+    [self.categoryView selectItemAtIndex:0];
 }
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+- (void)categoryView:(CGXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    UITableViewHeaderFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
-    if (footerView == nil) {
-        footerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"UITableViewHeaderFooterView"];
-    }
-    footerView.contentView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];;
-    return footerView;
+    NSLog(@"didSelectedItemAtIndex:%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)categoryView:(CGXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    NSString *title = self.titleArray[indexPath.row];
-    cell.textLabel.text = title;
-    return cell;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *title = self.titleArray[indexPath.row];
-    if ([title isEqualToString:@"富文本"]){
-        CGXTitleAttributeViewController *vc = [[CGXTitleAttributeViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([title isEqualToString:@"图片文字"]){
-        CGXTitleImageViewController *vc = [[CGXTitleImageViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        CGXTitleTwoViewController *vc = [[CGXTitleTwoViewController alloc] init];
-        vc.categorytitle = title;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    NSLog(@"didClickSelectedItemAtIndex:%ld---%ld",(long)categoryView.selectedIndex,(long)index);;
 }
 
 /*

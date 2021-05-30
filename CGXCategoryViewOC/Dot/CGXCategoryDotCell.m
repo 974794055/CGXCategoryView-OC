@@ -43,7 +43,7 @@
     self.dotLayer.cornerRadius = myCellModel.dotCornerRadius;
     self.dotLayer.borderColor = [myCellModel.dotborderColor CGColor];
     self.dotLayer.borderWidth = myCellModel.dotborderWidth;
-    if (myCellModel.dotStyle == JXCategoryDotStyle_Hollow) {
+    if (myCellModel.dotStyle == CGXCategoryDotStyle_Hollow) {
         self.dotLayer.backgroundColor = [[UIColor clearColor] CGColor];
     }else{
         self.dotLayer.backgroundColor = [myCellModel.dotColor CGColor];

@@ -16,21 +16,17 @@
 {
     self.loadImageCallback = nil;
 }
-
 - (void)initializeData {
     [super initializeData];
-
     _imageSize = CGSizeMake(20, 20);
     _imageZoomEnabled = NO;
     _imageZoomScale = 1.2;
     _imageCornerRadius = 0;
 }
-
 - (Class)preferredCellClass {
     [super preferredCellClass];
     return [CGXCategoryImageCell class];
 }
-
 - (void)refreshDataSource {
     [super refreshDataSource];
     NSMutableArray *tempArray = [NSMutableArray array];
@@ -41,7 +37,6 @@
     }
     self.dataSource = tempArray;
 }
-
 - (void)refreshSelectedCellModel:(CGXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(CGXCategoryBaseCellModel *)unselectedCellModel {
     [super refreshSelectedCellModel:selectedCellModel unselectedCellModel:unselectedCellModel];
 
@@ -51,7 +46,6 @@
     CGXCategoryImageCellModel *myselectedCellModel = (CGXCategoryImageCellModel *)selectedCellModel;
     myselectedCellModel.imageZoomScale = self.imageZoomScale;
 }
-
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index {
     [super refreshCellModel:cellModel index:index];
 
@@ -75,22 +69,21 @@
         myCellModel.imageZoomScale = self.imageZoomScale;
     }
 }
-
 - (void)refreshLeftCellModel:(CGXCategoryBaseCellModel *)leftCellModel rightCellModel:(CGXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
     [super refreshLeftCellModel:leftCellModel rightCellModel:rightCellModel ratio:ratio];
-
     CGXCategoryImageCellModel *leftModel = (CGXCategoryImageCellModel *)leftCellModel;
     CGXCategoryImageCellModel *rightModel = (CGXCategoryImageCellModel *)rightCellModel;
-
     if (self.imageZoomEnabled) {
         leftModel.imageZoomScale = [CGXCategoryFactory interpolationFrom:self.imageZoomScale to:1.0 percent:ratio];
         rightModel.imageZoomScale = [CGXCategoryFactory interpolationFrom:1.0 to:self.imageZoomScale percent:ratio];
     }
 }
-
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     [super preferredCellWidthAtIndex:index];
-    return self.imageSize.width+self.cellWidthIncrement;
+    if (self.cellWidth == CGXCategoryViewAutomaticDimension) {
+        return self.imageSize.width;
+    }
+    return self.cellWidth;
 }
 
 @end

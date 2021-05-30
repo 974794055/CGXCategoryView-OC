@@ -11,9 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, CGXCategoryIndicatorArcStyle) {
-    CGXCategoryIndicatorArcStyle_Normal,// 无效果
-    CGXCategoryIndicatorArcStyle_Round1,// 内环圆角
-    CGXCategoryIndicatorArcStyle_Round2,//外环圆角
+    CGXCategoryIndicatorArcStyle_Round,// 内环圆角
     CGXCategoryIndicatorArcStyle_Arc , // 弧形
     CGXCategoryIndicatorArcStyle_IQIYI, // 爱奇艺弧形
 };

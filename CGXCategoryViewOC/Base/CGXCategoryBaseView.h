@@ -121,13 +121,9 @@
 
 @end
 
-
-
-
-
-
 #pragma mark - Subclass Override
 @interface CGXCategoryBaseView (BaseHooks)
+
 /**
  reloadData方法调用，重新生成数据源赋值到self.dataSource
  */

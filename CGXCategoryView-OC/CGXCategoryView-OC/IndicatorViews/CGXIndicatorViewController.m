@@ -26,20 +26,18 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.titleAry = arc4random() % 2 == 0 ? [NSMutableArray arrayWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识",nil]:[NSMutableArray arrayWithObjects:@"全部",@"推荐",nil];;
+    self.titleAry = [NSMutableArray arrayWithObjects:@"精选",@"俱乐部",@"电影",@"电视剧",@"综艺",@"动漫",@"儿童",@"演唱会",@"票务",@"美食",@"生活",@"商城",@"知识",nil];
     NSInteger interH = 60;
     self.categoryView = [[CGXCategoryTitleView alloc] init];
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
-    self.categoryView.cellSpacing = 20;
+    self.categoryView.cellSpacing = 10;
     self.categoryView.cellWidthIncrement = 20;
     self.categoryView.titleColor = [UIColor blackColor];
     self.categoryView.titleSelectedColor = [UIColor redColor];
     self.categoryView.delegate = self;
     self.categoryView.titleArray = self.titleAry;
     [self.view addSubview:self.categoryView];
-    self.categoryView.cellWidthZenter = self.titleAry.count == 2 ? YES:NO;
-
 
     NSString *title = self.title;
     if ([title isEqualToString:@"圆形"]){
@@ -54,19 +52,15 @@
         self.categoryView.tag = 99999;
         self.categoryView.titleColorGradientEnabled = YES;
         self.categoryView.titleLabelZoomEnabled = YES;
-        CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
-        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"apple_select"];
-        self.categoryView.indicators = @[indicatorImageView];
-        
         self.categoryView.bgImage = [self getImageWithIndex:0];
-
         interH = 100;
         self.categoryView.frame = CGRectMake(0, 0, ScreenWidth, interH);
         
-    } else if ([title isEqualToString:@"cell背景图"]){
+    } else if ([title isEqualToString:@"背景图"]){
+        self.categoryView.titleSelectedColor = [UIColor blackColor];
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
-        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"apple_Noselect"];
-        indicatorImageView.indicatorImageViewSize = CGSizeMake(50, 50);
+        indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"TabStatusNoSelected"];
+        indicatorImageView.indicatorImageViewSize = CGSizeMake(60, 60);
         self.categoryView.indicators = @[indicatorImageView];
     } else if ([title isEqualToString:@"图片滚动"]){
         CGXCategoryIndicatorImageView *indicatorImageView = [[CGXCategoryIndicatorImageView alloc] init];
@@ -75,13 +69,14 @@
         indicatorImageView.indicatorImageView.image = [UIImage imageNamed:@"football"];
         self.categoryView.indicators = @[indicatorImageView];
     } else if ([title isEqualToString:@"混合使用"]){
+        self.categoryView.cellSpacing = 20;
         self.categoryView.titleColorGradientEnabled = NO;
         self.categoryView.titleLabelMaskEnabled = YES;
         CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
         CGXCategoryIndicatorBackgroundView *backgroundView = [[CGXCategoryIndicatorBackgroundView alloc] init];
         backgroundView.indicatorHeight = 20;
         self.categoryView.indicators = @[backgroundView, lineView];
-    } else if ([title isEqualToString:@"Cell背景色渐变"]){
+    } else if ([title isEqualToString:@"背景色渐变"]){
         self.categoryView.titleColorGradientEnabled = YES;
         self.categoryView.cellBackgroundColorGradientEnabled = YES;
         self.categoryView.cellSpacing = 0;
@@ -89,22 +84,14 @@
     } else if ([title isEqualToString:@"内环圆角"]){
         CGXCategoryIndicatorArcView *aView= [[CGXCategoryIndicatorArcView alloc] init];
         aView.indicatorColor = [UIColor orangeColor];
-        aView.indicatorCornerRadius  = 20;
+        aView.indicatorCornerRadius  = 30;
         aView.indicatorHeight  = 60;
+        aView.indicatorWidthIncrement = 50;
         aView.verticalSpace = 20;
-        aView.specialStyle =CGXCategoryIndicatorArcStyle_Round1;
+        aView.specialStyle =CGXCategoryIndicatorArcStyle_Round;
         self.categoryView.titleSelectedColor = [UIColor whiteColor];
         self.categoryView.indicators = @[aView];
-    } else if ([title isEqualToString:@"外环圆角"]){
-        CGXCategoryIndicatorArcView *aView= [[CGXCategoryIndicatorArcView alloc] init];
-        aView.indicatorColor = [UIColor orangeColor];
-        aView.indicatorCornerRadius  = 20;
-        aView.indicatorHeight  = 60;
-        aView.verticalSpace = 20;
-        aView.specialStyle =CGXCategoryIndicatorArcStyle_Round2;
-        self.categoryView.indicators = @[aView];
-        self.categoryView.titleSelectedColor = [UIColor whiteColor];
-    } else if ([title isEqualToString:@"弧形"]){
+    } else if ([title isEqualToString:@"底部弧形"]){
         CGXCategoryIndicatorArcView *aView= [[CGXCategoryIndicatorArcView alloc] init];
         aView.indicatorColor = [UIColor orangeColor];
         aView.indicatorCornerRadius  = 20;
@@ -167,18 +154,33 @@
     NSArray <UIImage *> *images = @[[UIImage imageNamed:@"IndicatorImage0"],
                                     [UIImage imageNamed:@"IndicatorImage1"],
                                     [UIImage imageNamed:@"IndicatorImage2"],
-                                    [UIImage imageNamed:@"IndicatorImage3"],
-                                    [UIImage imageNamed:@"IndicatorImage0"],
-                                    [UIImage imageNamed:@"IndicatorImage1"],
-                                    [UIImage imageNamed:@"IndicatorImage2"],
-                                    [UIImage imageNamed:@"IndicatorImage3"],
-                                    [UIImage imageNamed:@"IndicatorImage0"],
-                                    [UIImage imageNamed:@"IndicatorImage1"],
-                                    [UIImage imageNamed:@"IndicatorImage2"],
                                     [UIImage imageNamed:@"IndicatorImage3"]];
-    return images[index];
+    
+    NSInteger inttt = index  % 4;
+    return [self imageByApplyingAlpha:0.4 image:images[inttt]];
 }
-
+- (UIImage *)imageByApplyingAlpha:(CGFloat)alpha  image:(UIImage*)image
+{
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, image.size.width, image.size.height);
+    
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -area.size.height);
+    
+    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
+    
+    CGContextSetAlpha(ctx, alpha);
+    
+    CGContextDrawImage(ctx, area, image.CGImage);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 /*
 #pragma mark - Navigation
 

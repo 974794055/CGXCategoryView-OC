@@ -26,12 +26,10 @@ typedef void(^CGXCategorySegmentedTitleViewSelectBlock)(NSMutableArray<NSString 
 
 @property (nonatomic , strong) UIColor *titleNormalColor;
 @property (nonatomic , strong) UIColor *titleSelectColor;
-
-@property (nonatomic , strong) UIImage *bgNormalImage;
-@property (nonatomic , strong) UIImage *bgSelectImage;
-
-@property (nonatomic , strong) UIImage*dividerNormalImage;
-@property (nonatomic , strong) UIImage*dividerSelectImage;
+@property (nonatomic , strong) UIFont *titleNormalFont;
+@property (nonatomic , strong) UIFont *titleSelectFont;
+@property (nonatomic , strong) UIImage *backImage;//背景图
+@property (nonatomic , strong) UIImage*dividerImage;//分割线
 
 // 初始化数据
 - (void)updateWithTitleArray:(NSMutableArray<NSString *> *)titleArr;

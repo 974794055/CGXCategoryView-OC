@@ -8,15 +8,15 @@
 
 #import "AppDelegate.h"
 
-#import "TableViewController.h"
+#import "CGXMainIndicatorViewController.h"
 
 #import "CGXNestViewController.h"
 
-#import "CGXListContainerTableViewController.h"
+#import "CGXMainContainerViewController.h"
 
 #import "CGXDataListContainerViewController.h"
 
-#import "CGXTitleViewController.h"
+#import "CGXMainTitleViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -29,19 +29,19 @@
     self.window.backgroundColor = [UIColor whiteColor];
     UITabBarController *tb=[[UITabBarController alloc]init];
     self.window.rootViewController=tb;
-    CGXTitleViewController *c0=[[CGXTitleViewController alloc]init];
+    CGXMainTitleViewController *c0=[[CGXMainTitleViewController alloc]init];
     c0.tabBarItem.title=@"样式";
     c0.tabBarItem.image=[[UIImage imageNamed:@"TabStatusNoSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     c0.tabBarItem.selectedImage = [[UIImage imageNamed:@"TabStatusSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UINavigationController *nav0 = [[UINavigationController alloc] initWithRootViewController:c0];
         
-    TableViewController *c1=[[TableViewController alloc]init];
+    CGXMainIndicatorViewController *c1=[[CGXMainIndicatorViewController alloc]init];
     c1.tabBarItem.title=@"指示器";
     c1.tabBarItem.image=[[UIImage imageNamed:@"TabStatusNoSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     c1.tabBarItem.selectedImage = [[UIImage imageNamed:@"TabStatusSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:c1];
 
-    CGXListContainerTableViewController *c2=[[CGXListContainerTableViewController alloc]init];
+    CGXMainContainerViewController *c2=[[CGXMainContainerViewController alloc]init];
     c2.tabBarItem.title=@"视图";
     c2.tabBarItem.image=[[UIImage imageNamed:@"TabStatusNoSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     c2.tabBarItem.selectedImage = [[UIImage imageNamed:@"TabStatusSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

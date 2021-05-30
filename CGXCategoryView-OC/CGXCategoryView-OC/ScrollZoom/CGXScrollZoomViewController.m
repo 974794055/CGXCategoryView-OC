@@ -29,7 +29,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
-    CGFloat topStatusBarHeight = kStatusBarHeight>20 ? 30 :20;
+    CGFloat topStatusBarHeight = kStatusBarHeight>20 ? kStatusBarHeight :20;
     self.minCategoryViewHeight = 40;
     self.maxCategoryViewHeight = 60;
 
@@ -57,12 +57,8 @@
     self.categoryView.indicators = @[lineView];
 
     
-    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.categoryView.bounds.size.height - 1, self.categoryView.bounds.size.width, 1)];
-    separatorLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    separatorLine.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
-    [self.categoryView addSubview:separatorLine];
-
-
+    self.categoryView.isBottomHidden = NO;
+    
     self.listContainerView = [[CGXCategoryListContainerView alloc] initWithType:CGXCategoryListContainerType_ScrollView DataSource:self];
     self.listContainerView.frame = CGRectMake(0, topStatusBarHeight + self.maxCategoryViewHeight, self.view.bounds.size.width, self.view.bounds.size.height - topStatusBarHeight - self.maxCategoryViewHeight);
     [self.view addSubview:self.listContainerView];
@@ -100,15 +96,6 @@
         self.categoryView.frame = categoryViewFrame;
 
         self.listContainerView.frame = CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.categoryView.frame));
-
-//        if (self.categoryView.bounds.size.height == self.maxCategoryViewHeight) {
-//            //从小缩放到最大，将其他列表的contentOffset重置
-//            for (id<CGXCategoryListContainerViewDelegate>list in self.listContainerView.validListDict.allValues) {
-//                if ([list listScrollView] != scrollView) {
-//                    [[list listScrollView] setContentOffset:CGPointZero animated:NO];
-//                }
-//            }
-//        }
         if (self.categoryView.bounds.size.height == self.maxCategoryViewHeight) {
             //从小缩放到最大，将其他列表的contentOffset重置
             for (id<CGXCategoryListContainerViewDelegate>list in self.listContainerView.validListDict.allValues) {

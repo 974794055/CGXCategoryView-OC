@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.titles = [NSMutableArray arrayWithObjects:@"主题一", @"主题二", @"主题三", nil];
@@ -55,6 +55,7 @@
     
     self.segmented = [[CGXCategorySegmentedTitleView alloc] init];
     self.segmented.frame = CGRectMake(50, 10, ScreenWidth-100, 40);
+    self.segmented.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.segmented];
     __weak typeof(self) weakSelf = self;
     self.segmented.selectBlock = ^(NSMutableArray<NSString *> * _Nonnull titleArr, NSInteger inter) {

@@ -29,23 +29,13 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     self.titles = [NSMutableArray array];
-    
     self.titles =  [@[@"全部", @"直播", @"热门商品", @"精品课", @"生活", @"新鲜水果"] mutableCopy];
-    
     self.imageNames = [@[@"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect"] mutableCopy];
     self.selectedImageNames = [@[@"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select"] mutableCopy];
-    
     self.myCategoryView = [[CGXCategoryBadgeView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
     self.myCategoryView.backgroundColor = [UIColor whiteColor];
     self.myCategoryView.delegate = self;
-    self.myCategoryView.titleArray = self.titles;
-    self.myCategoryView.imageNames = self.imageNames;
-    self.myCategoryView.selectedImageNames = self.selectedImageNames;
     [self.view addSubview:self.myCategoryView];
-    
-    CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorWidth = 20;
-    self.myCategoryView.indicators = @[lineView];
     
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.pagingEnabled = YES;
@@ -55,7 +45,6 @@
     [self.view addSubview:self.scrollView];
     self.scrollView.frame =CGRectMake(0, CGRectGetHeight(self.myCategoryView.frame), ScreenWidth, ScreenHeight-kTopHeight-CGRectGetHeight(self.myCategoryView.frame)-kSafeHeight);
     self.myCategoryView.contentScrollView = self.scrollView;
-    
     for (int i = 0; i < self.titles.count; i ++) {
         CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
         listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
@@ -65,41 +54,25 @@
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*self.titles.count, CGRectGetHeight(self.scrollView.frame));
     
-    [self configCategoryViewWithType:CGXCategoryTitleImageType_LeftImage];
     
-    [self.myCategoryView selectItemAtIndex:0];
-    
-}
-
-
-- (void)configCategoryViewWithType:(CGXCategoryTitleImageType)imageType {
-    self.currentType = imageType;
-    if ((NSInteger)imageType == 100) {
-        NSMutableArray *types = [NSMutableArray array];
-        for (int i = 0; i < self.titles.count; i++) {
-            if (i == 2) {
-                [types addObject:@(CGXCategoryTitleImageType_OnlyImage)];
-            }else if (i == 4) {
-                [types addObject:@(CGXCategoryTitleImageType_LeftImage)];
-            }else {
-                [types addObject:@(CGXCategoryTitleImageType_OnlyTitle)];
-            }
-        }
-        self.myCategoryView.imageTypes = types;
-    }else {
-        NSMutableArray *types = [NSMutableArray array];
-        for (int i = 0; i < self.titles.count; i++) {
-            [types addObject:@(imageType)];
-        }
-        self.myCategoryView.imageTypes = types;
+    NSMutableArray *types = [NSMutableArray array];
+    for (int i = 0; i < self.titles.count; i++) {
+        [types addObject:@(CGXCategoryTitleImageType_OnlyTitle)];
     }
+    self.myCategoryView.titleArray = self.titles;
+    self.myCategoryView.imageNames = self.imageNames;
+    self.myCategoryView.selectedImageNames = self.selectedImageNames;
+    self.myCategoryView.imageTypes = types;
     for (int i = 0; i<self.titles.count; i++) {
         CGXCategoryTitleBadgeModel *badge = [[CGXCategoryTitleBadgeModel alloc] init];
-        badge.count = arc4random()% 20+i;
+        badge.count = i>3? arc4random()% 20+i:0;
+        badge.numberLabelOffset = CGPointMake(0,-5);
         [self.myCategoryView updateWithBadge:badge AtInter:i];
     }
     [self.myCategoryView reloadData];
 }
+
+
 /*
 #pragma mark - Navigation
 

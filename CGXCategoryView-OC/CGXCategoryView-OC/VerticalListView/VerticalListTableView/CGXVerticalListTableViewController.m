@@ -8,7 +8,6 @@
 
 #import "CGXVerticalListTableViewController.h"
 
-#import "CGXVerticalTableSectionCategoryHeaderView.h"
 #import "CGXVerticalTableSectionHeaderView.h"
 #import "CGXVerticalListTableView.h"
 
@@ -21,7 +20,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 @property (nonatomic, strong) NSArray <NSArray <NSString *>*> *dataSource;
 @property (nonatomic, strong) NSArray <NSString *> *headerTitles;
 @property (nonatomic, strong) CGXCategoryTitleView *pinCategoryView;
-@property (nonatomic, strong) UIView *sectionCategoryHeaderView;
+@property (nonatomic, strong) UITableViewHeaderFooterView *sectionCategoryHeaderView;
 @property (nonatomic, strong) NSArray <NSValue *> *sectionHeaderRectArray;
 
 @end
@@ -39,7 +38,7 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    [self.tableView registerClass:[CGXVerticalTableSectionCategoryHeaderView class] forHeaderFooterViewReuseIdentifier:@"pinHeader"];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"pinHeader"];
     [self.tableView registerClass:[CGXVerticalTableSectionHeaderView class] forHeaderFooterViewReuseIdentifier:@"header"];
     __weak typeof(self)weakSelf = self;
     self.tableView.layoutSubviewsCallback = ^{
@@ -121,10 +120,9 @@ static const NSUInteger VerticalListPinSectionIndex = 1;    //悬浮固定sectio
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == VerticalListPinSectionIndex) {
-        CGXVerticalTableSectionCategoryHeaderView *headerView = (CGXVerticalTableSectionCategoryHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"pinHeader"];
+        UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"pinHeader"];
         self.sectionCategoryHeaderView = headerView;
         if (self.pinCategoryView.superview == nil) {
-            //首次使用VerticalSectionCategoryHeaderView的时候，把pinCategoryView添加到它上面。
             [headerView addSubview:self.pinCategoryView];
         }
         return headerView;

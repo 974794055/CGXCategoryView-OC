@@ -7,7 +7,7 @@
 //
 
 #import "CGXCustomListViewController.h"
-
+#import "CGXCustomListViewCell.h"
 @interface CGXCustomListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     NSInteger inter;
@@ -39,7 +39,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.collectionView.showsVerticalScrollIndicator = YES;
     self.collectionView.showsHorizontalScrollIndicator=YES;
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [self.collectionView registerClass:[CGXCustomListViewCell class] forCellWithReuseIdentifier:@"CGXCustomListViewCell"];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"simpleHead"];
     
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"simpleFoot"];
@@ -48,7 +48,7 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    self.collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    self.collectionView.frame = self.view.bounds;
 }
 //设置head foot视图
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -100,17 +100,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    CGXCustomListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CGXCustomListViewCell" forIndexPath:indexPath];
     cell.contentView.backgroundColor = randomColor;
-    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj removeFromSuperview];
-    }];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:cell.contentView.frame];
-    [cell.contentView addSubview:titleLabel];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.numberOfLines = 0;
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.attributedText =self.titleStr;
+    cell.titleLabel.attributedText = self.titleStr;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -126,13 +118,7 @@
         self.scrollViewBlock(scrollView);
     }
 }
-- (void)setTitleStr:(NSAttributedString *)titleStr
-{
-    _titleStr = titleStr;
-    [self.collectionView reloadData];
-}
 
-#pragma mark - CGXCategoryListContentViewDelegate
 
 - (UIView *)listView {
     return self.view;
@@ -140,31 +126,33 @@
 /**
  可选实现，列表将要显示的时候调用
  */
-- (void)listWillAppearAtIndex:(NSInteger)index
-{
-    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
-}
-/**
- 可选实现，列表显示的时候调用
- */
-- (void)listDidAppearAtIndex:(NSInteger)index
-{
-    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
-}
-/**
- 可选实现，列表将要消失的时候调用
- */
-- (void)listWillDisappearAtIndex:(NSInteger)index
-{
-    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
-}
-/**
- 可选实现，列表消失的时候调用
- */
-- (void)listDidDisappearAtIndex:(NSInteger)index
-{
-    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
-}
+//- (void)listWillAppearAtIndex:(NSInteger)index
+//{
+//    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
+//}
+///**
+// 可选实现，列表显示的时候调用
+// */
+//- (void)listDidAppearAtIndex:(NSInteger)index
+//{
+//    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
+//}
+///**
+// 可选实现，列表将要消失的时候调用
+// */
+//- (void)listWillDisappearAtIndex:(NSInteger)index
+//{
+//    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
+//}
+///**
+// 可选实现，列表消失的时候调用
+// */
+//- (void)listDidDisappearAtIndex:(NSInteger)index
+//{
+//    NSLog(@"%@:%@:%ld", NSStringFromSelector(_cmd),self.titleStr,(long)index);
+//}
+
+
 /*
 #pragma mark - Navigation
 

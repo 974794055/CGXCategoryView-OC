@@ -25,20 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"图片文字";
     self.titles = [NSMutableArray array];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemItemClicked)];
     UIBarButtonItem *settingItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(didSettingClicked)];
-    self.navigationItem.rightBarButtonItems = @[leftItem,settingItem];
-    
+    self.navigationItem.rightBarButtonItems = @[settingItem];
     
     self.titles =  [@[@"全部", @"直播", @"热门商品", @"精品课", @"生活", @"新鲜水果"] mutableCopy];
-    
     self.imageNames = [@[@"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect", @"apple_Noselect"] mutableCopy];
     self.selectedImageNames = [@[@"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select", @"apple_select"] mutableCopy];
     
@@ -47,15 +43,8 @@
     self.myCategoryView.titleArray = self.titles;
     self.myCategoryView.imageNames = self.imageNames;
     self.myCategoryView.selectedImageNames = self.selectedImageNames;
-    //    self.myCategoryView.imageZoomEnabled = YES;
-    //    self.myCategoryView.imageZoomScale = 1.3;
-//    self.myCategoryView.cellSpacing = 0;
-        self.myCategoryView.averageCellSpacingEnabled = YES;
+    self.myCategoryView.averageCellSpacingEnabled = YES;
     [self.view addSubview:self.myCategoryView];
-    
-    CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorWidth = 20;
-    self.myCategoryView.indicators = @[lineView];
     
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.pagingEnabled = YES;
@@ -65,7 +54,6 @@
     [self.view addSubview:self.scrollView];
     self.scrollView.frame =CGRectMake(0, CGRectGetHeight(self.myCategoryView.frame), ScreenWidth, ScreenHeight-kTopHeight-CGRectGetHeight(self.myCategoryView.frame)-kSafeHeight);
     self.myCategoryView.contentScrollView = self.scrollView;
-    
     for (int i = 0; i < self.titles.count; i ++) {
         CGXCustomListViewController *listVC = [[CGXCustomListViewController alloc] init];
         listVC.view.frame = CGRectMake(i*CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
@@ -76,29 +64,6 @@
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*self.titles.count, CGRectGetHeight(self.scrollView.frame));
     
     [self configCategoryViewWithType:CGXCategoryTitleImageType_TopImage];
-    
-    [self.myCategoryView selectItemAtIndex:0];
-    
-    
-}
-- (void)leftItemItemClicked
-{
-    CGXCategoryIndicatorView *componentView = (CGXCategoryIndicatorView *)self.myCategoryView;
-    for (CGXCategoryIndicatorComponentView *view in componentView.indicators) {
-        if (view.componentPosition == CGXCategoryComponentPosition_Top) {
-            view.componentPosition = CGXCategoryComponentPosition_Bottom;
-        }else {
-            view.componentPosition = CGXCategoryComponentPosition_Top;
-        }
-    }
-    
-    for (int i = 0; i<self.titles.count; i++) {
-        CGXCategoryTitleBadgeModel *badge = [[CGXCategoryTitleBadgeModel alloc] init];
-        badge.count = 10+i;
-//        [self.myCategoryView updateWithBadge:badge AtInter:i];
-    }
-
-    [componentView reloadData];
 }
 - (void)didSettingClicked {
     TitleImageSettingViewController *imageSettingVC = [[TitleImageSettingViewController alloc] init];
@@ -106,7 +71,6 @@
     imageSettingVC.delegate = self;
     [self.navigationController pushViewController:imageSettingVC animated:YES];
 }
-
 - (void)configCategoryViewWithType:(CGXCategoryTitleImageType)imageType {
     self.currentType = imageType;
     if ((NSInteger)imageType == 100) {

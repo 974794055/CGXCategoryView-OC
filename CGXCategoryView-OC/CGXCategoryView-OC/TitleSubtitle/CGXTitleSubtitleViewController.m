@@ -15,7 +15,6 @@
 @property (nonatomic , strong) UIScrollView *scrollView;
 @property (nonatomic , assign) CGFloat maxCategoryViewHeight;
 
-@property (nonatomic , assign) CGFloat minCategoryViewHeight;
 @end
 
 
@@ -28,10 +27,9 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.maxCategoryViewHeight= 50;
     NSMutableArray <NSString *> *status = [@[@"已开抢", @"抢购中", @"即将开抢", @"抢购中", @"抢购完"] mutableCopy];
     NSMutableArray <NSString *> *times = [@[@"12:00", @"13:00", @"14:00", @"15:00", @"16:00"] mutableCopy];
-    self.maxCategoryViewHeight= 60;
-    self.minCategoryViewHeight= 60;
     
     self.categoryView = [[CGXCategoryTitleSubView alloc] init];
     self.categoryView.delegate = self;
@@ -54,10 +52,8 @@
     self.categoryView.subTitleSelectedFont = [UIFont boldSystemFontOfSize:10];
     self.categoryView.subTitleNormalColor = [UIColor whiteColor];
     self.categoryView.subTitleSelectedColor = [UIColor whiteColor];
-//    self.categoryView.subTitleNBgColor = [UIColor redColor];
-//    self.categoryView.subTitleSBgColor = [UIColor orangeColor];
-    
-    [self BackgroundViewPercent:1.0];
+    self.categoryView.subTitleNBgColor = [UIColor clearColor];
+    self.categoryView.subTitleSBgColor = [UIColor redColor];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), ScreenWidth, kSafeVCHeight-self.maxCategoryViewHeight)];
     self.scrollView.pagingEnabled = YES;
@@ -95,46 +91,22 @@
 }
 
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat height = scrollView.contentOffset.y;
-    NSLog(@"heightheight--%f",height);
-    if (self.maxCategoryViewHeight != self.minCategoryViewHeight) {
-        //用于垂直方向滚动时，视图的frame调整
-        if ((self.categoryView.bounds.size.height < self.maxCategoryViewHeight) && scrollView.contentOffset.y < 0) {
-            
-            CGRect categoryViewFrame = self.categoryView.frame;
-            categoryViewFrame.size.height -= scrollView.contentOffset.y;
-            categoryViewFrame.size.height = MIN(self.maxCategoryViewHeight, categoryViewFrame.size.height);
-            self.categoryView.frame = categoryViewFrame;
-            self.scrollView.frame = CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.categoryView.frame));
-            
-            scrollView.contentOffset = CGPointZero;
-        }else if (((self.categoryView.bounds.size.height < self.maxCategoryViewHeight) && scrollView.contentOffset.y >= 0 && self.categoryView.bounds.size.height > self.minCategoryViewHeight) ||
-                  (self.categoryView.bounds.size.height >= self.maxCategoryViewHeight && scrollView.contentOffset.y >= 0)) {
-            CGRect categoryViewFrame = self.categoryView.frame;
-            categoryViewFrame.size.height -= scrollView.contentOffset.y;
-            categoryViewFrame.size.height = MAX(self.minCategoryViewHeight, categoryViewFrame.size.height);
-            self.categoryView.frame = categoryViewFrame;
-            
-            self.scrollView.frame = CGRectMake(0, CGRectGetMaxY(self.categoryView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.categoryView.frame));
-            
-            scrollView.contentOffset = CGPointZero;
-        }
-        //必须调用
-        CGFloat percent = (self.categoryView.bounds.size.height - self.minCategoryViewHeight)/(self.maxCategoryViewHeight - self.minCategoryViewHeight);
-        [self.categoryView listDidScrollWithVerticalHeightPercent:percent];
-        
-        [self BackgroundViewPercent:percent];
-    } else{
-        //必须调用
-        CGFloat percent =  scrollView.contentOffset.y/self.maxCategoryViewHeight;
-        if (scrollView.contentOffset.y > self.maxCategoryViewHeight) {
-            percent = 1;
-        }
-        [self.categoryView listDidScrollWithVerticalHeightPercent:1-percent];
-        
-        [self BackgroundViewPercent:1-percent];
+    CGFloat percent =  scrollView.contentOffset.y/self.maxCategoryViewHeight;
+    if (scrollView.contentOffset.y > self.maxCategoryViewHeight) {
+        percent = 1;
     }
-
+    if (scrollView.contentOffset.y >= self.maxCategoryViewHeight) {
+        CGXCategoryIndicatorLineView *lineView = [[CGXCategoryIndicatorLineView alloc] init];
+        lineView.indicatorColor = [[UIColor redColor] colorWithAlphaComponent:percent];
+        lineView.verticalMargin = 10;
+        self.categoryView.indicators = @[lineView];
+    } else{
+        self.categoryView.indicators = @[];
+    }
+    if (percent == 0 || percent ==  1) {
+        [self.categoryView reloadData];
+    }
+    [self.categoryView listDidScrollWithVerticalHeightPercent:1-percent];
 }
 
 - (void)BackgroundViewPercent:(CGFloat)percent
@@ -143,7 +115,7 @@
     backgroundView11.indicatorHeight = 15;
     backgroundView11.indicatorCornerRadius = 7.5;
     backgroundView11.indicatorWidthIncrement = 10;
-    backgroundView11.verticalMargin = -(self.minCategoryViewHeight/2.0-15);
+    backgroundView11.verticalMargin = -(self.maxCategoryViewHeight/2.0-15);
     backgroundView11.scrollEnabled = NO;
     backgroundView11.indicatorColor = [[UIColor redColor] colorWithAlphaComponent:percent];
     self.categoryView.indicators = @[backgroundView11];

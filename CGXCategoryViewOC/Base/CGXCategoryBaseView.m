@@ -116,7 +116,6 @@
         [self.collectionView.collectionViewLayout invalidateLayout];
         [self.collectionView reloadData];
     }
-    
     [self reloadData];
 }
 
@@ -145,19 +144,16 @@
     self.contentScrollView = [listContainer contentScrollView];
 }
 
-#pragma mark - Subclass Override
-
 #pragma mark - <UICollectionViewDataSource, UICollectionViewDelegate>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     CGXCategoryBaseCell *cell = (CGXCategoryBaseCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
     CGXCategoryBaseCellModel *cellModel = self.dataSource[indexPath.item];
     cellModel.selectedType = CGXCategoryCellSelectedTypeUnknown;
@@ -177,21 +173,16 @@
         [self clickSelectItemAtIndex:indexPath.row];
     }
 }
-
 #pragma mark - <UICollectionViewDelegateFlowLayout>
-
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, [self getContentEdgeInsetLeft], 0, [self getContentEdgeInsetRight]);
 }
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.dataSource[indexPath.item].cellWidth, self.collectionView.bounds.size.height);
 }
-
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return self.cellSpacing;
 }
-
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return self.cellSpacing;
 }
@@ -233,11 +224,9 @@
     }
     return self.contentEdgeInsetRight;
 }
-
 - (CGFloat)getCellWidthAtIndex:(NSInteger)index {
     return [self preferredCellWidthAtIndex:index] + self.cellWidthIncrement;
 }
-
 - (void)clickSelectItemAtIndex:(NSInteger)index {
     if (self.delegate && [self.delegate respondsToSelector:@selector(categoryView:canClickItemAtIndex:)]) {
         BOOL isCanClick =  [self.delegate categoryView:self canClickItemAtIndex:index];
@@ -247,7 +236,6 @@
     }
     [self selectCellAtIndex:index selectedType:CGXCategoryCellSelectedTypeClick];
 }
-
 - (void)scrollSelectItemAtIndex:(NSInteger)index {
     [self selectCellAtIndex:index selectedType:CGXCategoryCellSelectedTypeScroll];
 }
@@ -257,7 +245,6 @@
         [self reloadData];
     }
 }
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat index = scrollView.contentOffset.x/scrollView.bounds.size.width;
     CGFloat absIndex = fabs(index - self.selectedIndex);
@@ -266,17 +253,13 @@
         self.contentScrollView.panGestureRecognizer.enabled = YES;
     }
 }
-
 @end
-
-
 
 @implementation CGXCategoryBaseView (BaseHooks)
 
 - (void)refreshDataSource {
     [self.collectionView reloadData];
 }
-
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     return 0;
 }
@@ -349,14 +332,12 @@
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.collectionView];
-    
     if ([CGXCategoryFactory supportRTL]) {
         if (@available(iOS 9.0, *)) {
             self.collectionView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
             [CGXCategoryFactory horizontalFlipView:self.collectionView];
         }
     }
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.bgImageView = [[UIImageView alloc] init];
@@ -562,14 +543,12 @@
         return NO;
     }
     self.needReloadByBecomeActive = NO;
-    
     if (self.selectedIndex == targetIndex) {
         //目标index和当前选中的index相等，就不需要处理后续的选中更新逻辑，只需要回调代理方法即可。
         [self updateSelectCellAtIndex:targetIndex selectedType:selectedType];
         self.scrollingTargetIndex = -1;
         return NO;
     }
-    
     //通知子类刷新当前选中的和将要选中的cellModel
     CGXCategoryBaseCellModel *lastCellModel = self.dataSource[self.selectedIndex];
     lastCellModel.selectedType = selectedType;
@@ -583,7 +562,6 @@
     [lastCell reloadData:lastCellModel];
     CGXCategoryBaseCell *selectedCell = (CGXCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0]];
     [selectedCell reloadData:selectedCellModel];
-    
     
     if (self.scrollingTargetIndex != -1 && self.scrollingTargetIndex != targetIndex) {
         CGXCategoryBaseCellModel *scrollingTargetCellModel = self.dataSource[self.scrollingTargetIndex];
