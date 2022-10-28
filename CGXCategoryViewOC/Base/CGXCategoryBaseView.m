@@ -102,11 +102,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    if (self.bounds.size.width == 0 || self.bounds.size.height == 0) {
-        return;
-    }
-    [self.collectionView setNeedsLayout];
-    [self.collectionView layoutSubviews];
     CGRect targetFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     self.collectionView.frame = targetFrame;
     self.bgImageView.frame = targetFrame;
@@ -338,6 +333,9 @@
             [CGXCategoryFactory horizontalFlipView:self.collectionView];
         }
     }
+    if (@available(iOS 10.0, *)) {
+        self.collectionView.prefetchingEnabled = NO;
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.bgImageView = [[UIImageView alloc] init];
@@ -381,7 +379,7 @@
         }
         [self refreshCellModel:cellModel index:i];
     }
-    if (self.averageCellSpacingEnabled && totalItemWidth < CGRectGetWidth(self.collectionView.frame)) {
+    if (self.dataSource.count > 0 && self.averageCellSpacingEnabled && totalItemWidth < CGRectGetWidth(self.collectionView.frame)) {
         //如果总的内容宽度都没有超过视图宽度，就将cellSpacing等分
         NSInteger cellSpacingItemCount = self.dataSource.count - 1;
         CGFloat totalCellSpacingWidth = self.bounds.size.width - totalCellWidth;

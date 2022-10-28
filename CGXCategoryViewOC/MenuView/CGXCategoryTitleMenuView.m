@@ -95,7 +95,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
         [self initializeWiew];
     }
     return self;
@@ -104,7 +103,6 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
         [self initializeWiew];
     }
     return self;
@@ -170,7 +168,7 @@ typedef NS_ENUM(NSUInteger, CGXCategoryTitleMenuViewClickType) {
         }
     };
     self.categoryView = [[CGXCategoryTitleImageView alloc] init];
-    self.categoryView.backgroundColor = [UIColor whiteColor];
+    self.categoryView.backgroundColor = [UIColor clearColor];
     self.categoryView.delegate = self;
     self.categoryView.titleNumberOfLines = 0;
     self.categoryView.imageZoomEnabled  =YES;

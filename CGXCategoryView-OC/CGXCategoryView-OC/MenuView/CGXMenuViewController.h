@@ -6,11 +6,11 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CGXMenuViewController : UIViewController
+@interface CGXMenuViewController : BaseViewController
 
 @end
 

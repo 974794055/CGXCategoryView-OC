@@ -6,8 +6,7 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CGXCategoryTitleImageView.h"
+#import "BaseViewController.h"
 
 @protocol TitleTitleImageSettingViewControllerDelegate <NSObject>
 
@@ -15,7 +14,7 @@
 
 @end
 
-@interface TitleImageSettingViewController : UIViewController
+@interface TitleImageSettingViewController : BaseViewController
 
 @property (nonatomic, weak) id<TitleTitleImageSettingViewControllerDelegate> delegate;
 

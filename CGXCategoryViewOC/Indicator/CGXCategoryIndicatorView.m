@@ -21,7 +21,7 @@
 
 - (void)initializeData {
     [super initializeData];
-
+    
     _separatorLineShowEnabled = NO;
     _separatorLineColor = [UIColor lightGrayColor];
     _separatorLineSize = CGSizeMake(1/[UIScreen mainScreen].scale, 20);
@@ -41,30 +41,32 @@
     self.bottomLineHeight = 1;
     self.bottomLineColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.bottomLineSpace = 0;
-    self.isBottomHidden = NO;
+    self.isBottomHidden = YES;
 }
 
 - (void)initializeViews {
     [super initializeViews];
-    
-
     self.bottomLineView = [[UIView alloc] init];
     self.bottomLineView.backgroundColor = self.bottomLineColor;
     [self addSubview:self.bottomLineView];
     [self bringSubviewToFront:self.bottomLineView];
+    self.bottomLineView.hidden = self.isBottomHidden;
 }
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     self.bottomLineView.frame = CGRectMake(self.bottomLineSpace, CGRectGetHeight(self.frame)-self.bottomLineHeight, CGRectGetWidth(self.bounds)-self.bottomLineSpace * 2, self.bottomLineHeight);
-    self.bottomLineView.backgroundColor = self.bottomLineColor;
-    if (self.dataSource.count==0) {
-        self.bottomLineView.hidden = YES;
-    } else{
-      self.bottomLineView.hidden = self.isBottomHidden;
-    }
 }
-
+- (void)setBottomLineColor:(UIColor *)bottomLineColor
+{
+    _bottomLineColor = bottomLineColor;
+    self.bottomLineView.backgroundColor = bottomLineColor;
+}
+- (void)setIsBottomHidden:(BOOL)isBottomHidden
+{
+    _isBottomHidden = isBottomHidden;
+    self.bottomLineView.hidden = isBottomHidden;
+}
 - (void)setIndicators:(NSArray<UIView<CGXCategoryIndicatorProtocol> *> *)indicators {
     _indicators = indicators;
     self.collectionView.indicators = indicators;
@@ -116,7 +118,7 @@
     myUnselectedCellModel.backgroundViewMaskFrame = CGRectZero;
     myUnselectedCellModel.cellBackgroundUnselectedColor = self.cellBackgroundUnselectedColor;
     myUnselectedCellModel.cellBackgroundSelectedColor = self.cellBackgroundSelectedColor;
-
+    
     CGXCategoryIndicatorCellModel *myselectedCellModel = (CGXCategoryIndicatorCellModel *)selectedCellModel;
     myselectedCellModel.cellBackgroundUnselectedColor = self.cellBackgroundUnselectedColor;
     myselectedCellModel.cellBackgroundSelectedColor = self.cellBackgroundSelectedColor;
@@ -139,7 +141,7 @@
     CGFloat remainderRatio = ratio - baseIndex;
     CGRect leftCellFrame = [self getTargetCellFrame:baseIndex];
     CGRect rightCellFrame = [self getTargetCellFrame:baseIndex + 1];
-
+    
     CGXCategoryIndicatorParamsModel *indicatorParamsModel = [[CGXCategoryIndicatorParamsModel alloc] init];
     indicatorParamsModel.selectedIndex = self.selectedIndex;
     indicatorParamsModel.leftIndex = baseIndex;
@@ -163,43 +165,37 @@
         CGXCategoryIndicatorCellModel *rightCellModel = (CGXCategoryIndicatorCellModel *)self.dataSource[baseIndex + 1];
         rightCellModel.selectedType = CGXCategoryCellSelectedTypeUnknown;
         [self refreshLeftCellModel:leftCellModel rightCellModel:rightCellModel ratio:remainderRatio];
-
+        
         for (UIView<CGXCategoryIndicatorProtocol> *indicator in self.indicators) {
             [indicator reloadContentScrollViewDidScroll:indicatorParamsModel];
             if ([indicator isKindOfClass:[CGXCategoryIndicatorBackgroundView class]]) {
                 CGRect leftMaskFrame = indicator.frame;
                 leftMaskFrame.origin.x = leftMaskFrame.origin.x - leftCellFrame.origin.x;
                 leftCellModel.backgroundViewMaskFrame = leftMaskFrame;
-
+                
                 CGRect rightMaskFrame = indicator.frame;
                 rightMaskFrame.origin.x = rightMaskFrame.origin.x - rightCellFrame.origin.x;
                 rightCellModel.backgroundViewMaskFrame = rightMaskFrame;
             }
         }
-
         CGXCategoryBaseCell *leftCell = (CGXCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:baseIndex inSection:0]];
         [leftCell reloadData:leftCellModel];
         CGXCategoryBaseCell *rightCell = (CGXCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:baseIndex + 1 inSection:0]];
         [rightCell reloadData:rightCellModel];
     }
 }
-
 - (BOOL)selectCellAtIndex:(NSInteger)index selectedType:(CGXCategoryCellSelectedType)selectedType {
-    
     //是否点击了相对于选中cell左边的cell
     CGXCategoryCellClickedPosition clickedPosition = CGXCategoryCellClickedPosition_Left;
     if (index > self.selectedIndex) {
         clickedPosition = CGXCategoryCellClickedPosition_Right;
     }
-    
     NSInteger lastSelectedIndex = self.selectedIndex;
     BOOL result = [super selectCellAtIndex:index selectedType:selectedType];
     if (!result) {
         return NO;
     }
-
     CGRect clickedCellFrame = [self getTargetCellFrame:index];
-    
     CGXCategoryIndicatorCellModel *selectedCellModel = (CGXCategoryIndicatorCellModel *)self.dataSource[index];
     selectedCellModel.selectedType = selectedType;
     for (UIView<CGXCategoryIndicatorProtocol> *indicator in self.indicators) {
@@ -215,14 +211,10 @@
             selectedCellModel.backgroundViewMaskFrame = maskFrame;
         }
     }
-
     CGXCategoryIndicatorCell *selectedCell = (CGXCategoryIndicatorCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     [selectedCell reloadData:selectedCellModel];
-
     return YES;
 }
-
-
 - (void)refreshLeftCellModel:(CGXCategoryBaseCellModel *)leftCellModel rightCellModel:(CGXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
     if (self.cellBackgroundColorGradientEnabled) {
         //处理cell背景色渐变
@@ -243,12 +235,9 @@
             rightModel.cellBackgroundSelectedColor = self.cellBackgroundSelectedColor;
         }
     }
-
 }
-
 - (void)refreshCellModel:(CGXCategoryBaseCellModel *)cellModel index:(NSInteger)index {
     [super refreshCellModel:cellModel index:index];
-
     CGXCategoryIndicatorCellModel *myModel = (CGXCategoryIndicatorCellModel *)cellModel;
     myModel.normalBackgroundColor = self.normalBackgroundColor;
     myModel.normalBorderColor = self.normalBorderColor;
@@ -258,6 +247,5 @@
     myModel.backgroundCornerRadius = self.backgroundCornerRadius;
     myModel.backgroundWidth = self.backgroundWidth;
     myModel.backgroundHeight = self.backgroundHeight;
-    
 }
 @end

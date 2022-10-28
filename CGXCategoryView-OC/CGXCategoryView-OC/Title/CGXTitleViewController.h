@@ -6,11 +6,11 @@
 //  Copyright © 2020 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CGXTitleViewController : UIViewController
+@interface CGXTitleViewController : BaseViewController
 @property (nonatomic ,strong) NSString *categorytitle;
 @end
 

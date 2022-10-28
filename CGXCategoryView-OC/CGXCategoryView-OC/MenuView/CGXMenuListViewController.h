@@ -6,13 +6,13 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "CGXCategoryTitleMenuVCDelegate.h"
 #import "CGXMenuViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CGXMenuListViewController : UIViewController<CGXCategoryTitleMenuVCDelegate>
+@interface CGXMenuListViewController : BaseViewController<CGXCategoryTitleMenuVCDelegate>
 
 
 @property (nonatomic , strong) NSString *tagStr;

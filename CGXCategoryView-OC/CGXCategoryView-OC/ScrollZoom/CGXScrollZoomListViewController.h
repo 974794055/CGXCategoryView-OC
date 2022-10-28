@@ -6,9 +6,9 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CGXScrollZoomListViewController : UIViewController<CGXCategoryListContainerViewDelegate>
+@interface CGXScrollZoomListViewController : BaseViewController<CGXCategoryListContainerViewDelegate>
 @property (nonatomic, copy) void(^didScrollCallback)(UIScrollView *scrollView);
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic , strong) NSString *tagStr;

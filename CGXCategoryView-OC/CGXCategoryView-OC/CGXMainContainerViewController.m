@@ -37,9 +37,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"视图";
      self.titleArray = [NSMutableArray arrayWithObjects:@"菜单列表设置",@"高性能列表",@"垂直列表滚动(UICollectionView)",@"垂直列表滚动(UITableView)",@"垂直列表滚动缩放",@"爱奇艺", nil];
     
@@ -57,7 +54,6 @@
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self.view addSubview:_tableView];
-    
 }
 - (void)viewWillAppear:(BOOL)animated
 {

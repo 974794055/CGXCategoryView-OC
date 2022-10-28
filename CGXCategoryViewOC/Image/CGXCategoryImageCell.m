@@ -35,10 +35,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    CGXCategoryImageCellModel *myCellModel = (CGXCategoryImageCellModel *)self.cellModel;
-    self.imageView.bounds = CGRectMake(0, 0, myCellModel.imageSize.width, myCellModel.imageSize.height);
-    self.imageView.center = self.contentView.center;
-    self.imageView.layer.cornerRadius = myCellModel.imageCornerRadius;
+
 }
 
 - (void)reloadData:(CGXCategoryBaseCellModel *)cellModel {
@@ -69,12 +66,14 @@
             myCellModel.loadImageCallback(self.imageView, currentImageURL);
         }
     }
-
     if (myCellModel.imageZoomEnabled) {
         self.imageView.transform = CGAffineTransformMakeScale(myCellModel.imageZoomScale, myCellModel.imageZoomScale);
     }else {
         self.imageView.transform = CGAffineTransformIdentity;
     }
+    self.imageView.bounds = CGRectMake(0, 0, myCellModel.imageSize.width, myCellModel.imageSize.height);
+    self.imageView.center = self.contentView.center;
+    self.imageView.layer.cornerRadius = myCellModel.imageCornerRadius;
 }
 
 @end

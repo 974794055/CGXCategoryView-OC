@@ -27,7 +27,7 @@
 
     self.menuView = [[CGXCategoryTitleMenuView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, kSafeVCHeight)];
     self.menuView.delegate=self;
-    self.menuView.backgroundColor = [UIColor orangeColor];
+    self.menuView.backgroundColor = [UIColor whiteColor];
     self.menuView.categoryViewHeight = 60;
     self.menuView.imageSize = CGSizeMake(20, 20);
     self.menuView.titleImageSpacing = 5;

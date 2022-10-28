@@ -6,8 +6,8 @@
 //  Copyright © 2018 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CGXTitleImageViewController : UIViewController
+@interface CGXTitleImageViewController : BaseViewController
 
 @end

@@ -1,1 +1,1 @@
-../../../../../CGXCategoryViewOC/Common/CGXCategoryViewAnimator.h
+../../../../../CGXCategoryViewOC/Custom/CGXCategoryViewAnimator.h

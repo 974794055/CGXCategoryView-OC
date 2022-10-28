@@ -38,11 +38,16 @@
 		E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01258DF222A7EED00A0957D /* LaunchScreen.storyboard */; };
 		E01258E4222A7EED00A0957D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E01258E3222A7EED00A0957D /* main.m */; };
 		E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */; };
+		E017678727B944BC0062E71A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E017678627B944BC0062E71A /* BaseViewController.m */; };
+		E017678A27B945210062E71A /* UIImage+LOveScanColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E017678827B945210062E71A /* UIImage+LOveScanColor.m */; };
 		E01BCE51226C0FD800EC964E /* CGXNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01BCE50226C0FD800EC964E /* CGXNestViewController.m */; };
 		E024317E222C2928002DE810 /* CGXMenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E024317D222C2928002DE810 /* CGXMenuListViewController.m */; };
 		E04589CE265BE136005B8237 /* CGXTitlePinViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04589CD265BE136005B8237 /* CGXTitlePinViewViewController.m */; };
 		E04976E42663645D00BB447D /* CGXCustomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E04976E32663645D00BB447D /* CGXCustomListViewCell.m */; };
 		E059B3B02656AD270056E155 /* CustomScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E059B3AF2656AD270056E155 /* CustomScrollerView.m */; };
+		E05ED6A52684C55300972BEA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E05ED6A22684C55300972BEA /* LICENSE */; };
+		E05ED6A62684C55300972BEA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E05ED6A32684C55300972BEA /* README.md */; };
+		E05ED6A72684C55300972BEA /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E05ED6A42684C55300972BEA /* CGXCategoryView-OC.podspec */; };
 		E069DDA1265FBE480053D8EE /* CGXCustomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069DDA0265FBE480053D8EE /* CGXCustomListViewController.m */; };
 		E069E9DC2234E111000F2BE4 /* CGXMainTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DB2234E111000F2BE4 /* CGXMainTitleViewController.m */; };
 		E069E9DF2234E3A6000F2BE4 /* CGXLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E069E9DE2234E3A6000F2BE4 /* CGXLineViewController.m */; };
@@ -52,9 +57,6 @@
 		E0A0F8C7222D676F002A527A /* CGXMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F8C6222D676F002A527A /* CGXMenuViewController.m */; };
 		E0E258892663CEEC0042D845 /* CGXImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E258882663CEEC0042D845 /* CGXImageViewController.m */; };
 		E0EEA496265A9397004DD32F /* CGXIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EEA495265A9397004DD32F /* CGXIndicatorViewController.m */; };
-		E0F58E2E2654010E0043466F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2B2654010E0043466F /* README.md */; };
-		E0F58E2F2654010E0043466F /* CGXCategoryView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */; };
-		E0F58E302654010E0043466F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E0F58E2D2654010E0043466F /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,10 @@
 		E0125A5F222A81F600A0957D /* CGXTitleAttributeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXTitleAttributeViewController.h; sourceTree = "<group>"; };
 		E0125A60222A81F600A0957D /* CGXTitleAttributeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXTitleAttributeViewController.m; sourceTree = "<group>"; };
 		E0125A65222A827700A0957D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E017678527B944BC0062E71A /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E017678627B944BC0062E71A /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E017678827B945210062E71A /* UIImage+LOveScanColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LOveScanColor.m"; sourceTree = "<group>"; };
+		E017678927B945210062E71A /* UIImage+LOveScanColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LOveScanColor.h"; sourceTree = "<group>"; };
 		E01BCE4F226C0FD800EC964E /* CGXNestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNestViewController.h; sourceTree = "<group>"; };
 		E01BCE50226C0FD800EC964E /* CGXNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNestViewController.m; sourceTree = "<group>"; };
 		E024317C222C2928002DE810 /* CGXMenuListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMenuListViewController.h; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 		E04976E32663645D00BB447D /* CGXCustomListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCustomListViewCell.m; sourceTree = "<group>"; };
 		E059B3AE2656AD270056E155 /* CustomScrollerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScrollerView.h; sourceTree = "<group>"; };
 		E059B3AF2656AD270056E155 /* CustomScrollerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScrollerView.m; sourceTree = "<group>"; };
+		E05ED6A22684C55300972BEA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		E05ED6A32684C55300972BEA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		E05ED6A42684C55300972BEA /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E069DD9F265FBE480053D8EE /* CGXCustomListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCustomListViewController.h; sourceTree = "<group>"; };
 		E069DDA0265FBE480053D8EE /* CGXCustomListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCustomListViewController.m; sourceTree = "<group>"; };
 		E069E9DA2234E111000F2BE4 /* CGXMainTitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXMainTitleViewController.h; sourceTree = "<group>"; };
@@ -147,9 +156,6 @@
 		E0E258882663CEEC0042D845 /* CGXImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXImageViewController.m; sourceTree = "<group>"; };
 		E0EEA494265A9397004DD32F /* CGXIndicatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXIndicatorViewController.h; sourceTree = "<group>"; };
 		E0EEA495265A9397004DD32F /* CGXIndicatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXIndicatorViewController.m; sourceTree = "<group>"; };
-		E0F58E2B2654010E0043466F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXCategoryView-OC.podspec"; path = "../../../CGXCategoryView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E0F58E2D2654010E0043466F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 		F8133E4602DEC9B0206A5357 /* libPods-CGXCategoryView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCategoryView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -299,7 +305,7 @@
 		E01258D3222A7EEB00A0957D /* CGXCategoryView-OC */ = {
 			isa = PBXGroup;
 			children = (
-				E0F58E2A265400F40043466F /* Podspec Metadata */,
+				E05ED6A12684C54700972BEA /* Podspec Metadata */,
 				E01258D4222A7EEB00A0957D /* AppDelegate.h */,
 				E01258D5222A7EEB00A0957D /* AppDelegate.m */,
 				E069E9DA2234E111000F2BE4 /* CGXMainTitleViewController.h */,
@@ -308,6 +314,8 @@
 				E087760E226B5DFE00D1B523 /* CGXMainIndicatorViewController.m */,
 				9E8B4908235AD9F8006BCD88 /* CGXMainContainerViewController.h */,
 				9E8B4909235AD9F8006BCD88 /* CGXMainContainerViewController.m */,
+				E017678527B944BC0062E71A /* BaseViewController.h */,
+				E017678627B944BC0062E71A /* BaseViewController.m */,
 				E0BE4D61265E99BD005B9296 /* Dot */,
 				E059B3AD2656AD060056E155 /* Custom */,
 				9E6D1E5D24B4BFCA00C719D3 /* Badge */,
@@ -357,6 +365,8 @@
 		E059B3AD2656AD060056E155 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				E017678927B945210062E71A /* UIImage+LOveScanColor.h */,
+				E017678827B945210062E71A /* UIImage+LOveScanColor.m */,
 				9E8B4914235AFECA006BCD88 /* UINavigationBar+CGXNav.h */,
 				9E8B4915235AFECA006BCD88 /* UINavigationBar+CGXNav.m */,
 				E069DD9F265FBE480053D8EE /* CGXCustomListViewController.h */,
@@ -367,6 +377,16 @@
 				E059B3AF2656AD270056E155 /* CustomScrollerView.m */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		E05ED6A12684C54700972BEA /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				E05ED6A42684C55300972BEA /* CGXCategoryView-OC.podspec */,
+				E05ED6A22684C55300972BEA /* LICENSE */,
+				E05ED6A32684C55300972BEA /* README.md */,
+			);
+			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		E069E9E92234F082000F2BE4 /* TitleImage */ = {
@@ -454,16 +474,6 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		E0F58E2A265400F40043466F /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				E0F58E2C2654010E0043466F /* CGXCategoryView-OC.podspec */,
-				E0F58E2D2654010E0043466F /* LICENSE */,
-				E0F58E2B2654010E0043466F /* README.md */,
-			);
-			path = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,11 +532,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0F58E302654010E0043466F /* LICENSE in Resources */,
 				E01258E1222A7EED00A0957D /* LaunchScreen.storyboard in Resources */,
 				E01258DE222A7EED00A0957D /* Assets.xcassets in Resources */,
-				E0F58E2F2654010E0043466F /* CGXCategoryView-OC.podspec in Resources */,
-				E0F58E2E2654010E0043466F /* README.md in Resources */,
+				E05ED6A72684C55300972BEA /* CGXCategoryView-OC.podspec in Resources */,
+				E05ED6A62684C55300972BEA /* README.md in Resources */,
+				E05ED6A52684C55300972BEA /* LICENSE in Resources */,
 				E01258DC222A7EEB00A0957D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +591,9 @@
 				04279C84235855DB00137328 /* CGXVerticalListCell.m in Sources */,
 				E059B3B02656AD270056E155 /* CustomScrollerView.m in Sources */,
 				04279C87235855DB00137328 /* CGXVerticalListCellModel.m in Sources */,
+				E017678A27B945210062E71A /* UIImage+LOveScanColor.m in Sources */,
 				E0125A63222A81F700A0957D /* CGXTitleAttributeViewController.m in Sources */,
+				E017678727B944BC0062E71A /* BaseViewController.m in Sources */,
 				E01258E4222A7EED00A0957D /* main.m in Sources */,
 				E069E9DC2234E111000F2BE4 /* CGXMainTitleViewController.m in Sources */,
 				04279C82235855DB00137328 /* CGXVerticalListTableView.m in Sources */,

@@ -94,7 +94,7 @@
     self.backImage = [self imageWithColor:[UIColor clearColor]];
     self.segmented = [[UISegmentedControl alloc] initWithItems:@[]];
     self.segmented.momentary = NO;
-    self.segmented.backgroundColor =self.backgroundColor;
+    self.segmented.backgroundColor = [UIColor clearColor];
     self.segmented.apportionsSegmentWidthsByContent = YES;
     [self.segmented addTarget:self action:@selector(actionValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:self.segmented];

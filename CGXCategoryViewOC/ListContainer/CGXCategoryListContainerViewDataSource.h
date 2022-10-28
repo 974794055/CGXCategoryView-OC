@@ -48,8 +48,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)listContainerView:(CGXCategoryListContainerView *)listContainerView canInitListAtIndex:(NSInteger)index;
 
 
-- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView DidScroll:(UIScrollView *)scrollView;
+/**
+ 返回自定义UIScrollView或UICollectionView的滚动当前的下标
+ @param listContainerView AppListContainerView
+ @param index  滚动到的下标
+ */
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView ScrollAtIndex:(NSInteger)index;
 
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView DidScroll:(UIScrollView *)scrollView;
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView WillBeginDragging:(UIScrollView *)scrollView;
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView DidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView WillBeginDecelerating:(UIScrollView *)scrollView;
+- (void)listContainerView:(CGXCategoryListContainerView *)listContainerView DidEndDecelerating:(UIScrollView *)scrollView;
 
 @end
 

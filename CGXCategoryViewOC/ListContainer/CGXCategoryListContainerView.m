@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 #import "CGXCategoryFactory.h"
 #import "CGXCategoryListContainerViewController.h"
-
 @interface CGXCategoryListContainerView () <UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, weak) id<CGXCategoryListContainerViewDataSource> dataSource;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -33,13 +32,13 @@
         _willAppearIndex = -1;
         _willDisappearIndex = -1;
         _initListPercent = 0.01;
+        self.isNestEnabled = YES;
         [self initializeViews];
     }
     return self;
 }
 
 - (void)initializeViews {
-    self.backgroundColor = [UIColor whiteColor];
     _containerVC = [[CGXCategoryListContainerViewController alloc] init];
     self.containerVC.view.backgroundColor = [UIColor clearColor];
     [self addSubview:self.containerVC.view];
@@ -73,6 +72,7 @@
         if (@available(iOS 11.0, *)) {
             self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
+        self.scrollView.backgroundColor =  [UIColor clearColor];
         [CGXCategoryFactory horizontalFlipViewIfNeeded:self.scrollView];
         [self.containerVC.view addSubview:self.scrollView];
     }else {
@@ -94,8 +94,8 @@
         self.collectionView.bounces = NO;
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
-        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-        self.collectionView.backgroundColor = self.backgroundColor;
+        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+        self.collectionView.backgroundColor = [UIColor clearColor];;
         if (@available(iOS 10.0, *)) {
             self.collectionView.prefetchingEnabled = NO;
         }
@@ -142,7 +142,6 @@
             self.scrollView.frame = self.bounds;
             self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width*[self.dataSource numberOfListsInlistContainerView:self], self.scrollView.bounds.size.height);
         }
-        self.scrollView.backgroundColor = self.backgroundColor;
     }else {
         if (!CGRectEqualToRect(self.collectionView.frame, CGRectZero) &&  !CGSizeEqualToSize(self.collectionView.bounds.size, self.bounds.size)) {
             self.collectionView.frame = self.bounds;
@@ -151,7 +150,6 @@
         }else {
             self.collectionView.frame = self.bounds;
         }
-        self.collectionView.backgroundColor = self.backgroundColor;
     }
 }
 
@@ -162,7 +160,10 @@
         NSAssert(NO, @"initListPercent值范围为开区间(0,1)，即不包括0和1");
     }
 }
-
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    self.scrollView.bounces = bounces;
+}
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -170,8 +171,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor whiteColor];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
     for (UIView *subview in cell.contentView.subviews) {
         [subview removeFromSuperview];
     }
@@ -216,7 +216,6 @@
         }
     }
 }
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (self.willDisappearIndex != -1) {
         [self listWillAppear:self.willDisappearIndex];
@@ -225,6 +224,38 @@
         [self listDidDisappear:self.willAppearIndex];
         self.willDisappearIndex = -1;
         self.willAppearIndex = -1;
+    }
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:DidEndDecelerating:)]) {
+        [self.dataSource listContainerView:self DidEndDecelerating:scrollView];
+    }
+    NSInteger currentIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:ScrollAtIndex:)]) {
+        [self.dataSource listContainerView:self ScrollAtIndex:currentIndex];
+    }
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger currentIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:ScrollAtIndex:)]) {
+        [self.dataSource listContainerView:self ScrollAtIndex:currentIndex];
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:DidEndDragging:willDecelerate:)]) {
+        [self.dataSource listContainerView:self DidEndDragging:scrollView willDecelerate:decelerate];
+    }
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:WillBeginDragging:)]) {
+        [self.dataSource listContainerView:self WillBeginDragging:scrollView];
+    }
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listContainerView:WillBeginDecelerating:)]) {
+        [self.dataSource listContainerView:self WillBeginDecelerating:scrollView];
     }
 }
 

@@ -26,9 +26,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"按钮样式";
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     self.titleArray = [NSMutableArray arrayWithObjects:
                        @"大小缩放",
                        @"大小缩放+底部锚点",

@@ -43,7 +43,7 @@
 
 
 
-// 下划线  默认不隐藏
+// 下划线  默认隐藏
 @property (nonatomic , assign) BOOL isBottomHidden;
 @property (nonatomic , assign) CGFloat bottomLineHeight;//下划线高度
 @property (nonatomic , strong) UIColor *bottomLineColor;//下划线颜色

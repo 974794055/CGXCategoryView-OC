@@ -1,1 +1,1 @@
-../../../../../CGXCategoryViewOC/Common/UIColor+CGXCategory.h
+../../../../../CGXCategoryViewOC/Custom/UIColor+CGXCategory.h

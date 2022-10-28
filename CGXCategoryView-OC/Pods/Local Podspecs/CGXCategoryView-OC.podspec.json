@@ -1,6 +1,6 @@
 {
   "name": "CGXCategoryView-OC",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "summary": "CGXCategoryViewOC是仿今日头条、抖音、爱奇艺、腾讯视频、优酷等主流APP分类切换滚动视图的库)",
   "description": "(今日头条、抖音、拼多多、京东、爱奇艺、腾讯视频、优酷、淘宝、天猫、简书、微博等主流APP分类切换滚动视图)封装",
   "homepage": "https://github.com/974794055/CGXCategoryView-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXCategoryView-OC.git",
-    "tag": "1.6.0"
+    "tag": "1.6.1"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
@@ -24,14 +24,14 @@
   "public_header_files": "CGXCategoryViewOC/CGXCategoryView.h",
   "subspecs": [
     {
-      "name": "Common",
-      "source_files": "CGXCategoryViewOC/Common/**/*.{h,m}"
+      "name": "Custom",
+      "source_files": "CGXCategoryViewOC/Custom/**/*.{h,m}"
     },
     {
       "name": "ListContainer",
       "source_files": "CGXCategoryViewOC/ListContainer/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ]
       }
@@ -40,7 +40,7 @@
       "name": "Base",
       "source_files": "CGXCategoryViewOC/Base/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/ListContainer": [
@@ -52,7 +52,7 @@
       "name": "IndicatorViews",
       "source_files": "CGXCategoryViewOC/IndicatorViews/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -64,7 +64,7 @@
       "name": "Indicator",
       "source_files": "CGXCategoryViewOC/Indicator/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -79,7 +79,7 @@
       "name": "Title",
       "source_files": "CGXCategoryViewOC/Title/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -97,7 +97,7 @@
       "name": "Image",
       "source_files": "CGXCategoryViewOC/Image/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -115,7 +115,7 @@
       "name": "TitleImage",
       "source_files": "CGXCategoryViewOC/TitleImage/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -136,7 +136,7 @@
       "name": "Dot",
       "source_files": "CGXCategoryViewOC/Dot/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -160,7 +160,7 @@
       "name": "Badge",
       "source_files": "CGXCategoryViewOC/Badge/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -181,7 +181,7 @@
       "name": "TitleAttribute",
       "source_files": "CGXCategoryViewOC/TitleAttribute/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -202,7 +202,7 @@
       "name": "VerticalZoomTitle",
       "source_files": "CGXCategoryViewOC/VerticalZoomTitle/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -223,7 +223,7 @@
       "name": "TitleSortView",
       "source_files": "CGXCategoryViewOC/TitleSortView/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -244,7 +244,7 @@
       "name": "TitleSubView",
       "source_files": "CGXCategoryViewOC/TitleSubView/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -265,7 +265,7 @@
       "name": "TitlePinView",
       "source_files": "CGXCategoryViewOC/TitlePinView/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -286,7 +286,7 @@
       "name": "MenuView",
       "source_files": "CGXCategoryViewOC/MenuView/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [
@@ -310,7 +310,7 @@
       "name": "Segmented",
       "source_files": "CGXCategoryViewOC/Segmented/**/*.{h,m}",
       "dependencies": {
-        "CGXCategoryView-OC/Common": [
+        "CGXCategoryView-OC/Custom": [
 
         ],
         "CGXCategoryView-OC/Base": [

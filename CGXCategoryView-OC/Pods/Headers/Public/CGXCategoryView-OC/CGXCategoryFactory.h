@@ -1,1 +1,1 @@
-../../../../../CGXCategoryViewOC/Common/CGXCategoryFactory.h
+../../../../../CGXCategoryViewOC/Custom/CGXCategoryFactory.h
